@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 
 namespace FlintLib.MVVM
 {
-	public abstract class ViewModel_Base : DependencyObject, INotifyPropertyChanged
+	public abstract class ViewModel_Base : DependencyObject, INotifyPropertyChanged, IDisposable
 	{
 		#region Dependency Properties
 
@@ -21,11 +21,11 @@ namespace FlintLib.MVVM
 
 		public IAdjutant Adjutant
 		{
-			protected get { return (IAdjutant)this.GetValue(AdjutantProperty); }
+			protected get { return (IAdjutant)GetValue(AdjutantProperty); }
 			set
 			{
-				this.SetValue(AdjutantProperty, value);
-				this._onSetAdjutant();
+				SetValue(AdjutantProperty, value);
+				_onSetAdjutant();
 			}
 		}
 
@@ -36,24 +36,21 @@ namespace FlintLib.MVVM
 
 		public ViewModel_Base()
 		{
-			_initializeBindingProperties();
-			_initializeBindingCommands();
-		}
-		
-		~ViewModel_Base()
-		{
-			_unregisterEventHandlers();
+			InitializeBindingProperties();
+			InitializeBindingCommands();
 		}
 
-		protected virtual void _initializeBindingProperties() { }
-		protected virtual void _initializeBindingCommands() { }
-		protected virtual void _unregisterEventHandlers() { }
+		protected virtual void InitializeBindingProperties() { }
+		protected virtual void InitializeBindingCommands() { }
+		protected virtual void UnregisterEventHandlers() { }
+
+		protected abstract void UnregisterExecutors();
 
 		protected void _issueCommandViaAdjutant<T>(T commandObject) where T : Command
 		{
 			if (Adjutant != null) { Adjutant.IssueCommand<T>(this, commandObject); }
 		}
-
+		
 		#region INotifyPropertyChanged Implementation
 		private PropertyChangedEventHandler _propertyChanged;
 		public event PropertyChangedEventHandler PropertyChanged
@@ -73,5 +70,40 @@ namespace FlintLib.MVVM
 			if (_propertyChanged != null) { _propertyChanged(this, new PropertyChangedEventArgs(propertyName)); }
 		}
 		#endregion // INotifyPropertyChanged Implementation
+
+		#region IDisposable Support
+		private bool disposedValue = false; // To detect redundant calls
+
+		protected virtual void Dispose(bool disposing)
+		{
+			if (!disposedValue)
+			{
+				if (disposing)
+				{
+					UnregisterExecutors();
+				}
+
+				// TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
+				// TODO: set large fields to null.
+
+				disposedValue = true;
+			}
+		}
+
+		// TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
+		// ~ViewModel_Base() {
+		//   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+		//   Dispose(false);
+		// }
+
+		// This code added to correctly implement the disposable pattern.
+		public virtual void Dispose()
+		{
+			// Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+			Dispose(true);
+			// TODO: uncomment the following line if the finalizer is overridden above.
+			// GC.SuppressFinalize(this);
+		}
+		#endregion
 	}
 }
