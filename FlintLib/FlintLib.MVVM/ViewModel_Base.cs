@@ -14,7 +14,7 @@ namespace FlintLib.MVVM
 
 		#region Adjutant
 		public static readonly DependencyProperty AdjutantProperty
-			= DependencyProperty.Register("Adjutant",
+			= DependencyProperty.Register(nameof(Adjutant),
 			typeof(IAdjutant),
 			typeof(ViewModel_Base),
 			new PropertyMetadata(null));

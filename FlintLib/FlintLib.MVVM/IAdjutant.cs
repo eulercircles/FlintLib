@@ -21,7 +21,7 @@ namespace FlintLib.MVVM
 
 		public Command(T parameter)
 		{
-			this.Parameter = parameter;
+			Parameter = parameter;
 		}
 	}
 }

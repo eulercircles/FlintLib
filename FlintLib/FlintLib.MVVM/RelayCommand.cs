@@ -2,6 +2,8 @@
 using System;
 using System.Linq;
 using System.Windows.Input;
+
+using FlintLib.MVVM.Resources;
 #endregion // Using Statements
 
 namespace FlintLib.MVVM
@@ -109,7 +111,7 @@ namespace FlintLib.MVVM
 			{
 				_execute((T)parameter);
 			}
-			else { throw new ArgumentException(string.Format("Parameter must be of type {0} and not type {1}", typeof(T), parameter.GetType())); }
+			else { throw new ArgumentException(string.Format(ErrorStrings.ParameterIsNotAValidType, typeof(T), parameter.GetType())); }
 		}
 		#endregion // ICommand Implementation
 	}

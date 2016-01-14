@@ -11,11 +11,11 @@ namespace FlintLib.MVVM
 {
 	public class Adjutant : IAdjutant
 	{
-		private Dictionary<Type, Delegate> _commandRegistry;
+		private readonly Dictionary<Type, Delegate> _commandRegistry;
 
 		public Adjutant()
 		{
-			this._commandRegistry = new Dictionary<Type, Delegate>();
+			_commandRegistry = new Dictionary<Type, Delegate>();
 		}
 
 		public void RegisterExecutor<T>(Executor<T> executor) where T : Command
@@ -26,19 +26,19 @@ namespace FlintLib.MVVM
 			{
 				Type commandType = typeof(T);
 
-				lock (this._commandRegistry)
+				lock (_commandRegistry)
 				{
-					if (this._commandRegistry.ContainsKey(commandType))
+					if (_commandRegistry.ContainsKey(commandType))
 					{
 						// Do not allow the same handler to be registered more than once.
-						if (this._commandRegistry[commandType] == null
-							|| !this._commandRegistry[commandType].GetInvocationList().Contains(executor))
+						if (_commandRegistry[commandType] == null
+							|| !_commandRegistry[commandType].GetInvocationList().Contains(executor))
 						{
-							this._commandRegistry[commandType]
-								= (Executor<T>)this._commandRegistry[commandType] + executor;
+							_commandRegistry[commandType] = (Executor<T>)_commandRegistry[commandType] + executor;
 						}
+						else { /* Do nothing. */ }
 					}
-					else { this._commandRegistry.Add(commandType, executor); }
+					else { _commandRegistry.Add(commandType, executor); }
 				}
 			}
 			else { throw new ArgumentNullException(nameof(executor)); }
@@ -52,11 +52,11 @@ namespace FlintLib.MVVM
 			{
 				Type commandType = typeof(T);
 
-				lock (this._commandRegistry)
+				lock (_commandRegistry)
 				{
-					if (this._commandRegistry.ContainsKey(commandType))
+					if (_commandRegistry.ContainsKey(commandType))
 					{
-						this._commandRegistry[commandType] = (Executor<T>)this._commandRegistry[commandType] - executor;
+						_commandRegistry[commandType] = (Executor<T>)_commandRegistry[commandType] - executor;
 					}
 				}
 			}
@@ -71,11 +71,11 @@ namespace FlintLib.MVVM
 			{
 				Type commandType = typeof(T);
 
-				if (this._commandRegistry.ContainsKey(commandType))
+				if (_commandRegistry.ContainsKey(commandType))
 				{
-					if (this._commandRegistry[commandType] != null)
+					if (_commandRegistry[commandType] != null)
 					{
-						((Executor<T>)this._commandRegistry[commandType])(sender, commandObject);
+						((Executor<T>)_commandRegistry[commandType])(sender, commandObject);
 					}
 				}
 			}

@@ -19,7 +19,7 @@ namespace FlintLib.Utilities
 			else { return false; }
 		}
 
-		public static bool IsWhitespace(this string item)
+		public static bool IsWhiteSpace(this string item)
 		{
 			if (item != null)
 			{

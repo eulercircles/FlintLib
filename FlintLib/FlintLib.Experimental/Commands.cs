@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Windows.Input;
 
+using FlintLib.Experimental.Resources;
+
 namespace FlintLib.Experimental
 {
 	public delegate void ExecuteAction();
@@ -116,7 +118,7 @@ namespace FlintLib.Experimental
 						_execute((P)parameter);
 						if (_executed != null) { _executed(); }
 					}
-					else { throw new ArgumentException("Parameter is not a valid type."); }
+					else { throw new ArgumentException(ErrorStrings.ParameterIsNotAValidType); }
 				}
 			}
 		}
@@ -240,7 +242,7 @@ namespace FlintLib.Experimental
 						if (_executed != null) { _executed(result); }
 					}
 				}
-				else { throw new ArgumentException("Parameter is not a valid type."); }
+				else { throw new ArgumentException(ErrorStrings.ParameterIsNotAValidType); }
 			}
 		}
 		#endregion // ICommand Implementation
