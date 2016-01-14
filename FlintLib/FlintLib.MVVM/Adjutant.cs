@@ -41,7 +41,7 @@ namespace FlintLib.MVVM
 					else { this._commandRegistry.Add(commandType, executor); }
 				}
 			}
-			else { throw new ArgumentNullException(ReflectionUtilities.GetVariableName(() => executor)); }
+			else { throw new ArgumentNullException(nameof(executor)); }
 		}
 
 		public void UnregisterExecutor<T>(Executor<T> executor) where T : Command
@@ -60,7 +60,7 @@ namespace FlintLib.MVVM
 					}
 				}
 			}
-			else { throw new ArgumentNullException(ReflectionUtilities.GetVariableName(() => executor)); }
+			else { throw new ArgumentNullException(nameof(executor)); }
 		}
 
 		public void IssueCommand<T>(object sender, T commandObject) where T : Command
@@ -79,7 +79,7 @@ namespace FlintLib.MVVM
 					}
 				}
 			}
-			else { throw new ArgumentNullException(ReflectionUtilities.GetVariableName(() => commandObject)); }
+			else { throw new ArgumentNullException(nameof(commandObject)); }
 		}
 	}
 }

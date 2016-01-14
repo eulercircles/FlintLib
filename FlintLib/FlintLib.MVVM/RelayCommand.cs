@@ -22,7 +22,7 @@ namespace FlintLib.MVVM
 
 		public RelayCommand(Action execute, Func<bool> canExecute)
 		{
-			if (execute == null) { throw new ArgumentNullException(ReflectionUtilities.GetVariableName(() => execute)); }
+			if (execute == null) { throw new ArgumentNullException(nameof(execute)); }
 
 			this._execute = execute;
 			this._canExecute = canExecute;
@@ -74,7 +74,7 @@ namespace FlintLib.MVVM
 
 		public RelayCommand(Action<T> execute, Func<bool> canExecute)
 		{
-			if (execute == null) { throw new ArgumentNullException(ReflectionUtilities.GetVariableName(() => execute)); }
+			if (execute == null) { throw new ArgumentNullException(nameof(execute)); }
 
 			_execute = execute;
 			_canExecute = canExecute;

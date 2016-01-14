@@ -22,7 +22,7 @@ namespace FlintLib.MVVM
 
 		private void _bindable_PropertyChanged(object sender, PropertyChangedEventArgs args)
 		{
-			_triggerPropertyChangedEvent(ReflectionUtilities.GetVariableName(() => this.Value));
+			_triggerPropertyChangedEvent(nameof(Value));
 		}
 	}
 }
