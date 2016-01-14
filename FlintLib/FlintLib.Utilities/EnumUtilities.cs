@@ -26,14 +26,15 @@ namespace FlintLib.Utilities
 		// Based on blog by Brandon Truong - http://brandontruong.blogspot.com/2010/04/use-enum-as-itemssource.html
 		public static string GetEnumDescription(FieldInfo field)
 		{
-			System.ComponentModel.DescriptionAttribute[] attributes =
-				(System.ComponentModel.DescriptionAttribute[])field.GetCustomAttributes(
-					typeof(System.ComponentModel.DescriptionAttribute), false);
+			DescriptionAttribute[] attributes =
+				(DescriptionAttribute[])field.GetCustomAttributes(
+					typeof(DescriptionAttribute), false);
+
 			if (attributes.Length > 0) { return attributes[0].Description; }
 			else { return field.Name; }
 		}
 
-		public static string GetEnumDescription(this Enum value)
+		public static string Description(this Enum value)
 		{
 			FieldInfo field = value.GetType().GetField(value.ToString());
 			DescriptionAttribute attribute

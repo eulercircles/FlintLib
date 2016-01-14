@@ -2,7 +2,7 @@
 
 namespace FlintLib.Diagnostics
 {
-	public interface ILogger
+	public interface IExceptionLogger
 	{
 		void LogException(Exception exception);
 	}

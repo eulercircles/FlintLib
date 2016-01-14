@@ -4,6 +4,6 @@ namespace FlintLib.Diagnostics
 {
 	public class LoggerFactory
 	{
-		public ILogger CreateLogger(string logFilePath) { return new Logger(logFilePath); }
+		public IExceptionLogger CreateExceptionLogger(string logFilePath) => new ExceptionLogger(logFilePath);
 	}
 }

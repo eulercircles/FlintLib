@@ -1,10 +1,7 @@
 ﻿#region Using Statements
 using System;
 using System.Linq;
-using System.Diagnostics;
 using System.Windows.Input;
-
-using FlintLib.Utilities;
 #endregion // Using Statements
 
 namespace FlintLib.MVVM
@@ -24,8 +21,8 @@ namespace FlintLib.MVVM
 		{
 			if (execute == null) { throw new ArgumentNullException(nameof(execute)); }
 
-			this._execute = execute;
-			this._canExecute = canExecute;
+			_execute = execute;
+			_canExecute = canExecute;
 		}
 		#endregion // Constructors
 
@@ -112,7 +109,7 @@ namespace FlintLib.MVVM
 			{
 				_execute((T)parameter);
 			}
-			else { throw new ArgumentException("Parameter is not a valid type."); }
+			else { throw new ArgumentException(string.Format("Parameter must be of type {0} and not type {1}", typeof(T), parameter.GetType())); }
 		}
 		#endregion // ICommand Implementation
 	}

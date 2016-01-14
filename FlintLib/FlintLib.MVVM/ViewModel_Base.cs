@@ -1,5 +1,6 @@
 ﻿#region Using Statements
 using System;
+using System.Linq;
 using System.Windows;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -35,13 +36,13 @@ namespace FlintLib.MVVM
 
 		public ViewModel_Base()
 		{
-			this._initializeBindingProperties();
-			this._initializeBindingCommands();
+			_initializeBindingProperties();
+			_initializeBindingCommands();
 		}
 		
 		~ViewModel_Base()
 		{
-			this._unregisterEventHandlers();
+			_unregisterEventHandlers();
 		}
 
 		protected virtual void _initializeBindingProperties() { }
@@ -50,15 +51,26 @@ namespace FlintLib.MVVM
 
 		protected void _issueCommandViaAdjutant<T>(T commandObject) where T : Command
 		{
-			if (this.Adjutant != null) { this.Adjutant.IssueCommand<T>(this, commandObject); }
+			if (Adjutant != null) { Adjutant.IssueCommand<T>(this, commandObject); }
 		}
 
 		#region INotifyPropertyChanged Implementation
-		public event PropertyChangedEventHandler PropertyChanged;
+		private PropertyChangedEventHandler _propertyChanged;
+		public event PropertyChangedEventHandler PropertyChanged
+		{
+			add
+			{
+				if (_propertyChanged == null || !_propertyChanged.GetInvocationList().Contains(value))
+				{
+					_propertyChanged += value;
+				}
+			}
+			remove { _propertyChanged -= value; }
+		}
 
 		protected void _triggerPropertyChangedEvent([CallerMemberName]string propertyName = null)
 		{
-			if (this.PropertyChanged != null) { this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName)); }
+			if (_propertyChanged != null) { _propertyChanged(this, new PropertyChangedEventArgs(propertyName)); }
 		}
 		#endregion // INotifyPropertyChanged Implementation
 	}

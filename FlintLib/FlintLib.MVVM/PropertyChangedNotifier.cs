@@ -1,5 +1,6 @@
 ﻿#region Using Statements
 using System;
+using System.Linq;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 #endregion // Using Statements
@@ -8,11 +9,22 @@ namespace FlintLib.MVVM
 {
 	public abstract class PropertyChangedNotifier : INotifyPropertyChanged
 	{
-		public event PropertyChangedEventHandler PropertyChanged;
+		private PropertyChangedEventHandler _propertyChanged;
+		public event PropertyChangedEventHandler PropertyChanged
+		{
+			add
+			{
+				if (_propertyChanged == null || !_propertyChanged.GetInvocationList().Contains(value))
+				{
+					_propertyChanged += value;
+				}
+			}
+			remove { _propertyChanged -= value; }
+		}
 
 		protected void _triggerPropertyChangedEvent([CallerMemberName]string propertyName = null)
 		{
-			if (this.PropertyChanged != null) { this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName)); }
+			if (_propertyChanged != null) { _propertyChanged(this, new PropertyChangedEventArgs(propertyName)); }
 		}
 	}
 }
