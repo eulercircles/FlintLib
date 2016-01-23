@@ -2,57 +2,42 @@
 using System;
 using System.Linq;
 using System.Windows;
+using System.Diagnostics;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
+
+using FlintLib.Utilities;
 #endregion // Using Statements
 
 namespace FlintLib.MVVM
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public abstract class ViewModel_Base : DependencyObject, INotifyPropertyChanged, IDisposable
 	{
 		#region Dependency Properties
 
-		#region Adjutant
-		public static readonly DependencyProperty AdjutantProperty
-			= DependencyProperty.Register(nameof(Adjutant),
-			typeof(IAdjutant),
-			typeof(ViewModel_Base),
-			new PropertyMetadata(null));
-
-		public IAdjutant Adjutant
-		{
-			protected get { return (IAdjutant)GetValue(AdjutantProperty); }
-			set
-			{
-				SetValue(AdjutantProperty, value);
-				_onSetAdjutant();
-			}
-		}
-
-		protected virtual void _onSetAdjutant() { }
-		#endregion // Adjutant
-
 		#endregion // Dependency Properties
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public ViewModel_Base()
 		{
-			InitializeBindingProperties();
-			InitializeBindingCommands();
+			InitializeBindables();
 		}
 
-		protected virtual void InitializeBindingProperties() { }
-		protected virtual void InitializeBindingCommands() { }
-		protected virtual void UnregisterEventHandlers() { }
+		protected virtual void InitializeBindables() { }
 
-		protected abstract void UnregisterExecutors();
+		protected virtual void Initialize() { }
 
-		protected void _issueCommandViaAdjutant<T>(T commandObject) where T : Command
-		{
-			if (Adjutant != null) { Adjutant.IssueCommand<T>(this, commandObject); }
-		}
-		
+		protected virtual void UnInitialize() { }
+				
 		#region INotifyPropertyChanged Implementation
 		private PropertyChangedEventHandler _propertyChanged;
+		/// <summary>
+		/// 
+		/// </summary>
 		public event PropertyChangedEventHandler PropertyChanged
 		{
 			add
@@ -65,22 +50,33 @@ namespace FlintLib.MVVM
 			remove { _propertyChanged -= value; }
 		}
 
-		protected void _triggerPropertyChangedEvent([CallerMemberName]string propertyName = null)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="propertyName"></param>
+		protected void _triggerPropertyChangedEvent(string propertyName)
 		{
-			if (_propertyChanged != null) { _propertyChanged(this, new PropertyChangedEventArgs(propertyName)); }
+			Debug.Assert(propertyName != null);
+
+			if (_propertyChanged != null)
+			{ _propertyChanged(this, new PropertyChangedEventArgs(propertyName.Validate())); }
 		}
 		#endregion // INotifyPropertyChanged Implementation
 
 		#region IDisposable Support
 		private bool disposedValue = false; // To detect redundant calls
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="disposing"></param>
 		protected virtual void Dispose(bool disposing)
 		{
 			if (!disposedValue)
 			{
 				if (disposing)
 				{
-					UnregisterExecutors();
+					UnInitialize();
 				}
 
 				// TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
@@ -96,6 +92,9 @@ namespace FlintLib.MVVM
 		//   Dispose(false);
 		// }
 
+		/// <summary>
+		/// 
+		/// </summary>
 		// This code added to correctly implement the disposable pattern.
 		public virtual void Dispose()
 		{

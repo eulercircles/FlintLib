@@ -9,9 +9,9 @@ namespace FlintLib.MVVM
 	/// 
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
-	public class ReadOnlyObservable<T> : IDisposable
+	internal class ReadOnlyObservable<T> : IReadOnlyObservable<T>
 	{
-		private readonly Observable<T> _observable;
+		private readonly IObservable<T> _observable;
 		public T Value => _observable.Value;
 
 		// ReadOnlyObservable<T> implements its own ValueChanged event rather than implementing INotifyPropertyChanged
@@ -31,7 +31,7 @@ namespace FlintLib.MVVM
 			remove { _valueChanged -= value; }
 		}
 		
-		public ReadOnlyObservable(Observable<T> observable)
+		internal ReadOnlyObservable(IObservable<T> observable)
 		{
 			if (observable != null)
 			{

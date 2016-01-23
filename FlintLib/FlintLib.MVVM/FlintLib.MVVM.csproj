@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\FlintLib.MVVM.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\FlintLib.MVVM.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
@@ -43,6 +45,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\BindablesFactory.cs" />
+    <Compile Include="Factories\CommandsFactory.cs" />
     <Compile Include="Converters\BoolNotConverter.cs" />
     <Compile Include="Converters\DoubleToVisibleConverter.cs" />
     <Compile Include="Converters\FalseToVisibleConverter.cs" />
@@ -51,14 +55,19 @@
     <Compile Include="Converters\NullToVisibleConverter.cs" />
     <Compile Include="Converters\TrueToVisibleConverter.cs" />
     <Compile Include="Converters\VisibilityValueConverter.cs" />
-    <Compile Include="Observable.cs" />
+    <Compile Include="Factories\ObservablesFactory.cs" />
+    <Compile Include="IBindable.cs" />
+    <Compile Include="IExecutedNotifierCommand.cs" />
+    <Compile Include="Internals\Commands.cs" />
+    <Compile Include="IObservable.cs" />
+    <Compile Include="IReadOnlyObservable.cs" />
+    <Compile Include="Internals\Observable.cs" />
     <Compile Include="PropertyChangedNotifier.cs" />
-    <Compile Include="ReadOnlyBindable.cs" />
-    <Compile Include="ReadOnlyObservable.cs" />
-    <Compile Include="RelayCommand.cs" />
-    <Compile Include="Adjutant.cs" />
-    <Compile Include="IAdjutant.cs" />
-    <Compile Include="Bindable.cs" />
+    <Compile Include="Internals\ReadOnlyObservable.cs" />
+    <Compile Include="Internals\RelayCommand.cs" />
+    <Compile Include="Deprecated\Adjutant.cs" />
+    <Compile Include="Deprecated\IAdjutant.cs" />
+    <Compile Include="Internals\Bindable.cs" />
     <Compile Include="Resources\ConverterStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -78,7 +87,7 @@
       <LastGenOutput>ConverterStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ErrorStrings.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
+      <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ErrorStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
@@ -92,6 +101,7 @@
       <Name>FlintLib.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\CopyLibraries.targets" Condition="Exists('..\CopyLibraries.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

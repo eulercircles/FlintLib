@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 
 namespace FlintLib.MVVM
 {
-	public abstract class PropertyChangedNotifier : INotifyPropertyChanged
+	internal abstract class PropertyChangedNotifier : INotifyPropertyChanged
 	{
 		private PropertyChangedEventHandler _propertyChanged;
 		public event PropertyChangedEventHandler PropertyChanged
@@ -22,7 +22,7 @@ namespace FlintLib.MVVM
 			remove { _propertyChanged -= value; }
 		}
 
-		protected void _triggerPropertyChangedEvent([CallerMemberName]string propertyName = null)
+		protected void _triggerPropertyChangedEvent(string propertyName = null)
 		{
 			if (_propertyChanged != null) { _propertyChanged(this, new PropertyChangedEventArgs(propertyName)); }
 		}

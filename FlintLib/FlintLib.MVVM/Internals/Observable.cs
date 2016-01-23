@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace FlintLib.MVVM
 {
-	public class Observable<T>
+	internal class Observable<T> : IObservable<T>
 	{
 		private EventHandler _valueChanged;
 		public event EventHandler ValueChanged
@@ -29,9 +29,9 @@ namespace FlintLib.MVVM
 			}
 		}
 
-		public Observable() : this(default(T)) { }
+		internal Observable() : this(default(T)) { }
 
-		public Observable(T initialValue)
+		internal Observable(T initialValue)
 		{
 			Value = initialValue;
 		}
