@@ -6,13 +6,9 @@ using FlintLib.MVVM.Resources;
 
 namespace FlintLib.MVVM
 {
-	public delegate void ExecuteAction();
-	public delegate void ExecuteAction<P>(P parameter);
-	public delegate R ExecuteFunction<P, R>(P parameter);
-	public delegate R ExecuteFunction<R>();
-	public delegate void CommandExecutedHandler();
-	public delegate void CommandExecutedHandler<R>(R result);
-
+	/// <summary>
+	/// 
+	/// </summary>
 	internal abstract class ExecutedNotifierCommand : IExecutedNotifierCommand
 	{
 		protected CommandExecutedHandler _executed;
@@ -47,6 +43,10 @@ namespace FlintLib.MVVM
 		public abstract void Execute(object parameter);
 	}
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <typeparam name="R"></typeparam>
 	internal abstract class ExecutedNotifierCommand<R> : IExecutedNotifierCommand<R>
 	{
 		protected CommandExecutedHandler<R> _executed;

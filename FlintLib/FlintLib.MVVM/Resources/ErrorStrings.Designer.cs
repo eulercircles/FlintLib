@@ -61,6 +61,15 @@ namespace FlintLib.MVVM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Converter cannot convert back..
+        /// </summary>
+        internal static string ConverterCannotConvertBack {
+            get {
+                return ResourceManager.GetString("ConverterCannotConvertBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Parameter must be of type {0} and not type {1}.
         /// </summary>
         internal static string ParameterIsNotAValidType {

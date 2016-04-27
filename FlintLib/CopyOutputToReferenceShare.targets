@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+	<ItemGroup>
+		<MySourceFiles Include="$(TargetDir)*.dll"/>
+	</ItemGroup>
+	<Target Name="CustomAfterBuild">
+		<Message Text="Copying built binaries to reference share..."/>
+		<MakeDir Condition ="!Exists('C:\Users\Ronald\Dropbox\Projects\Software Development\Reference\Libraries\FlintLib\$(TargetName)')" Directories="C:\Users\Ronald\Dropbox\Projects\Software Development\Reference\Libraries\FlintLib\$(Configuration)\$(TargetName)"/>
+		<Copy Condition="$(Configuration) == 'Debug'" SourceFiles="@(MySourceFiles)" DestinationFolder="C:\Users\Ronald\Dropbox\Projects\Software Development\Reference\Libraries\FlintLib\$(Configuration)\$(TargetName)" />
+	</Target>
+</Project>

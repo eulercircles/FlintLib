@@ -1,15 +1,23 @@
 ﻿#region Using Statements
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.ComponentModel;
+using System.Collections.Generic;
 #endregion // Using Statements
 
 namespace FlintLib.Utilities
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public static class EnumUtilities
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <returns></returns>
 		// Based on blog by Brandon Truong - http://brandontruong.blogspot.com/2010/04/use-enum-as-itemssource.html
 		public static Dictionary<string, T> GetEnumDescriptions<T>()
 		{
@@ -23,6 +31,11 @@ namespace FlintLib.Utilities
 			return dictionary;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="field"></param>
+		/// <returns></returns>
 		// Based on blog by Brandon Truong - http://brandontruong.blogspot.com/2010/04/use-enum-as-itemssource.html
 		public static string GetEnumDescription(FieldInfo field)
 		{
@@ -34,6 +47,11 @@ namespace FlintLib.Utilities
 			else { return field.Name; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="value"></param>
+		/// <returns></returns>
 		public static string Description(this Enum value)
 		{
 			FieldInfo field = value.GetType().GetField(value.ToString());

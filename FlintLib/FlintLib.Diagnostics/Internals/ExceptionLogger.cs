@@ -10,8 +10,8 @@ namespace FlintLib.Diagnostics
 		private const string _defaultExtension = "log";
 
 		private readonly string _logFileDirectory;
-		private readonly string _prepend;
-		private readonly string _append;
+		private readonly string _prependedText;
+		private readonly string _appendedText;
 		private readonly string _extension = _defaultExtension;
 
 		internal ExceptionLogger(string logFileDirectory)
@@ -54,7 +54,7 @@ namespace FlintLib.Diagnostics
 
 		private string _generateFileName()
 		{
-			return string.Format("{0}-{1}-{2}-{3}", _prepend, DateTime.Now.ToString("yyyyMMdd-HH"), _append, _extension);
+			return string.Format("{0}-{1}-{2}-{3}", _prependedText, DateTime.Now.ToString("yyyyMMdd-HH"), _appendedText, _extension);
 		}
 	}
 }

@@ -27,14 +27,24 @@ namespace FlintLib.MVVM
 			InitializeBindables();
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		protected virtual void InitializeBindables() { }
 
+		/// <summary>
+		/// 
+		/// </summary>
 		protected virtual void Initialize() { }
 
+		/// <summary>
+		/// 
+		/// </summary>
 		protected virtual void UnInitialize() { }
 				
 		#region INotifyPropertyChanged Implementation
 		private PropertyChangedEventHandler _propertyChanged;
+
 		/// <summary>
 		/// 
 		/// </summary>

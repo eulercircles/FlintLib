@@ -5,22 +5,43 @@ using FlintLib.Utilities.Resources;
 
 namespace FlintLib.Utilities
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public static class StringUtilities
 	{
+		/// <summary>
+		/// 
+		/// </summary>
 		public static string DoubleNewLine { get { return (Environment.NewLine + Environment.NewLine); } }
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="item"></param>
+		/// <returns></returns>
 		public static bool IsNull(this string item)
 		{
 			if (item == null) { return true; }
 			else { return false; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="item"></param>
+		/// <returns></returns>
 		public static bool IsEmpty(this string item)
 		{
 			if (item == string.Empty) { return true; }
 			else { return false; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="item"></param>
+		/// <returns></returns>
 		public static bool IsWhiteSpace(this string item)
 		{
 			if (item != null)
@@ -30,6 +51,11 @@ namespace FlintLib.Utilities
 			else { throw new ArgumentException(nameof(item)); }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="item"></param>
+		/// <returns></returns>
 		public static string NormalizeSpacing(this string item)
 		{
 			if (item != null) { return Regex.Replace(item, @"\s+", " "); }

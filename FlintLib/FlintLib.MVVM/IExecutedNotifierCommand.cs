@@ -1,10 +1,15 @@
-﻿using System;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace FlintLib.MVVM
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public interface IExecutedNotifierCommand : ICommand
 	{
+		/// <summary>
+		/// 
+		/// </summary>
 		event CommandExecutedHandler Executed;
 	}
 

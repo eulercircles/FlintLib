@@ -24,7 +24,7 @@ namespace FlintLib.MVVM
 
 		protected void _triggerPropertyChangedEvent(string propertyName = null)
 		{
-			if (_propertyChanged != null) { _propertyChanged(this, new PropertyChangedEventArgs(propertyName)); }
+			_propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }
