@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 using FlintLib.Common;
 
 [assembly: AssemblyTitle("FlintLib.Common")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription(ProductInfo.Description)]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("FlintLib.Common")]
-[assembly: AssemblyCopyright("Copyright © Ronald E Flint 2015")]
+[assembly: AssemblyCopyright(ProductInfo.Copyright)]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -17,4 +17,4 @@ using FlintLib.Common;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("5f2826cf-36ce-4cc9-ad48-86e312c84276")]
 
-[assembly: AssemblyVersion(ProductVersion.Number + ".1.*")]
+[assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + ".1.*")]
