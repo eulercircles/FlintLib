@@ -58,7 +58,10 @@
     <Compile Include="Converters\VisibilityValueConverter.cs" />
     <Compile Include="Factories\ObservablesFactory.cs" />
     <Compile Include="IBindable.cs" />
+    <Compile Include="IBindableSelectionList.cs" />
     <Compile Include="IExecutedNotifierCommand.cs" />
+    <Compile Include="Internals\BindableSelectionList.cs" />
+    <Compile Include="Internals\BindableTextNumericalValidator.cs" />
     <Compile Include="Internals\Commands.cs" />
     <Compile Include="IObservable.cs" />
     <Compile Include="IReadOnlyObservable.cs" />
