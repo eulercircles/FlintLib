@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 namespace FlintLib.MVVM
 {
+    [Obsolete("Do not use.", true)]
 	public class Adjutant : IAdjutant
 	{
 		private readonly Dictionary<Type, Delegate> _commandRegistry;

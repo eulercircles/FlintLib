@@ -4,7 +4,8 @@ using System;
 
 namespace FlintLib.MVVM
 {
-	public interface IAdjutant
+    [Obsolete("Do not use.", true)]
+    public interface IAdjutant
 	{
 		void RegisterExecutor<T>(Executor<T> handler) where T : Command;
 		void UnregisterExecutor<T>(Executor<T> handler) where T : Command;

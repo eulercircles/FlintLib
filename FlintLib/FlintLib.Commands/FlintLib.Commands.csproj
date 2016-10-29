@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{021A4C53-A533-4C2E-ABB6-B21743FBFB47}</ProjectGuid>
+    <ProjectGuid>{1501A789-A607-4905-93DE-B4DF51423D0C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FlintLib.Console</RootNamespace>
-    <AssemblyName>FlintLib.Console</AssemblyName>
+    <RootNamespace>FlintLib.Commands</RootNamespace>
+    <AssemblyName>FlintLib.Commands</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -41,16 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColorScheme.cs" />
-    <Compile Include="Controls\IConsoleControl.cs" />
-    <Compile Include="Controls\InputControl.cs" />
-    <Compile Include="Controls\InputKeyControl.cs" />
-    <Compile Include="Controls\InputTextControl.cs" />
-    <Compile Include="Controls\MenuControl.cs" />
-    <Compile Include="Controls\MenuItemControl.cs" />
-    <Compile Include="Controls\MessageControl.cs" />
+    <Compile Include="Commands.cs" />
     <Compile Include="Delegates.cs" />
-    <Compile Include="Enums.cs" />
+    <Compile Include="ICommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Strings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -59,17 +52,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FlintLib.Commands\FlintLib.Commands.csproj">
-      <Project>{1501a789-a607-4905-93de-b4df51423d0c}</Project>
-      <Name>FlintLib.Commands</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FlintLib.Common\FlintLib.Common.csproj">
       <Project>{5deea8b9-fe52-4fcb-b9b5-a14fc50a27a1}</Project>
       <Name>FlintLib.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FlintLib.Utilities\FlintLib.Utilities.csproj">
-      <Project>{eb85bedd-1ab7-4fd8-b14a-073514221158}</Project>
-      <Name>FlintLib.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -8,6 +8,9 @@ using FlintLib.MVVM.Resources;
 
 namespace FlintLib.MVVM
 {
+    /// <summary>
+    /// 
+    /// </summary>
 	public class RelayCommand : ICommand
 	{
 		#region Private Members
@@ -30,12 +33,18 @@ namespace FlintLib.MVVM
 
 		private EventHandler _canExecuteChanged;
 
+        /// <summary>
+        /// 
+        /// </summary>
 		public void TriggerCanExecuteChangedEvent()
 		{
-			if (_canExecuteChanged != null) { _canExecuteChanged(this, null); }
-		}
+            _canExecuteChanged?.Invoke(this, null);
+        }
 
 		#region ICommand Implementation
+        /// <summary>
+        /// 
+        /// </summary>
 		public event EventHandler CanExecuteChanged
 		{
 			add
@@ -48,11 +57,20 @@ namespace FlintLib.MVVM
 			remove { _canExecuteChanged -= value; }
 		}
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
 		public bool CanExecute(object parameter)
 		{
 			return _canExecute == null ? true : _canExecute();
 		}
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parameter"></param>
 		public void Execute(object parameter)
 		{
 			_execute();
@@ -60,6 +78,10 @@ namespace FlintLib.MVVM
 		#endregion // ICommand Implementation
 	}
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
 	public class RelayCommand<T> : ICommand
 	{
 		#region Private Members
@@ -82,13 +104,19 @@ namespace FlintLib.MVVM
 
 		private EventHandler _canExecuteChanged;
 
+        /// <summary>
+        /// 
+        /// </summary>
 		public void TriggerCanExecuteChanged()
 		{
-			if (_canExecuteChanged != null) { _canExecuteChanged(this, null); }
-		}
+            _canExecuteChanged?.Invoke(this, null);
+        }
 
-		#region ICommand Implementation
-		public event EventHandler CanExecuteChanged
+        #region ICommand Implementation
+        /// <summary>
+        /// 
+        /// </summary>
+        public event EventHandler CanExecuteChanged
 		{
 			add
 			{
@@ -100,11 +128,20 @@ namespace FlintLib.MVVM
 			remove { _canExecuteChanged -= value; }
 		}
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
 		public bool CanExecute(object parameter)
 		{
 			return _canExecute == null ? true : _canExecute();
 		}
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parameter"></param>
 		public void Execute(object parameter)
 		{
 			if (parameter is T)
