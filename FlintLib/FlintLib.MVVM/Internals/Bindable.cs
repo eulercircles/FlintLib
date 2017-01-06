@@ -18,7 +18,7 @@ namespace FlintLib.MVVM
 			}
 			remove { _propertyChanged -= value; }
 		}
-		
+
 		private T _backingField;
 		public T Value
 		{
@@ -31,14 +31,14 @@ namespace FlintLib.MVVM
 		}
 
 		/// <summary>
-		/// Creates an observable property with a default initial value.
+		/// Creates a bindable property with a default initial value.
 		/// </summary>
 		internal Bindable() : this(default(T)) { }
 
 		/// <summary>
-		/// Creates an observable property with the specified initial value.
+		/// Creates a bindable property with the specified initial value.
 		/// </summary>
-		/// <param name="initialValue">The value to initialize the observable property to.</param>
+		/// <param name="initialValue">The value to initialize the bindable property to.</param>
 		internal Bindable(T initialValue)
 		{
 			Value = initialValue;
@@ -46,7 +46,7 @@ namespace FlintLib.MVVM
 
 		private void _triggerPropertyChangedEvent(string propertyName = null)
 		{
-            _propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+			_propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
 	}
 }

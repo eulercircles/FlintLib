@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.ComponentModel;
 
 using FlintLib.Utilities;
+using FlintLib.MVVM.Mediator;
 #endregion // Using Statements
 
 namespace FlintLib.MVVM
@@ -16,7 +17,36 @@ namespace FlintLib.MVVM
 	public abstract class ViewModel_Base : DependencyObject, INotifyPropertyChanged, IDisposable
 	{
 		#region Dependency Properties
+		#region IMediator
+		/// <summary>
+		/// 
+		/// </summary>
+		public static readonly DependencyProperty MediatorProperty
+			= DependencyProperty.RegisterAttached("Mediator",
+			typeof(IMediator),
+			typeof(ViewModel_Base),
+			new PropertyMetadata(null));
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="vm"></param>
+		/// <returns></returns>
+		public static IMediator GetMediator(DependencyObject vm)
+		{
+			return (IMediator)vm.GetValue(MediatorProperty);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="vm"></param>
+		/// <param name="value"></param>
+		public static void SetMediator(DependencyObject vm, IMediator value)
+		{
+			vm.SetValue(MediatorProperty, value);
+		}
+		#endregion // IMediator
 		#endregion // Dependency Properties
 
 		/// <summary>
@@ -35,13 +65,13 @@ namespace FlintLib.MVVM
 		/// <summary>
 		/// 
 		/// </summary>
-		protected virtual void Initialize() { }
+		public virtual void Initialize() { }
 
 		/// <summary>
 		/// 
 		/// </summary>
-		protected virtual void UnInitialize() { }
-				
+		public virtual void UnInitialize() { }
+
 		#region INotifyPropertyChanged Implementation
 		private PropertyChangedEventHandler _propertyChanged;
 
@@ -68,8 +98,7 @@ namespace FlintLib.MVVM
 		{
 			Debug.Assert(propertyName != null);
 
-			if (_propertyChanged != null)
-			{ _propertyChanged(this, new PropertyChangedEventArgs(propertyName.Validate())); }
+			_propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName.Validate()));
 		}
 		#endregion // INotifyPropertyChanged Implementation
 

@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Windows.Data;
 using System.Globalization;
+using System.Windows.Data;
 
 namespace FlintLib.MVVM.Converters
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	public class BoolNotConverter : IValueConverter
+	public class DecimalToMoneyStringConverter : IValueConverter
 	{
 		/// <summary>
 		/// 
@@ -19,7 +19,7 @@ namespace FlintLib.MVVM.Converters
 		/// <returns></returns>
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			return (bool)value ? false : true;
+			return string.Format("{0:C}", (decimal)value);
 		}
 
 		/// <summary>
@@ -32,7 +32,10 @@ namespace FlintLib.MVVM.Converters
 		/// <returns></returns>
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			return !(bool)value;
+			return decimal.Parse((string)value,
+				NumberStyles.AllowCurrencySymbol
+				| NumberStyles.AllowDecimalPoint
+				| NumberStyles.Number);
 		}
 	}
 }

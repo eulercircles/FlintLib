@@ -42,8 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IExceptionLogger.cs" />
-    <Compile Include="Internals\ExceptionLogger.cs" />
+    <Compile Include="ILogger.cs" />
+    <Compile Include="Internals\DatabaseLogger.cs" />
+    <Compile Include="Internals\FileLogger.cs" />
     <Compile Include="LoggerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

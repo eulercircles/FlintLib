@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace FlintLib.Tests
+namespace FlintLib.Commands.UnitTests
 {
 	[TestClass]
 	public class UnitTest1

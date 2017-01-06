@@ -38,7 +38,7 @@ namespace FlintLib.MVVM
 
 		private void _triggerValueChangedEvent()
 		{
-			if (_valueChanged != null) { _valueChanged(this, null); }
+			_valueChanged?.Invoke(this, null);
 		}
 	}
 }

@@ -21,14 +21,16 @@ namespace FlintLib.Utilities
 		// Based on blog by Brandon Truong - http://brandontruong.blogspot.com/2010/04/use-enum-as-itemssource.html
 		public static Dictionary<string, T> GetEnumDescriptions<T>()
 		{
-			var x = typeof(T).GetFields().Where(info => info.FieldType.Equals(typeof(T)));
-			IEnumerable<KeyValuePair<string, T>> enumsAndDescriptions = from field in x
-				select new KeyValuePair<string, T>(GetEnumDescription(field), (T)Enum.Parse(typeof(T), field.Name, false));
-			
-			Dictionary<string, T> dictionary = new Dictionary<string, T>();
-			foreach (KeyValuePair<string, T> pair in enumsAndDescriptions) dictionary.Add(pair.Key, pair.Value);
+			var fieldInfos = typeof(T).GetFields().Where(info => info.FieldType.Equals(typeof(T)));
 
-			return dictionary;
+			var enumsAndDescriptions = from field
+																 in fieldInfos
+																 select new KeyValuePair<string, T>(GetEnumDescription(field), (T)Enum.Parse(typeof(T), field.Name, false));
+			
+			var result = new Dictionary<string, T>();
+			enumsAndDescriptions.ToList().ForEach(p => result.Add(p.Key, p.Value));
+
+			return result;
 		}
 
 		/// <summary>

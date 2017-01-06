@@ -3,9 +3,9 @@ using System.IO;
 
 using FlintLib.Utilities;
 
-namespace FlintLib.Diagnostics
+namespace FlintLib.Diagnostics.Internals
 {
-	internal class ExceptionLogger : IExceptionLogger
+	internal class FileLogger : ILogger
 	{
 		private const string _defaultExtension = "log";
 
@@ -14,7 +14,7 @@ namespace FlintLib.Diagnostics
 		private readonly string _appendedText;
 		private readonly string _extension = _defaultExtension;
 
-		internal ExceptionLogger(string logFileDirectory)
+		internal FileLogger(string logFileDirectory)
 		{
 			_logFileDirectory = logFileDirectory.Validate().NormalizeSpacing().Trim();
 
@@ -22,17 +22,23 @@ namespace FlintLib.Diagnostics
 			{ Directory.CreateDirectory(logFileDirectory); }
 		}
 
-		internal ExceptionLogger(string logFileDirectory, string prepend, string append, string extension)
+		internal FileLogger(string logFileDirectory, string prepend, string append, string extension)
 		{
 			_extension = extension;
 		}
 
-		public void LogException(Exception exception)
+		#region ILogger Implementation
+		public void WriteEntry(string message)
 		{
-			LogException(null, exception);
+			throw new NotImplementedException();
 		}
 
-		public void LogException(string prefaceInfo, Exception exception)
+		public void WriteEntry(Exception exception)
+		{
+			WriteEntry(null, exception);
+		}
+
+		public void WriteEntry(string prefaceInfo, Exception exception)
 		{
 			if (exception != null)
 			{
@@ -45,7 +51,9 @@ namespace FlintLib.Diagnostics
 			}
 			else { /* Do nothing. */ }
 		}
+		#endregion ILogger Implementation
 
+		#region Private Methods
 		private StreamWriter _getStreamWriter()
 		{
 			var fullPath = Path.Combine(_logFileDirectory, _generateFileName());
@@ -56,5 +64,6 @@ namespace FlintLib.Diagnostics
 		{
 			return string.Format("{0}-{1}-{2}-{3}", _prependedText, DateTime.Now.ToString("yyyyMMdd-HH"), _appendedText, _extension);
 		}
+		#endregion Private Methods
 	}
 }

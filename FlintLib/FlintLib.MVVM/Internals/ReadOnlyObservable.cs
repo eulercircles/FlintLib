@@ -43,7 +43,7 @@ namespace FlintLib.MVVM
 
 		private void _observable_ValueChanged(object sender, EventArgs args)
 		{
-			if (_valueChanged != null) { _valueChanged(this, null); }
+			_valueChanged?.Invoke(this, null);
 		}
 
 		#region IDisposable Support
