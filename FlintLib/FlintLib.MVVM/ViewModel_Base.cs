@@ -30,21 +30,21 @@ namespace FlintLib.MVVM
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="vm"></param>
+		/// <param name="viewModel"></param>
 		/// <returns></returns>
-		public static IMediator GetMediator(DependencyObject vm)
+		public static IMediator GetMediator(DependencyObject viewModel)
 		{
-			return (IMediator)vm.GetValue(MediatorProperty);
+			return (IMediator)viewModel.GetValue(MediatorProperty);
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="vm"></param>
+		/// <param name="viewModel"></param>
 		/// <param name="value"></param>
-		public static void SetMediator(DependencyObject vm, IMediator value)
+		public static void SetMediator(DependencyObject viewModel, IMediator value)
 		{
-			vm.SetValue(MediatorProperty, value);
+			viewModel.SetValue(MediatorProperty, value);
 		}
 		#endregion // IMediator
 		#endregion // Dependency Properties
@@ -97,7 +97,6 @@ namespace FlintLib.MVVM
 		protected void _triggerPropertyChangedEvent(string propertyName)
 		{
 			Debug.Assert(propertyName != null);
-
 			_propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName.Validate()));
 		}
 		#endregion // INotifyPropertyChanged Implementation

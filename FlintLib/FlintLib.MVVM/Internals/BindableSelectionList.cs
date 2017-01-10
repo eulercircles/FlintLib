@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace FlintLib.MVVM
+namespace FlintLib.MVVM.Internals
 {
     internal class BindableSelectionList<T> : Bindable<int>, IBindableSelectionList<T>
     {

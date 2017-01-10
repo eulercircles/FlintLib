@@ -4,7 +4,7 @@ using System.Linq;
 using System.ComponentModel;
 #endregion // Using Statements
 
-namespace FlintLib.MVVM
+namespace FlintLib.MVVM.Internals
 {
 	internal class Bindable<T> : IBindable<T>
 	{

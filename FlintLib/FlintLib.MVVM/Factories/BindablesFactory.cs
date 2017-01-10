@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace FlintLib.MVVM
 {
+	using Internals;
 	/// <summary>
 	/// 
 	/// </summary>
@@ -24,14 +25,5 @@ namespace FlintLib.MVVM
 		/// <returns></returns>
 		public static IBindable<T> Create<T>(T initialValue)
 		{ return new Bindable<T>(initialValue); }
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="listItems"></param>
-		/// <returns></returns>
-		public static IBindableSelectionList<T> Create<T>(Dictionary<string, T> listItems)
-		{ return new BindableSelectionList<T>(listItems); }
 	}
 }

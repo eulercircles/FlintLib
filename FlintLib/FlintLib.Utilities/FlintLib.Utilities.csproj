@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DateTimeUtilities.cs" />
     <Compile Include="EnumUtilities.cs" />
     <Compile Include="MediaUtilities.cs" />
     <Compile Include="Preconditions.cs" />
