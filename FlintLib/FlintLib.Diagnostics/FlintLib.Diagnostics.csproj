@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\FlintLib.Common\ProductInfo.cs">
+      <Link>Properties\ProductInfo.cs</Link>
+    </Compile>
     <Compile Include="ILogger.cs" />
     <Compile Include="Internals\DatabaseLogger.cs" />
     <Compile Include="Internals\FileLogger.cs" />
@@ -49,10 +52,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FlintLib.Common\FlintLib.Common.csproj">
-      <Project>{5deea8b9-fe52-4fcb-b9b5-a14fc50a27a1}</Project>
-      <Name>FlintLib.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FlintLib.Utilities\FlintLib.Utilities.csproj">
       <Project>{eb85bedd-1ab7-4fd8-b14a-073514221158}</Project>
       <Name>FlintLib.Utilities</Name>

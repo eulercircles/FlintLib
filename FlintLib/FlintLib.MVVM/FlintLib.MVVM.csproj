@@ -45,6 +45,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\FlintLib.Common\ProductInfo.cs">
+      <Link>Properties\ProductInfo.cs</Link>
+    </Compile>
     <Compile Include="Converters\DecimalToMoneyStringConverter.cs" />
     <Compile Include="Delegates.cs" />
     <Compile Include="Factories\BindablesFactory.cs" />
@@ -86,10 +89,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FlintLib.Common\FlintLib.Common.csproj">
-      <Project>{5deea8b9-fe52-4fcb-b9b5-a14fc50a27a1}</Project>
-      <Name>FlintLib.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FlintLib.Utilities\FlintLib.Utilities.csproj">
       <Project>{eb85bedd-1ab7-4fd8-b14a-073514221158}</Project>
       <Name>FlintLib.Utilities</Name>

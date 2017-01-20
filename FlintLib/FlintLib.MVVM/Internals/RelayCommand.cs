@@ -1,10 +1,10 @@
-﻿#region Using Statements
+﻿#region Using Directives
 using System;
 using System.Linq;
 using System.Windows.Input;
 
 using FlintLib.MVVM.Resources;
-#endregion // Using Statements
+#endregion Using Directives
 
 namespace FlintLib.MVVM
 {
@@ -19,10 +19,12 @@ namespace FlintLib.MVVM
 		#endregion // Private Members
 
 		#region Constructors
-		public RelayCommand(Action execute)
-			: this(execute, null) { }
-
-		public RelayCommand(Action execute, Func<bool> canExecute)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="execute"></param>
+		/// <param name="canExecute"></param>
+		public RelayCommand(Action execute, Func<bool> canExecute = null)
 		{
 			if (execute == null) { throw new ArgumentNullException(nameof(execute)); }
 
@@ -36,7 +38,7 @@ namespace FlintLib.MVVM
 		/// <summary>
 		/// 
 		/// </summary>
-		public void TriggerCanExecuteChangedEvent()
+		protected void TriggerCanExecuteChangedEvent()
 		{
 			_canExecuteChanged?.Invoke(this, null);
 		}
@@ -90,10 +92,12 @@ namespace FlintLib.MVVM
 		#endregion // Private Members
 
 		#region Constructors
-		public RelayCommand(Action<T> execute)
-			: this(execute, null) { }
-
-		public RelayCommand(Action<T> execute, Func<bool> canExecute)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="execute"></param>
+		/// <param name="canExecute"></param>
+		public RelayCommand(Action<T> execute, Func<bool> canExecute = null)
 		{
 			if (execute == null) { throw new ArgumentNullException(nameof(execute)); }
 
@@ -107,7 +111,7 @@ namespace FlintLib.MVVM
 		/// <summary>
 		/// 
 		/// </summary>
-		public void TriggerCanExecuteChanged()
+		protected void TriggerCanExecuteChanged()
 		{
 			_canExecuteChanged?.Invoke(this, null);
 		}
