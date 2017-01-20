@@ -2,13 +2,23 @@
 
 namespace FlintLib.MVVM.Mediator
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public abstract class Request
 	{
-		public string SenderType { get; protected set; }
+		/// <summary>
+		/// 
+		/// </summary>
+		public string SenderType { get; private set; }
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
 		public Request(object sender)
 		{
-			this.SenderType = sender.GetType().ToString();
+			SenderType = sender.GetType().ToString();
 		}
 	}
 }
