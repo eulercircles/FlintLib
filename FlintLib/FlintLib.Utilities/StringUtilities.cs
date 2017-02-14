@@ -22,8 +22,7 @@ namespace FlintLib.Utilities
 		/// <returns></returns>
 		public static bool IsNull(this string item)
 		{
-			if (item == null) { return true; }
-			else { return false; }
+			return item == null;
 		}
 
 		/// <summary>
@@ -33,8 +32,7 @@ namespace FlintLib.Utilities
 		/// <returns></returns>
 		public static bool IsEmpty(this string item)
 		{
-			if (item == string.Empty) { return true; }
-			else { return false; }
+			return item == string.Empty;
 		}
 
 		/// <summary>
@@ -44,11 +42,7 @@ namespace FlintLib.Utilities
 		/// <returns></returns>
 		public static bool IsWhiteSpace(this string item)
 		{
-			if (item != null)
-			{
-				return string.IsNullOrWhiteSpace(item) ? true : false;
-			}
-			else { throw new ArgumentException(nameof(item)); }
+			return item == null ? false : string.IsNullOrWhiteSpace(item);
 		}
 
 		/// <summary>
@@ -58,8 +52,7 @@ namespace FlintLib.Utilities
 		/// <returns></returns>
 		public static string NormalizeSpacing(this string item)
 		{
-			if (item != null) { return Regex.Replace(item, @"\s+", " "); }
-			else { return null; }
+			return item == null ? null : Regex.Replace(item, @"\s+", " ");
 		}
 
 		/// <summary>

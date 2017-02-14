@@ -16,14 +16,8 @@ namespace FlintLib.Diagnostics
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="exception"></param>
-		void WriteEntry(Exception exception);
-
-		/// <summary>
-		/// 
-		/// </summary>
 		/// <param name="message"></param>
 		/// <param name="exception"></param>
-		void WriteEntry(string message, Exception exception);
+		void WriteEntry(Exception exception, string message = "");
 	}
 }

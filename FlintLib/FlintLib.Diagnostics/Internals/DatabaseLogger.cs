@@ -9,17 +9,12 @@ namespace FlintLib.Diagnostics.Internals
 
 		}
 
-		public void WriteEntry(Exception exception)
-		{
-			throw new NotImplementedException();
-		}
-
 		public void WriteEntry(string message)
 		{
 			throw new NotImplementedException();
 		}
 
-		public void WriteEntry(string message, Exception exception)
+		public void WriteEntry(Exception exception, string message = "")
 		{
 			throw new NotImplementedException();
 		}

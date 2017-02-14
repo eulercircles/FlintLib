@@ -47,7 +47,8 @@
     </Compile>
     <Compile Include="ILogger.cs" />
     <Compile Include="Internals\DatabaseLogger.cs" />
-    <Compile Include="Internals\FileLogger.cs" />
+    <Compile Include="Internals\TextFileLogger.cs" />
+    <Compile Include="Internals\XMLFileLogger.cs" />
     <Compile Include="LoggerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
