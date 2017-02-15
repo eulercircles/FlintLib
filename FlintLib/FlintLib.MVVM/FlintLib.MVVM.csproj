@@ -35,6 +35,10 @@
     <DocumentationFile>bin\Release\FlintLib.MVVM.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FlintLib.Utilities, Version=0.0.1.16991, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FlintLib.Utilities.0.0.1.16991\lib\net462\FlintLib.Utilities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -91,16 +95,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FlintLib.Utilities\FlintLib.Utilities.csproj">
-      <Project>{eb85bedd-1ab7-4fd8-b14a-073514221158}</Project>
-      <Name>FlintLib.Utilities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Controls\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FlintLib.MVVM.nuspec" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\CopyLibraries.targets" Condition="Exists('..\CopyLibraries.targets')" />

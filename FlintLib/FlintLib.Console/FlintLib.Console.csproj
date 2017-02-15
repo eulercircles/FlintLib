@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FlintLib.Utilities, Version=0.0.1.16991, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FlintLib.Utilities.0.0.1.16991\lib\net462\FlintLib.Utilities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -62,16 +66,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FlintLib.Core\FlintLib.Core.csproj">
-      <Project>{2689c497-7747-4d70-9cb7-9598f888ff37}</Project>
-      <Name>FlintLib.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FlintLib.Utilities\FlintLib.Utilities.csproj">
-      <Project>{eb85bedd-1ab7-4fd8-b14a-073514221158}</Project>
-      <Name>FlintLib.Utilities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
@@ -79,6 +73,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\New\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FlintLib.Console.nuspec" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

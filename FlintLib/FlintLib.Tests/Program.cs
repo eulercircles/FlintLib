@@ -14,7 +14,7 @@ namespace FlintLib.Tests
 			//loggerTester.TestTextFileLogger();
 
 			var phi = Core.Math.Phi;
-			System.Console.WriteLine($"Phi: {phi.ToString("F32")}");
+			System.Console.WriteLine($"Phi: {phi}");
 
 			Legacy.Pause();
 		}

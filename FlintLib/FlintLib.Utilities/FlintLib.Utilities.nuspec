@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+	<metadata>
+		<id>$id$</id>
+		<version>$version$</version>
+		<title>$title$</title>
+		<authors>Ronald E Flint</authors>
+		<owners>Ronald E Flint</owners>
+		<!--<licenseUrl>http://</licenseUrl>-->
+		<projectUrl>https://github.com/eulercircles/FlintLib</projectUrl>
+		<!--<iconUrl>http://</iconUrl>-->
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>A library of frequently needed types, routines, and resources.</description>
+		<releaseNotes>First NuGet release</releaseNotes>
+		<copyright>Copyright © 2015-2017 Ronald E Flint</copyright>
+		<tags></tags>
+	</metadata>
+</package>
