@@ -11,7 +11,7 @@ namespace FlintLib.Console.Controls
 
         }
 
-        protected virtual bool ValidateInputKey(object value)
+        protected bool ValidateInputKey(object value)
         {
             if (value is ConsoleKey)
             {

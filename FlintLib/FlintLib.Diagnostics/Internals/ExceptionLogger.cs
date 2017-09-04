@@ -7,23 +7,20 @@ namespace FlintLib.Diagnostics
 {
 	internal class ExceptionLogger : IExceptionLogger
 	{
-		private const string _defaultExtension = "log";
-
 		private readonly string _logFileDirectory;
 		private readonly string _prependedText;
 		private readonly string _appendedText;
-		private readonly string _extension = _defaultExtension;
+		private readonly string _extension;
 
-		internal ExceptionLogger(string logFileDirectory)
+		internal ExceptionLogger(string logFileDirectory, string prepend = "", string append = "", string extension = "log")
 		{
 			_logFileDirectory = logFileDirectory.Validate().NormalizeSpacing().Trim();
 
 			if (!Directory.Exists(logFileDirectory))
 			{ Directory.CreateDirectory(logFileDirectory); }
-		}
 
-		internal ExceptionLogger(string logFileDirectory, string prepend, string append, string extension)
-		{
+			_prependedText = prepend;
+			_appendedText = append;
 			_extension = extension;
 		}
 
@@ -54,7 +51,7 @@ namespace FlintLib.Diagnostics
 
 		private string _generateFileName()
 		{
-			return string.Format("{0}-{1}-{2}-{3}", _prependedText, DateTime.Now.ToString("yyyyMMdd-HH"), _appendedText, _extension);
+			return $"{_prependedText}-{DateTime.Now.ToString("yyyyMMdd-HH")}-{_appendedText}.{_extension}";
 		}
 	}
 }

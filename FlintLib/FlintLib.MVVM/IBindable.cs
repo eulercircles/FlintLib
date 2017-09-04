@@ -2,15 +2,13 @@
 
 namespace FlintLib.MVVM
 {
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <typeparam name="T"></typeparam>
 	public interface IBindable<T> : INotifyPropertyChanged
 	{
-		/// <summary>
-		/// 
-		/// </summary>
 		T Value { get; set; }
+
+		/// <summary>
+		/// Will alert any bound objects that they should reassess the value, even though the value has not changed.
+		/// </summary>
+		void Bump();
 	}
 }

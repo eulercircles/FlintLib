@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FlintLib.Tests</RootNamespace>
     <AssemblyName>FlintLib.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -51,14 +51,38 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Common\Observable_Tester.cs" />
+    <Compile Include="Common\Extensions_Tester.cs" />
+    <Compile Include="MVVM\Converter_Tester.cs" />
+    <Compile Include="MVVM\Bindables_Tester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FlintLib.Commands\FlintLib.Commands.csproj">
+      <Project>{1501a789-a607-4905-93de-b4df51423d0c}</Project>
+      <Name>FlintLib.Commands</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FlintLib.Common\FlintLib.Common.csproj">
       <Project>{5deea8b9-fe52-4fcb-b9b5-a14fc50a27a1}</Project>
       <Name>FlintLib.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FlintLib.Diagnostics\FlintLib.Diagnostics.csproj">
+      <Project>{1c762692-e7ae-4de2-b107-86017143ce21}</Project>
+      <Name>FlintLib.Diagnostics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlintLib.MVVM\FlintLib.MVVM.csproj">
+      <Project>{fffe157b-9db4-48a7-9a75-a2b39b94de36}</Project>
+      <Name>FlintLib.MVVM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlintLib.Utilities\FlintLib.Utilities.csproj">
+      <Project>{eb85bedd-1ab7-4fd8-b14a-073514221158}</Project>
+      <Name>FlintLib.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\" />
+    <Folder Include="Diagnostics\" />
+    <Folder Include="Utilities\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

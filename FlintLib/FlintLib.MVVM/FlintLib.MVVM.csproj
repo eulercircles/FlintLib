@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FlintLib.MVVM</RootNamespace>
     <AssemblyName>FlintLib.MVVM</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -45,6 +45,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\DateTimeToShortDateConverter.cs" />
+    <Compile Include="Converters\DecimalToColorConverter.cs" />
+    <Compile Include="Converters\DecimalToCurrencyConverter.cs" />
+    <Compile Include="Converters\FloatToPercentStringConverter.cs" />
+    <Compile Include="Converters\IntToPercentStringConverter.cs" />
     <Compile Include="Delegates.cs" />
     <Compile Include="Factories\BindablesFactory.cs" />
     <Compile Include="Factories\CommandsFactory.cs" />
@@ -56,18 +61,19 @@
     <Compile Include="Converters\NullToVisibleConverter.cs" />
     <Compile Include="Converters\TrueToVisibleConverter.cs" />
     <Compile Include="Converters\VisibilityValueConverter.cs" />
-    <Compile Include="Factories\ObservablesFactory.cs" />
     <Compile Include="IBindable.cs" />
     <Compile Include="IBindableSelectionList.cs" />
     <Compile Include="IExecutedNotifierCommand.cs" />
+    <Compile Include="IMediator.cs" />
     <Compile Include="Internals\BindableSelectionList.cs" />
     <Compile Include="Internals\BindableTextNumericalValidator.cs" />
     <Compile Include="Internals\Commands.cs" />
-    <Compile Include="IObservable.cs" />
-    <Compile Include="IReadOnlyObservable.cs" />
-    <Compile Include="Internals\Observable.cs" />
+    <Compile Include="Internals\ReadOnlyBindable.cs" />
+    <Compile Include="Internals\TwoWayBindable.cs" />
+    <Compile Include="IReadOnlyBindable.cs" />
+    <Compile Include="Mediator.cs" />
+    <Compile Include="MediatorArgs.cs" />
     <Compile Include="PropertyChangedNotifier.cs" />
-    <Compile Include="Internals\ReadOnlyObservable.cs" />
     <Compile Include="Internals\RelayCommand.cs" />
     <Compile Include="Deprecated\Adjutant.cs" />
     <Compile Include="Deprecated\IAdjutant.cs" />
@@ -82,7 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\ErrorStrings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ErrorStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

@@ -1,37 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using FlintLib.MVVM.Internals;
+
 namespace FlintLib.MVVM
 {
-    /// <summary>
-    /// 
-    /// </summary>
 	public static class BindablesFactory
 	{
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
 		public static IBindable<T> Create<T>()
-        { return new Bindable<T>(); }
+		{ return new Bindable<T>(); }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="initialValue"></param>
-        /// <returns></returns>
 		public static IBindable<T> Create<T>(T initialValue)
-        { return new Bindable<T>(initialValue); }
+		{ return new Bindable<T>(initialValue); }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="listItems"></param>
-        /// <returns></returns>
-        public static IBindableSelectionList<T> Create<T>(Dictionary<string, T> listItems)
-        { return new BindableSelectionList<T>(listItems); }
+		public static IBindable<T> Create<T>(Common.IObservable<T> observable)
+		{
+			return new TwoWayBindable<T>(observable);
+		}
+
+		public static IReadOnlyBindable<T> Create<T>(IBindable<T> bindable)
+		{ return new ReadOnlyBindable<T>(bindable); }
+
+		public static IBindableSelectionList<T> Create<T>(Dictionary<string, T> listItems)
+		{ return new BindableSelectionList<T>(listItems); }
 	}
 }

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FlintLib.Common</RootNamespace>
     <AssemblyName>FlintLib.Common</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -42,6 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Internals\Observable.cs" />
+    <Compile Include="Internals\ReadOnlyObservable.cs" />
+    <Compile Include="IObservable.cs" />
+    <Compile Include="IReadOnlyObservable.cs" />
+    <Compile Include="ISavable.cs" />
+    <Compile Include="ObservablesFactory.cs" />
     <Compile Include="ProductInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

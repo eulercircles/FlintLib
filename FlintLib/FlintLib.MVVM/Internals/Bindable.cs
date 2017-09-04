@@ -4,7 +4,7 @@ using System.Linq;
 using System.ComponentModel;
 #endregion // Using Statements
 
-namespace FlintLib.MVVM
+namespace FlintLib.MVVM.Internals
 {
 	internal class Bindable<T> : IBindable<T>
 	{
@@ -18,7 +18,7 @@ namespace FlintLib.MVVM
 			}
 			remove { _propertyChanged -= value; }
 		}
-		
+
 		private T _backingField;
 		public T Value
 		{
@@ -46,7 +46,12 @@ namespace FlintLib.MVVM
 
 		private void _triggerPropertyChangedEvent(string propertyName = null)
 		{
-            _propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+			_propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+
+		public void Bump()
+		{
+			_triggerPropertyChangedEvent(nameof(Value));
+		}
 	}
 }

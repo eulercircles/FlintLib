@@ -22,25 +22,19 @@ namespace FlintLib.MVVM
 		/// <summary>
 		/// 
 		/// </summary>
-		public ViewModel_Base()
-		{
-			InitializeBindables();
-		}
+		public ViewModel_Base() { }
+
+		protected abstract void ConstructBindables();
 
 		/// <summary>
 		/// 
 		/// </summary>
-		protected virtual void InitializeBindables() { }
+		public virtual void Initialize() { }
 
 		/// <summary>
 		/// 
 		/// </summary>
-		protected virtual void Initialize() { }
-
-		/// <summary>
-		/// 
-		/// </summary>
-		protected virtual void UnInitialize() { }
+		public virtual void UnInitialize() { }
 				
 		#region INotifyPropertyChanged Implementation
 		private PropertyChangedEventHandler _propertyChanged;
@@ -68,8 +62,7 @@ namespace FlintLib.MVVM
 		{
 			Debug.Assert(propertyName != null);
 
-			if (_propertyChanged != null)
-			{ _propertyChanged(this, new PropertyChangedEventArgs(propertyName.Validate())); }
+			_propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName.Validate()));
 		}
 		#endregion // INotifyPropertyChanged Implementation
 
