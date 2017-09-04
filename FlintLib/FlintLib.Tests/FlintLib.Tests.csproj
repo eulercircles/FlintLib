@@ -74,10 +74,6 @@
       <Project>{fffe157b-9db4-48a7-9a75-a2b39b94de36}</Project>
       <Name>FlintLib.MVVM</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FlintLib.Utilities\FlintLib.Utilities.csproj">
-      <Project>{eb85bedd-1ab7-4fd8-b14a-073514221158}</Project>
-      <Name>FlintLib.Utilities</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />

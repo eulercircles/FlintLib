@@ -60,10 +60,6 @@
       <Project>{021a4c53-a533-4c2e-abb6-b21743fbfb47}</Project>
       <Name>FlintLib.Console</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FlintLib.Utilities\FlintLib.Utilities.csproj">
-      <Project>{eb85bedd-1ab7-4fd8-b14a-073514221158}</Project>
-      <Name>FlintLib.Utilities</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

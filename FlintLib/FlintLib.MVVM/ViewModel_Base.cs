@@ -5,43 +5,28 @@ using System.Windows;
 using System.Diagnostics;
 using System.ComponentModel;
 
-using FlintLib.Utilities;
+using FlintLib.Common;
 #endregion // Using Statements
 
 namespace FlintLib.MVVM
 {
-	/// <summary>
-	/// 
-	/// </summary>
 	public abstract class ViewModel_Base : DependencyObject, INotifyPropertyChanged, IDisposable
 	{
 		#region Dependency Properties
 
-		#endregion // Dependency Properties
+		#endregion Dependency Properties
 
-		/// <summary>
-		/// 
-		/// </summary>
 		public ViewModel_Base() { }
 
 		protected abstract void ConstructBindables();
 
-		/// <summary>
-		/// 
-		/// </summary>
 		public virtual void Initialize() { }
 
-		/// <summary>
-		/// 
-		/// </summary>
 		public virtual void UnInitialize() { }
 				
 		#region INotifyPropertyChanged Implementation
 		private PropertyChangedEventHandler _propertyChanged;
 
-		/// <summary>
-		/// 
-		/// </summary>
 		public event PropertyChangedEventHandler PropertyChanged
 		{
 			add
@@ -54,10 +39,6 @@ namespace FlintLib.MVVM
 			remove { _propertyChanged -= value; }
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="propertyName"></param>
 		protected void _triggerPropertyChangedEvent(string propertyName)
 		{
 			Debug.Assert(propertyName != null);
@@ -69,10 +50,6 @@ namespace FlintLib.MVVM
 		#region IDisposable Support
 		private bool disposedValue = false; // To detect redundant calls
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="disposing"></param>
 		protected virtual void Dispose(bool disposing)
 		{
 			if (!disposedValue)

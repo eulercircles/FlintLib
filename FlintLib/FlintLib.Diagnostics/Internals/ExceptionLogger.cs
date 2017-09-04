@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-using FlintLib.Utilities;
+using FlintLib.Common;
 
 namespace FlintLib.Diagnostics
 {
