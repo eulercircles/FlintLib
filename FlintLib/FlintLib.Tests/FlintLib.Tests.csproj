@@ -53,6 +53,9 @@
   <ItemGroup>
     <Compile Include="Common\Observable_Tester.cs" />
     <Compile Include="Common\Extensions_Tester.cs" />
+    <Compile Include="Genetics\Chromosome_Tester.cs" />
+    <Compile Include="Intelligence\NeuralNetwork_Tester.cs" />
+    <Compile Include="Music\ModeChords_Tester.cs" />
     <Compile Include="MVVM\Converter_Tester.cs" />
     <Compile Include="MVVM\Bindables_Tester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,15 +73,40 @@
       <Project>{1c762692-e7ae-4de2-b107-86017143ce21}</Project>
       <Name>FlintLib.Diagnostics</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FlintLib.Genetics\FlintLib.Genetics.csproj">
+      <Project>{24a9a5a1-a58d-4a8f-890f-6dbd50a9b328}</Project>
+      <Name>FlintLib.Genetics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlintLib.Intelligence\FlintLib.Intelligence.csproj">
+      <Project>{768027c7-700c-4cb0-90ea-69a64c56bed5}</Project>
+      <Name>FlintLib.Intelligence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlintLib.Mathematics\FlintLib.Mathematics.csproj">
+      <Project>{07b70176-9762-463f-ae1a-ce0f09b684b4}</Project>
+      <Name>FlintLib.Mathematics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlintLib.Music\FlintLib.Music.csproj">
+      <Project>{19d0732d-5282-4470-822e-4fe959c948b9}</Project>
+      <Name>FlintLib.Music</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FlintLib.MVVM\FlintLib.MVVM.csproj">
       <Project>{fffe157b-9db4-48a7-9a75-a2b39b94de36}</Project>
       <Name>FlintLib.MVVM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlintLib.Structures\FlintLib.Structures.csproj">
+      <Project>{20ec6b62-9001-43a3-ad2e-9aadbe18a451}</Project>
+      <Name>FlintLib.Structures</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Diagnostics\" />
+    <Folder Include="Geometrics\" />
+    <Folder Include="Mathematics\" />
     <Folder Include="Utilities\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

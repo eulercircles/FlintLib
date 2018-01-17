@@ -18,11 +18,11 @@ namespace FlintLib.MVVM.Converters
 			{
 				if (value is decimal)
 				{
-					return ((decimal)value).ToString("C", CultureInfo.CurrentCulture);
+					return ((decimal)value).ToString("C", culture);
 				}
 				else if (value is decimal?)
 				{
-					return ((decimal?)value).HasValue ? ((decimal?)value).Value.ToString("C", CultureInfo.CurrentCulture) : ErrorStrings.CannotConvertStringPlaceholder;
+					return ((decimal?)value).HasValue ? ((decimal?)value).Value.ToString("C", culture) : ErrorStrings.CannotConvertStringPlaceholder;
 				}
 				else { throw new InvalidOperationException(string.Format(ErrorStrings.ParameterIsNotAValidType, $"{typeof(decimal)} or {typeof(decimal?)}", value.GetType())); }
 			}

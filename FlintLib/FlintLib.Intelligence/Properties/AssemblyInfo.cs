@@ -5,11 +5,11 @@ using System.Runtime.CompilerServices;
 using FlintLib.Common;
 
 [assembly: InternalsVisibleTo("FlintLib.Tests")]
-[assembly: AssemblyTitle("FlintLib.Mathematics")]
+[assembly: AssemblyTitle("FlintLib.Intelligence")]
 [assembly: AssemblyDescription(ProductInfo.Description)]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FlintLib.Mathematics")]
+[assembly: AssemblyProduct("FlintLib.Intelligence")]
 [assembly: AssemblyCopyright(ProductInfo.Copyright)]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -17,6 +17,6 @@ using FlintLib.Common;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("07b70176-9762-463f-ae1a-ce0f09b684b4")]
+[assembly: Guid("768027c7-700c-4cb0-90ea-69a64c56bed5")]
 
 [assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + ".1.*")]

@@ -21,7 +21,7 @@ namespace FlintLib.Common
 
 		public static string ToCurrencyString(this decimal value)
 		{
-			return string.Format("{0:C}", value);
+			return value.ToString("C", CultureInfo.CurrentCulture);
 		}
 
 		public static bool IsInRange(this int value, int lowerValue, int upperValue)

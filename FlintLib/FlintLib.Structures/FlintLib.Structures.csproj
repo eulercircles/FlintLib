@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{07B70176-9762-463F-AE1A-CE0F09B684B4}</ProjectGuid>
+    <ProjectGuid>{20EC6B62-9001-43A3-AD2E-9AADBE18A451}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FlintLib.Mathematics</RootNamespace>
-    <AssemblyName>FlintLib.Mathematics</AssemblyName>
+    <RootNamespace>FlintLib.Structures</RootNamespace>
+    <AssemblyName>FlintLib.Structures</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,8 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,14 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Functions.cs" />
+    <Compile Include="Bitree.cs" />
+    <Compile Include="IBounded2D.cs" />
+    <Compile Include="IBounded3D.cs" />
+    <Compile Include="ITree.cs" />
+    <Compile Include="Octree.cs" />
+    <Compile Include="Quadtree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FlintLib.Common\FlintLib.Common.csproj">
-      <Project>{5deea8b9-fe52-4fcb-b9b5-a14fc50a27a1}</Project>
-      <Name>FlintLib.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
