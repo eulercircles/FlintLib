@@ -136,17 +136,17 @@ namespace FlintLib.Geometrics
 
 		public string ToFractionalInchString(ImperialDenominators maxResolution = ImperialDenominators.HundredTwentyEighth)
 		{
-			ushort whole = 0;
-			ushort numerator = 0;
-			ushort denominator = 1;
+			var whole = 0;
+			var numerator = 0;
+			var denominator = 1;
 
 			whole = (ushort)Math.Truncate(_value);
 
-			double fractionalPart = _value - whole;
-			double intermediary = fractionalPart * (ushort)maxResolution;
-			ushort intermediaryNumerator = (ushort)Math.Round(intermediary);
+			var fractionalPart = _value - whole;
+			var intermediary = fractionalPart * (ushort)maxResolution;
+			var intermediaryNumerator = (ushort)Math.Round(intermediary);
 
-			int gcd = Functions.GCD(intermediaryNumerator, (ushort)maxResolution);
+			var gcd = Functions.GCD(intermediaryNumerator, (ushort)maxResolution);
 
 			if (gcd > 0)
 			{
@@ -154,13 +154,9 @@ namespace FlintLib.Geometrics
 				denominator = (ushort)((ushort)maxResolution / gcd);
 			}
 
-			string wholeString = string.Empty;
-			if (whole != 0)
-			{
-				wholeString = $"{whole}";
-			}
+			var wholeString = $"{whole}";
 
-			string fractionalString = string.Empty;
+			var fractionalString = string.Empty;
 			if (numerator != 0)
 			{
 				if (!string.IsNullOrWhiteSpace(wholeString))
