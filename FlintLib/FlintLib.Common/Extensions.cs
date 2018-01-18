@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace FlintLib.Common
 {
@@ -32,6 +35,45 @@ namespace FlintLib.Common
 		public static bool IsInRange(this float value, float lowerValue, float upperValue)
 		{
 			return (value >= lowerValue && value <= upperValue);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="count"></param>
+		/// <returns></returns>
+		public static string TrailingLetters(this string input, int count)
+		{
+			List<char> chars = new List<char>();
+			for (int i = input.Length - 1; i > input.Length - count - 1; i--)
+			{
+				if (char.IsLetter(input[i]))
+				{
+					chars.Insert(0, input[i]);
+				}
+			}
+			return new string(chars.ToArray());
+		}
+
+		public static string CleanWhitespace(this string input)
+		{
+			return Regex.Replace(input, @"\s+", " ");
+		}
+
+		public static string GetLeadingNumerical(this string input)
+		{
+			return new string(input.TakeWhile(c => char.IsNumber(c) || char.IsPunctuation(c)).ToArray());
+		}
+
+		public static bool IsGreaterThanZero(this string stringValue)
+		{
+			if (double.TryParse(stringValue, out double numericalValue))
+			{
+				if (numericalValue > 0)
+				{ return true; }
+				else { return false; }
+			}
+			else { return false; }
 		}
 	}
 }

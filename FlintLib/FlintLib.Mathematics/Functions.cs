@@ -19,7 +19,7 @@ namespace FlintLib.Mathematics
 		{
 			if (!(c > 0.0f)) { throw new ArgumentOutOfRangeException(); }
 
-			var denominator = (1 + System.Math.Pow(System.Math.E, -x / c));
+			var denominator = (1 + Math.Pow(Math.E, -x / c));
 
 			var result = 0.0f;
 			if (denominator > 0) { result = (float)(1 / denominator); }
@@ -31,7 +31,7 @@ namespace FlintLib.Mathematics
 		{
 			if (!(c > 0.0d)) { throw new ArgumentOutOfRangeException(); }
 
-			var denominator = (1 + System.Math.Pow(System.Math.E, -x / c));
+			var denominator = (1 + Math.Pow(Math.E, -x / c));
 
 			var result = 0.0d;
 			if (denominator > 0) { result = (1 / denominator); }
@@ -41,33 +41,28 @@ namespace FlintLib.Mathematics
 
 		public static float HyperbolicTangentF(float x)
 		{
-			var denominator = (System.Math.Pow(System.Math.E, x) + System.Math.Pow(System.Math.E, -x));
-			var numerator = (System.Math.Pow(System.Math.E, x) - System.Math.Pow(System.Math.E, -x));
+			var denominator = (Math.Pow(Math.E, x) + Math.Pow(Math.E, -x));
+			var numerator = (Math.Pow(Math.E, x) - Math.Pow(Math.E, -x));
 			var result = (numerator / denominator);
 			return (float)result;
 		}
 
 		public static double HyperbolicTangentD(double x)
 		{
-			var denominator = (System.Math.Pow(System.Math.E, x) + System.Math.Pow(System.Math.E, -x));
-			var numerator = (System.Math.Pow(System.Math.E, x) - System.Math.Pow(System.Math.E, -x));
+			var denominator = (Math.Pow(Math.E, x) + Math.Pow(Math.E, -x));
+			var numerator = (Math.Pow(Math.E, x) - Math.Pow(Math.E, -x));
 			var result = (numerator / denominator);
 			return result;
 		}
 
-		public static double Length(double x, double y, double z)
-		{
-			return System.Math.Sqrt((x * x) + (y * y) + (z * z));
-		}
-
 		public static double RadiansToDegrees(double radians)
 		{
-			return (radians * (180 / System.Math.PI));
+			return (radians * (180 / Math.PI));
 		}
 
 		public static double DegreesToRadians(double degrees)
 		{
-			return (degrees * (System.Math.PI / 180));
+			return (degrees * (Math.PI / 180));
 		}
 
 		public static double Angle(Vector2 vectorA, Vector2 vectorB)
@@ -80,7 +75,7 @@ namespace FlintLib.Mathematics
 			return (Vector3.Dot(vectorA, vectorB) / (vectorA.Length() * vectorB.Length()));
 		}
 		
-		public static readonly double PHI = ((1 + System.Math.Sqrt(5)) / 2);
+		public static readonly double PHI = ((1 + Math.Sqrt(5)) / 2);
 
 		public static ushort GCD(ushort a, ushort b)
 		{

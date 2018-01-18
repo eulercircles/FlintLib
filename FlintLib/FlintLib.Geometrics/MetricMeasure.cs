@@ -124,10 +124,10 @@ namespace FlintLib.Geometrics
 			return false;
 		}
 
-		public CustomaryMeasure ConvertToCustomary()
+		public ImperialMeasure ConvertToCustomary()
 		{
 			var decimalInchValue = Centimeters * Mathematics.Functions.CentimeterToInchMultiplier;
-			return new CustomaryMeasure(Centimeters * Mathematics.Functions.CentimeterToInchMultiplier);
+			return new ImperialMeasure(Centimeters * Mathematics.Functions.CentimeterToInchMultiplier);
 		}
 
 		public override string ToString()

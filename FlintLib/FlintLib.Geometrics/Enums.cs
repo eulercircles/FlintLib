@@ -2,7 +2,7 @@
 
 namespace FlintLib.Geometrics
 {
-	public enum CustomaryDenominators
+	public enum ImperialDenominators
 	{
 		Quarter = 4,
 		Eighth = 8,
@@ -14,7 +14,7 @@ namespace FlintLib.Geometrics
 
 	public enum MeasurementSystems
 	{
-		Customary,
+		Imperial,
 		Metric
 	}
 
@@ -23,7 +23,7 @@ namespace FlintLib.Geometrics
 	/// </summary>
 	/// Use the following format for unit descriptions:
 	/// Abbreviation, full unit name (singular), full unit name (plural), symbol (if any).
-	public enum CustomaryUnits
+	public enum ImperialUnits
 	{
 		[Description("in,inch,inches,\"")]
 		Inches = 1,
