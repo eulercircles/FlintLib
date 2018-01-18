@@ -1,9 +1,11 @@
-﻿using FlintLib.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using FlintLib.Common;
+using FlintLib.Mathematics;
 
 namespace FlintLib.Geometrics
 {
@@ -126,8 +128,8 @@ namespace FlintLib.Geometrics
 
 		public ImperialMeasure ConvertToCustomary()
 		{
-			var decimalInchValue = Centimeters * Mathematics.Functions.CentimeterToInchMultiplier;
-			return new ImperialMeasure(Centimeters * Mathematics.Functions.CentimeterToInchMultiplier);
+			var decimalInchValue = Centimeters * Constants.CentimeterToInchMultiplier;
+			return new ImperialMeasure(Centimeters * Constants.CentimeterToInchMultiplier);
 		}
 
 		public override string ToString()

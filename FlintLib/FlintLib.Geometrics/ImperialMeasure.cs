@@ -63,60 +63,82 @@ namespace FlintLib.Geometrics
 
 		public static bool TryParse(string input, out ImperialMeasure? output)
 		{
-			if (string.IsNullOrWhiteSpace(input)) { output = null; return false; }
+			if (string.IsNullOrWhiteSpace(input))
+			{ output = null; return false; }
 
-			var parts = input.Split(' ');
-
-			if (parts.Length < 1 || parts.Length > 2) { output = null; return false; }
-			else
+			var parseString = input;
+			ImperialUnits parsedUnit = ImperialUnits.Inches;
+			foreach (var designator in InternalResources.Instance.AcceptableImperialUnitDesignators)
 			{
-				if (parts.Length == 1)
+				if (parseString.EndsWith(designator))
 				{
-					var wholePartString = parts[0];
-
-					if (!wholePartString.IsInteger()) { output = null; return false; }
-
-					var value = int.Parse(wholePartString);
-
-					output = new ImperialMeasure(value);
-					return true;
+					parsedUnit = designator.ToImperialUnit().Value;
+					parseString = parseString.Replace(designator, string.Empty).Trim();
+					break;
 				}
-				else
+			}
+
+			var parts = parseString.Split(' ');
+
+			if (parts.Length == 1 && !parts[0].Contains("/"))
+			{
+				if (parts[0].IsNumericValue())
 				{
-					var wholePartString = parts[0];
-					var fractionalPartString = parts[1];
-
-					if (!wholePartString.IsInteger()) { output = null; return false; }
-
-					var fractionParts = fractionalPartString.Split('/');
-
-					if (fractionParts.Length != 2) { output = null; return false; }
-
-					var numeratorString = fractionParts[0];
-					var denominatorString = fractionParts[1];
-
-					if (!numeratorString.IsInteger()) { output = null; return false; }
-
-					if (!denominatorString.IsInteger()) { output = null; return false; }
-
-					var value = (double)int.Parse(wholePartString) + ((double)int.Parse(numeratorString) / (double)int.Parse(denominatorString));
-
-					output = new ImperialMeasure(value);
+					output = new ImperialMeasure(double.Parse(parts[0]), parsedUnit);
 					return true;
 				}
 			}
+			else if (parts.Length == 1 && parts[0].Contains("/"))
+			{
+				var fractionalParts = parts[0].Split('/');
+
+				if (fractionalParts[0].IsNumericValue() && fractionalParts[1].IsNumericValue())
+				{
+					var numerator = double.Parse(fractionalParts[0]);
+					var denominator = double.Parse(fractionalParts[1]);
+
+					if (denominator > 0)
+					{
+						output = new ImperialMeasure((numerator / denominator), parsedUnit);
+						return true;
+					}
+				}
+			}
+			else if (parts.Length == 2)
+			{
+				var wholePart = parts[0];
+				var fractionalParts = parts[1].Split('/');
+
+				if (wholePart.IsNumericValue())
+				{
+					if (fractionalParts[0].IsNumericValue() && fractionalParts[1].IsNumericValue())
+					{
+						var numerator = double.Parse(fractionalParts[0]);
+						var denominator = double.Parse(fractionalParts[1]);
+
+						if (denominator > 0)
+						{
+							var value = double.Parse(wholePart) + (numerator / denominator);
+							output = new ImperialMeasure(value, parsedUnit);
+							return true;
+						}
+					}
+				}
+			}
+
+			output = null; return false;
 		}
 
 		public MetricMeasure ConvertToMetric()
 		{
-			return new MetricMeasure(_value * Functions.InchToCentimeterMultiplier);
+			return new MetricMeasure(_value * Constants.InchToCentimeterMultiplier);
 		}
 
 		public string ToFractionalInchString(ImperialDenominators maxResolution = ImperialDenominators.HundredTwentyEighth)
 		{
 			ushort whole = 0;
 			ushort numerator = 0;
-			ushort denominator = 0;
+			ushort denominator = 1;
 
 			whole = (ushort)Math.Truncate(_value);
 

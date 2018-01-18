@@ -22,7 +22,7 @@ namespace FlintLib.Geometrics
 		}
 
 		private readonly IReadOnlyList<string> _acceptableImperialUnitDesignators;
-		public IReadOnlyList<string> AcceptableCustomaryUnitDesignators
+		public IReadOnlyList<string> AcceptableImperialUnitDesignators
 		{ get { return _acceptableImperialUnitDesignators; } }
 
 		private readonly IReadOnlyList<string> _acceptableMetricUnitDesignators;

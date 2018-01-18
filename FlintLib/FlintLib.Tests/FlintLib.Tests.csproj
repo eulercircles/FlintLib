@@ -54,6 +54,7 @@
     <Compile Include="Common\Observable_Tester.cs" />
     <Compile Include="Common\Extensions_Tester.cs" />
     <Compile Include="Genetics\Chromosome_Tester.cs" />
+    <Compile Include="Geometrics\ImperialMeasure_Tester.cs" />
     <Compile Include="Intelligence\NeuralNetwork_Tester.cs" />
     <Compile Include="Music\ModeChords_Tester.cs" />
     <Compile Include="MVVM\Converter_Tester.cs" />
@@ -77,6 +78,10 @@
       <Project>{24a9a5a1-a58d-4a8f-890f-6dbd50a9b328}</Project>
       <Name>FlintLib.Genetics</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FlintLib.Geometrics\FlintLib.Geometrics.csproj">
+      <Project>{782701c3-59f4-49f0-9c15-740414456712}</Project>
+      <Name>FlintLib.Geometrics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FlintLib.Intelligence\FlintLib.Intelligence.csproj">
       <Project>{768027c7-700c-4cb0-90ea-69a64c56bed5}</Project>
       <Name>FlintLib.Intelligence</Name>
@@ -97,11 +102,14 @@
       <Project>{20ec6b62-9001-43a3-ad2e-9aadbe18a451}</Project>
       <Name>FlintLib.Structures</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FlintLib.Synthesis\FlintLib.Synthesis.csproj">
+      <Project>{1f230cc0-62ac-40b8-a04f-a5082bb30eab}</Project>
+      <Name>FlintLib.Synthesis</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Diagnostics\" />
-    <Folder Include="Geometrics\" />
     <Folder Include="Mathematics\" />
     <Folder Include="Utilities\" />
   </ItemGroup>

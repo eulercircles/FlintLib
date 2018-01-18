@@ -68,5 +68,28 @@ namespace FlintLib.Geometrics
 		{
 			throw new NotImplementedException();
 		}
+
+		public static ImperialUnits? ToImperialUnit(this string value)
+		{
+			var imperialUnits = EnumUtilities.GetEnumDescriptions<ImperialUnits>();
+
+			ImperialUnits? result = null;
+			foreach(var kvp in imperialUnits)
+			{
+				var designators = kvp.Key.Split(',');
+				foreach (var designator in designators)
+				{
+					if (designator == value)
+					{
+						result = kvp.Value;
+						break;
+					}
+				}
+
+				if (result.HasValue) { break; }
+			}
+
+			return result;
+		}
 	}
 }

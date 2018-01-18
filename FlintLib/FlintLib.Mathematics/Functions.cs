@@ -5,9 +5,6 @@ namespace FlintLib.Mathematics
 {
 	public static class Functions
 	{
-		public const double InchToCentimeterMultiplier = 2.54;
-		public const double CentimeterToInchMultiplier = 1 / InchToCentimeterMultiplier;
-
 		public static float ClampF(float min, float max, float x)
 		{
 			if (x < min) { return min; }
@@ -74,8 +71,6 @@ namespace FlintLib.Mathematics
 		{
 			return (Vector3.Dot(vectorA, vectorB) / (vectorA.Length() * vectorB.Length()));
 		}
-		
-		public static readonly double PHI = ((1 + Math.Sqrt(5)) / 2);
 
 		public static ushort GCD(ushort a, ushort b)
 		{
