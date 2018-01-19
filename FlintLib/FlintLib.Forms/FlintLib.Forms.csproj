@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1F230CC0-62AC-40B8-A04F-A5082BB30EAB}</ProjectGuid>
+    <ProjectGuid>{706BE5DE-43A5-4220-9AD7-197F6F6489A8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FlintLib.Synthesis</RootNamespace>
-    <AssemblyName>FlintLib.Synthesis</AssemblyName>
+    <RootNamespace>FlintLib.Forms</RootNamespace>
+    <AssemblyName>FlintLib.Forms</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -33,6 +33,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,21 +44,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Waveforms\WaveGenerator.cs" />
+    <Compile Include="CustomaryLengthTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IntegerTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SupportItems.cs" />
+    <Compile Include="ValidatingTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FlintLib.Mathematics\FlintLib.Mathematics.csproj">
-      <Project>{07b70176-9762-463f-ae1a-ce0f09b684b4}</Project>
-      <Name>FlintLib.Mathematics</Name>
+    <ProjectReference Include="..\FlintLib.Common\FlintLib.Common.csproj">
+      <Project>{5deea8b9-fe52-4fcb-b9b5-a14fc50a27a1}</Project>
+      <Name>FlintLib.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlintLib.Geometrics\FlintLib.Geometrics.csproj">
+      <Project>{782701c3-59f4-49f0-9c15-740414456712}</Project>
+      <Name>FlintLib.Geometrics</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

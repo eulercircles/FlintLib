@@ -21,9 +21,9 @@ namespace FlintLib.Geometrics
 			}
 		}
 
-		private readonly IReadOnlyList<string> _acceptableImperialUnitDesignators;
-		public IReadOnlyList<string> AcceptableImperialUnitDesignators
-		{ get { return _acceptableImperialUnitDesignators; } }
+		private readonly IReadOnlyList<string> _acceptableCustomaryUnitDesignators;
+		public IReadOnlyList<string> AcceptableCustomaryUnitDesignators
+		{ get { return _acceptableCustomaryUnitDesignators; } }
 
 		private readonly IReadOnlyList<string> _acceptableMetricUnitDesignators;
 		public IReadOnlyList<string> AcceptableMetricUnitDesignators
@@ -33,10 +33,10 @@ namespace FlintLib.Geometrics
 
 		private InternalResources()
 		{
-			List<string> imperialDesignators = new List<string>();
-			List<string> imperialUnitDescriptions = EnumUtilities.GetEnumDescriptions<ImperialUnits>().Keys.ToList();
-			imperialUnitDescriptions.ForEach(d => imperialDesignators.AddRange(d.Split(',')));
-			_acceptableImperialUnitDesignators = imperialDesignators;
+			List<string> customaryDesignators = new List<string>();
+			List<string> customaryUnitDescriptions = EnumUtilities.GetEnumDescriptions<CustomaryUnits>().Keys.ToList();
+			customaryUnitDescriptions.ForEach(d => customaryDesignators.AddRange(d.Split(',')));
+			_acceptableCustomaryUnitDesignators = customaryDesignators;
 
 			List<string> metricDesignators = new List<string>();
 			List<string> metricUnitDescriptions = EnumUtilities.GetEnumDescriptions<MetricUnits>().Keys.ToList();

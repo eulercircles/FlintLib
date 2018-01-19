@@ -7,9 +7,9 @@ namespace FlintLib.Geometrics
 {
 	public static class Extensions
 	{
-		public static ImperialUnits? GetCustomaryUnit(this string designator)
+		public static CustomaryUnits? GetCustomaryUnit(this string designator)
 		{
-			var units = EnumUtilities.GetEnumDescriptions<ImperialUnits>();
+			var units = EnumUtilities.GetEnumDescriptions<CustomaryUnits>();
 			var key = units.Keys.ToList().FirstOrDefault(k => k.Contains(designator));
 
 			if (key != null) { return units[key]; }
@@ -39,7 +39,7 @@ namespace FlintLib.Geometrics
 			else { return null; }
 		}
 
-		public static string GetUnitAbbreviation(this ImperialUnits imperialUnit)
+		public static string GetUnitAbbreviation(this CustomaryUnits imperialUnit)
 		{
 			throw new NotImplementedException();
 		}
@@ -49,7 +49,7 @@ namespace FlintLib.Geometrics
 			throw new NotImplementedException();
 		}
 
-		public static string GetSingularUnitName(this ImperialUnits imperialUnit)
+		public static string GetSingularUnitName(this CustomaryUnits imperialUnit)
 		{
 			throw new NotImplementedException();
 		}
@@ -59,7 +59,7 @@ namespace FlintLib.Geometrics
 			throw new NotImplementedException();
 		}
 
-		public static string GetPluralUnitName(this ImperialUnits imperialUnit)
+		public static string GetPluralUnitName(this CustomaryUnits imperialUnit)
 		{
 			throw new NotImplementedException();
 		}
@@ -69,12 +69,12 @@ namespace FlintLib.Geometrics
 			throw new NotImplementedException();
 		}
 
-		public static ImperialUnits? ToImperialUnit(this string value)
+		public static CustomaryUnits? ToCustomaryUnit(this string value)
 		{
-			var imperialUnits = EnumUtilities.GetEnumDescriptions<ImperialUnits>();
+			var customaryUnits = EnumUtilities.GetEnumDescriptions<CustomaryUnits>();
 
-			ImperialUnits? result = null;
-			foreach(var kvp in imperialUnits)
+			CustomaryUnits? result = null;
+			foreach(var kvp in customaryUnits)
 			{
 				var designators = kvp.Key.Split(',');
 				foreach (var designator in designators)

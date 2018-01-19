@@ -5,6 +5,13 @@ namespace FlintLib.Mathematics
 {
 	public static class Functions
 	{
+		public static double Clamp1(double value)
+		{
+			if (value < -1) return -1;
+			else if (value > 1) return 1;
+			else return value;
+		}
+
 		public static float ClampF(float min, float max, float x)
 		{
 			if (x < min) { return min; }
