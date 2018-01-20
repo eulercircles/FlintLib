@@ -40,11 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ImperialMeasure.cs" />
+    <Compile Include="CustomaryLength.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="InternalResources.cs" />
-    <Compile Include="MetricMeasure.cs" />
+    <Compile Include="MetricLength.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

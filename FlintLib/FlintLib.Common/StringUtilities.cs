@@ -7,7 +7,15 @@ namespace FlintLib.Common
 {
 	public static class StringUtilities
 	{
-		public static string DoubleNewLine { get { return (Environment.NewLine + Environment.NewLine); } }
+		public static string NewLines(int count)
+		{
+			if (count < 1) { throw new ArgumentOutOfRangeException("Must be greater than zero.", nameof(count)); }
+
+			var result = string.Empty;
+			for (int i = 0; i < count; i++)
+			{ result += Environment.NewLine; }
+			return result;
+		}
 
 		public static bool IsEmpty(this string item)
 		{
@@ -19,7 +27,7 @@ namespace FlintLib.Common
 		{
 			if (item != null)
 			{
-				return string.IsNullOrWhiteSpace(item) ? true : false;
+				return string.IsNullOrWhiteSpace(item);
 			}
 			else { throw new ArgumentException(nameof(item)); }
 		}

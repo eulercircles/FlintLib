@@ -5,7 +5,7 @@ using FlintLib.Mathematics;
 
 namespace FlintLib.Geometrics
 {
-	public struct ImperialMeasure
+	public struct CustomaryLength
 	{
 		/// <summary>
 		/// The value of the measure, always in *inches*.
@@ -14,63 +14,63 @@ namespace FlintLib.Geometrics
 
 		public double DecimalInches { get { return _value; } }
 
-		public double DecimalFeet { get { return Math.Round((_value / (int)ImperialUnits.Feet), InternalResources.Instance.MaxDecimalResolution); } }
+		public double DecimalFeet { get { return Math.Round((_value / (int)CustomaryUnits.Feet), InternalResources.Instance.MaxDecimalResolution); } }
 
-		public double DecimalYards { get { return Math.Round((_value / (int)ImperialUnits.Yards), InternalResources.Instance.MaxDecimalResolution); } }
+		public double DecimalYards { get { return Math.Round((_value / (int)CustomaryUnits.Yards), InternalResources.Instance.MaxDecimalResolution); } }
 
 		#region Operator Overloads
 		#region Binary Operators
-		public static ImperialMeasure operator +(ImperialMeasure lhs, ImperialMeasure rhs)
-		{ return new ImperialMeasure(lhs._value + rhs._value); }
+		public static CustomaryLength operator +(CustomaryLength lhs, CustomaryLength rhs)
+		{ return new CustomaryLength(lhs._value + rhs._value); }
 
-		public static ImperialMeasure operator -(ImperialMeasure lhs, ImperialMeasure rhs)
-		{ return new ImperialMeasure(lhs._value - rhs._value); }
+		public static CustomaryLength operator -(CustomaryLength lhs, CustomaryLength rhs)
+		{ return new CustomaryLength(lhs._value - rhs._value); }
 
-		public static ImperialMeasure operator *(ImperialMeasure lhs, ImperialMeasure rhs)
-		{ return new ImperialMeasure(lhs._value * rhs._value); }
+		public static CustomaryLength operator *(CustomaryLength lhs, CustomaryLength rhs)
+		{ return new CustomaryLength(lhs._value * rhs._value); }
 
-		public static ImperialMeasure operator /(ImperialMeasure lhs, ImperialMeasure rhs)
-		{ return new ImperialMeasure(lhs._value / rhs._value); }
+		public static CustomaryLength operator /(CustomaryLength lhs, CustomaryLength rhs)
+		{ return new CustomaryLength(lhs._value / rhs._value); }
 		#endregion Binary Operators
 
 		#region Comparison Operators
-		public static bool operator ==(ImperialMeasure lhs, ImperialMeasure rhs)
+		public static bool operator ==(CustomaryLength lhs, CustomaryLength rhs)
 		{ return (lhs._value == rhs._value); }
 
-		public static bool operator !=(ImperialMeasure lhs, ImperialMeasure rhs)
+		public static bool operator !=(CustomaryLength lhs, CustomaryLength rhs)
 		{ return (lhs._value != rhs._value); }
 
-		public static bool operator <(ImperialMeasure lhs, ImperialMeasure rhs)
+		public static bool operator <(CustomaryLength lhs, CustomaryLength rhs)
 		{ return (lhs._value < rhs._value); }
 
-		public static bool operator >(ImperialMeasure lhs, ImperialMeasure rhs)
+		public static bool operator >(CustomaryLength lhs, CustomaryLength rhs)
 		{ return (lhs._value > rhs._value); }
 
-		public static bool operator <=(ImperialMeasure lhs, ImperialMeasure rhs)
+		public static bool operator <=(CustomaryLength lhs, CustomaryLength rhs)
 		{ return (lhs._value <= rhs._value); }
 
-		public static bool operator >=(ImperialMeasure lhs, ImperialMeasure rhs)
+		public static bool operator >=(CustomaryLength lhs, CustomaryLength rhs)
 		{ return (lhs._value >= rhs._value); }
 		#endregion Comparison Operators
 		#endregion Operator Overloads
 
-		public ImperialMeasure(double value, ImperialUnits unit = ImperialUnits.Inches)
+		public CustomaryLength(double value, CustomaryUnits unit = CustomaryUnits.Inches)
 		{
 			_value = Math.Round(value, InternalResources.Instance.MaxDecimalResolution) * (int)unit; // Converts to inches.
 		}
 
-		public static bool TryParse(string input, out ImperialMeasure? output)
+		public static bool TryParse(string input, out CustomaryLength? output)
 		{
 			if (string.IsNullOrWhiteSpace(input))
 			{ output = null; return false; }
 
 			var parseString = input;
-			ImperialUnits parsedUnit = ImperialUnits.Inches;
-			foreach (var designator in InternalResources.Instance.AcceptableImperialUnitDesignators)
+			CustomaryUnits parsedUnit = CustomaryUnits.Inches;
+			foreach (var designator in InternalResources.Instance.AcceptableCustomaryUnitDesignators)
 			{
 				if (parseString.EndsWith(designator))
 				{
-					parsedUnit = designator.ToImperialUnit().Value;
+					parsedUnit = designator.ToCustomaryUnit().Value;
 					parseString = parseString.Replace(designator, string.Empty).Trim();
 					break;
 				}
@@ -82,7 +82,7 @@ namespace FlintLib.Geometrics
 			{
 				if (parts[0].IsNumericValue())
 				{
-					output = new ImperialMeasure(double.Parse(parts[0]), parsedUnit);
+					output = new CustomaryLength(double.Parse(parts[0]), parsedUnit);
 					return true;
 				}
 			}
@@ -97,7 +97,7 @@ namespace FlintLib.Geometrics
 
 					if (denominator > 0)
 					{
-						output = new ImperialMeasure((numerator / denominator), parsedUnit);
+						output = new CustomaryLength((numerator / denominator), parsedUnit);
 						return true;
 					}
 				}
@@ -116,6 +116,8 @@ namespace FlintLib.Geometrics
 
 						if (denominator > 0)
 						{
+							var value = double.Parse(wholePart) + (numerator / denominator);
+							output = new CustomaryLength(value, parsedUnit);
 							var value = double.Parse(wholePart);
 
 							value += value.IsNegative() ? -(numerator / denominator) : (numerator / denominator);
@@ -130,12 +132,12 @@ namespace FlintLib.Geometrics
 			output = null; return false;
 		}
 
-		public MetricMeasure ConvertToMetric()
+		public MetricLength ConvertToMetric()
 		{
-			return new MetricMeasure(_value * Constants.InchToCentimeterMultiplier);
+			return new MetricLength(_value * Constants.InchToCentimeterMultiplier);
 		}
 
-		public string ToFractionalInchString(ImperialDenominators maxResolution = ImperialDenominators.HundredTwentyEighth)
+		public string ToFractionalInchString(CustomaryDenominators maxResolution = CustomaryDenominators.HundredTwentyEighth)
 		{
 			if (_value == 0) { return $"{_value}\""; }
 
@@ -179,16 +181,11 @@ namespace FlintLib.Geometrics
 			return ($"{signString}{wholeString}{fractionalString}\"");
 		}
 
-		public string ToFeetAndInchesString()
-		{
-			throw new NotImplementedException();
-		}
-
 		public override string ToString() => $"{_value}\"";
 
 		public override bool Equals(object obj)
 		{
-			if (obj is ImperialMeasure comparator)
+			if (obj is CustomaryLength comparator)
 			{
 				return comparator._value == this._value;
 			}

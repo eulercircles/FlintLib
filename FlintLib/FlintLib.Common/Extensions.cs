@@ -80,5 +80,35 @@ namespace FlintLib.Common
 			}
 			else { return false; }
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="valueString"></param>
+		/// <returns></returns>
+		public static bool IsIntegerValue(this string valueString)
+		{
+			double parsedValue;
+			if (double.TryParse(valueString, out parsedValue))
+			{
+				if (parsedValue - Math.Truncate(parsedValue) == 0)
+				{
+					return true;
+				}
+				else { return false; }
+			}
+			else { return false; }
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="valueString"></param>
+		/// <returns></returns>
+		public static bool IsNumericValue(this string valueString)
+		{
+			double parsedValue;
+			return double.TryParse(valueString, out parsedValue);
+		}
 	}
 }

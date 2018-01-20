@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace FlintLib.Common
 {
@@ -17,7 +12,5 @@ namespace FlintLib.Common
 
 		public static Color NeutralForeground { get { return Color.FromArgb(255, 156, 101, 0); } }
 		public static Color NeutralBackground { get { return Color.FromArgb(255, 255, 235, 156); } }
-
-
 	}
 }

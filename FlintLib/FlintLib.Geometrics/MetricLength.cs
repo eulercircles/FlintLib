@@ -9,7 +9,7 @@ using FlintLib.Mathematics;
 
 namespace FlintLib.Geometrics
 {
-	public struct MetricMeasure
+	public struct MetricLength
 	{
 		/// <summary>
 		/// The value of the measure, always in *meters*.
@@ -26,46 +26,46 @@ namespace FlintLib.Geometrics
 
 		#region Operator Overloads
 		#region Binary Operators
-		public static MetricMeasure operator +(MetricMeasure lhs, MetricMeasure rhs)
-		{ return new MetricMeasure(lhs._value + rhs._value); }
+		public static MetricLength operator +(MetricLength lhs, MetricLength rhs)
+		{ return new MetricLength(lhs._value + rhs._value); }
 
-		public static MetricMeasure operator -(MetricMeasure lhs, MetricMeasure rhs)
-		{ return new MetricMeasure(lhs._value - rhs._value); }
+		public static MetricLength operator -(MetricLength lhs, MetricLength rhs)
+		{ return new MetricLength(lhs._value - rhs._value); }
 
-		public static MetricMeasure operator *(MetricMeasure lhs, MetricMeasure rhs)
-		{ return new MetricMeasure(lhs._value * rhs._value); }
+		public static MetricLength operator *(MetricLength lhs, MetricLength rhs)
+		{ return new MetricLength(lhs._value * rhs._value); }
 
-		public static MetricMeasure operator /(MetricMeasure lhs, MetricMeasure rhs)
-		{ return new MetricMeasure(lhs._value / rhs._value); }
+		public static MetricLength operator /(MetricLength lhs, MetricLength rhs)
+		{ return new MetricLength(lhs._value / rhs._value); }
 		#endregion Binary Operators
 
 		#region Comparison Operators
-		public static bool operator ==(MetricMeasure lhs, MetricMeasure rhs)
+		public static bool operator ==(MetricLength lhs, MetricLength rhs)
 		{ return (lhs._value == rhs._value); }
 
-		public static bool operator !=(MetricMeasure lhs, MetricMeasure rhs)
+		public static bool operator !=(MetricLength lhs, MetricLength rhs)
 		{ return (lhs._value != rhs._value); }
 
-		public static bool operator <(MetricMeasure lhs, MetricMeasure rhs)
+		public static bool operator <(MetricLength lhs, MetricLength rhs)
 		{ return (lhs._value < rhs._value); }
 
-		public static bool operator >(MetricMeasure lhs, MetricMeasure rhs)
+		public static bool operator >(MetricLength lhs, MetricLength rhs)
 		{ return (lhs._value > rhs._value); }
 
-		public static bool operator <=(MetricMeasure lhs, MetricMeasure rhs)
+		public static bool operator <=(MetricLength lhs, MetricLength rhs)
 		{ return (lhs._value <= rhs._value); }
 
-		public static bool operator >=(MetricMeasure lhs, MetricMeasure rhs)
+		public static bool operator >=(MetricLength lhs, MetricLength rhs)
 		{ return (lhs._value >= rhs._value); }
 		#endregion Comparison Operators
 		#endregion Operator Overloads
 
-		public MetricMeasure(double value, MetricUnits unit = MetricUnits.Meters)
+		public MetricLength(double value, MetricUnits unit = MetricUnits.Meters)
 		{
 			_value = value / (int)unit; // Be sure to convert to meters.
 		}
 
-		public static bool TryParse(string input, out MetricMeasure? output)
+		public static bool TryParse(string input, out MetricLength? output)
 		{
 			input = input.Trim().CleanWhitespace().ToUpper();
 
@@ -79,7 +79,7 @@ namespace FlintLib.Geometrics
 
 			if (input.IsNumericValue())
 			{
-				output = new MetricMeasure(double.Parse(input));
+				output = new MetricLength(double.Parse(input));
 			}
 			else
 			{
@@ -100,11 +100,11 @@ namespace FlintLib.Geometrics
 								// or JUST the designator.
 								if (split[0] == designator.ToUpper())
 								{
-									output = new MetricMeasure(0, unit.Value);
+									output = new MetricLength(0, unit.Value);
 								}
 								else
 								{
-									output = new MetricMeasure(double.Parse(split[0].GetLeadingNumerical()), unit.Value);
+									output = new MetricLength(double.Parse(split[0].GetLeadingNumerical()), unit.Value);
 								}
 								return true;
 							}
@@ -113,7 +113,7 @@ namespace FlintLib.Geometrics
 								double numericValue;
 								if (double.TryParse(split[0], out numericValue))
 								{
-									output = new MetricMeasure(numericValue, unit.Value);
+									output = new MetricLength(numericValue, unit.Value);
 									return true;
 								}
 							}
@@ -126,10 +126,10 @@ namespace FlintLib.Geometrics
 			return false;
 		}
 
-		public ImperialMeasure ConvertToCustomary()
+		public CustomaryLength ConvertToCustomary()
 		{
 			var decimalInchValue = Centimeters * Constants.CentimeterToInchMultiplier;
-			return new ImperialMeasure(Centimeters * Constants.CentimeterToInchMultiplier);
+			return new CustomaryLength(Centimeters * Constants.CentimeterToInchMultiplier);
 		}
 
 		public override string ToString()
@@ -139,9 +139,9 @@ namespace FlintLib.Geometrics
 
 		public override bool Equals(object obj)
 		{
-			if (obj is MetricMeasure)
+			if (obj is MetricLength)
 			{
-				var comparator = (MetricMeasure)obj;
+				var comparator = (MetricLength)obj;
 				return comparator._value == this._value; ;
 			}
 

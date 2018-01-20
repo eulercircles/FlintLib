@@ -1,5 +1,7 @@
 ﻿using System;
 
+using FlintLib.Mathematics;
+
 namespace FlintLib.Synthesis.Waveforms
 {
 	public static class WaveGenerator
@@ -10,7 +12,7 @@ namespace FlintLib.Synthesis.Waveforms
 		/// <param name="phase"></param>
 		/// <returns></returns>
 		public static double GeneratePureSineSample(double phase)
-			=> (Math.Sin(Functions.Pi2 * phase));
+			=> (Math.Sin(Constants.Pi2 * phase));
 
 		/// <summary>
 		/// 
@@ -26,7 +28,7 @@ namespace FlintLib.Synthesis.Waveforms
 		/// <param name="phase"></param>
 		/// <returns></returns>
 		public static double GenerateMinimoogSawtoothSample(double phase)
-			=> (-Math.Cos(Functions.Pi2* (phase / 2)));
+			=> (-Math.Cos(Constants.Pi2* (phase / 2)));
 
 		/// <summary>
 		/// 

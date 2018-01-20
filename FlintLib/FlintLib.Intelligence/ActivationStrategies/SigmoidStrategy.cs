@@ -10,6 +10,6 @@ namespace FlintLib.Intelligence.ActivationStrategies
 
 		public SigmoidStrategy(float c) => _c = c;
 
-		public float Calculate(float value) => Mathematics.Functions.SigmoidF(value, _c);
+		public float Calculate(float value) => Functions.SigmoidF(value, _c);
 	}
 }
