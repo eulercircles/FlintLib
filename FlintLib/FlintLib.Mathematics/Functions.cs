@@ -62,14 +62,32 @@ namespace FlintLib.Mathematics
 			return (degrees * (Math.PI / 180));
 		}
 
-		public static double Angle(Vector2 vectorA, Vector2 vectorB)
+		public static double RadianAngle(Vector2 vectorA, Vector2 vectorB)
 		{
-			return (Vector2.Dot(vectorA, vectorB) / (vectorA.Length() * vectorB.Length()));
+			var dot = Vector2.Dot(vectorA, vectorB);
+			var length = vectorA.Length() * vectorB.Length();
+			var result = Math.Acos(dot / length);
+			return result;
 		}
 
-		public static double Angle(Vector3 vectorA, Vector3 vectorB)
+		public static double DegreeAngle(Vector2 vectorA, Vector2 vectorB)
 		{
-			return (Vector3.Dot(vectorA, vectorB) / (vectorA.Length() * vectorB.Length()));
+			var result = RadiansToDegrees(RadianAngle(vectorA, vectorB));
+			return result;
+		}
+
+		public static double RadianAngle(Vector3 vectorA, Vector3 vectorB)
+		{
+			var dot = Vector3.Dot(vectorA, vectorB);
+			var length = vectorA.Length() * vectorB.Length();
+			var result = Math.Acos(dot / length);
+			return result;
+		}
+
+		public static double DegreeAngle(Vector3 vectorA, Vector3 vectorB)
+		{
+			var result = RadiansToDegrees(RadianAngle(vectorA, vectorB));
+			return result;
 		}
 
 		public static ushort GCD(ushort a, ushort b)

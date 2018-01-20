@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
 
 using FlintLib.Common;
 using FlintLib.Mathematics;
@@ -118,7 +116,10 @@ namespace FlintLib.Geometrics
 
 						if (denominator > 0)
 						{
-							var value = double.Parse(wholePart) + (numerator / denominator);
+							var value = double.Parse(wholePart);
+
+							value += value.IsNegative() ? -(numerator / denominator) : (numerator / denominator);
+							
 							output = new ImperialMeasure(value, parsedUnit);
 							return true;
 						}
@@ -136,13 +137,22 @@ namespace FlintLib.Geometrics
 
 		public string ToFractionalInchString(ImperialDenominators maxResolution = ImperialDenominators.HundredTwentyEighth)
 		{
-			var whole = 0;
+			if (_value == 0) { return $"{_value}\""; }
+
+			bool isNegative = false;
+			var intermediaryValue = _value;
+
+			if (_value < 0)
+			{
+				isNegative = true;
+				intermediaryValue = -_value;
+			}
+			
+			var whole = Math.Truncate(intermediaryValue);
 			var numerator = 0;
 			var denominator = 1;
 
-			whole = (ushort)Math.Truncate(_value);
-
-			var fractionalPart = _value - whole;
+			var fractionalPart = intermediaryValue - whole;
 			var intermediary = fractionalPart * (ushort)maxResolution;
 			var intermediaryNumerator = (ushort)Math.Round(intermediary);
 
@@ -154,7 +164,7 @@ namespace FlintLib.Geometrics
 				denominator = (ushort)((ushort)maxResolution / gcd);
 			}
 
-			var wholeString = $"{whole}";
+			var wholeString = (whole > 0) ? $"{whole}" : string.Empty;
 
 			var fractionalString = string.Empty;
 			if (numerator != 0)
@@ -164,7 +174,9 @@ namespace FlintLib.Geometrics
 				fractionalString += $"{numerator}/{denominator}";
 			}
 
-			return ($"{wholeString}{fractionalString}\"");
+			var signString = isNegative ? "-" : string.Empty;
+
+			return ($"{signString}{wholeString}{fractionalString}\"");
 		}
 
 		public string ToFeetAndInchesString()

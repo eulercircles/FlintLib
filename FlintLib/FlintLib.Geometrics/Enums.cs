@@ -25,6 +25,7 @@ namespace FlintLib.Geometrics
 	/// Abbreviation, full unit name (singular), full unit name (plural), symbol (if any).
 	public enum ImperialUnits
 	{
+		UNDEFINED = 0,
 		[Description("in,inch,inches,\"")]
 		Inches = 1,
 		[Description("ft,foot,feet,'")]
@@ -40,6 +41,7 @@ namespace FlintLib.Geometrics
 	/// Abbreviation, full unit name (singular), full unit name (plural)
 	public enum MetricUnits
 	{
+		UNDEFINED = 0,
 		[Description("mm,millimeter,millimeters")]
 		Millimeters = 1000,
 		[Description("cm,centimeter,centimeters")]

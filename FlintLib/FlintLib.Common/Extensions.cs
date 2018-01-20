@@ -27,6 +27,11 @@ namespace FlintLib.Common
 			return value.ToString("C", CultureInfo.CurrentCulture);
 		}
 
+		public static bool IsNegative(this double value)
+		{
+			return value < 0;
+		}
+
 		public static bool IsInRange(this int value, int lowerValue, int upperValue)
 		{
 			return (value >= lowerValue && value <= upperValue);
