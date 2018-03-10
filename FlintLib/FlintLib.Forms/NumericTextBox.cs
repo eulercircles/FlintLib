@@ -11,6 +11,10 @@ namespace FlintLib.Forms
 
 		public bool IsValid { get { return ValidityState == TextBoxValidityStates.Valid; } }
 
+		public double Minimum { get; set; } = double.MinValue;
+
+		public double Maximum { get; set; } = double.MaxValue;
+
 		public NumericTextBox()
 		{
 			TextAlign = HorizontalAlignment.Right;
