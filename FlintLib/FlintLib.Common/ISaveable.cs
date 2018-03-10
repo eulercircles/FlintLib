@@ -5,7 +5,7 @@ namespace FlintLib.Common
 	/// <summary>
 	/// 
 	/// </summary>
-	public interface ISavable
+	public interface ISaveable
 	{
 		/// <summary>
 		/// 

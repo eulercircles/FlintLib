@@ -50,7 +50,7 @@
     <Compile Include="Internals\ReadOnlyObservable.cs" />
     <Compile Include="IObservable.cs" />
     <Compile Include="IReadOnlyObservable.cs" />
-    <Compile Include="ISavable.cs" />
+    <Compile Include="ISaveable.cs" />
     <Compile Include="ObservablesFactory.cs" />
     <Compile Include="ProductInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

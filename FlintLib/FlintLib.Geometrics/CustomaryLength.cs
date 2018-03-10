@@ -116,13 +116,12 @@ namespace FlintLib.Geometrics
 
 						if (denominator > 0)
 						{
-							var value = double.Parse(wholePart) + (numerator / denominator);
-							output = new CustomaryLength(value, parsedUnit);
+							//var value = double.Parse(wholePart) + (numerator / denominator);
 							var value = double.Parse(wholePart);
 
 							value += value.IsNegative() ? -(numerator / denominator) : (numerator / denominator);
 							
-							output = new ImperialMeasure(value, parsedUnit);
+							output = new CustomaryLength(value, parsedUnit);
 							return true;
 						}
 					}
