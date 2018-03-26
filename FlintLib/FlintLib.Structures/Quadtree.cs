@@ -46,10 +46,7 @@ namespace FlintLib.Structures
 		public void Add(IBounded2D item)
 		{
 			_objects.Add(item);
-			if (_objects.Count > _maxItems)
-			{
-				Split();
-			}
+			if (_objects.Count > _maxItems) { Split(); }
 		}
 
 		public void Clear() => _objects.Clear();

@@ -14,7 +14,9 @@ namespace FlintLib.Diagnostics
 
 		internal ExceptionLogger(string logFileDirectory, string prepend = "", string append = "", string extension = "log")
 		{
-			_logFileDirectory = logFileDirectory.Validate().NormalizeSpacing().Trim();
+			if (string.IsNullOrWhiteSpace(logFileDirectory)) { throw new ArgumentNullException(nameof(logFileDirectory)); }
+
+			_logFileDirectory = logFileDirectory.NormalizeSpacing().Trim();
 
 			if (!Directory.Exists(logFileDirectory))
 			{ Directory.CreateDirectory(logFileDirectory); }
@@ -36,7 +38,7 @@ namespace FlintLib.Diagnostics
 				using (var streamWriter = _getStreamWriter())
 				{
 					if (prefaceInfo != null)
-					{ streamWriter.WriteLine(prefaceInfo.Trim().Validate()); }
+					{ streamWriter.WriteLine(prefaceInfo.Trim()); }
 					streamWriter.WriteLine(exception.ToString());
 				}
 			}
