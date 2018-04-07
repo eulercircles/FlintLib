@@ -67,7 +67,7 @@ namespace FlintLib.Geometrics
 
 		public static bool TryParse(string input, out MetricLength? output)
 		{
-			input = input.Trim().CleanWhitespace().ToUpper();
+			input = input.Trim().NormalizeSpacing().ToUpper();
 
 			if (string.IsNullOrWhiteSpace(input))
 			{
