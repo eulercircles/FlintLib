@@ -31,14 +31,14 @@ namespace FlintLib.MVVM.Internals
 		}
 
 		/// <summary>
-		/// Creates a bindable property with a default initial value.
+		/// Creates an observable property with a default initial value.
 		/// </summary>
 		internal Bindable() : this(default(T)) { }
 
 		/// <summary>
-		/// Creates a bindable property with the specified initial value.
+		/// Creates an observable property with the specified initial value.
 		/// </summary>
-		/// <param name="initialValue">The value to initialize the bindable property to.</param>
+		/// <param name="initialValue">The value to initialize the observable property to.</param>
 		internal Bindable(T initialValue)
 		{
 			Value = initialValue;
@@ -47,6 +47,11 @@ namespace FlintLib.MVVM.Internals
 		private void _triggerPropertyChangedEvent(string propertyName = null)
 		{
 			_propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+
+		public void Bump()
+		{
+			_triggerPropertyChangedEvent(nameof(Value));
 		}
 	}
 }

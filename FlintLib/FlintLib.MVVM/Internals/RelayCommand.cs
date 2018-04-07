@@ -1,17 +1,17 @@
-﻿#region Using Directives
+﻿#region Using Statements
 using System;
 using System.Linq;
 using System.Windows.Input;
 
 using FlintLib.MVVM.Resources;
-#endregion Using Directives
+#endregion // Using Statements
 
 namespace FlintLib.MVVM
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	internal class RelayCommand : ICommand
+	public class RelayCommand : ICommand
 	{
 		#region Private Members
 		private Action _execute;
@@ -19,12 +19,10 @@ namespace FlintLib.MVVM
 		#endregion // Private Members
 
 		#region Constructors
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="execute"></param>
-		/// <param name="canExecute"></param>
-		public RelayCommand(Action execute, Func<bool> canExecute = null)
+		public RelayCommand(Action execute)
+			: this(execute, null) { }
+
+		public RelayCommand(Action execute, Func<bool> canExecute)
 		{
 			if (execute == null) { throw new ArgumentNullException(nameof(execute)); }
 
@@ -38,7 +36,7 @@ namespace FlintLib.MVVM
 		/// <summary>
 		/// 
 		/// </summary>
-		protected void TriggerCanExecuteChangedEvent()
+		public void TriggerCanExecuteChangedEvent()
 		{
 			_canExecuteChanged?.Invoke(this, null);
 		}
@@ -92,16 +90,12 @@ namespace FlintLib.MVVM
 		#endregion // Private Members
 
 		#region Constructors
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="execute"></param>
-		/// <param name="canExecute"></param>
-		public RelayCommand(Action<T> execute, Func<bool> canExecute = null)
-		{
-			if (execute == null) { throw new ArgumentNullException(nameof(execute)); }
+		public RelayCommand(Action<T> execute)
+			: this(execute, null) { }
 
-			_execute = execute;
+		public RelayCommand(Action<T> execute, Func<bool> canExecute)
+		{
+			_execute = execute ?? throw new ArgumentNullException(nameof(execute));
 			_canExecute = canExecute;
 		}
 		#endregion // Constructors
@@ -111,7 +105,7 @@ namespace FlintLib.MVVM
 		/// <summary>
 		/// 
 		/// </summary>
-		protected void TriggerCanExecuteChanged()
+		public void TriggerCanExecuteChanged()
 		{
 			_canExecuteChanged?.Invoke(this, null);
 		}

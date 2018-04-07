@@ -4,15 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2689C497-7747-4D70-9CB7-9598F888FF37}</ProjectGuid>
+    <ProjectGuid>{1501A789-A607-4905-93DE-B4DF51423D0C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FlintLib.Core</RootNamespace>
-    <AssemblyName>FlintLib.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>FlintLib.Commands</RootNamespace>
+    <AssemblyName>FlintLib.Commands</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -43,25 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\FlintLib.Common\ProductInfo.cs">
-      <Link>Properties\ProductInfo.cs</Link>
-    </Compile>
-    <Compile Include="Command\Enums.cs" />
-    <Compile Include="Command\ICommand.cs" />
-    <Compile Include="Math.cs" />
+    <Compile Include="Commands.cs" />
+    <Compile Include="Delegates.cs" />
+    <Compile Include="ICommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="State\IStateContext.cs" />
-    <Compile Include="State\State.cs" />
-    <Compile Include="Structures\BiNode.cs" />
-    <Compile Include="Structures\OctNode.cs" />
-    <Compile Include="Structures\QuadNode.cs" />
-    <Compile Include="Structures\SPTreeNode.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+    <ProjectReference Include="..\FlintLib.Common\FlintLib.Common.csproj">
+      <Project>{5deea8b9-fe52-4fcb-b9b5-a14fc50a27a1}</Project>
+      <Name>FlintLib.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="FlintLib.Core.nuspec" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -31,10 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FlintLib.Utilities, Version=0.0.1.16991, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FlintLib.Utilities.0.0.1.16991\lib\net462\FlintLib.Utilities.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,19 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\FlintLib.Common\ProductInfo.cs">
-      <Link>Properties\ProductInfo.cs</Link>
-    </Compile>
-    <Compile Include="Controls\ColorScheme.cs" />
-    <Compile Include="Legacy.cs" />
+    <Compile Include="ColorScheme.cs" />
     <Compile Include="Controls\IConsoleControl.cs" />
-    <Compile Include="Controls\Input\InputControl.cs" />
-    <Compile Include="Controls\Input\InputKeyControl.cs" />
-    <Compile Include="Controls\Input\InputTextControl.cs" />
-    <Compile Include="Controls\Operations\Operation.cs" />
-    <Compile Include="Controls\Operations\ShowMessageOperation.cs" />
-    <Compile Include="Controls\Delegates.cs" />
-    <Compile Include="Controls\Enums.cs" />
+    <Compile Include="Controls\InputControl.cs" />
+    <Compile Include="Controls\InputKeyControl.cs" />
+    <Compile Include="Controls\InputTextControl.cs" />
+    <Compile Include="Controls\MenuControl.cs" />
+    <Compile Include="Controls\MenuItemControl.cs" />
+    <Compile Include="Controls\MessageControl.cs" />
+    <Compile Include="Delegates.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Strings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -66,17 +59,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FlintLib.Commands\FlintLib.Commands.csproj">
+      <Project>{1501a789-a607-4905-93de-b4df51423d0c}</Project>
+      <Name>FlintLib.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlintLib.Common\FlintLib.Common.csproj">
+      <Project>{5deea8b9-fe52-4fcb-b9b5-a14fc50a27a1}</Project>
+      <Name>FlintLib.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Resources\Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\New\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="FlintLib.Console.nuspec" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

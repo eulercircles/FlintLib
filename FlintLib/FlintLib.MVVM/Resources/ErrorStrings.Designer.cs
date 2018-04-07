@@ -22,7 +22,7 @@ namespace FlintLib.MVVM.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ErrorStrings {
+    public class ErrorStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace FlintLib.MVVM.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FlintLib.MVVM.Resources.ErrorStrings", typeof(ErrorStrings).Assembly);
@@ -51,7 +51,7 @@ namespace FlintLib.MVVM.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,9 +61,18 @@ namespace FlintLib.MVVM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ---.
+        /// </summary>
+        public static string CannotConvertStringPlaceholder {
+            get {
+                return ResourceManager.GetString("CannotConvertStringPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Converter cannot convert back..
         /// </summary>
-        internal static string ConverterCannotConvertBack {
+        public static string ConverterCannotConvertBack {
             get {
                 return ResourceManager.GetString("ConverterCannotConvertBack", resourceCulture);
             }
@@ -72,7 +81,7 @@ namespace FlintLib.MVVM.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Parameter must be of type {0} and not type {1}.
         /// </summary>
-        internal static string ParameterIsNotAValidType {
+        public static string ParameterIsNotAValidType {
             get {
                 return ResourceManager.GetString("ParameterIsNotAValidType", resourceCulture);
             }
@@ -81,7 +90,7 @@ namespace FlintLib.MVVM.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Unhandled Enum Value: .
         /// </summary>
-        internal static string UnhandledEnumValue {
+        public static string UnhandledEnumValue {
             get {
                 return ResourceManager.GetString("UnhandledEnumValue", resourceCulture);
             }
