@@ -10,16 +10,16 @@ namespace FlintLib.Common
 		/// <summary>
 		/// 
 		/// </summary>
-		public const string VersionMajorMinor = "0.2";
+		public const string VersionMajorMinor = "0.3";
 
 		/// <summary>
 		/// 
 		/// </summary>
 		public const string Description = "Development Pre-Release";
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public const string Copyright = "Copyright © Ronald E Flint 2015 - 2016";
+		/// <summary>
+		/// 
+		/// </summary>
+		public const string Copyright = "Copyright © Ronald E Flint 2015-2018";
 	}
 }
