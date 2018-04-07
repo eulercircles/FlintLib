@@ -41,9 +41,9 @@ namespace FlintLib.MVVM
 
 		protected void _triggerPropertyChangedEvent(string propertyName)
 		{
-			Debug.Assert(propertyName != null);
-
-			_propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName.Validate()));
+			if (string.IsNullOrWhiteSpace(propertyName)) { throw new ArgumentNullException(nameof(propertyName)); }
+			
+			_propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 		#endregion // INotifyPropertyChanged Implementation
 

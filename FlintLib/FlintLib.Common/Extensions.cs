@@ -42,11 +42,7 @@ namespace FlintLib.Common
 		
 		public static bool IsGreaterThanZero(this string stringValue)
 		{
-			if (double.TryParse(stringValue, out double numericalValue))
-			{
-				return (numericalValue > 0);
-			}
-			else { return false; }
+			return double.TryParse(stringValue, out double numericalValue) ? (numericalValue > 0) : false;
 		}
 
 		/// <summary>
