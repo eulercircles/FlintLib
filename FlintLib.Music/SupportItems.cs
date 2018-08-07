@@ -377,11 +377,11 @@ namespace FlintLib.Music
 		private readonly Intervals _interval1;
 		private readonly Intervals _interval2;
 
-		public Intervals Interval1 { get { return _interval1; } }
-		public Intervals Interval2 { get { return _interval2; } }
+		public Intervals Interval1 => _interval1;
+		public Intervals Interval2 => _interval2;
 
 		private readonly string _symbol;
-		public string Symbol { get { return _symbol; } }
+		public string Symbol => _symbol;
 
 		public Chord3(Intervals interval1, Intervals interval2)
 		{

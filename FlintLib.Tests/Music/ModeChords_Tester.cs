@@ -1,11 +1,11 @@
 ﻿using System;
+using System.IO;
+using System.Text;
+using System.Collections.Generic;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using FlintLib.Music;
-using System.Text;
-using System.IO;
-using System.Collections.Generic;
 
 namespace FlintLib.Tests.Intelligence
 {
@@ -17,12 +17,14 @@ namespace FlintLib.Tests.Intelligence
 		{
 			var modes = ModeGenerator.GenerateHeptatonics();
 
-			var csv = new List<string>();
-			csv.Add(",1,2,3,4,5,6,7,");
+			var csv = new List<string>
+			{
+				",1,2,3,4,5,6,7,"
+			};
 
 			foreach (var mode in modes) { csv.Add(GetCSV(mode.Value)); }
 
-			File.WriteAllLines(@"C:\users\Ronald\Desktop\chords.csv", csv.ToArray());
+			File.WriteAllLines(@"C:\users\Ronal\Desktop\chords.csv", csv.ToArray());
 		}
 
 		private string GetCSV(HeptatonicMode mode)

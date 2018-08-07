@@ -4,8 +4,8 @@ using System;
 
 namespace FlintLib.MVVM
 {
-    [Obsolete("Do not use.", true)]
-    public interface IAdjutant
+	[Obsolete("Do not use.", true)]
+	public interface IAdjutant
 	{
 		void RegisterExecutor<T>(Executor<T> handler) where T : Command;
 		void UnregisterExecutor<T>(Executor<T> handler) where T : Command;
@@ -14,7 +14,7 @@ namespace FlintLib.MVVM
 
 	public delegate void Executor<T>(object sender, T commandObject) where T : Command;
 
-	public abstract class Command {}
+	public abstract class Command { }
 
 	public abstract class Command<T> : Command
 	{
