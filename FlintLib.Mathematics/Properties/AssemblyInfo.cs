@@ -19,4 +19,4 @@ using FlintLib.Common;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("07b70176-9762-463f-ae1a-ce0f09b684b4")]
 
-[assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + ".1.*")]
+[assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + "1.0")]

@@ -117,10 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="StringIsEmpty" xml:space="preserve">
-    <value>This string is empty.</value>
+  <data name="Message_DateMustBeTodayOrLater" xml:space="preserve">
+    <value>The date must be today or later.</value>
   </data>
-  <data name="StringIsWhiteSpace" xml:space="preserve">
-    <value>This string is white space.</value>
+  <data name="Message_SemiMonthlyStyleMustBeSet" xml:space="preserve">
+    <value>The semi-monthly style must be set when the semi-monthly period is chosen for a recurring transaction.</value>
+  </data>
+  <data name="Message_StartDateCannotBeSaturday" xml:space="preserve">
+    <value>If a correction method is chosen for Saturdays, the recurring transaction cannot begin on a Saturday.</value>
+  </data>
+  <data name="Message_StartDateCannotBeSunday" xml:space="preserve">
+    <value>If a correction method is chosen for Sundays, the recurring transaction cannot begin on a Sunday.</value>
+  </data>
+  <data name="Message_StartDateMustBeFifteenthOrLast" xml:space="preserve">
+    <value>The day of the starting date must be the 15th or the last day of the month when selecting the semi-monthly period and the semi-monthly style of "Fifteenth and Last".</value>
+  </data>
+  <data name="Message_StartDateMustBeFirstOrFifteenth" xml:space="preserve">
+    <value>The day of the starting date must be the 1st or 15th of the month when selecting the semi-monthly period and the semi-monthly style of "First and Fifteenth".</value>
   </data>
 </root>

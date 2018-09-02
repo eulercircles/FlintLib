@@ -22,14 +22,14 @@ namespace FlintLib.Common.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ErrorStrings {
+    public class PublicStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ErrorStrings() {
+        internal PublicStrings() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace FlintLib.Common.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FlintLib.Common.Resources.ErrorStrings", typeof(ErrorStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FlintLib.Common.Resources.PublicStrings", typeof(PublicStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,18 +63,27 @@ namespace FlintLib.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to This string is empty..
         /// </summary>
-        public static string StringIsEmpty {
+        public static string Error_StringIsEmpty {
             get {
-                return ResourceManager.GetString("StringIsEmpty", resourceCulture);
+                return ResourceManager.GetString("Error_StringIsEmpty", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to This string is white space..
         /// </summary>
-        public static string StringIsWhiteSpace {
+        public static string Error_StringIsWhiteSpace {
             get {
-                return ResourceManager.GetString("StringIsWhiteSpace", resourceCulture);
+                return ResourceManager.GetString("Error_StringIsWhiteSpace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to yyyy-MM-dd.
+        /// </summary>
+        public static string Format_DateTime_YearFirst {
+            get {
+                return ResourceManager.GetString("Format_DateTime_YearFirst", resourceCulture);
             }
         }
     }

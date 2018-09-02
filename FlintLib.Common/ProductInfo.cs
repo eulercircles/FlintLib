@@ -10,7 +10,7 @@ namespace FlintLib.Common
 		/// <summary>
 		/// 
 		/// </summary>
-		public const string VersionMajorMinor = "0.3";
+		public const string VersionMajorMinor = "0.3.";
 
 		/// <summary>
 		/// 

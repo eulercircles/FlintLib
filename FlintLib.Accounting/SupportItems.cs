@@ -1,10 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FlintLib.Accounting
+﻿namespace FlintLib.Accounting
 {
+	public enum TransactionDirection
+	{
+		Income,
+		Expense
+	}
 
+	public enum AccountTypes
+	{
+		Internal,
+		External
+	}
 }

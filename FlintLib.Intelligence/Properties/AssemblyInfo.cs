@@ -12,11 +12,11 @@ using FlintLib.Common;
 [assembly: AssemblyProduct("FlintLib.Intelligence")]
 [assembly: AssemblyCopyright(ProductInfo.Copyright)]
 [assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
+[assembly: AssemblyCulture("en-US")]
 
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("768027c7-700c-4cb0-90ea-69a64c56bed5")]
 
-[assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + ".1.*")]
+[assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + "1.0")]
