@@ -39,11 +39,5 @@ namespace FlintLib.Tests.Common
 			Assert.IsTrue(result2.HasValue && result2 == 49.8m);
 			Assert.IsNull(result3);
 		}
-
-		[TestMethod]
-		public void TestToCurrencyStringWithKnownGoods()
-		{
-			throw new NotImplementedException();
-		}
 	}
 }

@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using FlintLib.Music;
 
-namespace FlintLib.Tests.Intelligence
+namespace FlintLib.Tests.Music
 {
 	[TestClass]
 	public class ModeChords_Tester

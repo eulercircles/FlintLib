@@ -43,17 +43,14 @@
   <ItemGroup>
     <Compile Include="Date.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="MonthlyRecurringItem.cs" />
     <Compile Include="Properties\InternalResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InternalResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RecurringItem.cs" />
-    <Compile Include="SemiMonthlyRecurringItem.cs" />
+    <Compile Include="Recurrences.cs" />
     <Compile Include="SupportItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YearlyRecurringItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlintLib.Common\FlintLib.Common.csproj">

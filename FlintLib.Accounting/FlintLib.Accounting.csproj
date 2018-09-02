@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAccount.cs" />
+    <Compile Include="Account.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecurringTransaction.cs" />
     <Compile Include="SupportItems.cs" />
+    <Compile Include="TransactionCorrection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Internals\" />

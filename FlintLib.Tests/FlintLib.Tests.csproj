@@ -51,6 +51,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Accounting\RecurringTransactionTester.cs" />
     <Compile Include="Common\Observable_Tester.cs" />
     <Compile Include="Common\Extensions_Tester.cs" />
     <Compile Include="Genetics\Chromosome_Tester.cs" />
@@ -60,8 +61,7 @@
     <Compile Include="MVVM\Converter_Tester.cs" />
     <Compile Include="MVVM\Bindables_Tester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scheduling\RecurrentItem_Tester.cs" />
-    <Compile Include="Scheduling\TestRecurrentItem.cs" />
+    <Compile Include="Scheduling\RecurringItem_Tester.cs" />
     <Compile Include="Scheduling\Date_Tester.cs" />
     <Compile Include="Structures\PQItem.cs" />
     <Compile Include="Structures\PriorityQueue_Tester.cs" />

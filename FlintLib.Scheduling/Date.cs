@@ -77,9 +77,11 @@ namespace FlintLib.Scheduling
 		}
 		
 		public static bool operator ==(Date left, Date right) => (left.Year == right.Year && left.Month == right.Month && left.Day == right.Day);
+
 		public static bool operator !=(Date left, Date right) => (left.Year != right.Year || left.Month != right.Month || left.Day != right.Day);
 
 		public static implicit operator DateTime(Date date) => new DateTime(date.Year, (int)date.Month, date.Day);
+
 		public static implicit operator Date(DateTime dateTime) => new Date(dateTime);
 		#endregion Operator Overloads
 
@@ -111,6 +113,8 @@ namespace FlintLib.Scheduling
 		public DayOfWeek DayOfWeek => ((DateTime)this).DayOfWeek;
 
 		public int DayOfYear => ((DateTime)this).DayOfYear;
+
+		public static Date Today => DateTime.Today;
 
 		public Date BeginningOfMonth => ((DateTime)this).BeginningOfMonth();
 
@@ -161,6 +165,17 @@ namespace FlintLib.Scheduling
 		public override string ToString()
 		{
 			return $"{Year.ToString().PadLeft(4,'0')}-{((int)Month).ToString().PadLeft(2,'0')}-{Day.ToString().PadLeft(2, '0')}";
+		}
+
+		/// <summary>
+		/// Assumes the exact format that was generated in Date.ToString().
+		/// </summary>
+		/// <param name="value">A string with the format 'yyyy-MM-dd'.</param>
+		/// <returns></returns>
+		public static Date ParseExact(string value)
+		{
+			var parts = value.Split('-');
+			return new Date(ushort.Parse(parts[0]), (Months)int.Parse(parts[1]), ushort.Parse(parts[2]));
 		}
 	}
 }
