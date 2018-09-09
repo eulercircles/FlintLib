@@ -19,7 +19,7 @@
 
 	public enum RecurrencePeriods
 	{
-		None,
+		UNDEFINED,
 		Yearly,
 		Monthly,
 		SemiMonthly,

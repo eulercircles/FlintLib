@@ -51,6 +51,7 @@
     <Compile Include="Recurrences.cs" />
     <Compile Include="SupportItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Time.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlintLib.Common\FlintLib.Common.csproj">

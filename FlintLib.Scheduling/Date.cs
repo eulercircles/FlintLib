@@ -159,7 +159,11 @@ namespace FlintLib.Scheduling
 
 		public override int GetHashCode()
 		{
-			return base.GetHashCode();
+			int hash = 13;
+			hash = (hash * 7) + Year.GetHashCode();
+			hash = (hash * 7) + ((int)Month).GetHashCode();
+			hash = (hash * 7) + Day.GetHashCode();
+			return hash;
 		}
 
 		public override string ToString()

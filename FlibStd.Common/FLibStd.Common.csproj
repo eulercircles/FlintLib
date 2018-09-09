@@ -15,17 +15,17 @@
     <Compile Include="..\FlintLib.Common\ISaveable.cs" Link="ISaveable.cs" />
     <Compile Include="..\FlintLib.Common\ObservablesFactory.cs" Link="ObservablesFactory.cs" />
     <Compile Include="..\FlintLib.Common\ProductInfo.cs" Link="ProductInfo.cs" />
-    <Compile Include="..\FlintLib.Common\Resources\ErrorStrings.Designer.cs" Link="Resources\ErrorStrings.Designer.cs" />
+    <Compile Include="..\FlintLib.Common\Properties\PublicResources.Designer.cs" Link="Properties\PublicResources.Designer.cs" />
     <Compile Include="..\FlintLib.Common\StringUtilities.cs" Link="StringUtilities.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="..\FlintLib.Common\Resources\ErrorStrings.resx" Link="Resources\ErrorStrings.resx" />
+    <EmbeddedResource Include="..\FlintLib.Common\Properties\PublicResources.resx" Link="Properties\PublicResources.resx" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Internals\" />
-    <Folder Include="Resources\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>

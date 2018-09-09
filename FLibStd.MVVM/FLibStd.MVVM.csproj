@@ -5,19 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\FlintLib.MVVM\Converters\BoolNotConverter.cs" Link="Converters\BoolNotConverter.cs" />
-    <Compile Include="..\FlintLib.MVVM\Converters\DateTimeToShortDateConverter.cs" Link="Converters\DateTimeToShortDateConverter.cs" />
-    <Compile Include="..\FlintLib.MVVM\Converters\DecimalToColorConverter.cs" Link="Converters\DecimalToColorConverter.cs" />
-    <Compile Include="..\FlintLib.MVVM\Converters\DecimalToCurrencyConverter.cs" Link="Converters\DecimalToCurrencyConverter.cs" />
-    <Compile Include="..\FlintLib.MVVM\Converters\DoubleToVisibleConverter.cs" Link="Converters\DoubleToVisibleConverter.cs" />
-    <Compile Include="..\FlintLib.MVVM\Converters\FalseToVisibleConverter.cs" Link="Converters\FalseToVisibleConverter.cs" />
-    <Compile Include="..\FlintLib.MVVM\Converters\FloatToPercentStringConverter.cs" Link="Converters\FloatToPercentStringConverter.cs" />
-    <Compile Include="..\FlintLib.MVVM\Converters\IntToPercentStringConverter.cs" Link="Converters\IntToPercentStringConverter.cs" />
-    <Compile Include="..\FlintLib.MVVM\Converters\IntToVisibleConverter.cs" Link="Converters\IntToVisibleConverter.cs" />
-    <Compile Include="..\FlintLib.MVVM\Converters\NotNullToVisibleConverter.cs" Link="Converters\NotNullToVisibleConverter.cs" />
-    <Compile Include="..\FlintLib.MVVM\Converters\NullToVisibleConverter.cs" Link="Converters\NullToVisibleConverter.cs" />
-    <Compile Include="..\FlintLib.MVVM\Converters\TrueToVisibleConverter.cs" Link="Converters\TrueToVisibleConverter.cs" />
-    <Compile Include="..\FlintLib.MVVM\Converters\VisibilityValueConverter.cs" Link="Converters\VisibilityValueConverter.cs" />
     <Compile Include="..\FlintLib.MVVM\Delegates.cs" Link="Delegates.cs" />
     <Compile Include="..\FlintLib.MVVM\Factories\BindablesFactory.cs" Link="Factories\BindablesFactory.cs" />
     <Compile Include="..\FlintLib.MVVM\Factories\CommandsFactory.cs" Link="Factories\CommandsFactory.cs" />
@@ -37,7 +24,6 @@
     <Compile Include="..\FlintLib.MVVM\MediatorArgs.cs" Link="MediatorArgs.cs" />
     <Compile Include="..\FlintLib.MVVM\PropertyChangedNotifier.cs" Link="PropertyChangedNotifier.cs" />
     <Compile Include="..\FlintLib.MVVM\Resources\ErrorStrings.Designer.cs" Link="Resources\ErrorStrings.Designer.cs" />
-    <Compile Include="..\FlintLib.MVVM\ViewModel_Base.cs" Link="ViewModel_Base.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,10 +35,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Converters\" />
     <Folder Include="Factories\" />
     <Folder Include="Internals\" />
     <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
   </ItemGroup>
 
 </Project>

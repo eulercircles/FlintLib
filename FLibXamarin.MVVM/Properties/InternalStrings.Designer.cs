@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FlintLib.Common.Resources {
+namespace FLibXamarin.MVVM.Properties {
     using System;
     
     
@@ -22,24 +22,24 @@ namespace FlintLib.Common.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class PublicStrings {
+    internal class InternalStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal PublicStrings() {
+        internal InternalStrings() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FlintLib.Common.Resources.PublicStrings", typeof(PublicStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FLibXamarin.MVVM.Properties.InternalStrings", typeof(InternalStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace FlintLib.Common.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,29 +61,47 @@ namespace FlintLib.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This string is empty..
+        ///   Looks up a localized string similar to Parameter must be of type {0} and not type {1}.
         /// </summary>
-        public static string Error_StringIsEmpty {
+        internal static string fMessage_ParameterIsNotAValidType {
             get {
-                return ResourceManager.GetString("Error_StringIsEmpty", resourceCulture);
+                return ResourceManager.GetString("fMessage_ParameterIsNotAValidType", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This string is white space..
+        ///   Looks up a localized string similar to Converter cannot convert back..
         /// </summary>
-        public static string Error_StringIsWhiteSpace {
+        internal static string Message_ConverterCannotConvertBack {
             get {
-                return ResourceManager.GetString("Error_StringIsWhiteSpace", resourceCulture);
+                return ResourceManager.GetString("Message_ConverterCannotConvertBack", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to yyyy-MM-dd.
+        ///   Looks up a localized string similar to Unhandled Enum Value: .
         /// </summary>
-        public static string Format_DateTime_YearFirst {
+        internal static string Message_UnhandledEnumValue {
             get {
-                return ResourceManager.GetString("Format_DateTime_YearFirst", resourceCulture);
+                return ResourceManager.GetString("Message_UnhandledEnumValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ---.
+        /// </summary>
+        internal static string Placeholde_ZeroValue {
+            get {
+                return ResourceManager.GetString("Placeholde_ZeroValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ---.
+        /// </summary>
+        internal static string Placeholder_CannotConvertToString {
+            get {
+                return ResourceManager.GetString("Placeholder_CannotConvertToString", resourceCulture);
             }
         }
     }

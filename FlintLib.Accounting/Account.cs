@@ -13,31 +13,12 @@ namespace FlintLib.Accounting
 		void Credit(decimal amount);
 	}
 
-	public class ExternalAccount : IAccount
+	public class Account : IAccount
 	{
-		public string Name { get; }
-		public decimal? Balance { get; }
-
-		public ExternalAccount(string name)
-		{
-			Name = name;
-			Balance = null;
-		}
-
-		public void SetBalanceTo(decimal amount) {}
-
-		public void Debit(decimal amount) {}
-
-		public void Credit(decimal amount) {}
-	}
-
-	public class InternalAccount : IAccount
-	{
-		public string Name { get; }
-
+		public string Name { get; set; }
 		public decimal? Balance { get; private set; }
 
-		public InternalAccount(string name, decimal amount)
+		public Account(string name, decimal amount)
 		{
 			if (string.IsNullOrWhiteSpace(name)) { throw new ArgumentNullException(nameof(name)); }
 			Balance = amount;
@@ -45,13 +26,13 @@ namespace FlintLib.Accounting
 
 		public void Credit(decimal amount)
 		{
-			Debug.Assert(amount > 0.0m);
+			if (amount < 0) { amount = -amount; }
 			Balance += amount;
 		}
 
 		public void Debit(decimal amount)
 		{
-			Debug.Assert(amount > 0.0m);
+			if (amount < 0) { amount = -amount; }
 			Balance -= amount;
 		}
 
@@ -60,5 +41,4 @@ namespace FlintLib.Accounting
 			Balance = amount;
 		}
 	}
-
 }

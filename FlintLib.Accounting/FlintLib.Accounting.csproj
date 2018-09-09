@@ -47,9 +47,7 @@
     <Compile Include="SupportItems.cs" />
     <Compile Include="TransactionCorrection.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Internals\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FlintLib.Common\FlintLib.Common.csproj">
       <Project>{5deea8b9-fe52-4fcb-b9b5-a14fc50a27a1}</Project>

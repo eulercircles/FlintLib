@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
-
-using FlintLib.Common.Resources;
 
 namespace FlintLib.Common
 {

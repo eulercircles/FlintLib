@@ -13,7 +13,7 @@ namespace FlintLib.Accounting
 		private readonly IAccount _targetAccount;
 		private readonly Queue<string> _pendingOccurrences;
 		private readonly Dictionary<string, TransactionCorrection> _corrections;
-		private readonly Recurrence _recurrence;
+		private readonly RecurrenceRule _recurrence;
 
 		private Date _lastAppliedTransaction;
 
@@ -21,15 +21,17 @@ namespace FlintLib.Accounting
 		string Description { get; }
 		decimal Amount { get; }
 
-		public RecurringTransaction(string name, decimal amount, IAccount sourceAccount, IAccount targetAccount, Recurrence recurrence)
+		public RecurringTransaction(string name, decimal amount, IAccount sourceAccount = null, IAccount targetAccount = null, RecurrenceRule recurrence = null)
 		{
 			if (string.IsNullOrWhiteSpace(name)) { throw new ArgumentNullException(nameof(name)); }
 
-			_lastAppliedTransaction = recurrence.StartingReference; // TODO: Remove this. It needs to be managed in another way.
+			if (sourceAccount == null && targetAccount == null) { throw new Exception("The source and target accounts cannot both be null."); }
 
-			_sourceAccount = sourceAccount ?? throw new ArgumentNullException(nameof(sourceAccount));
-			_targetAccount = targetAccount ?? throw new ArgumentNullException(nameof(sourceAccount));
-			_recurrence = recurrence ?? throw new ArgumentNullException(nameof(recurrence));
+			_lastAppliedTransaction = recurrence.StartDate; // TODO: Remove this. It needs to be managed in another way.
+
+			_sourceAccount = sourceAccount;
+			_targetAccount = targetAccount;
+			_recurrence = recurrence;
 
 			_pendingOccurrences = new Queue<string>();
 			_corrections = new Dictionary<string, TransactionCorrection>();
@@ -75,7 +77,6 @@ namespace FlintLib.Accounting
 				else
 				{
 					ApplyTransaction();
-					
 				}
 
 				_lastAppliedTransaction = Date.ParseExact(key);
@@ -85,8 +86,8 @@ namespace FlintLib.Accounting
 		private void ApplyTransaction(decimal? overrideAmount = null)
 		{
 			var amount = overrideAmount ?? Amount;
-			_sourceAccount.Debit(amount);
-			_targetAccount.Credit(amount);
+			_sourceAccount?.Debit(amount);
+			_targetAccount?.Credit(amount);
 		}
 	}
 }

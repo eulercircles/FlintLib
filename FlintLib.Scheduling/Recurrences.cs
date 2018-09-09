@@ -1,13 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+
+using static FlintLib.Common.Properties.PublicResources;
 using static FlintLib.Scheduling.Properties.InternalResources;
 
 namespace FlintLib.Scheduling
 {
-	public abstract class Recurrence
+	public class RecurrenceModel
 	{
-		public Date StartingReference { get; }
+		public RecurrencePeriods Period { get; set; }
+		public Date StartDate { get; set; }
+		public Date? EndDate { get; set; }
+
+		public MonthlyStyles? MonthlyStyle { get; set; }
+		public SemiMonthlyStyles? SemiMonthlyStyle { get; set; }
+
+		public CorrectionMethods SaturdayCorrectionRule { get; set; }
+		public CorrectionMethods SundayCorrectionRule { get; set; }
+		public CorrectionMethods HolidayCorrectionRule { get; set; }
+	}
+	
+	public abstract class RecurrenceRule
+	{
+		public RecurrencePeriods Period { get; }
+		public Date StartDate { get; }
 		public Date? EndDate { get; }
 
 		public CorrectionMethods SaturdayCorrection { get; }
@@ -16,18 +33,33 @@ namespace FlintLib.Scheduling
 
 		protected Date _currentNormalOccurrence;
 
-		public Recurrence(Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection)
+		public static RecurrenceRule CreateFromModel(RecurrenceModel model)
 		{
-			StartingReference = startDate; // This must be set once and be used as the very first valid occurrence that the recurrence was created for.
+			switch (model.Period)
+			{
+				case RecurrencePeriods.Yearly: return new YearlyRecurrenceRule(model.StartDate, model.EndDate, model.SaturdayCorrectionRule, model.SundayCorrectionRule, model.HolidayCorrectionRule);
+				case RecurrencePeriods.Monthly: return new MonthlyRecurrenceRule(model.MonthlyStyle.Value, model.StartDate, model.EndDate, model.SaturdayCorrectionRule, model.SundayCorrectionRule, model.HolidayCorrectionRule);
+				case RecurrencePeriods.SemiMonthly: return new SemiMonthlyRecurrenceRule(model.SemiMonthlyStyle.Value, model.StartDate, model.EndDate, model.SaturdayCorrectionRule, model.SundayCorrectionRule, model.HolidayCorrectionRule);
+				case RecurrencePeriods.Biweekly: return new BiweeklyRecurrenceRule(model.StartDate, model.EndDate, model.SaturdayCorrectionRule, model.SundayCorrectionRule, model.HolidayCorrectionRule);
+				case RecurrencePeriods.Weekly: return new WeeklyRecurrenceRule(model.StartDate, model.EndDate, model.SaturdayCorrectionRule, model.SundayCorrectionRule, model.HolidayCorrectionRule);
+				default: throw new Exception(string.Format(fMessage_UnhandledEnumValue, model.Period));
+			}
+		}
+
+		public RecurrenceRule(Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection)
+		{
+			StartDate = startDate; // This must be set once and be used as the very first valid occurrence that the recurrence was created for.
 			EndDate = endDate;
 			SaturdayCorrection = saturdayCorrection;
 			SundayCorrection = sundayCorrection;
 			HolidayCorrection = holidayCorrection;
 
-			_currentNormalOccurrence = StartingReference;
+			_currentNormalOccurrence = StartDate;
 		}
-
+	
 		internal abstract Date Next();
+
+		internal abstract RecurrenceModel GetModel();
 
 		protected internal Date GetCorrection()
 		{
@@ -81,10 +113,10 @@ namespace FlintLib.Scheduling
 		{
 			Debug.Assert(upper >= lower);
 
-			if (lower < StartingReference) { lower = StartingReference; }
+			if (lower < StartDate) { lower = StartDate; }
 
 			var results = new List<Date>();
-			var current = _currentNormalOccurrence = StartingReference;
+			var current = _currentNormalOccurrence = StartDate;
 			while (current <= upper)
 			{
 				if (current >= lower) { results.Add(current); }
@@ -95,10 +127,23 @@ namespace FlintLib.Scheduling
 		}
 	}
 
-	public class YearlyRecurrence : Recurrence
+	public class YearlyRecurrenceRule : RecurrenceRule
 	{
-		public YearlyRecurrence(Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection) : base(startDate, endDate, saturdayCorrection, sundayCorrection, holidayCorrection)
+		public YearlyRecurrenceRule(Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection) : base(startDate, endDate, saturdayCorrection, sundayCorrection, holidayCorrection)
 		{
+		}
+
+		internal override RecurrenceModel GetModel()
+		{
+			return new RecurrenceModel()
+			{
+				Period = RecurrencePeriods.Yearly,
+				StartDate = StartDate,
+				EndDate = EndDate,
+				SaturdayCorrectionRule = SaturdayCorrection,
+				SundayCorrectionRule = SundayCorrection,
+				HolidayCorrectionRule = HolidayCorrection
+			};
 		}
 
 		internal override Date Next()
@@ -108,11 +153,11 @@ namespace FlintLib.Scheduling
 		}
 	}
 
-	public class MonthlyRecurrence : Recurrence
+	public class MonthlyRecurrenceRule : RecurrenceRule
 	{
 		public MonthlyStyles MonthlyStyle { get; }
 
-		public MonthlyRecurrence(MonthlyStyles monthlyStyle, Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection) : base(startDate, endDate, saturdayCorrection, sundayCorrection, holidayCorrection)
+		public MonthlyRecurrenceRule(MonthlyStyles monthlyStyle, Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection) : base(startDate, endDate, saturdayCorrection, sundayCorrection, holidayCorrection)
 		{
 			if (monthlyStyle == MonthlyStyles.FirstDay && startDate.Day != 1)
 			{
@@ -141,13 +186,27 @@ namespace FlintLib.Scheduling
 			_currentNormalOccurrence = _currentNormalOccurrence.AddMonths(1);
 			return GetCorrection();
 		}
+
+		internal override RecurrenceModel GetModel()
+		{
+			return new RecurrenceModel()
+			{
+				Period = RecurrencePeriods.Monthly,
+				StartDate = StartDate,
+				EndDate = EndDate,
+				MonthlyStyle = MonthlyStyle,
+				SaturdayCorrectionRule = SaturdayCorrection,
+				SundayCorrectionRule = SundayCorrection,
+				HolidayCorrectionRule = HolidayCorrection
+			};
+		}
 	}
 
-	public class SemiMonthlyRecurrence : Recurrence
+	public class SemiMonthlyRecurrenceRule : RecurrenceRule
 	{
 		public SemiMonthlyStyles SemiMonthlyStyle { get; }
 
-		public SemiMonthlyRecurrence(SemiMonthlyStyles semiMonthlyStyle, Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection)
+		public SemiMonthlyRecurrenceRule(SemiMonthlyStyles semiMonthlyStyle, Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection)
 			: base(startDate, endDate, saturdayCorrection, sundayCorrection, holidayCorrection)
 		{
 			if (semiMonthlyStyle == SemiMonthlyStyles.UNDEFINED)
@@ -188,17 +247,44 @@ namespace FlintLib.Scheduling
 
 			return GetCorrection();
 		}
+
+		internal override RecurrenceModel GetModel()
+		{
+			return new RecurrenceModel()
+			{
+				Period = RecurrencePeriods.Monthly,
+				StartDate = StartDate,
+				EndDate = EndDate,
+				SemiMonthlyStyle = SemiMonthlyStyle,
+				SaturdayCorrectionRule = SaturdayCorrection,
+				SundayCorrectionRule = SundayCorrection,
+				HolidayCorrectionRule = HolidayCorrection
+			};
+		}
 	}
 
-	public class BiweeklyRecurrence : Recurrence
+	public class BiweeklyRecurrenceRule : RecurrenceRule
 	{
-		public BiweeklyRecurrence(Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection) : base(startDate, endDate, saturdayCorrection, sundayCorrection, holidayCorrection)
+		public BiweeklyRecurrenceRule(Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection) : base(startDate, endDate, saturdayCorrection, sundayCorrection, holidayCorrection)
 		{
 			if (saturdayCorrection != CorrectionMethods.None && startDate.DayOfWeek == DayOfWeek.Saturday)
 			{ throw new Exception(Message_StartDateCannotBeSaturday); }
 
 			if (sundayCorrection != CorrectionMethods.None && startDate.DayOfWeek == DayOfWeek.Sunday)
 			{ throw new Exception(Message_StartDateCannotBeSunday); }
+		}
+
+		internal override RecurrenceModel GetModel()
+		{
+			return new RecurrenceModel()
+			{
+				Period = RecurrencePeriods.Yearly,
+				StartDate = StartDate,
+				EndDate = EndDate,
+				SaturdayCorrectionRule = SaturdayCorrection,
+				SundayCorrectionRule = SundayCorrection,
+				HolidayCorrectionRule = HolidayCorrection
+			};
 		}
 
 		internal override Date Next()
@@ -208,15 +294,28 @@ namespace FlintLib.Scheduling
 		}
 	}
 
-	public class WeeklyRecurrence : Recurrence
+	public class WeeklyRecurrenceRule : RecurrenceRule
 	{
-		public WeeklyRecurrence(Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection) : base(startDate, endDate, saturdayCorrection, sundayCorrection, holidayCorrection)
+		public WeeklyRecurrenceRule(Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection) : base(startDate, endDate, saturdayCorrection, sundayCorrection, holidayCorrection)
 		{
 			if (saturdayCorrection != CorrectionMethods.None && startDate.DayOfWeek == DayOfWeek.Saturday)
 			{ throw new Exception(Message_StartDateCannotBeSaturday); }
 
 			if (sundayCorrection != CorrectionMethods.None && startDate.DayOfWeek == DayOfWeek.Sunday)
 			{ throw new Exception(Message_StartDateCannotBeSunday); }
+		}
+
+		internal override RecurrenceModel GetModel()
+		{
+			return new RecurrenceModel()
+			{
+				Period = RecurrencePeriods.Yearly,
+				StartDate = StartDate,
+				EndDate = EndDate,
+				SaturdayCorrectionRule = SaturdayCorrection,
+				SundayCorrectionRule = SundayCorrection,
+				HolidayCorrectionRule = HolidayCorrection
+			};
 		}
 
 		internal override Date Next()

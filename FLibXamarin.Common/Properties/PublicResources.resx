@@ -117,13 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Error_StringIsEmpty" xml:space="preserve">
-    <value>This string is empty.</value>
+  <data name="fMessage_UnhandledEnumValue" xml:space="preserve">
+    <value>The value {0} is unhandled.</value>
+    <comment>{0} is the enum member</comment>
   </data>
-  <data name="Error_StringIsWhiteSpace" xml:space="preserve">
-    <value>This string is white space.</value>
+  <data name="fMessage_ValueMustBeBetween" xml:space="preserve">
+    <value>The value must be between {0} and {1}.</value>
+    <comment>{0} is the lower bound and {1} is the upper bound.</comment>
   </data>
   <data name="Format_DateTime_YearFirst" xml:space="preserve">
     <value>yyyy-MM-dd</value>
+  </data>
+  <data name="Message_StringIsEmpty" xml:space="preserve">
+    <value>This string is empty.</value>
+  </data>
+  <data name="Message_StringIsWhiteSpace" xml:space="preserve">
+    <value>This string is white space.</value>
   </data>
 </root>

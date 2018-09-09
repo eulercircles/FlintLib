@@ -1,6 +1,6 @@
 ﻿using System;
 
-using static FlintLib.Common.Resources.PublicStrings;
+using static FlintLib.Common.Properties.PublicResources;
 
 namespace FlintLib.Scheduling
 {

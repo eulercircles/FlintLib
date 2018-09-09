@@ -15,7 +15,7 @@ namespace FlintLib.Tests.Scheduling
 			var startDate = new Date(2018, Months.September, 24);
 			var correction = CorrectionMethods.PreviousWeekDay;
 			
-			var recurrentItem = new YearlyRecurrence(startDate, null, correction, correction, correction);
+			var recurrentItem = new YearlyRecurrenceRule(startDate, null, correction, correction, correction);
 
 			var occurrences = recurrentItem.GetOccurrencesBetween(startDate, new Date(2035, Months.December, 31));
 			var count = occurrences.Count;
@@ -27,7 +27,7 @@ namespace FlintLib.Tests.Scheduling
 			var startDate = new Date(2018, Months.September, 24);
 			var correction = CorrectionMethods.FollowingWeekDay;
 			
-			var recurrentItem = new MonthlyRecurrence(MonthlyStyles.OnDay, startDate, null, correction, correction, correction);
+			var recurrentItem = new MonthlyRecurrenceRule(MonthlyStyles.OnDay, startDate, null, correction, correction, correction);
 
 			var occurrences = recurrentItem.GetOccurrencesBetween(startDate, new Date(2035, Months.December, 31));
 			var count = occurrences.Count;
@@ -39,7 +39,7 @@ namespace FlintLib.Tests.Scheduling
 			var startDate = new Date(2018, Months.September, 15);
 			var correction = CorrectionMethods.FollowingWeekDay;
 
-			var recurrentItem = new SemiMonthlyRecurrence(SemiMonthlyStyles.FifteenthAndLast, startDate, null, correction, correction, correction);
+			var recurrentItem = new SemiMonthlyRecurrenceRule(SemiMonthlyStyles.FifteenthAndLast, startDate, null, correction, correction, correction);
 
 			var occurrences = recurrentItem.GetOccurrencesBetween(startDate, new Date(2035, Months.December, 31));
 			var count = occurrences.Count;
@@ -51,7 +51,7 @@ namespace FlintLib.Tests.Scheduling
 			var startDate = new Date(2018, Months.September, 14);
 			var correction = CorrectionMethods.PreviousWeekDay;
 
-			var recurrentItem = new BiweeklyRecurrence(startDate, null, correction, correction, correction);
+			var recurrentItem = new BiweeklyRecurrenceRule(startDate, null, correction, correction, correction);
 
 			var occurrences = recurrentItem.GetOccurrencesBetween(startDate, new Date(2035, Months.December, 31));
 			var count = occurrences.Count;
@@ -63,7 +63,7 @@ namespace FlintLib.Tests.Scheduling
 			var startDate = new Date(2018, Months.September, 14);
 			var correction = CorrectionMethods.PreviousWeekDay;
 
-			var recurrentItem = new WeeklyRecurrence(startDate, null, correction, correction, correction);
+			var recurrentItem = new WeeklyRecurrenceRule(startDate, null, correction, correction, correction);
 
 			var occurrences = recurrentItem.GetOccurrencesBetween(startDate, new Date(2035, Months.December, 31));
 			var count = occurrences.Count;
