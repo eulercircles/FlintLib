@@ -9,6 +9,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FLibXamarin.Common\FLibXamarin.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\InternalStrings.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

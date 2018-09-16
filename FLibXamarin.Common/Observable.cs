@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace FLibXamarin.Common
 {
@@ -10,7 +11,12 @@ namespace FLibXamarin.Common
 			get { return _value; }
 			set
 			{
-				if (!_value.Equals(value))
+				if (_value == null && value != null)
+				{
+					_value = value;
+					TriggerValueChangedEvent();
+				}
+				else if (!_value.Equals(value))
 				{
 					_value = value;
 					TriggerValueChangedEvent();
@@ -18,14 +24,21 @@ namespace FLibXamarin.Common
 			}
 		}
 
-		private readonly SingleSubscriptionEventHandler<EventArgs> _valueChanged;
-		public SingleSubscriptionEvent<EventArgs> ValueChanged { get; private set; }
+		private EventHandler _valueChanged;
+		public event EventHandler ValueChanged
+		{
+			add
+			{
+				if (_valueChanged == null || !_valueChanged.GetInvocationList().Contains(value))
+				{ _valueChanged += value; }
+			}
+			remove { _valueChanged -= value; }
+		}
 
 		public Observable() : this(default(T)) { }
 
 		public Observable(T initialValue)
 		{
-			ValueChanged = new SingleSubscriptionEvent<EventArgs>(_valueChanged);
 			Value = initialValue;
 		}
 

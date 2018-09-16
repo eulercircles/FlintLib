@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace FLibXamarin.Common
 {
@@ -7,16 +8,24 @@ namespace FLibXamarin.Common
 		private readonly Observable<T> _observable;
 		public T Value => _observable.Value;
 
-		private readonly SingleSubscriptionEventHandler<EventArgs> _valueChanged;
-		public SingleSubscriptionEvent<EventArgs> ValueChanged { get; private set; }
+		private EventHandler _valueChanged;
+		public event EventHandler ValueChanged
+		{
+			add
+			{
+				if (_valueChanged == null || !_valueChanged.GetInvocationList().Contains(value))
+				{
+					_valueChanged += value;
+				}
+			}
+			remove { _valueChanged -= value; }
+		}
 
 		public ReadOnlyObservable(Observable<T> observable)
 		{
 			_observable = observable ?? throw new ArgumentNullException(nameof(observable));
-
-			ValueChanged = new SingleSubscriptionEvent<EventArgs>(_valueChanged);
-
-			_observable.ValueChanged.Event += ValueChanged_Event;
+			
+			_observable.ValueChanged += ValueChanged_Event;
 		}
 
 		private void ValueChanged_Event(object sender, EventArgs args)

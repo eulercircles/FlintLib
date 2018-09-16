@@ -61,6 +61,8 @@
   <ItemGroup>
     <Compile Include="BoolToColorConverter_Tester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Observable_Tester.cs" />
+    <Compile Include="ReadOnlyObservable_Tester.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
