@@ -2,20 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyVersion>0.0.1</AssemblyVersion>
-    <FileVersion>0.0.1</FileVersion>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Copyright>2018</Copyright>
-    <Version>0.0.1</Version>
+    <Version>1.0.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\FLibXamarin.Common\FLibXamarin.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,5 +28,9 @@
       <LastGenOutput>InternalStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y /q &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Assemblies\$(SolutionName)\$(ProjectName)\&quot;" />
+  </Target>
 
 </Project>

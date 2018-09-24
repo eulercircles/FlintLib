@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Copyright>2018</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,7 +10,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FLibXamarin.Scheduling\FLibXamarin.Scheduling.csproj" />
+    <ProjectReference Include="..\FLibXamarin.Scheduling\FLibXamarin.Scheduling.csproj">
+      <Private>false</Private>
+    </ProjectReference>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y /q &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Assemblies\$(SolutionName)\$(ProjectName)\&quot;" />
+  </Target>
 
 </Project>

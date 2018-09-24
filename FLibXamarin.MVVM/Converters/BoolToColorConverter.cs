@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace FLibXamarin.MVVM.Converters
 {
-	class BoolToColorConverter : BindableObject, IValueConverter
+	public class BoolToColorConverter : BindableObject, IValueConverter
 	{
 		#region Bindable Properties
 		private static readonly BindableProperty _trueColorProperty = BindableProperty.Create("TrueColor", typeof(Color), typeof(BoolToColorConverter), Color.Transparent);

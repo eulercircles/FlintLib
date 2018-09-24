@@ -8,7 +8,7 @@ using static FLibXamarin.MVVM.Properties.InternalStrings;
 
 namespace FLibXamarin.MVVM.Converters
 {
-	internal class DecimalToColorConverter : BindableObject, IValueConverter
+	public class DecimalToColorConverter : BindableObject, IValueConverter
 	{
 		#region Bindable Properties
 		private static readonly BindableProperty _belowThresholdColorProperty = BindableProperty.Create("BelowThresholdColor", typeof(Color), typeof(DecimalToColorConverter), Color.Transparent);

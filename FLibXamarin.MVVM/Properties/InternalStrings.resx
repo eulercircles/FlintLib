@@ -129,7 +129,11 @@
   <data name="Placeholder_CannotConvertToString" xml:space="preserve">
     <value>---</value>
   </data>
-  <data name="Placeholde_ZeroValue" xml:space="preserve">
+  <data name="Placeholder_ZeroValue" xml:space="preserve">
     <value>---</value>
+  </data>
+  <data name="fMessage_UnhandledEnumValue" xml:space="preserve">
+    <value>The value {0} is unhandled.</value>
+    <comment>{0} is the enum member</comment>
   </data>
 </root>

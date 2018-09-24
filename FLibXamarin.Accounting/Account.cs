@@ -16,10 +16,11 @@ namespace FLibXamarin.Accounting
 		public string Name { get; set; }
 		public decimal? Balance { get; set; }
 
-		public Account(string name, decimal amount)
+		public Account(string name, decimal balance)
 		{
 			if (string.IsNullOrWhiteSpace(name)) { throw new ArgumentNullException(nameof(name)); }
-			Balance = amount;
+			Name = name;
+			Balance = balance;
 		}
 
 		public void Credit(decimal amount)

@@ -70,6 +70,15 @@ namespace FLibXamarin.MVVM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The value {0} is unhandled..
+        /// </summary>
+        internal static string fMessage_UnhandledEnumValue {
+            get {
+                return ResourceManager.GetString("fMessage_UnhandledEnumValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Converter cannot convert back..
         /// </summary>
         internal static string Message_ConverterCannotConvertBack {
@@ -90,18 +99,18 @@ namespace FLibXamarin.MVVM.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ---.
         /// </summary>
-        internal static string Placeholde_ZeroValue {
+        internal static string Placeholder_CannotConvertToString {
             get {
-                return ResourceManager.GetString("Placeholde_ZeroValue", resourceCulture);
+                return ResourceManager.GetString("Placeholder_CannotConvertToString", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to ---.
         /// </summary>
-        internal static string Placeholder_CannotConvertToString {
+        internal static string Placeholder_ZeroValue {
             get {
-                return ResourceManager.GetString("Placeholder_CannotConvertToString", resourceCulture);
+                return ResourceManager.GetString("Placeholder_ZeroValue", resourceCulture);
             }
         }
     }

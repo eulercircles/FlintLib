@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using FLibXamarin.Common;
 
-namespace FLibXamarin.Tests
+namespace FLibXamarin.Tests.Common
 {
 	[TestClass]
 	public class Observable_Tester

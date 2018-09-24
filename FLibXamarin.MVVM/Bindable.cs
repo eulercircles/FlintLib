@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.ComponentModel;
 
-namespace FLibXamarin.MVVM.Internals
+namespace FLibXamarin.MVVM
 {
 	public class Bindable<T>
 	{
@@ -30,13 +30,13 @@ namespace FLibXamarin.MVVM.Internals
 		/// <summary>
 		/// Creates an observable property with a default initial value.
 		/// </summary>
-		internal Bindable() : this(default(T)) { }
+		public Bindable() : this(default(T)) { }
 
 		/// <summary>
 		/// Creates an observable property with the specified initial value.
 		/// </summary>
 		/// <param name="initialValue">The value to initialize the observable property to.</param>
-		internal Bindable(T initialValue)
+		public Bindable(T initialValue)
 		{
 			Value = initialValue;
 		}

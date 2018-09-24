@@ -2,7 +2,7 @@
 using System.Linq;
 using System.ComponentModel;
 
-namespace FLibXamarin.MVVM.Internals
+namespace FLibXamarin.MVVM
 {
 	public class ReadOnlyBindable<T>
 	{
@@ -27,7 +27,7 @@ namespace FLibXamarin.MVVM.Internals
 			remove { _propertyChanged -= value; }
 		}
 
-		internal ReadOnlyBindable(Bindable<T> bindable)
+		public ReadOnlyBindable(Bindable<T> bindable)
 		{
 			_bindable = bindable ?? throw new ArgumentNullException(nameof(bindable));
 			_bindable.PropertyChanged += Bindable_PropertyChanged;

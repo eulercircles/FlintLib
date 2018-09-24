@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 using FLibXamarin.MVVM.Converters;
 
-namespace FLibXamarin.Tests
+namespace FLibXamarin.Tests.MVVM
 {
 	[TestClass]
 	public class BoolToColorConverter_Tester

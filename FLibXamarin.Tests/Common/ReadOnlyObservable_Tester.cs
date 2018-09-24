@@ -2,7 +2,7 @@
 using FLibXamarin.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace FLibXamarin.Tests
+namespace FLibXamarin.Tests.Common
 {
 	[TestClass]
 	public class ReadOnlyObservable_Tester
