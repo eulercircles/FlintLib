@@ -19,6 +19,27 @@ namespace FlintLib.Mathematics
 			else { return x; }
 		}
 
+		public static byte Clamp(int i)
+		{
+			if (i < 0) return 0;
+			if (i > 255) return 255;
+			return (byte)i;
+		}
+
+		public static double DegreeClamp(double angle)
+		{
+			if (angle < 0) return (360.0 + angle);
+			if (angle >= 360.0) return (angle - 360.0);
+			return angle;
+		}
+
+		public static int PercentClamp(int i)
+		{
+			if (i < 0) { return 0; }
+			if (i > 100) { return 100; }
+			return i;
+		}
+
 		public static float SigmoidF(float x, float c)
 		{
 			if (!(c > 0.0f)) { throw new ArgumentOutOfRangeException(); }

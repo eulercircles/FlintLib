@@ -3,15 +3,21 @@ using System;
 using System.Linq;
 using System.Diagnostics;
 using System.ComponentModel;
+using System.Windows;
 
 #endregion // Using Statements
 
 namespace FlintLib.MVVM
 {
-	public abstract class ViewModel_Base : INotifyPropertyChanged, IDisposable
+	public abstract class ViewModel_Base : DependencyObject, INotifyPropertyChanged, IDisposable
 	{
 		#region Dependency Properties
-
+		private static readonly DependencyProperty _mediatorProperty = DependencyProperty.Register("Mediator", typeof(IMediator), typeof(ViewModel_Base), new PropertyMetadata(null));
+		public IMediator Mediator
+		{
+			get => (IMediator)GetValue(_mediatorProperty);
+			set => SetValue(_mediatorProperty, value);
+		}
 		#endregion Dependency Properties
 
 		public ViewModel_Base() { }
@@ -37,7 +43,7 @@ namespace FlintLib.MVVM
 			remove { _propertyChanged -= value; }
 		}
 
-		protected void _triggerPropertyChangedEvent(string propertyName)
+		protected void TriggerPropertyChangedEvent(string propertyName)
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(propertyName));
 

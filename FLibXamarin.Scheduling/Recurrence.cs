@@ -292,6 +292,11 @@ namespace FLibXamarin.Scheduling
 			_currentNormalOccurrence = _currentNormalOccurrence.AddDays(14);
 			return GetCorrection();
 		}
+
+		public override string ToString()
+		{
+			return base.ToString();
+		}
 	}
 
 	public class WeeklyRecurrenceRule : RecurrenceRule
@@ -322,6 +327,11 @@ namespace FLibXamarin.Scheduling
 		{
 			_currentNormalOccurrence = _currentNormalOccurrence.AddDays(7);
 			return GetCorrection();
+		}
+
+		public override string ToString()
+		{
+			return $"Weekly";
 		}
 	}
 }

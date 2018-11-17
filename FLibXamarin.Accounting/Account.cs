@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace FLibXamarin.Accounting
 {
@@ -23,14 +24,28 @@ namespace FLibXamarin.Accounting
 			Balance = balance;
 		}
 
+		/// <summary>
+		/// Increases the account's balance by the specified amount. The sign is ignored.
+		/// </summary>
+		/// <param name="amount"></param>
 		public void Credit(decimal amount)
 		{
+			// While crediting 0 to the account will not be problematic, it could indicate that something isn't right somewhere else.
+			Debug.Assert(amount != 0);
+
 			if (amount < 0) { amount = -amount; }
 			Balance += amount;
 		}
 
+		/// <summary>
+		/// Decreases the account's balance by the specified amount. The sign is ignored.
+		/// </summary>
+		/// <param name="amount"></param>
 		public void Debit(decimal amount)
 		{
+			// While crediting 0 to the account will not be problematic, it could indicate that something isn't right somewhere else.
+			Debug.Assert(amount != 0);
+
 			if (amount < 0) { amount = -amount; }
 			Balance -= amount;
 		}

@@ -55,9 +55,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FLibXamarin.MVVM", "FLibXam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FLibXamarin.Scheduling", "FLibXamarin.Scheduling\FLibXamarin.Scheduling.csproj", "{DB612024-DAA2-403D-856C-3315370C75BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLibXamarin.Accounting", "FLibXamarin.Accounting\FLibXamarin.Accounting.csproj", "{3E7A63EB-BA30-457E-A1AC-F7DE5E17CBF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FLibXamarin.Accounting", "FLibXamarin.Accounting\FLibXamarin.Accounting.csproj", "{3E7A63EB-BA30-457E-A1AC-F7DE5E17CBF9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLibXamarin.Tests", "FLibXamarin.Tests\FLibXamarin.Tests.csproj", "{BEFFC00B-BBB2-421D-9DFF-11891AAB31C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Presentation", "FlintLib.Presentation\FlintLib.Presentation.csproj", "{9FD54123-B800-46A0-8B71-ADC801718F2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLibStd.Mathematics", "FLibStd.Mathematics\FLibStd.Mathematics.csproj", "{4751708A-4570-4589-86E6-F9FB3CB4C400}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLibStd.Presentation", "FLibStd.Presentation\FLibStd.Presentation.csproj", "{4C4B61DF-6B01-460E-AC12-7BEE5A37723F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -165,6 +171,18 @@ Global
 		{BEFFC00B-BBB2-421D-9DFF-11891AAB31C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEFFC00B-BBB2-421D-9DFF-11891AAB31C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEFFC00B-BBB2-421D-9DFF-11891AAB31C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FD54123-B800-46A0-8B71-ADC801718F2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FD54123-B800-46A0-8B71-ADC801718F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FD54123-B800-46A0-8B71-ADC801718F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FD54123-B800-46A0-8B71-ADC801718F2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4751708A-4570-4589-86E6-F9FB3CB4C400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4751708A-4570-4589-86E6-F9FB3CB4C400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4751708A-4570-4589-86E6-F9FB3CB4C400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4751708A-4570-4589-86E6-F9FB3CB4C400}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C4B61DF-6B01-460E-AC12-7BEE5A37723F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C4B61DF-6B01-460E-AC12-7BEE5A37723F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C4B61DF-6B01-460E-AC12-7BEE5A37723F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C4B61DF-6B01-460E-AC12-7BEE5A37723F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -195,6 +213,9 @@ Global
 		{DB612024-DAA2-403D-856C-3315370C75BC} = {49D3AA2F-1291-4E7F-984A-4828D6864856}
 		{3E7A63EB-BA30-457E-A1AC-F7DE5E17CBF9} = {49D3AA2F-1291-4E7F-984A-4828D6864856}
 		{BEFFC00B-BBB2-421D-9DFF-11891AAB31C5} = {49D3AA2F-1291-4E7F-984A-4828D6864856}
+		{9FD54123-B800-46A0-8B71-ADC801718F2E} = {61DFFB0C-09E6-412A-8760-7A7C265FCC95}
+		{4751708A-4570-4589-86E6-F9FB3CB4C400} = {D5C59896-BDBA-427E-833E-2294D3456D4F}
+		{4C4B61DF-6B01-460E-AC12-7BEE5A37723F} = {D5C59896-BDBA-427E-833E-2294D3456D4F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2727E619-0908-49BC-BAA9-066D537371D1}
