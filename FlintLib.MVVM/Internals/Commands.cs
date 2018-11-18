@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Input;
 
-using FlintLib.MVVM.Resources;
+using static FlintLib.MVVM.Properties.PublicResources;
 
 namespace FlintLib.MVVM
 {
@@ -86,7 +86,7 @@ namespace FlintLib.MVVM
 	/// </summary>
 	internal class ActionCommand : ExecutedNotifierCommand
 	{
-		private ExecuteAction _execute;
+		private readonly ExecuteAction _execute;
 
 		internal ActionCommand(ExecuteAction executeDelegate) : this(executeDelegate, null) { }
 
@@ -101,8 +101,7 @@ namespace FlintLib.MVVM
 		{
 			if (CanExecute(null))
 			{
-				if (_execute != null) { _execute(); }
-				if (_executed != null) { _executed(); }
+				_execute?.Invoke(); _executed?.Invoke();
 			}
 		}
 		#endregion // ExecutedNotifierCommand Implementation
@@ -115,7 +114,7 @@ namespace FlintLib.MVVM
 	internal class ActionCommand<P> : ExecutedNotifierCommand
 	{
 		#region Private Members
-		private ExecuteAction<P> _execute;
+		private readonly ExecuteAction<P> _execute;
 		#endregion // Private Members
 
 		internal ActionCommand(ExecuteAction<P> executeDelegate) : this(executeDelegate, null) { }
@@ -136,10 +135,10 @@ namespace FlintLib.MVVM
 					if (parameter is P)
 					{
 						_execute((P)parameter);
-						if (_executed != null) { _executed(); }
+						_executed?.Invoke();
 					}
 					else { throw new ArgumentException(
-						string.Format(ErrorStrings.ParameterIsNotAValidType, typeof(P), parameter.GetType())); }
+						string.Format(ParameterIsNotAValidType, typeof(P), parameter.GetType())); }
 				}
 			}
 		}
@@ -152,7 +151,7 @@ namespace FlintLib.MVVM
 	/// <typeparam name="R">Return type</typeparam>
 	internal class FunctionCommand<R> : ExecutedNotifierCommand<R>
 	{
-		private ExecuteFunction<R> _execute;
+		private readonly ExecuteFunction<R> _execute;
 
 		internal FunctionCommand(ExecuteFunction<R> executeDelegate) : this(executeDelegate, null) { }
 
@@ -170,7 +169,7 @@ namespace FlintLib.MVVM
 				if (_execute != null)
 				{
 					R result = _execute();
-					if (_executed != null) { _executed(result); }
+					_executed?.Invoke(result);
 				}
 			}
 		}
@@ -184,7 +183,7 @@ namespace FlintLib.MVVM
 	/// <typeparam name="R">Return type</typeparam>
 	internal class FunctionCommand<P, R> : ExecutedNotifierCommand<R>
 	{
-		private ExecuteFunction<P, R> _execute;
+		private readonly ExecuteFunction<P, R> _execute;
 
 		internal FunctionCommand(ExecuteFunction<P, R> executeDelegate) { }
 
@@ -200,10 +199,10 @@ namespace FlintLib.MVVM
 					if (_execute != null)
 					{
 						R result = _execute((P)parameter);
-						if (_executed != null) { _executed(result); }
+						_executed?.Invoke(result);
 					}
 				}
-				else { throw new ArgumentException(string.Format(ErrorStrings.ParameterIsNotAValidType, typeof(P), parameter.GetType())); }
+				else { throw new ArgumentException(string.Format(ParameterIsNotAValidType, typeof(P), parameter.GetType())); }
 			}
 		}
 		#endregion // ExecutedNotifierCommand Implementation

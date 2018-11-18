@@ -3,13 +3,13 @@ using System.Globalization;
 using System.Windows.Data;
 
 using FlintLib.Common;
-using FlintLib.MVVM.Resources;
+using static FlintLib.MVVM.Properties.PublicResources;
 
 namespace FlintLib.MVVM.Converters
 {
 	public class IntToPercentStringConverter : IValueConverter
 	{
-		private static string _error = "???";
+		private static readonly string _error = "???";
 
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
@@ -24,7 +24,7 @@ namespace FlintLib.MVVM.Converters
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			throw new InvalidOperationException(ErrorStrings.ConverterCannotConvertBack);
+			throw new InvalidOperationException(ConverterCannotConvertBack);
 		}
 	}
 }

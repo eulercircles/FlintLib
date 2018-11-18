@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Windows;
-using System.Windows.Data;
-using System.Globalization;
-
-using FlintLib.MVVM.Resources;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Data;
+using static FlintLib.MVVM.Properties.PublicResources;
 
 namespace FlintLib.MVVM.Converters
 {
@@ -13,14 +11,14 @@ namespace FlintLib.MVVM.Converters
 	/// </summary>
 	public class NotNullToVisibleConverter : IValueConverter
 	{
-		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+		public object Convert(object value, Type targetType, object parameter, string language)
 		{
 			return (value != null) ? Visibility.Visible : Visibility.Collapsed;
 		}
 
-		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+		public object ConvertBack(object value, Type targetType, object parameter, string language)
 		{
-			throw new InvalidOperationException(ErrorStrings.ConverterCannotConvertBack); 
+			throw new InvalidOperationException(ConverterCannotConvertBack); 
 		}
 	}
 }

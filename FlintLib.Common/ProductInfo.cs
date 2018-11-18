@@ -20,6 +20,6 @@ namespace FlintLib.Common
 		/// <summary>
 		/// 
 		/// </summary>
-		public const string Copyright = "Copyright © Ronald E Flint 2015-2018";
+		public const string Copyright = "Copyright © 2015-2018 Ronald E Flint";
 	}
 }

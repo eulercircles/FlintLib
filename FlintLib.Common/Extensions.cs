@@ -29,20 +29,15 @@ namespace FlintLib.Common
 		{
 			return value < 0;
 		}
-
-		public static bool IsInRange(this int value, int lowerValue, int upperValue)
-		{
-			return (value >= lowerValue && value <= upperValue);
-		}
-
-		public static bool IsInRange(this float value, float lowerValue, float upperValue)
-		{
-			return (value >= lowerValue && value <= upperValue);
-		}
 		
 		public static bool IsGreaterThanZero(this string stringValue)
 		{
 			return double.TryParse(stringValue, out double numericalValue) ? (numericalValue > 0) : false;
+		}
+
+		public static bool IsInRange<T>(this T value, T lowerLimit, T upperLimit) where T : IComparable<T>
+		{
+			return (value.CompareTo(lowerLimit) >= 0 && value.CompareTo(upperLimit) <= 0);
 		}
 
 		/// <summary>

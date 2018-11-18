@@ -1,9 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using FlintLib.Common;
-
-namespace FlintLib.Tests.Common
+namespace FlintLib.Common.Tests
 {
 	[TestClass]
 	public class Extensions_Tester
@@ -38,6 +36,25 @@ namespace FlintLib.Tests.Common
 			Assert.IsTrue(result1.HasValue && result1 == 35m);
 			Assert.IsTrue(result2.HasValue && result2 == 49.8m);
 			Assert.IsNull(result3);
+		}
+
+		[TestMethod]
+		public void TestGenericIsInRange()
+		{
+			byte lowerBound = 5;
+			byte upperBound = 62;
+
+			byte value1 = 32;
+			byte value2 = 5;
+			byte value3 = 4;
+			byte value4 = 62;
+			byte value5 = 63;
+
+			Assert.IsTrue(value1.IsInRange(lowerBound, upperBound));
+			Assert.IsTrue(value2.IsInRange(lowerBound, upperBound));
+			Assert.IsFalse(value3.IsInRange(lowerBound, upperBound));
+			Assert.IsTrue(value4.IsInRange(lowerBound, upperBound));
+			Assert.IsFalse(value5.IsInRange(lowerBound, upperBound));
 		}
 	}
 }

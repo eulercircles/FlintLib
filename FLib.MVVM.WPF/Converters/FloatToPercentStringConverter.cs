@@ -2,7 +2,7 @@
 using System.Windows.Data;
 using System.Globalization;
 
-using FlintLib.MVVM.Resources;
+using static FlintLib.MVVM.Properties.PublicResources;
 
 namespace FlintLib.MVVM.Converters
 {
@@ -12,7 +12,7 @@ namespace FlintLib.MVVM.Converters
 		{
 			if (value == null)
 			{
-				return ErrorStrings.CannotConvertStringPlaceholder;
+				return CannotConvertStringPlaceholder;
 			}
 			else
 			{
@@ -22,15 +22,15 @@ namespace FlintLib.MVVM.Converters
 				}
 				else if (value is float?)
 				{
-					return ((float?)value).HasValue ? ((float?)value).Value.ToString("P0", CultureInfo.CurrentCulture) : ErrorStrings.CannotConvertStringPlaceholder;
+					return ((float?)value).HasValue ? ((float?)value).Value.ToString("P0", CultureInfo.CurrentCulture) : CannotConvertStringPlaceholder;
 				}
-				else { throw new InvalidOperationException(string.Format(ErrorStrings.ParameterIsNotAValidType, $"{typeof(float)} or {typeof(float?)}", value.GetType())); }
+				else { throw new InvalidOperationException(string.Format(ParameterIsNotAValidType, $"{typeof(float)} or {typeof(float?)}", value.GetType())); }
 			}
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			throw new InvalidOperationException(ErrorStrings.ConverterCannotConvertBack);
+			throw new InvalidOperationException(ConverterCannotConvertBack);
 		}
 	}
 }

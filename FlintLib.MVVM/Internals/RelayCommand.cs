@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Windows.Input;
 
-using FlintLib.MVVM.Resources;
+using static FlintLib.MVVM.Properties.PublicResources;
 #endregion // Using Statements
 
 namespace FlintLib.MVVM
@@ -14,8 +14,8 @@ namespace FlintLib.MVVM
 	public class RelayCommand : ICommand
 	{
 		#region Private Members
-		private Action _execute;
-		private Func<bool> _canExecute;
+		private readonly Action _execute;
+		private readonly Func<bool> _canExecute;
 		#endregion // Private Members
 
 		#region Constructors
@@ -24,9 +24,7 @@ namespace FlintLib.MVVM
 
 		public RelayCommand(Action execute, Func<bool> canExecute)
 		{
-			if (execute == null) { throw new ArgumentNullException(nameof(execute)); }
-
-			_execute = execute;
+			_execute = execute ?? throw new ArgumentNullException(nameof(execute));
 			_canExecute = canExecute;
 		}
 		#endregion // Constructors
@@ -85,8 +83,8 @@ namespace FlintLib.MVVM
 	public class RelayCommand<T> : ICommand
 	{
 		#region Private Members
-		private Action<T> _execute;
-		private Func<bool> _canExecute;
+		private readonly Action<T> _execute;
+		private readonly Func<bool> _canExecute;
 		#endregion // Private Members
 
 		#region Constructors
@@ -146,7 +144,7 @@ namespace FlintLib.MVVM
 			{
 				_execute((T)parameter);
 			}
-			else { throw new ArgumentException(string.Format(ErrorStrings.ParameterIsNotAValidType, typeof(T), parameter.GetType())); }
+			else { throw new ArgumentException(string.Format(ParameterIsNotAValidType, typeof(T), parameter.GetType())); }
 		}
 		#endregion // ICommand Implementation
 	}

@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Globalization;
 
-using FlintLib.MVVM.Resources;
+using static FlintLib.MVVM.Properties.PublicResources;
 
 namespace FlintLib.MVVM.Converters
 {
@@ -20,7 +20,7 @@ namespace FlintLib.MVVM.Converters
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) 
 		{
-			throw new InvalidOperationException(ErrorStrings.ConverterCannotConvertBack); 
+			throw new InvalidOperationException(ConverterCannotConvertBack); 
 		}
 	}
 }

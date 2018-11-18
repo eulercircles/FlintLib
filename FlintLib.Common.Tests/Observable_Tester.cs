@@ -1,15 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using FlintLib.Common;
-
-namespace FlintLib.Tests.Common
+namespace FlintLib.Common.Tests
 {
 	[TestClass]
 	public class Observable_Tester
 	{
-		private FlintLib.Common.IObservable<string> _observable;
-		private string _changeString = "BINGO";
+		private IObservable<string> _observable;
+		private readonly string _changeString = "BINGO";
 
 		[TestMethod]
 		public void TestObservable()
@@ -22,7 +20,7 @@ namespace FlintLib.Tests.Common
 
 		private void Observable_ValueChanged(object sender, EventArgs e)
 		{
-			Assert.IsInstanceOfType(sender, typeof(FlintLib.Common.IObservable<string>));
+			Assert.IsInstanceOfType(sender, typeof(IObservable<string>));
 			Assert.IsTrue(_observable.Value == _changeString);
 		}
 	}

@@ -22,11 +22,13 @@
     <Compile Include="..\FlintLib.MVVM\IReadOnlyBindable.cs" Link="IReadOnlyBindable.cs" />
     <Compile Include="..\FlintLib.MVVM\Mediator.cs" Link="Mediator.cs" />
     <Compile Include="..\FlintLib.MVVM\MediatorArgs.cs" Link="MediatorArgs.cs" />
+    <Compile Include="..\FlintLib.MVVM\Properties\PublicResources.Designer.cs" Link="Properties\PublicResources.Designer.cs" />
     <Compile Include="..\FlintLib.MVVM\PropertyChangedNotifier.cs" Link="PropertyChangedNotifier.cs" />
     <Compile Include="..\FlintLib.MVVM\Resources\ErrorStrings.Designer.cs" Link="Resources\ErrorStrings.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="..\FlintLib.MVVM\Properties\PublicResources.resx" Link="Properties\PublicResources.resx" />
     <EmbeddedResource Include="..\FlintLib.MVVM\Resources\ErrorStrings.resx" Link="Resources\ErrorStrings.resx" />
   </ItemGroup>
 
@@ -37,17 +39,8 @@
   <ItemGroup>
     <Folder Include="Factories\" />
     <Folder Include="Internals\" />
+    <Folder Include="Properties\" />
     <Folder Include="Resources\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="WindowsBase">
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\WindowsBase.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

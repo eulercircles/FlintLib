@@ -2,7 +2,7 @@
 using System.Windows.Data;
 using System.Globalization;
 
-using FlintLib.MVVM.Resources;
+using static FlintLib.MVVM.Properties.PublicResources;
 
 namespace FlintLib.MVVM.Converters
 {
@@ -12,7 +12,7 @@ namespace FlintLib.MVVM.Converters
 		{
 			if (value == null)
 			{
-				return ErrorStrings.CannotConvertStringPlaceholder;
+				return CannotConvertStringPlaceholder;
 			}
 			else
 			{
@@ -22,15 +22,15 @@ namespace FlintLib.MVVM.Converters
 				}
 				else if (value is decimal?)
 				{
-					return ((decimal?)value).HasValue ? ((decimal?)value).Value.ToString("C", culture) : ErrorStrings.CannotConvertStringPlaceholder;
+					return ((decimal?)value).HasValue ? ((decimal?)value).Value.ToString("C", culture) : CannotConvertStringPlaceholder;
 				}
-				else { throw new InvalidOperationException(string.Format(ErrorStrings.ParameterIsNotAValidType, $"{typeof(decimal)} or {typeof(decimal?)}", value.GetType())); }
+				else { throw new InvalidOperationException(string.Format(ParameterIsNotAValidType, $"{typeof(decimal)} or {typeof(decimal?)}", value.GetType())); }
 			}
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			if (value == null || !(value is string)) { throw new InvalidOperationException(ErrorStrings.ConverterCannotConvertBack); }
+			if (value == null || !(value is string)) { throw new InvalidOperationException(ConverterCannotConvertBack); }
 			else
 			{
 				return decimal.Parse((string)value, NumberStyles.Currency);

@@ -52,8 +52,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Accounting\RecurringTransactionTester.cs" />
-    <Compile Include="Common\Observable_Tester.cs" />
-    <Compile Include="Common\Extensions_Tester.cs" />
     <Compile Include="Genetics\Chromosome_Tester.cs" />
     <Compile Include="Geometrics\ImperialMeasure_Tester.cs" />
     <Compile Include="Intelligence\NeuralNetwork_Tester.cs" />

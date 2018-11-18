@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Windows;
-using System.Windows.Data;
-using System.Globalization;
-
-using FlintLib.MVVM.Resources;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Data;
+using static FlintLib.MVVM.Properties.PublicResources;
 
 namespace FlintLib.MVVM.Converters
 {
@@ -21,9 +19,9 @@ namespace FlintLib.MVVM.Converters
 		/// <param name="parameter"></param>
 		/// <param name="culture"></param>
 		/// <returns></returns>
-		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+		public object Convert(object value, Type targetType, object parameter, string language)
 		{
-			return ((value != null) && (Double)value > 0) ? Visibility.Visible : Visibility.Collapsed;
+			return ((value != null) && (double)value > 0) ? Visibility.Visible : Visibility.Collapsed;
 		}
 
 		/// <summary>
@@ -34,9 +32,9 @@ namespace FlintLib.MVVM.Converters
 		/// <param name="parameter"></param>
 		/// <param name="culture"></param>
 		/// <returns></returns>
-		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+		public object ConvertBack(object value, Type targetType, object parameter, string language)
 		{
-			throw new InvalidOperationException(ErrorStrings.ConverterCannotConvertBack);
+			throw new InvalidOperationException(ConverterCannotConvertBack);
 		}
 	}
 }
