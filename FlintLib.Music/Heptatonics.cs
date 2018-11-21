@@ -54,7 +54,7 @@ namespace FlintLib.Music
 
 	public class HeptatonicScale
 	{
-		private Note _root;
-		private HeptatonicMode _mode;
+		private readonly Note _root;
+		private readonly HeptatonicMode _mode;
 	}
 }

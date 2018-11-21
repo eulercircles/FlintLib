@@ -10,43 +10,27 @@ namespace FlintLib.Music
 	{
 		public static Dictionary<string, PentatonicMode> GeneratePentatonics()
 		{
-			var minorSecond = (int)Intervals.MinorSecond;
-			var majorSecond = (int)Intervals.MajorSecond;
-			var minorThird = (int)Intervals.MinorThird;
-			var majorThird = (int)Intervals.MajorThird;
-
-			var values = new List<int>() { minorSecond, majorSecond, minorThird, majorThird };
-
+			var values = new List<int>() { (int)Intervals.MinorSecond, (int)Intervals.MajorSecond, (int)Intervals.MinorThird, (int)Intervals.MajorThird };
 			var variations = new Variations<int>(values, 5, GenerateOption.WithRepetition).ToList();
-
-			var stepLists = variations.Where(s => (s.Sum() == 12)).ToList();
+			var stepLists = variations.Where(s => s.Sum() == 12).ToList();
 
 			var results = new Dictionary<string, PentatonicMode>();
 
-			foreach (var stepList in stepLists)
-			{
-				var mode = new PentatonicMode(stepList.ToArray());
-
+			stepLists.ForEach(steps => {
+				var mode = new PentatonicMode(steps.ToArray());
 				if (Definitions.NamedPentatonicModes.ContainsKey(mode.IntervalSignature))
 				{ mode.Name = Definitions.NamedPentatonicModes[mode.IntervalSignature]; }
-
 				results.Add(mode.IntervalSignature, mode);
-			}
+			});
 
 			return results;
 		}
 
 		public static Dictionary<string, HeptatonicMode> GenerateHeptatonics()
 		{
-			var minorSecond = (int)Intervals.MinorSecond;
-			var majorSecond = (int)Intervals.MajorSecond;
-			var minorThird = (int)Intervals.MinorThird;
-
-			var values = new List<int>() { minorSecond, majorSecond, minorThird };
-
+			var values = new List<int>() { (int)Intervals.MinorSecond, (int)Intervals.MajorSecond, (int)Intervals.MinorThird };
 			var variations = new Variations<int>(values, 7, GenerateOption.WithRepetition).ToList();
-
-			var stepLists = variations.Where(s => (s.Sum() == 12)).ToList();
+			var stepLists = variations.Where(s => s.Sum() == 12).ToList();
 
 			var results = new Dictionary<string, HeptatonicMode>();
 

@@ -84,9 +84,9 @@ namespace FlintLib.Presentation
 				}
 			}
 
-			red = Clamp((int)(R * 255.0));
-			green = Clamp((int)(G * 255.0));
-			blue = Clamp((int)(B * 255.0));
+			red = ByteClamp((int)(R * 255.0));
+			green = ByteClamp((int)(G * 255.0));
+			blue = ByteClamp((int)(B * 255.0));
 		}
 	}
 }

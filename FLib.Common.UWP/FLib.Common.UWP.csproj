@@ -147,7 +147,6 @@
     <Compile Include="..\FlintLib.Common\StringUtilities.cs">
       <Link>StringUtilities.cs</Link>
     </Compile>
-    <Compile Include="Colors.cs" />
     <Compile Include="DescriptionAttribute.cs" />
     <Compile Include="EnumUtilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

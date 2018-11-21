@@ -8,25 +8,40 @@ namespace FlintLib.Music
 {
 	public static class Constants
 	{
-		public static readonly string flatSymbol = char.ConvertFromUtf32(utf32: 9837);
-		public static readonly string sharpSymbol = char.ConvertFromUtf32(utf32: 9839);
+		public const string Comma = ",";
+		public const string Pipe = " | ";
+		public const char SharpSymbol = '#'; // char.ConvertFromUtf32(utf32: 9837);
+		public const char FlatSymbol = '\u266D'; // char.ConvertFromUtf32(utf32: 9839);
+		public const char DiminishedSymbol = '°';
 	}
 
-	internal static class Extensions
+	public static class Extensions
 	{
-		public static UInt32 ToUInt32(this BitArray bitArray)
+		public static uint ToUInt32(this BitArray bitArray)
 		{
 			if (bitArray.Length > 32) { throw new ArgumentOutOfRangeException(nameof(bitArray)); }
 
-			UInt32 result = 0;
+			uint result = 0;
 			for (int i = 0; i < bitArray.Length; i++)
 			{
-				if (bitArray[i]) { result |= (UInt32)(1 << i); }
+				if (bitArray[i]) { result |= (uint)(1 << i); }
 			}
 			return result;
 		}
 
-		public static UInt16 ToUInt16(this BitArray bitArray)
+		public static string Symbol(this Accidentals accidental)
+		{
+			switch (accidental)
+			{
+				case Accidentals.Flat: return Constants.FlatSymbol.ToString();
+				case Accidentals.Natural: return string.Empty;
+				case Accidentals.Sharp: return Constants.SharpSymbol.ToString();
+			}
+
+			return string.Empty;
+		}
+
+		public static ushort ToUInt16(this BitArray bitArray)
 		{
 			if (bitArray.Length > 16) { throw new ArgumentOutOfRangeException(nameof(bitArray)); }
 
@@ -43,16 +58,25 @@ namespace FlintLib.Music
 			var result = string.Empty;
 			for (int i = 0; i < value.Length; i++)
 			{
-				if (i < value.Length - 1)
-				{
-					result += value[i + 1];
-				}
-				else
-				{
-					result += value[0];
-				}
+				result = (i < value.Length - 1) ? result += value[i + 1] : result += value[0];
 			}
 			return result;
+		}
+
+		//public static string Sharp(this Notes note) => $"{note}{Constants.SharpSymbol}";
+
+		//public static string Flat(this Notes note) => $"{note}{Constants.FlatSymbol}";
+
+		//public static string Natural(this Notes note) => note.ToString();
+
+		public static string Chord(this Notes note, ChordTypes chord)
+		{
+			return $"{note}{chord.Symbol()}";
+		}
+
+		public static string Chord(this Notes note, Accidentals accidental, ChordTypes chord)
+		{
+			return $"{note}{accidental}{chord}";
 		}
 	}
 
@@ -91,7 +115,7 @@ namespace FlintLib.Music
 		Sharp = 1
 	}
 
-	public enum Chords
+	public enum ChordTypes
 	{
 		[ChordDefinition("5", "100000010000", "The so-called 'power' chord.")]
 		Fifth,
@@ -101,7 +125,7 @@ namespace FlintLib.Music
 		Minor,
 		[ChordDefinition("+", "100010001000", "Intriguing, but empty. Can seem dissonant.")]
 		Augmented,
-		[ChordDefinition("º", "100100100000", "More tense than other triads. Subdued.")]
+		[ChordDefinition("°", "100100100000", "More tense than other triads. Subdued.")]
 		Diminished,
 		[ChordDefinition("sus2", "101000010000")]
 		Suspended2nd,
@@ -115,17 +139,17 @@ namespace FlintLib.Music
 		Minor7th,
 		[ChordDefinition("m/Maj7", "100100010001", "Tense, suspenseful, or mysterious.")]
 		MinorMajor7th,
-		[ChordDefinition("Maj7♭5", "100010100001")]
+		[ChordDefinition("Maj7\u266D5", "100010100001")]
 		Major7thFlat5th,
 		[ChordDefinition("Maj7♯5", "100010001001")]
 		Major7thSharp5th,
-		[ChordDefinition("7♭5", "100010100010", "Tense")]
+		[ChordDefinition("7\u266D5", "100010100010", "Tense")]
 		SeventhFlat5th,
 		[ChordDefinition("7♯5", "100010001010")]
 		SeventhSharp5th,
-		[ChordDefinition("m7♭5", "100100100010")]
+		[ChordDefinition("m75", "100100100010")]
 		Minor7thFlat5th,
-		[ChordDefinition("º7", "100100100100")]
+		[ChordDefinition("°7", "100100100100")]
 		Diminished7th,
 		[ChordDefinition("7sus4", "100001010010")]
 		SeventhSuspened4th,
@@ -181,7 +205,7 @@ namespace FlintLib.Music
 		//Minor13th
 	}
 
-	internal static class Convert
+	public static class Convert
 	{
 		public static BitArray BoolStringToBitArray(string boolString)
 		{
@@ -292,7 +316,7 @@ namespace FlintLib.Music
 		}
 	}
 
-	internal static class Definitions
+	public static class Definitions
 	{
 		private static readonly Dictionary<string, string> _namedHeptatonicModes = new Dictionary<string, string>()
 		{
@@ -372,55 +396,49 @@ namespace FlintLib.Music
 		};
 	}
 
-	internal class Chord3
+	public class Chord3
 	{
-		private readonly Intervals _interval1;
-		private readonly Intervals _interval2;
-
-		public Intervals Interval1 => _interval1;
-		public Intervals Interval2 => _interval2;
-
-		private readonly string _symbol;
-		public string Symbol => _symbol;
+		public Intervals Interval1 { get; }
+		public Intervals Interval2 { get; }
+		public string Symbol { get; }
 
 		public Chord3(Intervals interval1, Intervals interval2)
 		{
-			_interval1 = interval1;
-			_interval2 = interval2;
+			Interval1 = interval1;
+			Interval2 = interval2;
 
-			_symbol = GenerateSymbol();
+			Symbol = GenerateSymbol();
 		}
 
 		private string GenerateSymbol()
 		{
-			if (_interval1 == Intervals.MajorThird && _interval2 == Intervals.MinorThird) { return "M"; }
-			else if (_interval1 == Intervals.MinorThird && _interval2 == Intervals.MajorThird) { return "m"; }
-			else if (_interval1 == Intervals.MajorSecond && _interval2 == Intervals.PerfectFourth) { return "sus2"; }
-			else if (_interval1 == Intervals.PerfectFourth && _interval2 == Intervals.MajorSecond) { return "sus4"; }
-			else if (_interval1 == Intervals.MajorThird && _interval2 == Intervals.MajorThird) { return "aug"; }
-			else if (_interval1 == Intervals.MinorThird && _interval2 == Intervals.MinorThird) { return "dim"; }
+			if (Interval1 == Intervals.MajorThird && Interval2 == Intervals.MinorThird) { return "M"; }
+			else if (Interval1 == Intervals.MinorThird && Interval2 == Intervals.MajorThird) { return "m"; }
+			else if (Interval1 == Intervals.MajorSecond && Interval2 == Intervals.PerfectFourth) { return "sus2"; }
+			else if (Interval1 == Intervals.PerfectFourth && Interval2 == Intervals.MajorSecond) { return "sus4"; }
+			else if (Interval1 == Intervals.MajorThird && Interval2 == Intervals.MajorThird) { return "aug"; }
+			else if (Interval1 == Intervals.MinorThird && Interval2 == Intervals.MinorThird) { return "dim"; }
 			else { return string.Empty; }
 		}
 	}
 
-	internal class Chord4
+	public class Chord4
 	{
 		private readonly Chord3 _baseChord;
-		private readonly Intervals _interval3;
 
 		public Intervals Interval1 { get { return _baseChord.Interval1; } }
 		public Intervals Interval2 { get { return _baseChord.Interval2; } }
-		public Intervals Interval3 { get { return _interval3; } }
+		public Intervals Interval3 { get; }
 
 		public Chord4(Chord3 baseChord, Intervals interval3)
 		{
 			_baseChord = baseChord;
-			_interval3 = interval3;
+			Interval3 = interval3;
 		}
 	}
 
 	[AttributeUsage(AttributeTargets.Field, Inherited = false, AllowMultiple = false)]
-	internal class ChordDefinitionAttribute : Attribute
+	public class ChordDefinitionAttribute : Attribute
 	{
 		public string Symbol { get; private set; }
 		public string BinaryPattern { get; private set; }
@@ -437,7 +455,7 @@ namespace FlintLib.Music
 		}
 	}
 
-	internal static class ChordUtilities
+	public static class ChordUtilities
 	{
 		private static Dictionary<uint, string> _chordValues;
 		public static Dictionary<uint, string> ChordValues
@@ -452,9 +470,16 @@ namespace FlintLib.Music
 			}
 		}
 
+		public static string Symbol(this ChordTypes type)
+		{
+			var field = type.GetType().GetField(type.ToString());
+			var attribute = (ChordDefinitionAttribute)Attribute.GetCustomAttribute(field, typeof(ChordDefinitionAttribute));
+			return attribute.Symbol;
+		}
+
 		private static Dictionary<uint, string> GetChordValues()
 		{
-			var fields = typeof(Chords).GetFields().Where(info => info.FieldType.Equals(typeof(Chords)));
+			var fields = typeof(ChordTypes).GetFields().Where(info => info.FieldType.Equals(typeof(ChordTypes)));
 
 			var result = new Dictionary<uint, string>();
 

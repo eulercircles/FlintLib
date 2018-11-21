@@ -55,7 +55,6 @@
     <Compile Include="Genetics\Chromosome_Tester.cs" />
     <Compile Include="Geometrics\ImperialMeasure_Tester.cs" />
     <Compile Include="Intelligence\NeuralNetwork_Tester.cs" />
-    <Compile Include="Music\ModeChords_Tester.cs" />
     <Compile Include="MVVM\Converter_Tester.cs" />
     <Compile Include="MVVM\Bindables_Tester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,10 +96,6 @@
     <ProjectReference Include="..\FlintLib.Mathematics\FlintLib.Mathematics.csproj">
       <Project>{07b70176-9762-463f-ae1a-ce0f09b684b4}</Project>
       <Name>FlintLib.Mathematics</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FlintLib.Music\FlintLib.Music.csproj">
-      <Project>{19d0732d-5282-4470-822e-4fe959c948b9}</Project>
-      <Name>FlintLib.Music</Name>
     </ProjectReference>
     <ProjectReference Include="..\FlintLib.MVVM\FlintLib.MVVM.csproj">
       <Project>{fffe157b-9db4-48a7-9a75-a2b39b94de36}</Project>

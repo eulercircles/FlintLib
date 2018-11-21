@@ -7,6 +7,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using FlintLib.Music;
 
+using static FlintLib.Music.Constants;
+
 namespace FlintLib.Tests.Music
 {
 	[TestClass]
@@ -17,10 +19,7 @@ namespace FlintLib.Tests.Music
 		{
 			var modes = ModeGenerator.GenerateHeptatonics();
 
-			var csv = new List<string>
-			{
-				",1,2,3,4,5,6,7,"
-			};
+			var csv = new List<string> { ",1,2,3,4,5,6,7," };
 
 			foreach (var mode in modes) { csv.Add(GetCSV(mode.Value)); }
 
@@ -30,54 +29,51 @@ namespace FlintLib.Tests.Music
 		private string GetCSV(HeptatonicMode mode)
 		{
 			var csvBuilder = new StringBuilder();
-
-			var comma = ",";
-			var pipe = " | ";
-
+			
 			var name = !string.IsNullOrWhiteSpace(mode.Name) ? $"{mode.Name} ({mode.Signature})" : mode.Signature;
-			csvBuilder.Append(name).Append(comma);
+			csvBuilder.Append(name).Append(Comma);
 
 			foreach(var c in mode.Degree1LegalChords)
 			{
-				csvBuilder.Append(c.Value).Append(pipe);
+				csvBuilder.Append(c.Value).Append(Pipe);
 			}
-			csvBuilder.Append(comma);
+			csvBuilder.Append(Comma);
 
 			foreach (var c in mode.Degree2LegalChords)
 			{
-				csvBuilder.Append(c.Value).Append(pipe);
+				csvBuilder.Append(c.Value).Append(Pipe);
 			}
-			csvBuilder.Append(comma);
+			csvBuilder.Append(Comma);
 
 			foreach (var c in mode.Degree3LegalChords)
 			{
-				csvBuilder.Append(c.Value).Append(pipe);
+				csvBuilder.Append(c.Value).Append(Pipe);
 			}
-			csvBuilder.Append(comma);
+			csvBuilder.Append(Comma);
 
 			foreach (var c in mode.Degree4LegalChords)
 			{
-				csvBuilder.Append(c.Value).Append(pipe);
+				csvBuilder.Append(c.Value).Append(Pipe);
 			}
-			csvBuilder.Append(comma);
+			csvBuilder.Append(Comma);
 
 			foreach (var c in mode.Degree5LegalChords)
 			{
-				csvBuilder.Append(c.Value).Append(pipe);
+				csvBuilder.Append(c.Value).Append(Pipe);
 			}
-			csvBuilder.Append(comma);
+			csvBuilder.Append(Comma);
 
 			foreach (var c in mode.Degree6LegalChords)
 			{
-				csvBuilder.Append(c.Value).Append(pipe);
+				csvBuilder.Append(c.Value).Append(Pipe);
 			}
-			csvBuilder.Append(comma);
+			csvBuilder.Append(Comma);
 
 			foreach (var c in mode.Degree7LegalChords)
 			{
-				csvBuilder.Append(c.Value).Append(pipe);
+				csvBuilder.Append(c.Value).Append(Pipe);
 			}
-			csvBuilder.Append(comma);
+			csvBuilder.Append(Comma);
 
 			return csvBuilder.ToString();
 		}

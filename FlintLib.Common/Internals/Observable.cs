@@ -25,7 +25,7 @@ namespace FlintLib.Common
 			set
 			{
 				_backingField = value;
-				_triggerValueChangedEvent();
+				TriggerValueChangedEvent();
 			}
 		}
 
@@ -36,7 +36,7 @@ namespace FlintLib.Common
 			Value = initialValue;
 		}
 
-		private void _triggerValueChangedEvent()
+		private void TriggerValueChangedEvent()
 		{
 			_valueChanged?.Invoke(this, null);
 		}

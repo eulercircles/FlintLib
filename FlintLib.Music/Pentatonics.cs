@@ -11,9 +11,8 @@ namespace FlintLib.Music
 
 		public PentatonicMode(int[] intervals, string name = "")
 		{
-			if (intervals.Length != 5) { throw new ArgumentException("", nameof(intervals)); }
+			_intervals = (intervals.Length == 5) ? intervals : throw new ArgumentException("", nameof(intervals));
 
-			_intervals = intervals;
 			Name = name;
 		}
 	}

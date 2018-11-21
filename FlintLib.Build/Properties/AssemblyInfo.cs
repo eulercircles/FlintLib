@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FlintLib.Music")]
+[assembly: AssemblyTitle("FlintLib.Build")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FlintLib.Music")]
+[assembly: AssemblyProduct("FlintLib.Build")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f509e88d-7f4e-4e70-ae39-6e5798382adf")]
+[assembly: Guid("cd76962a-bf69-46ac-bc8d-08cdca7ca4d3")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\FlintLib.Common\Colors.cs" Link="Colors.cs" />
     <Compile Include="..\FlintLib.Common\EnumUtilities.cs" Link="EnumUtilities.cs" />
     <Compile Include="..\FlintLib.Common\Extensions.cs" Link="Extensions.cs" />
     <Compile Include="..\FlintLib.Common\Internals\Observable.cs" Link="Internals\Observable.cs" />
