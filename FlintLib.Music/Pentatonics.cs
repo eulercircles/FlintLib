@@ -20,7 +20,12 @@ namespace FlintLib.Music
 	public class PentatonicScale
 	{
 		private readonly PentatonicMode _mode;
-		private readonly Notes _root;
-		private readonly Accidentals _rootAccidental;
+		private readonly Note _root;
+
+		internal PentatonicScale(Note root, PentatonicMode mode)
+		{
+			_root = root;
+			_mode = mode;
+		}
 	}
 }

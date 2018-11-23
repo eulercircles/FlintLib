@@ -61,6 +61,15 @@ namespace FlintLib.Common.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Parameter must be of type {0} and not type {1}.
+        /// </summary>
+        public static string fMessage_ParameterIsNotAValidType {
+            get {
+                return ResourceManager.GetString("fMessage_ParameterIsNotAValidType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The value {0} is unhandled..
         /// </summary>
         public static string fMessage_UnhandledEnumValue {
@@ -102,6 +111,15 @@ namespace FlintLib.Common.Properties {
         public static string Message_StringIsWhiteSpace {
             get {
                 return ResourceManager.GetString("Message_StringIsWhiteSpace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unhandled Enum Value: .
+        /// </summary>
+        public static string Message_UnhandledEnumValue {
+            get {
+                return ResourceManager.GetString("Message_UnhandledEnumValue", resourceCulture);
             }
         }
     }

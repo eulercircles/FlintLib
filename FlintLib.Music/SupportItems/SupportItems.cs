@@ -4,207 +4,10 @@ using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 
+using static FlintLib.Common.EnumUtilities;
+
 namespace FlintLib.Music
 {
-	public static class Constants
-	{
-		public const string Comma = ",";
-		public const string Pipe = " | ";
-		public const char SharpSymbol = '#'; // char.ConvertFromUtf32(utf32: 9837);
-		public const char FlatSymbol = '\u266D'; // char.ConvertFromUtf32(utf32: 9839);
-		public const char DiminishedSymbol = '°';
-	}
-
-	public static class Extensions
-	{
-		public static uint ToUInt32(this BitArray bitArray)
-		{
-			if (bitArray.Length > 32) { throw new ArgumentOutOfRangeException(nameof(bitArray)); }
-
-			uint result = 0;
-			for (int i = 0; i < bitArray.Length; i++)
-			{
-				if (bitArray[i]) { result |= (uint)(1 << i); }
-			}
-			return result;
-		}
-
-		public static string Symbol(this Accidentals accidental)
-		{
-			switch (accidental)
-			{
-				case Accidentals.Flat: return Constants.FlatSymbol.ToString();
-				case Accidentals.Natural: return string.Empty;
-				case Accidentals.Sharp: return Constants.SharpSymbol.ToString();
-			}
-
-			return string.Empty;
-		}
-
-		public static ushort ToUInt16(this BitArray bitArray)
-		{
-			if (bitArray.Length > 16) { throw new ArgumentOutOfRangeException(nameof(bitArray)); }
-
-			UInt16 result = 0;
-			for (int i = 0; i < bitArray.Length; i++)
-			{
-				if (bitArray[i]) { result |= (UInt16)(1 << i); }
-			}
-			return result;
-		}
-
-		public static string RotateLeft(this string value)
-		{
-			var result = string.Empty;
-			for (int i = 0; i < value.Length; i++)
-			{
-				result = (i < value.Length - 1) ? result += value[i + 1] : result += value[0];
-			}
-			return result;
-		}
-
-		//public static string Sharp(this Notes note) => $"{note}{Constants.SharpSymbol}";
-
-		//public static string Flat(this Notes note) => $"{note}{Constants.FlatSymbol}";
-
-		//public static string Natural(this Notes note) => note.ToString();
-
-		public static string Chord(this Notes note, ChordTypes chord)
-		{
-			return $"{note}{chord.Symbol()}";
-		}
-
-		public static string Chord(this Notes note, Accidentals accidental, ChordTypes chord)
-		{
-			return $"{note}{accidental}{chord}";
-		}
-	}
-
-	public enum Intervals
-	{
-		PerfectUnison,
-		MinorSecond,
-		MajorSecond,
-		MinorThird,
-		MajorThird,
-		PerfectFourth,
-		Tritone,
-		PerfectFifth,
-		MinorSixth,
-		MajorSixth,
-		MinorSeventh,
-		MajorSeventh,
-		PerfectOctave
-	}
-
-	public enum Notes
-	{
-		C = 1,
-		D = 3,
-		E = 5,
-		F = 6,
-		G = 8,
-		A = 10,
-		B = 12
-	}
-
-	public enum Accidentals
-	{
-		Flat = -1,
-		Natural = 0,
-		Sharp = 1
-	}
-
-	public enum ChordTypes
-	{
-		[ChordDefinition("5", "100000010000", "The so-called 'power' chord.")]
-		Fifth,
-		[ChordDefinition("Maj", "100010010000", "Your basic major triad. Happy, or upbeat.")]
-		Major,
-		[ChordDefinition("m", "100100010000", "Your basic minor triad. Sad, or serious.")]
-		Minor,
-		[ChordDefinition("+", "100010001000", "Intriguing, but empty. Can seem dissonant.")]
-		Augmented,
-		[ChordDefinition("°", "100100100000", "More tense than other triads. Subdued.")]
-		Diminished,
-		[ChordDefinition("sus2", "101000010000")]
-		Suspended2nd,
-		[ChordDefinition("sus4", "100001010000")]
-		Suspended4th,
-		[ChordDefinition("Maj7", "100010010001", "A very peaceful sounding chord.")]
-		Major7th,
-		[ChordDefinition("7", "100010010010", "The dominant 7th chord. Used in blues.")]
-		Dominant7th,
-		[ChordDefinition("m7", "100100010010", "The 'Stranger Things' arpeggiated chord. Hints at mystery.")]
-		Minor7th,
-		[ChordDefinition("m/Maj7", "100100010001", "Tense, suspenseful, or mysterious.")]
-		MinorMajor7th,
-		[ChordDefinition("Maj7\u266D5", "100010100001")]
-		Major7thFlat5th,
-		[ChordDefinition("Maj7♯5", "100010001001")]
-		Major7thSharp5th,
-		[ChordDefinition("7\u266D5", "100010100010", "Tense")]
-		SeventhFlat5th,
-		[ChordDefinition("7♯5", "100010001010")]
-		SeventhSharp5th,
-		[ChordDefinition("m75", "100100100010")]
-		Minor7thFlat5th,
-		[ChordDefinition("°7", "100100100100")]
-		Diminished7th,
-		[ChordDefinition("7sus4", "100001010010")]
-		SeventhSuspened4th,
-		[ChordDefinition("Maj6", "100010010100")]
-		Major6th,
-		[ChordDefinition("m6", "100100010100")]
-		Minor6th,
-		//[ChordDefinition("add9", "1010100100000000", "Outer-Spacey, thicker for soundtracks.")]
-		//Add9th,
-		//[ChordDefinition("mAdd9", "1011000100000000", "Thicker for soundtracks.")]
-		//MinorAdd9th,
-		//[ChordDefinition("Maj6/9", "1010100101000000")]
-		//Major6th9th,
-		//[ChordDefinition("m6/9", "1011000101000000")]
-		//Minor6th9th,
-		//[ChordDefinition("7♭9", "")]
-		//SeventhFlat9th,
-		//[ChordDefinition("7♯9", "")]
-		//SeventhSharp9th,
-		//[ChordDefinition("Maj9", "")]
-		//Major9th,
-		//[ChordDefinition("9", "")]
-		//Ninth,
-		//[ChordDefinition("m9", "")]
-		//Minor9th,
-		//[ChordDefinition("m9Maj7", "")]
-		//Minor9thMajor7th,
-		//[ChordDefinition("11-3", "")]
-		//EleventhNo3rd,
-		//[ChordDefinition("Maj7add11", "")]
-		//Major7thAdd11th,
-		//[ChordDefinition("7add11", "")]
-		//SeventhAdd11th,
-		//[ChordDefinition("m7add11", "")]
-		//Minor7thAdd11th,
-		//[ChordDefinition("Maj7add13", "")]
-		//Major7thAdd13th,
-		//[ChordDefinition("7add13", "")]
-		//SeventhAdd13th,
-		//[ChordDefinition("min7add13", "")]
-		//Minor7thAdd13th,
-		//[ChordDefinition("Maj11", "1010110100010000")]
-		//Major11th,
-		//[ChordDefinition("11", "")]
-		//Eleventh,
-		//[ChordDefinition("m11", "")]
-		//Minor11th,
-		//[ChordDefinition("Maj13", "")]
-		//Major13th,
-		//[ChordDefinition("13", "")]
-		//Thirteenth,
-		//[ChordDefinition("m13", "")]
-		//Minor13th
-	}
-
 	public static class Convert
 	{
 		public static BitArray BoolStringToBitArray(string boolString)
@@ -262,6 +65,15 @@ namespace FlintLib.Music
 			return result;
 		}
 
+		public static string ToBinaryString(this BitArray value)
+		{
+			var result = string.Empty;
+			value.Cast<bool>().ToList().ForEach(bit => {
+				result += bit ? "1" : "0";
+			});
+			return result;
+		}
+
 		public static BitArray StepStringToBitArray(string stepString)
 		{
 			return BinaryStringToBitArray(StepStringToBinaryString(stepString));
@@ -271,28 +83,28 @@ namespace FlintLib.Music
 		{
 			return BinaryStringToBitArray(ToneStringToBinaryString(toneString));
 		}
-		
+
 		private static string StepStringToBinaryString(string stepString)
 		{
 			string result = "1";
-			foreach(var step in stepString.ToCharArray())
+			foreach (var step in stepString.ToCharArray())
 			{
 				switch (step)
 				{
-					case '1':
+					case '1': // Half-Step
 						result += "1";
 						break;
-					case '2':
+					case '2': // Whole Step
 						result += "01";
 						break;
-					case '3':
+					case '3': // Step and a Half
 						result += "001";
 						break;
 					default:
 						throw new Exception();
 				}
 			}
-			return result;
+			return result.PadRight(16, '0');
 		}
 
 		private static string ToneStringToBinaryString(string toneString)
@@ -361,8 +173,7 @@ namespace FlintLib.Music
 			{ "1212222", "Super Locrian" },
 			{ "2122221", "Melodic Minor (Ascending)" },
 		};
-
-		public static IReadOnlyDictionary<string, string> NamedHeptatonicModes { get { return _namedHeptatonicModes; } }
+		public static IReadOnlyDictionary<string, string> NamedHeptatonicModes => _namedHeptatonicModes;
 
 		private static readonly Dictionary<string, string> _namedPentatonicModes = new Dictionary<string, string>()
 		{
@@ -373,8 +184,7 @@ namespace FlintLib.Music
 			{ "14232", "Japanese" },
 			{ "14142", "Hirajoshi" },
 		};
-
-		public static IReadOnlyDictionary<string, string> NamedPentatonicModes { get { return _namedPentatonicModes; } }
+		public static IReadOnlyDictionary<string, string> NamedPentatonicModes => _namedPentatonicModes;
 
 		private static readonly Dictionary<string, Chord3> TriadChords = new Dictionary<string, Chord3>()
 		{
@@ -437,23 +247,19 @@ namespace FlintLib.Music
 		}
 	}
 
-	[AttributeUsage(AttributeTargets.Field, Inherited = false, AllowMultiple = false)]
-	public class ChordDefinitionAttribute : Attribute
+	public static class ChordUtilities
 	{
-		public string Symbol { get; private set; }
-		public string BinaryPattern { get; private set; }
-		public string Description { get; private set; }
-
-		public ChordDefinitionAttribute(string symbol, string binaryPattern, string description = "")
+		private static IReadOnlyDictionary<string, ChordTypes> _chordValues;
+		public static IReadOnlyDictionary<string, ChordTypes> ChordValues
 		{
-			if (string.IsNullOrWhiteSpace(binaryPattern)) { throw new ArgumentException(nameof(binaryPattern)); }
-			if (binaryPattern.Length < 1 || binaryPattern.Length > 32) { throw new ArgumentException(nameof(binaryPattern)); }
-			
-			Symbol = symbol;
-			BinaryPattern = binaryPattern;
-			Description = description;
+			get
+			{
+				if (_chordValues == null || _chordValues.Count == 0)
+				{
+					_chordValues = GetEnumDescriptions<ChordTypes>();
+				}
+				return _chordValues;
+			}
 		}
 	}
-
-	
 }

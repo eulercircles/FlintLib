@@ -8,7 +8,7 @@ namespace FlintLib.Music
 {
 	public static class ModeGenerator
 	{
-		public static Dictionary<string, PentatonicMode> GeneratePentatonics()
+		public static Dictionary<string, PentatonicMode> GenerateAllPentatonics()
 		{
 			var values = new List<int>() { (int)Intervals.MinorSecond, (int)Intervals.MajorSecond, (int)Intervals.MinorThird, (int)Intervals.MajorThird };
 			var variations = new Variations<int>(values, 5, GenerateOption.WithRepetition).ToList();
@@ -26,7 +26,7 @@ namespace FlintLib.Music
 			return results;
 		}
 
-		public static Dictionary<string, HeptatonicMode> GenerateHeptatonics()
+		public static Dictionary<string, HeptatonicMode> GenerateAllHeptatonics()
 		{
 			var values = new List<int>() { (int)Intervals.MinorSecond, (int)Intervals.MajorSecond, (int)Intervals.MinorThird };
 			var variations = new Variations<int>(values, 7, GenerateOption.WithRepetition).ToList();

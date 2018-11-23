@@ -123,10 +123,4 @@
   <data name="ConverterCannotConvertBack" xml:space="preserve">
     <value>Converter cannot convert back.</value>
   </data>
-  <data name="ParameterIsNotAValidType" xml:space="preserve">
-    <value>Parameter must be of type {0} and not type {1}</value>
-  </data>
-  <data name="UnhandledEnumValue" xml:space="preserve">
-    <value>Unhandled Enum Value: </value>
-  </data>
 </root>

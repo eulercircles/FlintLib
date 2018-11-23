@@ -1,13 +1,12 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Collections.Generic;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using FlintLib.Music;
-
-using static FlintLib.Music.Constants;
 
 namespace FlintLib.Tests.Music
 {
@@ -17,65 +16,47 @@ namespace FlintLib.Tests.Music
 		[TestMethod]
 		public void TestCheckChord()
 		{
-			var modes = ModeGenerator.GenerateHeptatonics();
+			var stringBuilder = new StringBuilder();
 
-			var csv = new List<string> { ",1,2,3,4,5,6,7," };
+			var modes = ModeGenerator.GenerateAllHeptatonics();
 
-			foreach (var mode in modes) { csv.Add(GetCSV(mode.Value)); }
+			var text = GetCSV(modes.Values.ToList());
 
-			File.WriteAllLines(@"C:\users\Ronal\Desktop\chords.csv", csv.ToArray());
+			File.WriteAllText(@"C:\users\Ronal\Desktop\chords.csv", text, Encoding.UTF8);
 		}
 
-		private string GetCSV(HeptatonicMode mode)
+		private string GetCSV(IReadOnlyList<HeptatonicMode> modes)
 		{
 			var csvBuilder = new StringBuilder();
-			
-			var name = !string.IsNullOrWhiteSpace(mode.Name) ? $"{mode.Name} ({mode.Signature})" : mode.Signature;
-			csvBuilder.Append(name).Append(Comma);
+			csvBuilder.AppendLine(",1,2,3,4,5,6,7");
 
-			foreach(var c in mode.Degree1LegalChords)
+			foreach (var mode in modes)
 			{
-				csvBuilder.Append(c.Value).Append(Pipe);
-			}
-			csvBuilder.Append(Comma);
+				var name = !string.IsNullOrWhiteSpace(mode.Name) ? $"{mode.Name} ({mode.Signature})" : mode.Signature;
+				var groupList = new List<string>
+				{
+					GetChordGroup(mode.Degree1Chords),
+					GetChordGroup(mode.Degree2Chords),
+					GetChordGroup(mode.Degree3Chords),
+					GetChordGroup(mode.Degree4Chords),
+					GetChordGroup(mode.Degree5Chords),
+					GetChordGroup(mode.Degree6Chords),
+					GetChordGroup(mode.Degree7Chords)
+				};
 
-			foreach (var c in mode.Degree2LegalChords)
-			{
-				csvBuilder.Append(c.Value).Append(Pipe);
-			}
-			csvBuilder.Append(Comma);
+				var line = $"{name},{string.Join(",", groupList)}";
 
-			foreach (var c in mode.Degree3LegalChords)
-			{
-				csvBuilder.Append(c.Value).Append(Pipe);
+				csvBuilder.AppendLine(line);
 			}
-			csvBuilder.Append(Comma);
-
-			foreach (var c in mode.Degree4LegalChords)
-			{
-				csvBuilder.Append(c.Value).Append(Pipe);
-			}
-			csvBuilder.Append(Comma);
-
-			foreach (var c in mode.Degree5LegalChords)
-			{
-				csvBuilder.Append(c.Value).Append(Pipe);
-			}
-			csvBuilder.Append(Comma);
-
-			foreach (var c in mode.Degree6LegalChords)
-			{
-				csvBuilder.Append(c.Value).Append(Pipe);
-			}
-			csvBuilder.Append(Comma);
-
-			foreach (var c in mode.Degree7LegalChords)
-			{
-				csvBuilder.Append(c.Value).Append(Pipe);
-			}
-			csvBuilder.Append(Comma);
 
 			return csvBuilder.ToString();
+		}
+
+		private string GetChordGroup(IReadOnlyList<ChordTypes> chords)
+		{
+			var chordNames = new List<string>();
+			chords.ToList().ForEach(chord => { chordNames.Add(chord.DefaultSymbol()); });
+			return $"{string.Join(" | ", chordNames)}";
 		}
 	}
 }

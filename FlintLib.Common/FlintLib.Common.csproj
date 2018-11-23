@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnumUtilities.cs" />
+    <Compile Include="EventUtilities.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Internals\Observable.cs" />
     <Compile Include="Internals\ReadOnlyObservable.cs" />

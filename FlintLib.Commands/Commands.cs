@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Input;
 
 namespace FlintLib.Commands
 {
@@ -11,6 +12,13 @@ namespace FlintLib.Commands
 			_executionDelegate = executionDelegate ?? throw new ArgumentNullException(nameof(executionDelegate));
 		}
 
+		public event EventHandler CanExecuteChanged;
+
+		public bool CanExecute(object parameter)
+		{
+			throw new NotImplementedException();
+		}
+
 		public virtual void Execute()
 		{
 			_executionDelegate.Invoke();
@@ -20,6 +28,11 @@ namespace FlintLib.Commands
 		{
 			Execute();
 			return null;
+		}
+
+		void ICommand.Execute(object parameter)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -32,6 +45,13 @@ namespace FlintLib.Commands
 			_executionDelegate = executionDelegate ?? throw new ArgumentNullException(nameof(executionDelegate));
 		}
 
+		public event EventHandler CanExecuteChanged;
+
+		public bool CanExecute(object parameter)
+		{
+			throw new NotImplementedException();
+		}
+
 		public virtual void Execute(P parameter)
 		{
 			_executionDelegate.Invoke(parameter);
@@ -41,6 +61,11 @@ namespace FlintLib.Commands
 		{
 			Execute((P)parameter);
 			return null;
+		}
+
+		void ICommand.Execute(object parameter)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -53,6 +78,13 @@ namespace FlintLib.Commands
 			_executionDelegate = executionDelegate ?? throw new ArgumentNullException(nameof(executionDelegate));
 		}
 
+		public event EventHandler CanExecuteChanged;
+
+		public bool CanExecute(object parameter)
+		{
+			throw new NotImplementedException();
+		}
+
 		public virtual R Execute()
 		{
 			return _executionDelegate.Invoke();
@@ -61,6 +93,11 @@ namespace FlintLib.Commands
 		public object Execute(object parameter)
 		{
 			return Execute();
+		}
+
+		void ICommand.Execute(object parameter)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -73,6 +110,13 @@ namespace FlintLib.Commands
 			_executionDelegate = executionDelegate ?? throw new ArgumentNullException(nameof(executionDelegate));
 		}
 
+		public event EventHandler CanExecuteChanged;
+
+		public bool CanExecute(object parameter)
+		{
+			throw new NotImplementedException();
+		}
+
 		public virtual R Execute(P parameter)
 		{
 			return _executionDelegate.Invoke(parameter);
@@ -81,6 +125,11 @@ namespace FlintLib.Commands
 		public object Execute(object parameter)
 		{
 			return Execute((P)parameter);
+		}
+
+		void ICommand.Execute(object parameter)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

@@ -134,4 +134,10 @@
     <value>The value must be between {0} and {1}.</value>
     <comment>{0} is the lower bound and {1} is the upper bound.</comment>
   </data>
+  <data name="fMessage_ParameterIsNotAValidType" xml:space="preserve">
+    <value>Parameter must be of type {0} and not type {1}</value>
+  </data>
+  <data name="Message_UnhandledEnumValue" xml:space="preserve">
+    <value>Unhandled Enum Value: </value>
+  </data>
 </root>

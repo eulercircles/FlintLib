@@ -1,28 +1,22 @@
 ﻿#region Using Statements
 using System;
-using System.Linq;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
+
+using static FlintLib.MVVM.EventUtilities;
 #endregion // Using Statements
 
 namespace FlintLib.MVVM
 {
 	internal abstract class PropertyChangedNotifier : INotifyPropertyChanged
 	{
-		private PropertyChangedEventHandler _propertyChanged;
+		private readonly PropertyChangedEventHandler _propertyChanged;
 		public event PropertyChangedEventHandler PropertyChanged
 		{
-			add
-			{
-				if (_propertyChanged == null || !_propertyChanged.GetInvocationList().Contains(value))
-				{
-					_propertyChanged += value;
-				}
-			}
-			remove { _propertyChanged -= value; }
+			add { Subscribe(_propertyChanged, value); }
+			remove { Unsubscribe(_propertyChanged, value); }
 		}
 
-		protected void _triggerPropertyChangedEvent(string propertyName = null)
+		protected void TriggerPropertyChangedEvent(string propertyName = null)
 		{
 			_propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}

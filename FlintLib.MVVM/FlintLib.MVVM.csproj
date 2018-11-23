@@ -43,15 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Delegates.cs" />
+    <Compile Include="EventUtilities.cs" />
     <Compile Include="Factories\BindablesFactory.cs" />
-    <Compile Include="Factories\CommandsFactory.cs" />
     <Compile Include="IBindable.cs" />
     <Compile Include="IBindableSelectionList.cs" />
     <Compile Include="IExecutedNotifierCommand.cs" />
     <Compile Include="IMediator.cs" />
     <Compile Include="Internals\BindableSelectionList.cs" />
     <Compile Include="Internals\BindableTextNumericalValidator.cs" />
-    <Compile Include="Internals\Commands.cs" />
     <Compile Include="Internals\ReadOnlyBindable.cs" />
     <Compile Include="Internals\TwoWayBindable.cs" />
     <Compile Include="IReadOnlyBindable.cs" />
@@ -63,7 +62,6 @@
       <DependentUpon>PublicResources.resx</DependentUpon>
     </Compile>
     <Compile Include="PropertyChangedNotifier.cs" />
-    <Compile Include="Internals\RelayCommand.cs" />
     <Compile Include="Deprecated\Adjutant.cs" />
     <Compile Include="Deprecated\IAdjutant.cs" />
     <Compile Include="Internals\Bindable.cs" />
