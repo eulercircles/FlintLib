@@ -5,30 +5,6 @@ namespace FlintLib.Music
 {
 	public static class Extensions
 	{
-		public static uint ToUInt32(this BitArray bitArray)
-		{
-			if (bitArray.Length > 32) { throw new ArgumentOutOfRangeException(nameof(bitArray)); }
-
-			uint result = 0;
-			for (int i = 0; i < bitArray.Length; i++)
-			{
-				if (bitArray[i]) { result |= (uint)(1 << i); }
-			}
-			return result;
-		}
-
-		public static uint ReverseBits(this uint value)
-		{
-			uint result = 0;
-			for (int i = 0; i < 32; ++i)
-			{
-				result <<= 1;
-				result |= (value & 1);
-				value >>= 1;
-			}
-			return result;
-		}
-
 		public static string Symbol(this Accidentals value)
 		{
 			switch (value)

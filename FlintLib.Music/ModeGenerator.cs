@@ -12,7 +12,7 @@ namespace FlintLib.Music
 		{
 			var values = new List<int>() { (int)Intervals.MinorSecond, (int)Intervals.MajorSecond, (int)Intervals.MinorThird, (int)Intervals.MajorThird };
 			var variations = new Variations<int>(values, 5, GenerateOption.WithRepetition).ToList();
-			var stepLists = variations.Where(s => s.Sum() == 12).ToList();
+			var stepLists = variations.Where(steps => steps.Sum() == 12).ToList();
 
 			var results = new Dictionary<string, PentatonicMode>();
 
@@ -30,7 +30,7 @@ namespace FlintLib.Music
 		{
 			var values = new List<int>() { (int)Intervals.MinorSecond, (int)Intervals.MajorSecond, (int)Intervals.MinorThird };
 			var variations = new Variations<int>(values, 7, GenerateOption.WithRepetition).ToList();
-			var stepLists = variations.Where(s => s.Sum() == 12).ToList();
+			var stepLists = variations.Where(steps => steps.Sum() == 12).ToList();
 
 			var results = new Dictionary<string, HeptatonicMode>();
 
@@ -42,7 +42,7 @@ namespace FlintLib.Music
 				var modeName = Definitions.NamedHeptatonicModes.ContainsKey(signature) ?
 					Definitions.NamedHeptatonicModes[signature] : signature;
 
-				var mode = new HeptatonicMode(signature, modeName);
+				var mode = new HeptatonicMode(signature);
 				
 				results.Add(modeName, mode);
 			}

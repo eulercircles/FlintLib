@@ -25,6 +25,14 @@ namespace FlintLib.Tests.Music
 			File.WriteAllText(@"C:\users\Ronal\Desktop\chords.csv", text, Encoding.UTF8);
 		}
 
+		[TestMethod]
+		public void TestHeptatonicMode()
+		{
+			var scale = ScaleBuilder.C.Ionian;
+			var chords = scale.GetDelimitedChords();
+			File.WriteAllText(@"C:\users\Ronal\Desktop\C_Ionian.csv", chords, Encoding.UTF8);
+		}
+
 		private string GetCSV(IReadOnlyList<HeptatonicMode> modes)
 		{
 			var csvBuilder = new StringBuilder();
@@ -35,13 +43,13 @@ namespace FlintLib.Tests.Music
 				var name = !string.IsNullOrWhiteSpace(mode.Name) ? $"{mode.Name} ({mode.Signature})" : mode.Signature;
 				var groupList = new List<string>
 				{
-					GetChordGroup(mode.Degree1Chords),
-					GetChordGroup(mode.Degree2Chords),
-					GetChordGroup(mode.Degree3Chords),
-					GetChordGroup(mode.Degree4Chords),
-					GetChordGroup(mode.Degree5Chords),
-					GetChordGroup(mode.Degree6Chords),
-					GetChordGroup(mode.Degree7Chords)
+					GetChordGroup(mode.TonicChords),
+					GetChordGroup(mode.SupertonicChords),
+					GetChordGroup(mode.MediantChords),
+					GetChordGroup(mode.SubdominantChords),
+					GetChordGroup(mode.DominantChords),
+					GetChordGroup(mode.SubmediantChords),
+					GetChordGroup(mode.SubtonicChords)
 				};
 
 				var line = $"{name},{string.Join(",", groupList)}";

@@ -20,9 +20,17 @@ namespace FlintLib.Music
 		public ScaleBuilder Flat { get { _root.Accidental = Accidentals.Flat; return this; } }
 		public ScaleBuilder Sharp { get { _root.Accidental = Accidentals.Sharp; return this; } }
 
-		public HeptatonicScale Heptatonic(string signature, string name = "")
+		public HeptatonicScale Ionian => Heptatonic(Definitions.NamedHeptatonicModes.Where(kvp => kvp.Value == nameof(Ionian)).FirstOrDefault().Key);
+		public HeptatonicScale Dorian => Heptatonic(Definitions.NamedHeptatonicModes.Where(kvp => kvp.Value == nameof(Dorian)).FirstOrDefault().Key);
+		public HeptatonicScale Phrygian => Heptatonic(Definitions.NamedHeptatonicModes.Where(kvp => kvp.Value == nameof(Phrygian)).FirstOrDefault().Key);
+		public HeptatonicScale Lydian => Heptatonic(Definitions.NamedHeptatonicModes.Where(kvp => kvp.Value == nameof(Lydian)).FirstOrDefault().Key);
+		public HeptatonicScale Mixolydian => Heptatonic(Definitions.NamedHeptatonicModes.Where(kvp => kvp.Value == nameof(Mixolydian)).FirstOrDefault().Key);
+		public HeptatonicScale Aeolian => Heptatonic(Definitions.NamedHeptatonicModes.Where(kvp => kvp.Value == nameof(Aeolian)).FirstOrDefault().Key);
+		public HeptatonicScale Locrian => Heptatonic(Definitions.NamedHeptatonicModes.Where(kvp => kvp.Value == nameof(Locrian)).FirstOrDefault().Key);
+
+		public HeptatonicScale Heptatonic(string signature)
 		{
-			return new HeptatonicScale(_root, new HeptatonicMode(signature, name));
+			return new HeptatonicScale(_root, signature);
 		}
 	}
 }

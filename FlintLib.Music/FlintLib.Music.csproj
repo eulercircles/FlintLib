@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Combinatorics, Version=1.1.0.19, Culture=neutral, PublicKeyToken=d5738f21cd5d2f66, processorArchitecture=MSIL">
@@ -177,8 +179,8 @@
     <Compile Include="Note.cs" />
     <Compile Include="Pentatonics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scale.cs" />
     <Compile Include="ScaleBuilder.cs" />
+    <Compile Include="ScaleDegree.cs" />
     <Compile Include="SupportItems\SupportItems.cs" />
     <Compile Include="SupportItems\Constants.cs" />
     <Compile Include="SupportItems\Enums.cs" />

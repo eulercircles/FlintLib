@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using FlintLib.Common;
 
 using static FlintLib.Music.Symbols;
 

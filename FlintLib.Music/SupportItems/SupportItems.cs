@@ -10,58 +10,18 @@ namespace FlintLib.Music
 {
 	public static class Convert
 	{
-		public static BitArray BoolStringToBitArray(string boolString)
+		public static BitArray BinaryStringToBitArray(string value)
 		{
-			if (string.IsNullOrWhiteSpace(boolString))
-			{ throw new ArgumentException("The string must not be null or white space.", nameof(boolString)); }
+			if (string.IsNullOrWhiteSpace(value))
+			{ throw new ArgumentException("The string must not be null or white space.", nameof(value)); }
 
-			var chars = boolString.ToUpper().ToCharArray();
-			var bits = new bool[chars.Length];
+			if (value.Any(c => (c != '0' && c != '1')))
+			{ throw new ArgumentException("The input string must consist of only the characters '1' and '0'.", nameof(value)); }
 
-			for (int i = 0; i < chars.Length; i++)
-			{
-				switch (chars[i])
-				{
-					case 'T':
-						bits[i] = true;
-						break;
-					case 'F':
-						bits[i] = false;
-						break;
-					default:
-						throw new ArgumentException("The input string must consist of only the characters 'T' and 'F'.", nameof(boolString));
-				}
-			}
+			var result = new BitArray(value.Length, false);
 
-			var result = new BitArray(bits);
+			for (int i = 0; i < value.Length; i++) { result[i] = (value[i] == '1') ? true : false; }
 
-			return result;
-		}
-
-		public static BitArray BinaryStringToBitArray(string binaryString)
-		{
-			if (string.IsNullOrWhiteSpace(binaryString))
-			{ throw new ArgumentException("The string must not be null or white space.", nameof(binaryString)); }
-
-			var chars = binaryString.ToCharArray();
-			var bits = new bool[chars.Length];
-
-			for (int i = 0; i < chars.Length; i++)
-			{
-				switch (chars[i])
-				{
-					case '1':
-						bits[i] = true;
-						break;
-					case '0':
-						bits[i] = false;
-						break;
-					default:
-						throw new ArgumentException("The input string must consist of only the characters '1' and '0'.", nameof(binaryString));
-				}
-			}
-
-			var result = new BitArray(bits);
 			return result;
 		}
 
@@ -74,17 +34,7 @@ namespace FlintLib.Music
 			return result;
 		}
 
-		public static BitArray StepStringToBitArray(string stepString)
-		{
-			return BinaryStringToBitArray(StepStringToBinaryString(stepString));
-		}
-
-		public static BitArray ToneStringToBitArray(string toneString)
-		{
-			return BinaryStringToBitArray(ToneStringToBinaryString(toneString));
-		}
-
-		private static string StepStringToBinaryString(string stepString)
+		public static string StepStringToBinaryString(string stepString)
 		{
 			string result = "1";
 			foreach (var step in stepString.ToCharArray())
@@ -107,7 +57,7 @@ namespace FlintLib.Music
 			return result.PadRight(16, '0');
 		}
 
-		private static string ToneStringToBinaryString(string toneString)
+		public static string ToneStringToBinaryString(string toneString)
 		{
 			string result = "1";
 			foreach (var tone in toneString.ToCharArray())
@@ -146,7 +96,7 @@ namespace FlintLib.Music
 			{ "2211222", "Arabian" },
 			{ "2122131", "Harmonic Minor" },
 			{ "1222131", "Neapolitan Minor" },
-			{ "1312122", "Spanish Gypsy" },
+			{ "1312122", "Phrygian Dominant" },
 			{ "1322211", "Enigmatic" },
 			{ "2121222", "Half Diminished" },
 			{ "2212122", "Hindu" },
