@@ -1,12 +1,8 @@
 ﻿using System;
+using System.Windows.Input;
 
 namespace FlintLib.Commands
 {
-	public interface ICommand
-	{
-		object Execute(object parameter);
-	}
-
 	public interface IActionCommand : ICommand
 	{
 		void Execute();

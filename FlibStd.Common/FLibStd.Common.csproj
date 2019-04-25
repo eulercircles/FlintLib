@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\FlintLib.Common\EnumUtilities.cs" Link="EnumUtilities.cs" />
+    <Compile Include="..\FlintLib.Common\Extensions.cs" Link="Extensions.cs" />
+    <Compile Include="..\FlintLib.Common\Internals\Observable.cs" Link="Internals\Observable.cs" />
+    <Compile Include="..\FlintLib.Common\Internals\ReadOnlyObservable.cs" Link="Internals\ReadOnlyObservable.cs" />
+    <Compile Include="..\FlintLib.Common\IObservable.cs" Link="IObservable.cs" />
+    <Compile Include="..\FlintLib.Common\IReadOnlyObservable.cs" Link="IReadOnlyObservable.cs" />
+    <Compile Include="..\FlintLib.Common\ISaveable.cs" Link="ISaveable.cs" />
+    <Compile Include="..\FlintLib.Common\ObservablesFactory.cs" Link="ObservablesFactory.cs" />
+    <Compile Include="..\FlintLib.Common\ProductInfo.cs" Link="ProductInfo.cs" />
+    <Compile Include="..\FlintLib.Common\Properties\PublicResources.Designer.cs" Link="Properties\PublicResources.Designer.cs" />
+    <Compile Include="..\FlintLib.Common\StringUtilities.cs" Link="StringUtilities.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\FlintLib.Common\Properties\PublicResources.resx" Link="Properties\PublicResources.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Internals\" />
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\FlintLib.Scheduling\Date.cs" Link="Date.cs" />
+    <Compile Include="..\FlintLib.Scheduling\Extensions.cs" Link="Extensions.cs" />
+    <Compile Include="..\FlintLib.Scheduling\Properties\InternalResources.Designer.cs" Link="Properties\InternalResources.Designer.cs" />
+    <Compile Include="..\FlintLib.Scheduling\Recurrences.cs" Link="Recurrences.cs" />
+    <Compile Include="..\FlintLib.Scheduling\SupportItems.cs" Link="SupportItems.cs" />
+    <Compile Include="..\FlintLib.Scheduling\Time.cs" Link="Time.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\FlintLib.Scheduling\Properties\InternalResources.resx" Link="Properties\InternalResources.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FlibStd.Common\FLibStd.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+</Project>

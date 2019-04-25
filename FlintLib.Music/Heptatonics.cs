@@ -1,60 +1,74 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
 using System.Collections.Generic;
 
 namespace FlintLib.Music
 {
 	public class HeptatonicMode
 	{
-		public string Name { get; private set; }
-		public string Signature { get; private set; }
+		public string Signature => _degrees[0].Signature;
+		public string Name => Definitions.NamedHeptatonicModes.ContainsKey(Signature) ? Definitions.NamedHeptatonicModes[Signature] : Signature;
 
-		public IReadOnlyDictionary<uint, string> Degree1LegalChords { get; private set; }
-		public IReadOnlyDictionary<uint, string> Degree2LegalChords { get; private set; }
-		public IReadOnlyDictionary<uint, string> Degree3LegalChords { get; private set; }
-		public IReadOnlyDictionary<uint, string> Degree4LegalChords { get; private set; }
-		public IReadOnlyDictionary<uint, string> Degree5LegalChords { get; private set; }
-		public IReadOnlyDictionary<uint, string> Degree6LegalChords { get; private set; }
-		public IReadOnlyDictionary<uint, string> Degree7LegalChords { get; private set; }
+		private readonly ScaleDegree[] _degrees = new ScaleDegree[7];
 
-		public HeptatonicMode(string stepSignature, string name = "")
+		public virtual IReadOnlyList<ChordTypes> TonicChords => _degrees[0].Chords;
+		public virtual IReadOnlyList<ChordTypes> SupertonicChords => _degrees[1].Chords;
+		public virtual IReadOnlyList<ChordTypes> MediantChords => _degrees[2].Chords;
+		public virtual IReadOnlyList<ChordTypes> SubdominantChords => _degrees[3].Chords;
+		public virtual IReadOnlyList<ChordTypes> DominantChords => _degrees[4].Chords;
+		public virtual IReadOnlyList<ChordTypes> SubmediantChords => _degrees[5].Chords;
+		public virtual IReadOnlyList<ChordTypes> SubtonicChords => _degrees[6].Chords;
+
+		internal HeptatonicMode(string stepSignature)
 		{
-			if (stepSignature.Length != 7) { throw new ArgumentException("", nameof(stepSignature)); }
+			if (stepSignature.Length != 7) { throw new ArgumentOutOfRangeException(nameof(stepSignature)); }
 
-			Name = name;
-			Signature = stepSignature;
-			var _degree2Signature = Signature.RotateLeft();
-			var _degree3Signature = _degree2Signature.RotateLeft();
-			var _degree4Signature = _degree3Signature.RotateLeft();
-			var _degree5Signature = _degree4Signature.RotateLeft();
-			var _degree6Signature = _degree5Signature.RotateLeft();
-			var _degree7Signature = _degree6Signature.RotateLeft();
-
-			Degree1LegalChords = GetDegreeChords(Signature);
-			Degree2LegalChords = GetDegreeChords(_degree2Signature);
-			Degree3LegalChords = GetDegreeChords(_degree3Signature);
-			Degree4LegalChords = GetDegreeChords(_degree4Signature);
-			Degree5LegalChords = GetDegreeChords(_degree5Signature);
-			Degree6LegalChords = GetDegreeChords(_degree6Signature);
-			Degree7LegalChords = GetDegreeChords(_degree7Signature);
-		}
-
-		private IReadOnlyDictionary<uint, string> GetDegreeChords(string stepSignature)
-		{
-			var result = new Dictionary<uint, string>();
-			var signatureValue = Convert.StepStringToBitArray(stepSignature).ToUInt32();
-
-			foreach (var chord in ChordUtilities.ChordValues)
+			var signature = stepSignature;
+			for (int i = 0; i < _degrees.Length; i++)
 			{
-				if ((signatureValue & chord.Key) == chord.Key) { result.Add(chord.Key, chord.Value); }
+				_degrees[i] = new ScaleDegree(signature);
+				signature = signature.RotateLeft();
 			}
-
-			return result;
 		}
 	}
 
-	public class HeptatonicScale
+	public class HeptatonicScale : HeptatonicMode
 	{
-		private Note _root;
-		private HeptatonicMode _mode;
+		private readonly Note _root;
+
+		public Note Tonic { get; }
+		public Note Supertonic { get; }
+		public Note Mediant { get; }
+		public Note Subdominant { get; }
+		public Note Dominant { get; }
+		public Note Submediant { get; }
+		public Note Subtonic { get; }
+
+		internal HeptatonicScale(Note root, string signature) : base(signature)
+		{
+			_root = root;
+		}
+
+		public string GetDelimitedChords()
+		{
+			var stringBuilder = new StringBuilder();
+
+			return stringBuilder.ToString();
+		}
+
+		private string GetDelimitedChordList(IReadOnlyList<ChordTypes> chords)
+		{
+			var symbols = new List<string>();
+			chords.ToList().ForEach(chord => { symbols.Add(chord.DefaultSymbol()); });
+			return string.Join(",", symbols);
+		}
+
+		private IReadOnlyList<Note> GetNotesOfScale()
+		{
+			var result = new List<Note>();
+
+			return result;
+		}
 	}
 }

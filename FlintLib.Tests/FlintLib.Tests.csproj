@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FlintLib.Tests</RootNamespace>
     <AssemblyName>FlintLib.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -26,6 +26,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,6 +35,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -51,19 +53,24 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Common\Observable_Tester.cs" />
-    <Compile Include="Common\Extensions_Tester.cs" />
+    <Compile Include="Accounting\RecurringTransactionTester.cs" />
     <Compile Include="Genetics\Chromosome_Tester.cs" />
     <Compile Include="Geometrics\ImperialMeasure_Tester.cs" />
     <Compile Include="Intelligence\NeuralNetwork_Tester.cs" />
-    <Compile Include="Music\ModeChords_Tester.cs" />
     <Compile Include="MVVM\Converter_Tester.cs" />
     <Compile Include="MVVM\Bindables_Tester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scheduling\RecurringItem_Tester.cs" />
+    <Compile Include="Scheduling\Date_Tester.cs" />
+    <Compile Include="Scheduling\Time_Tester.cs" />
     <Compile Include="Structures\PQItem.cs" />
     <Compile Include="Structures\PriorityQueue_Tester.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FlintLib.Accounting\FlintLib.Accounting.csproj">
+      <Project>{eeaab1dc-47cc-47d3-88ee-1b8ae002fe46}</Project>
+      <Name>FlintLib.Accounting</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FlintLib.Commands\FlintLib.Commands.csproj">
       <Project>{1501a789-a607-4905-93de-b4df51423d0c}</Project>
       <Name>FlintLib.Commands</Name>
@@ -92,13 +99,13 @@
       <Project>{07b70176-9762-463f-ae1a-ce0f09b684b4}</Project>
       <Name>FlintLib.Mathematics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FlintLib.Music\FlintLib.Music.csproj">
-      <Project>{19d0732d-5282-4470-822e-4fe959c948b9}</Project>
-      <Name>FlintLib.Music</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FlintLib.MVVM\FlintLib.MVVM.csproj">
       <Project>{fffe157b-9db4-48a7-9a75-a2b39b94de36}</Project>
       <Name>FlintLib.MVVM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlintLib.Scheduling\FlintLib.Scheduling.csproj">
+      <Project>{18119212-a9c6-4051-8850-4b0f8d2fc083}</Project>
+      <Name>FlintLib.Scheduling</Name>
     </ProjectReference>
     <ProjectReference Include="..\FlintLib.Structures\FlintLib.Structures.csproj">
       <Project>{20ec6b62-9001-43a3-ad2e-9aadbe18a451}</Project>

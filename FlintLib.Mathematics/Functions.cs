@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Numerics;
 
 namespace FlintLib.Mathematics
@@ -17,6 +18,27 @@ namespace FlintLib.Mathematics
 			if (x < min) { return min; }
 			else if (x > max) { return max; }
 			else { return x; }
+		}
+
+		public static byte ByteClamp(int i)
+		{
+			if (i < 0) return 0;
+			if (i > 255) return 255;
+			return (byte)i;
+		}
+
+		public static double DegreeClamp(double angle)
+		{
+			if (angle < 0) return (360.0 + angle);
+			if (angle >= 360.0) return (angle - 360.0);
+			return angle;
+		}
+
+		public static int PercentClamp(int p)
+		{
+			if (p < 0) { return 0; }
+			if (p > 100) { return 100; }
+			return p;
 		}
 
 		public static float SigmoidF(float x, float c)
@@ -45,10 +67,7 @@ namespace FlintLib.Mathematics
 
 		public static float HyperbolicTangentF(float x)
 		{
-			var denominator = (Math.Pow(Math.E, x) + Math.Pow(Math.E, -x));
-			var numerator = (Math.Pow(Math.E, x) - Math.Pow(Math.E, -x));
-			var result = (numerator / denominator);
-			return (float)result;
+			return (float)HyperbolicTangentD(x);
 		}
 
 		public static double HyperbolicTangentD(double x)
@@ -117,6 +136,15 @@ namespace FlintLib.Mathematics
 				b = remainder;
 			}
 			return a;
+		}
+
+		public static Vector2 GetPointOnCircle(Vector2 center, double radius, double angleInDegrees)
+		{
+			Vector2 result = new Vector2();
+			double angleInRadians = DegreesToRadians(angleInDegrees);
+			result.X = (float)((Math.Cos(angleInRadians) * radius) + center.X);
+			result.Y = (float)(center.Y - (Math.Sin(angleInRadians) * radius));
+			return result;
 		}
 	}
 }

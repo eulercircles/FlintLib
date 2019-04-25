@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\FlintLib.Accounting\Account.cs" Link="Account.cs" />
+    <Compile Include="..\FlintLib.Accounting\RecurringTransaction.cs" Link="RecurringTransaction.cs" />
+    <Compile Include="..\FlintLib.Accounting\SupportItems.cs" Link="SupportItems.cs" />
+    <Compile Include="..\FlintLib.Accounting\TransactionCorrection.cs" Link="TransactionCorrection.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FlibStd.Common\FLibStd.Common.csproj" />
+    <ProjectReference Include="..\FlibStd.Scheduling\FLibStd.Scheduling.csproj" />
+  </ItemGroup>
+
+</Project>

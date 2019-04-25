@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\FlintLib.Presentation\ColorUtilities.cs" Link="ColorUtilities.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FLibStd.Mathematics\FLibStd.Mathematics.csproj" />
+  </ItemGroup>
+
+</Project>

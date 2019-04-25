@@ -12,11 +12,11 @@ using FlintLib.Common;
 [assembly: AssemblyProduct("FlintLib.Geometrics")]
 [assembly: AssemblyCopyright(ProductInfo.Copyright)]
 [assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
+[assembly: AssemblyCulture("en-US")]
 
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("782701c3-59f4-49f0-9c15-740414456712")]
 
-[assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + ".0.*")]
+[assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + "1.0")]

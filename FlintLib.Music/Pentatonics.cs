@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FlintLib.Music
 {
@@ -15,9 +11,8 @@ namespace FlintLib.Music
 
 		public PentatonicMode(int[] intervals, string name = "")
 		{
-			if (intervals.Length != 5) { throw new ArgumentException("", nameof(intervals)); }
+			_intervals = (intervals.Length == 5) ? intervals : throw new ArgumentException("", nameof(intervals));
 
-			_intervals = intervals;
 			Name = name;
 		}
 	}
@@ -25,7 +20,12 @@ namespace FlintLib.Music
 	public class PentatonicScale
 	{
 		private readonly PentatonicMode _mode;
-		private readonly Notes _root;
-		private readonly Accidentals _rootAccidental;
+		private readonly Note _root;
+
+		internal PentatonicScale(Note root, PentatonicMode mode)
+		{
+			_root = root;
+			_mode = mode;
+		}
 	}
 }

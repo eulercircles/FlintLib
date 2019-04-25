@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\FlintLib.MVVM\Delegates.cs" Link="Delegates.cs" />
+    <Compile Include="..\FlintLib.MVVM\Factories\BindablesFactory.cs" Link="Factories\BindablesFactory.cs" />
+    <Compile Include="..\FlintLib.MVVM\Factories\CommandsFactory.cs" Link="Factories\CommandsFactory.cs" />
+    <Compile Include="..\FlintLib.MVVM\IBindable.cs" Link="IBindable.cs" />
+    <Compile Include="..\FlintLib.MVVM\IBindableSelectionList.cs" Link="IBindableSelectionList.cs" />
+    <Compile Include="..\FlintLib.MVVM\IExecutedNotifierCommand.cs" Link="IExecutedNotifierCommand.cs" />
+    <Compile Include="..\FlintLib.MVVM\IMediator.cs" Link="IMediator.cs" />
+    <Compile Include="..\FlintLib.MVVM\Internals\Bindable.cs" Link="Internals\Bindable.cs" />
+    <Compile Include="..\FlintLib.MVVM\Internals\BindableSelectionList.cs" Link="Internals\BindableSelectionList.cs" />
+    <Compile Include="..\FlintLib.MVVM\Internals\BindableTextNumericalValidator.cs" Link="Internals\BindableTextNumericalValidator.cs" />
+    <Compile Include="..\FlintLib.MVVM\Internals\Commands.cs" Link="Internals\Commands.cs" />
+    <Compile Include="..\FlintLib.MVVM\Internals\ReadOnlyBindable.cs" Link="Internals\ReadOnlyBindable.cs" />
+    <Compile Include="..\FlintLib.MVVM\Internals\RelayCommand.cs" Link="Internals\RelayCommand.cs" />
+    <Compile Include="..\FlintLib.MVVM\Internals\TwoWayBindable.cs" Link="Internals\TwoWayBindable.cs" />
+    <Compile Include="..\FlintLib.MVVM\IReadOnlyBindable.cs" Link="IReadOnlyBindable.cs" />
+    <Compile Include="..\FlintLib.MVVM\Mediator.cs" Link="Mediator.cs" />
+    <Compile Include="..\FlintLib.MVVM\MediatorArgs.cs" Link="MediatorArgs.cs" />
+    <Compile Include="..\FlintLib.MVVM\Properties\PublicResources.Designer.cs" Link="Properties\PublicResources.Designer.cs" />
+    <Compile Include="..\FlintLib.MVVM\PropertyChangedNotifier.cs" Link="PropertyChangedNotifier.cs" />
+    <Compile Include="..\FlintLib.MVVM\Resources\ErrorStrings.Designer.cs" Link="Resources\ErrorStrings.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\FlintLib.MVVM\Properties\PublicResources.resx" Link="Properties\PublicResources.resx" />
+    <EmbeddedResource Include="..\FlintLib.MVVM\Resources\ErrorStrings.resx" Link="Resources\ErrorStrings.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FlibStd.Common\FLibStd.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Factories\" />
+    <Folder Include="Internals\" />
+    <Folder Include="Properties\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
+</Project>

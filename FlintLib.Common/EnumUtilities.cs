@@ -21,8 +21,8 @@ namespace FlintLib.Common
 		// Based on blog by Brandon Truong - http://brandontruong.blogspot.com/2010/04/use-enum-as-itemssource.html
 		public static Dictionary<string, T> GetEnumDescriptions<T>()
 		{
-			var x = typeof(T).GetFields().Where(info => info.FieldType.Equals(typeof(T)));
-			IEnumerable<KeyValuePair<string, T>> enumsAndDescriptions = from field in x
+			var fields = typeof(T).GetFields().Where(info => info.FieldType.Equals(typeof(T)));
+			IEnumerable<KeyValuePair<string, T>> enumsAndDescriptions = from field in fields
 				select new KeyValuePair<string, T>(GetEnumDescription(field), (T)Enum.Parse(typeof(T), field.Name, false));
 			
 			Dictionary<string, T> dictionary = new Dictionary<string, T>();
@@ -55,10 +55,25 @@ namespace FlintLib.Common
 		public static string Description(this Enum value)
 		{
 			FieldInfo field = value.GetType().GetField(value.ToString());
-			DescriptionAttribute attribute
-				= Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute))
-				as DescriptionAttribute;
-			return attribute == null ? value.ToString() : attribute.Description;
+			return !(Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute)) is DescriptionAttribute attribute) ? value.ToString() : attribute.Description;
+		}
+
+		public static T Increment<T>(this T value) where T : Enum
+		{
+			var fields = typeof(T).GetFields().Where(info => info.FieldType.Equals(typeof(T))).ToList();
+			var field = fields.Where(f => f.Name == value.ToString()).FirstOrDefault();
+			var index = fields.IndexOf(field);
+			index = (index != fields.Count - 1) ? (index + 1) : 0;
+			return (T)Enum.Parse(typeof(T), fields[index].Name, false);
+		}
+
+		public static T Decrement<T>(this T value) where T : Enum
+		{
+			var fields = typeof(T).GetFields().Where(info => info.FieldType.Equals(typeof(T))).ToList();
+			var field = fields.Where(f => f.Name == value.ToString()).FirstOrDefault();
+			var index = fields.IndexOf(field);
+			index = (index != 0) ? (index - 1) : (fields.Count - 1);
+			return (T)Enum.Parse(typeof(T), fields[index].Name, false);
 		}
 	}
 }

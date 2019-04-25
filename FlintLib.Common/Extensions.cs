@@ -9,41 +9,22 @@ namespace FlintLib.Common
 	public static class NumericExtensions
 	{
 		public static int? ToInt(this string value)
-		{
-			if (int.TryParse(value, out int parsedValue)) { return parsedValue; }
-			else { return null; }
-		}
+			=> int.TryParse(value, out int parsedValue) ? (int?)parsedValue : null;
 
 		public static decimal? ToDecimal(this string value)
-		{
-			if (decimal.TryParse(value, NumberStyles.Any, CultureInfo.CurrentCulture, out decimal parsedValue)) { return parsedValue; }
-			else { return null; }
-		}
-
-		public static string ToCurrencyString(this decimal value)
-		{
-			return value.ToString("C", CultureInfo.CurrentCulture);
-		}
+			=> decimal.TryParse(value, NumberStyles.Any, CultureInfo.CurrentCulture, out decimal parsedValue) ? (decimal?)parsedValue : null;
+		
+			public static string ToCurrencyString(this decimal value)
+			=> value.ToString("C", CultureInfo.CurrentCulture);
 
 		public static bool IsNegative(this double value)
-		{
-			return value < 0;
-		}
-
-		public static bool IsInRange(this int value, int lowerValue, int upperValue)
-		{
-			return (value >= lowerValue && value <= upperValue);
-		}
-
-		public static bool IsInRange(this float value, float lowerValue, float upperValue)
-		{
-			return (value >= lowerValue && value <= upperValue);
-		}
+			=> value < 0;
 		
 		public static bool IsGreaterThanZero(this string stringValue)
-		{
-			return double.TryParse(stringValue, out double numericalValue) ? (numericalValue > 0) : false;
-		}
+			=> double.TryParse(stringValue, out double numericalValue) ? (numericalValue > 0) : false;
+
+		public static bool IsInRange<T>(this T value, T lowerLimit, T upperLimit) where T : IComparable<T>
+			=> (value.CompareTo(lowerLimit) >= 0 && value.CompareTo(upperLimit) <= 0);
 
 		/// <summary>
 		/// 
@@ -51,23 +32,14 @@ namespace FlintLib.Common
 		/// <param name="valueString"></param>
 		/// <returns></returns>
 		public static bool IsIntegerValue(this string valueString)
-		{
-			if (double.TryParse(valueString, out double parsedValue))
-			{
-				return (parsedValue - Math.Truncate(parsedValue) == 0);
-			}
-			else { return false; }
-		}
+			=> (double.TryParse(valueString, out double parsedValue)) ? (parsedValue - Math.Truncate(parsedValue) == 0) : false;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="valueString"></param>
 		/// <returns></returns>
-		public static bool IsNumericValue(this string valueString)
-		{
-			return double.TryParse(valueString, out double parsedValue);
-		}
+		public static bool IsNumericValue(this string valueString) => double.TryParse(valueString, out double parsedValue);
 	}
 
 	public static class StringExtensions
@@ -133,15 +105,9 @@ namespace FlintLib.Common
 			return new DateTime(value.Year, value.Month, value.Day);
 		}
 
-		public static DateTime BeginningOfMonth(this DateTime value)
-		{
-			return new DateTime(value.Year, value.Month, 1);
-		}
+		public static DateTime BeginningOfMonth(this DateTime value) => new DateTime(value.Year, value.Month, 1);
 
-		public static DateTime EndOfMonth(this DateTime value)
-		{
-			return new DateTime(value.Year, value.Month, DateTime.DaysInMonth(value.Year, value.Month));
-		}
+		public static DateTime EndOfMonth(this DateTime value) => new DateTime(value.Year, value.Month, DateTime.DaysInMonth(value.Year, value.Month));
 
 		public static bool IsHoliday(this DateTime value)
 		{
@@ -157,33 +123,19 @@ namespace FlintLib.Common
 			 || value.IsMemorialDay();
 		}
 
-		public static bool IsNewYearsDay(this DateTime date)
-		{
-			return date.DayOfYear == AdjustForWeekendHoliday(new DateTime(date.Year, 1, 1)).DayOfYear;
-		}
+		public static bool IsNewYearsDay(this DateTime date) => date.DayOfYear == AdjustForWeekendHoliday(new DateTime(date.Year, 1, 1)).DayOfYear;
 
-		public static bool IsNewYearsEve(this DateTime date)
-		{
-			return date.DayOfYear == AdjustForWeekendHoliday(new DateTime(date.Year, 12, 31)).DayOfYear;
-		}
+		public static bool IsNewYearsEve(this DateTime date) => date.DayOfYear == AdjustForWeekendHoliday(new DateTime(date.Year, 12, 31)).DayOfYear;
 
-		public static bool IsChristmasEve(this DateTime date)
-		{
-			return date.DayOfYear == AdjustForWeekendHoliday(new DateTime(date.Year, 12, 24)).DayOfYear;
-		}
+		public static bool IsChristmasEve(this DateTime date) => date.DayOfYear == AdjustForWeekendHoliday(new DateTime(date.Year, 12, 24)).DayOfYear;
 
-		public static bool IsChristmasDay(this DateTime date)
-		{
-			return date.DayOfYear == AdjustForWeekendHoliday(new DateTime(date.Year, 12, 25)).DayOfYear;
-		}
+		public static bool IsChristmasDay(this DateTime date) => date.DayOfYear == AdjustForWeekendHoliday(new DateTime(date.Year, 12, 25)).DayOfYear;
 
-		public static bool IsFourthOfJuly(this DateTime date)
-		{
-			return date.DayOfYear == AdjustForWeekendHoliday(new DateTime(date.Year, 7, 4)).DayOfYear;
-		}
+		public static bool IsFourthOfJuly(this DateTime date) => date.DayOfYear == AdjustForWeekendHoliday(new DateTime(date.Year, 7, 4)).DayOfYear;
 
 		public static bool IsLaborDay(this DateTime date)
-		{ // First Monday in September
+		{
+			// First Monday in September
 			DateTime laborDay = new DateTime(date.Year, 9, 1);
 			DayOfWeek dayOfWeek = laborDay.DayOfWeek;
 			while (dayOfWeek != DayOfWeek.Monday)
@@ -195,7 +147,8 @@ namespace FlintLib.Common
 		}
 
 		public static bool IsMemorialDay(this DateTime date)
-		{ //Last Monday in May
+		{ 
+			//Last Monday in May
 			DateTime memorialDay = new DateTime(date.Year, 5, 31);
 			DayOfWeek dayOfWeek = memorialDay.DayOfWeek;
 			while (dayOfWeek != DayOfWeek.Monday)
@@ -207,7 +160,8 @@ namespace FlintLib.Common
 		}
 
 		public static bool IsThanksgivingDay(this DateTime date)
-		{//4th Thursday in November
+		{
+			//4th Thursday in November
 			var thanksgiving = (from day in Enumerable.Range(1, 30)
 													where new DateTime(date.Year, 11, day).DayOfWeek == DayOfWeek.Thursday
 													select day).ElementAt(3);
