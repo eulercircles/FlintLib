@@ -11,15 +11,21 @@ namespace FLibXamarin.Common
 			get { return _value; }
 			set
 			{
-				if (_value == null && value != null)
+				if (_value == null)
 				{
-					_value = value;
-					TriggerValueChangedEvent();
+					if (value != null)
+					{
+						_value = value;
+						_valueChanged?.Invoke(this, null);
+					}
 				}
-				else if (!_value.Equals(value))
+				else
 				{
-					_value = value;
-					TriggerValueChangedEvent();
+					if (!_value.Equals(value))
+					{
+						_value = value;
+						_valueChanged?.Invoke(this, null);
+					}
 				}
 			}
 		}
@@ -27,24 +33,24 @@ namespace FLibXamarin.Common
 		private EventHandler _valueChanged;
 		public event EventHandler ValueChanged
 		{
-			add
-			{
-				if (_valueChanged == null || !_valueChanged.GetInvocationList().Contains(value))
-				{ _valueChanged += value; }
-			}
-			remove { _valueChanged -= value; }
+			add { if (_valueChanged == null || !_valueChanged.GetInvocationList().Contains(value)) { _valueChanged += value; } }
+			remove { if (_valueChanged != null && _valueChanged.GetInvocationList().Contains(value)) { _valueChanged -= value; } }
 		}
 
-		public Observable() : this(default(T)) { }
+		/// <summary>
+		/// 
+		/// </summary>
+		public Observable() : this(default) { }
 
-		public Observable(T initialValue)
-		{
-			Value = initialValue;
-		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="initialValue"></param>
+		public Observable(T initialValue) => Value = initialValue;
 
-		private void TriggerValueChangedEvent()
-		{
-			_valueChanged?.Invoke(this, null);
-		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public void Refresh() => _valueChanged?.Invoke(this, null);
 	}
 }

@@ -66,6 +66,7 @@
     <Compile Include="Common\Observable_Tester.cs" />
     <Compile Include="Common\ReadOnlyObservable_Tester.cs" />
     <Compile Include="MVVM\DecimalToColorConverter_Tester.cs" />
+    <Compile Include="Scheduling\TestRecurrence.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -90,7 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Accounting\" />
-    <Folder Include="Scheduling\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

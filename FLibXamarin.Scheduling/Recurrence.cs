@@ -1,65 +1,39 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-using static FLibXamarin.Common.Properties.PublicResources;
-using static FLibXamarin.Scheduling.Properties.InternalResources;
-
 namespace FLibXamarin.Scheduling
 {
-	public class RecurrenceModel
-	{
-		public RecurrencePeriods Period { get; set; }
-		public Date StartDate { get; set; }
-		public Date? EndDate { get; set; }
-
-		public MonthlyStyles? MonthlyStyle { get; set; }
-		public SemiMonthlyStyles? SemiMonthlyStyle { get; set; }
-
-		public CorrectionMethods SaturdayCorrectionRule { get; set; }
-		public CorrectionMethods SundayCorrectionRule { get; set; }
-		public CorrectionMethods HolidayCorrectionRule { get; set; }
-	}
-
 	public abstract class RecurrenceRule
 	{
-		public RecurrencePeriods Period { get; }
-		public Date StartDate { get; }
-		public Date? EndDate { get; }
+		private enum RecurrencePeriods
+		{
+			Weekly,
+			BiWeekly,
+			SemiMonthly,
+			Monthly,
+			Yearly
+		}
 
-		public CorrectionMethods SaturdayCorrection { get; }
-		public CorrectionMethods SundayCorrection { get; }
-		public CorrectionMethods HolidayCorrection { get; }
+		public Date StartDate { get; }
+		public Date? EndDate { get; set; } = null;
+
+		public CorrectionMethods SaturdayCorrection { get; private set; } = CorrectionMethods.None;
+		public CorrectionMethods SundayCorrection { get; private set; } = CorrectionMethods.None;
+		public CorrectionMethods HolidayCorrection { get; private set; } = CorrectionMethods.None;
 
 		protected Date _currentNormalOccurrence;
 
-		public static RecurrenceRule CreateFromModel(RecurrenceModel model)
-		{
-			switch (model.Period)
-			{
-				case RecurrencePeriods.Yearly: return new YearlyRecurrenceRule(model.StartDate, model.EndDate, model.SaturdayCorrectionRule, model.SundayCorrectionRule, model.HolidayCorrectionRule);
-				case RecurrencePeriods.Monthly: return new MonthlyRecurrenceRule(model.MonthlyStyle.Value, model.StartDate, model.EndDate, model.SaturdayCorrectionRule, model.SundayCorrectionRule, model.HolidayCorrectionRule);
-				case RecurrencePeriods.SemiMonthly: return new SemiMonthlyRecurrenceRule(model.SemiMonthlyStyle.Value, model.StartDate, model.EndDate, model.SaturdayCorrectionRule, model.SundayCorrectionRule, model.HolidayCorrectionRule);
-				case RecurrencePeriods.Biweekly: return new BiweeklyRecurrenceRule(model.StartDate, model.EndDate, model.SaturdayCorrectionRule, model.SundayCorrectionRule, model.HolidayCorrectionRule);
-				case RecurrencePeriods.Weekly: return new WeeklyRecurrenceRule(model.StartDate, model.EndDate, model.SaturdayCorrectionRule, model.SundayCorrectionRule, model.HolidayCorrectionRule);
-				default: throw new Exception(string.Format(fMessage_UnhandledEnumValue, model.Period));
-			}
-		}
-
-		public RecurrenceRule(Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection)
+		public RecurrenceRule(Date startDate, Date? endDate)
 		{
 			StartDate = startDate; // This must be set once and be used as the very first valid occurrence that the recurrence was created for.
 			EndDate = endDate;
-			SaturdayCorrection = saturdayCorrection;
-			SundayCorrection = sundayCorrection;
-			HolidayCorrection = holidayCorrection;
 
 			_currentNormalOccurrence = StartDate;
 		}
 
 		internal abstract Date Next();
-
-		internal abstract RecurrenceModel GetModel();
 
 		protected internal Date GetCorrection()
 		{
@@ -72,7 +46,7 @@ namespace FLibXamarin.Scheduling
 		{
 			if (date.DayOfWeek == DayOfWeek.Saturday && SaturdayCorrection != CorrectionMethods.None) { return true; }
 			if (date.DayOfWeek == DayOfWeek.Sunday && SundayCorrection != CorrectionMethods.None) { return true; }
-			if (date.IsHoliday && HolidayCorrection != CorrectionMethods.None) { return true; }
+			if (date.IsHoliday() && HolidayCorrection != CorrectionMethods.None) { return true; }
 
 			return false;
 		}
@@ -83,8 +57,8 @@ namespace FLibXamarin.Scheduling
 			{
 				switch (SaturdayCorrection)
 				{
-					case CorrectionMethods.PreviousWeekDay: return date.AddDays(-1);
-					case CorrectionMethods.FollowingWeekDay: return date.AddDays(2);
+					case CorrectionMethods.Before: return date.AddDays(-1);
+					case CorrectionMethods.After: return date.AddDays(2);
 				}
 			}
 
@@ -92,17 +66,17 @@ namespace FLibXamarin.Scheduling
 			{
 				switch (SundayCorrection)
 				{
-					case CorrectionMethods.PreviousWeekDay: return date.AddDays(-2);
-					case CorrectionMethods.FollowingWeekDay: return date.AddDays(1);
+					case CorrectionMethods.Before: return date.AddDays(-2);
+					case CorrectionMethods.After: return date.AddDays(1);
 				}
 			}
 
-			if (date.IsHoliday)
+			if (date.IsHoliday())
 			{
 				switch (HolidayCorrection)
 				{
-					case CorrectionMethods.PreviousWeekDay: return date.AddDays(-1);
-					case CorrectionMethods.FollowingWeekDay: return date.AddDays(1);
+					case CorrectionMethods.Before: return date.AddDays(-1);
+					case CorrectionMethods.After: return date.AddDays(1);
 				}
 			}
 
@@ -125,104 +99,168 @@ namespace FLibXamarin.Scheduling
 
 			return results;
 		}
-	}
 
-	public class YearlyRecurrenceRule : RecurrenceRule
-	{
-		public YearlyRecurrenceRule(Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection) : base(startDate, endDate, saturdayCorrection, sundayCorrection, holidayCorrection)
+		public override string ToString() => Encode();
+
+		#region Rule Coding
+		public static RecurrenceRule Decode(string code)
 		{
+			if (code.Length != 23) { throw new ArgumentException($"'{code}' is not a valid code."); }
+			
+			var period = GetPeriod(code.Substring(0, 1).First());
+
+			var startDate = GetDate(code.Substring(4, 8));
+			var endDate = GetDate(code.Substring(12, 8));
+
+			var smstyle = GetSemiMonthlyStyle(code.Substring(3, 1).First());
+						
+			var saturday = GetCorrectionMethod(code.Substring(20, 1).First());
+			var sunday = GetCorrectionMethod(code.Substring(21, 1).First());
+			var holiday = GetCorrectionMethod(code.Substring(22, 1).First());
+
+			RecurrenceRule result = null;
+			switch (period)
+			{
+				case RecurrencePeriods.Weekly:
+					saturday = CorrectionMethods.None;
+					sunday = CorrectionMethods.None;
+					result = new WeeklyRecurrenceRule(startDate.Value, endDate);
+					break;
+				case RecurrencePeriods.BiWeekly:
+					saturday = CorrectionMethods.None;
+					sunday = CorrectionMethods.None;
+					result = new BiweeklyRecurrenceRule(startDate.Value, endDate);
+					break;
+				case RecurrencePeriods.SemiMonthly:
+					result = new SemiMonthlyRecurrenceRule(smstyle, startDate.Value, endDate);
+					break;
+				case RecurrencePeriods.Monthly:
+					result = new MonthlyRecurrenceRule(startDate.Value, endDate);
+					break;
+				case RecurrencePeriods.Yearly:
+					result = new YearlyRecurrenceRule(startDate.Value, endDate);
+					break;
+			}
+
+			result.SaturdayCorrection = saturday;
+			result.SundayCorrection = sunday;
+			result.HolidayCorrection = holiday;
+
+			return result;
 		}
 
-		internal override RecurrenceModel GetModel()
+		private static RecurrencePeriods GetPeriod(char code)
 		{
-			return new RecurrenceModel()
+			switch(code)
 			{
-				Period = RecurrencePeriods.Yearly,
-				StartDate = StartDate,
-				EndDate = EndDate,
-				SaturdayCorrectionRule = SaturdayCorrection,
-				SundayCorrectionRule = SundayCorrection,
-				HolidayCorrectionRule = HolidayCorrection
-			};
+				case 'W': return RecurrencePeriods.Weekly;
+				case 'B': return RecurrencePeriods.BiWeekly;
+				case 'S': return RecurrencePeriods.SemiMonthly;
+				case 'M': return RecurrencePeriods.Monthly;
+				case 'Y': return RecurrencePeriods.Yearly;
+				default: throw new Exception($"'{code}' does not designate a valid period code. Use 'W', 'B', 'S', 'M', or 'Y'.");
+			}
+		}
+
+		private static Date? GetDate(string dateCode)
+		{
+			try
+			{
+				var corrected = dateCode.Insert(4, "-").Insert(7, "-");
+				return Date.ParseExact(corrected);
+			}
+			catch (Exception) { return null; }
+		}
+
+		private static CorrectionMethods GetCorrectionMethod(char code)
+		{
+			switch (code)
+			{
+				case 'N': return CorrectionMethods.None;
+				case 'B': return CorrectionMethods.Before;
+				case 'A': return CorrectionMethods.After;
+				default: throw new Exception($"'{code}' does not designate a valid correction method code. Use 'N', 'B', or 'A'.");
+			}
+		}
+
+		private static SemiMonthlyStyles GetSemiMonthlyStyle(char code)
+		{
+			switch(code)
+			{
+				case 'N': return SemiMonthlyStyles.UNDEFINED;
+				case 'F': return SemiMonthlyStyles.FirstAndFifteenth;
+				case 'L': return SemiMonthlyStyles.FifteenthAndLast;
+				default: throw new Exception($"'{code}' does not designate a valid Semi-Monthly style code. Use 'N', 'F', or 'L'.");
+			}
+		}
+
+		public abstract string Encode();
+		#endregion Rule Coding
+	}
+
+	#region Concrete Rules
+	internal class WeeklyRecurrenceRule : RecurrenceRule
+	{
+		public WeeklyRecurrenceRule(Date startDate, Date? endDate = null) : base(startDate, endDate)
+		{
 		}
 
 		internal override Date Next()
 		{
-			_currentNormalOccurrence = _currentNormalOccurrence.AddYears(1);
+			_currentNormalOccurrence = _currentNormalOccurrence.AddDays(7);
 			return GetCorrection();
 		}
+
+		public override string Encode() => $"Weekly";
 	}
 
-	public class MonthlyRecurrenceRule : RecurrenceRule
+	internal class BiweeklyRecurrenceRule : RecurrenceRule
 	{
-		public MonthlyStyles MonthlyStyle { get; }
-
-		public MonthlyRecurrenceRule(MonthlyStyles monthlyStyle, Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection) : base(startDate, endDate, saturdayCorrection, sundayCorrection, holidayCorrection)
+		public BiweeklyRecurrenceRule(Date startDate, Date? endDate = null) : base(startDate, endDate)
 		{
-			if (monthlyStyle == MonthlyStyles.FirstDay && startDate.Day != 1)
-			{
+		}
 
-			}
-			else if (monthlyStyle == MonthlyStyles.LastDay && (startDate.Day != startDate.EndOfMonth.Day))
-			{
+		public override string Encode()
+		{
+			var periodCode = "B";
+			var dayCode = (((int)StartDate.DayOfWeek) + 1).ToString().PadLeft(2, '0');
+			var smstyleCode = "N";
+			var startCode = StartDate.ToString().Replace("-", string.Empty);
+			var endCode = EndDate.HasValue ? EndDate.ToString().Replace("-", string.Empty) : "00000000";
+			var satCode = SaturdayCorrection.ToLetterCode();
+			var sunCode = SundayCorrection.ToLetterCode();
+			var holCode = HolidayCorrection.ToLetterCode();
 
-			}
-
-			MonthlyStyle = monthlyStyle;
+			return $"{periodCode}{dayCode}{smstyleCode}{startCode}{endCode}{satCode}{sunCode}{holCode}";
 		}
 
 		internal override Date Next()
 		{
-			switch (MonthlyStyle)
-			{
-				case MonthlyStyles.FirstDay:
-					_currentNormalOccurrence = _currentNormalOccurrence.BeginningOfMonth;
-					break;
-				case MonthlyStyles.LastDay:
-					_currentNormalOccurrence = _currentNormalOccurrence.EndOfMonth;
-					break;
-			}
-
-			_currentNormalOccurrence = _currentNormalOccurrence.AddMonths(1);
+			_currentNormalOccurrence = _currentNormalOccurrence.AddDays(14);
 			return GetCorrection();
-		}
-
-		internal override RecurrenceModel GetModel()
-		{
-			return new RecurrenceModel()
-			{
-				Period = RecurrencePeriods.Monthly,
-				StartDate = StartDate,
-				EndDate = EndDate,
-				MonthlyStyle = MonthlyStyle,
-				SaturdayCorrectionRule = SaturdayCorrection,
-				SundayCorrectionRule = SundayCorrection,
-				HolidayCorrectionRule = HolidayCorrection
-			};
 		}
 	}
 
-	public class SemiMonthlyRecurrenceRule : RecurrenceRule
+	internal class SemiMonthlyRecurrenceRule : RecurrenceRule
 	{
 		public SemiMonthlyStyles SemiMonthlyStyle { get; }
 
-		public SemiMonthlyRecurrenceRule(SemiMonthlyStyles semiMonthlyStyle, Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection)
-			: base(startDate, endDate, saturdayCorrection, sundayCorrection, holidayCorrection)
+		public SemiMonthlyRecurrenceRule(SemiMonthlyStyles style, Date startDate, Date? endDate = null) : base(startDate, endDate)
 		{
-			if (semiMonthlyStyle == SemiMonthlyStyles.UNDEFINED)
+			if (style == SemiMonthlyStyles.UNDEFINED)
 			{
-				throw new ArgumentNullException(nameof(semiMonthlyStyle), Message_SemiMonthlyStyleMustBeSet);
+				throw new ArgumentNullException(nameof(style), Messages.SemiMonthlyStyleMustBeSet);
 			}
-			if (semiMonthlyStyle == SemiMonthlyStyles.FirstAndFifteenth && !(startDate.Day == 1 || startDate.Day == 15))
+			if (style == SemiMonthlyStyles.FirstAndFifteenth && !(startDate.Day == 1 || startDate.Day == 15))
 			{
-				throw new Exception(Message_StartDateMustBeFirstOrFifteenth);
+				throw new Exception(Messages.StartDateMustBeFirstOrFifteenth);
 			}
-			else if (semiMonthlyStyle == SemiMonthlyStyles.FifteenthAndLast && !(startDate.Day == 15 || startDate.Day == startDate.EndOfMonth.Day))
+			else if (style == SemiMonthlyStyles.FifteenthAndLast && !(startDate.Day == 15 || startDate.Day == startDate.EndOfMonth().Day))
 			{
-				throw new Exception(Message_StartDateMustBeFifteenthOrLast);
+				throw new Exception(Messages.StartDateMustBeFifteenthOrLast);
 			}
 
-			SemiMonthlyStyle = semiMonthlyStyle;
+			SemiMonthlyStyle = style;
 		}
 
 		internal override Date Next()
@@ -231,12 +269,12 @@ namespace FLibXamarin.Scheduling
 			{
 				case SemiMonthlyStyles.FirstAndFifteenth:
 					if (_currentNormalOccurrence.Day == 1) { _currentNormalOccurrence = _currentNormalOccurrence.AddDays(14); }
-					else if (_currentNormalOccurrence.Day == 15) { _currentNormalOccurrence = _currentNormalOccurrence.AddMonths(1).BeginningOfMonth; }
+					else if (_currentNormalOccurrence.Day == 15) { _currentNormalOccurrence = _currentNormalOccurrence.AddMonths(1).BeginningOfMonth(); }
 					else { throw new Exception(); }
 					break;
 				case SemiMonthlyStyles.FifteenthAndLast:
-					if (_currentNormalOccurrence.Day == 15) { _currentNormalOccurrence = _currentNormalOccurrence.EndOfMonth; }
-					else if (_currentNormalOccurrence == _currentNormalOccurrence.EndOfMonth)
+					if (_currentNormalOccurrence.Day == 15) { _currentNormalOccurrence = _currentNormalOccurrence.EndOfMonth(); }
+					else if (_currentNormalOccurrence == _currentNormalOccurrence.EndOfMonth())
 					{
 						var nextMonth = _currentNormalOccurrence.AddMonths(1);
 						_currentNormalOccurrence = new Date(nextMonth.Year, nextMonth.Month, 15);
@@ -248,90 +286,47 @@ namespace FLibXamarin.Scheduling
 			return GetCorrection();
 		}
 
-		internal override RecurrenceModel GetModel()
-		{
-			return new RecurrenceModel()
-			{
-				Period = RecurrencePeriods.Monthly,
-				StartDate = StartDate,
-				EndDate = EndDate,
-				SemiMonthlyStyle = SemiMonthlyStyle,
-				SaturdayCorrectionRule = SaturdayCorrection,
-				SundayCorrectionRule = SundayCorrection,
-				HolidayCorrectionRule = HolidayCorrection
-			};
-		}
+		public override string Encode() => $"Semi-monthly";
 	}
 
-	public class BiweeklyRecurrenceRule : RecurrenceRule
+	internal class MonthlyRecurrenceRule : RecurrenceRule
 	{
-		public BiweeklyRecurrenceRule(Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection) : base(startDate, endDate, saturdayCorrection, sundayCorrection, holidayCorrection)
-		{
-			if (saturdayCorrection != CorrectionMethods.None && startDate.DayOfWeek == DayOfWeek.Saturday)
-			{ throw new Exception(Message_StartDateCannotBeSaturday); }
+		public MonthlyStyles MonthlyStyle { get; }
 
-			if (sundayCorrection != CorrectionMethods.None && startDate.DayOfWeek == DayOfWeek.Sunday)
-			{ throw new Exception(Message_StartDateCannotBeSunday); }
-		}
-
-		internal override RecurrenceModel GetModel()
+		public MonthlyRecurrenceRule(Date startDate, Date? endDate = null) : base(startDate, endDate)
 		{
-			return new RecurrenceModel()
-			{
-				Period = RecurrencePeriods.Yearly,
-				StartDate = StartDate,
-				EndDate = EndDate,
-				SaturdayCorrectionRule = SaturdayCorrection,
-				SundayCorrectionRule = SundayCorrection,
-				HolidayCorrectionRule = HolidayCorrection
-			};
 		}
 
 		internal override Date Next()
 		{
-			_currentNormalOccurrence = _currentNormalOccurrence.AddDays(14);
+			switch (MonthlyStyle)
+			{
+				case MonthlyStyles.FirstDay:
+					_currentNormalOccurrence = _currentNormalOccurrence.BeginningOfMonth();
+					break;
+				case MonthlyStyles.LastDay:
+					_currentNormalOccurrence = _currentNormalOccurrence.EndOfMonth();
+					break;
+			}
+
+			_currentNormalOccurrence = _currentNormalOccurrence.AddMonths(1);
 			return GetCorrection();
 		}
 
-		public override string ToString()
-		{
-			return base.ToString();
-		}
+		public override string Encode() => $"Monthly";
 	}
 
-	public class WeeklyRecurrenceRule : RecurrenceRule
+	internal class YearlyRecurrenceRule : RecurrenceRule
 	{
-		public WeeklyRecurrenceRule(Date startDate, Date? endDate, CorrectionMethods saturdayCorrection, CorrectionMethods sundayCorrection, CorrectionMethods holidayCorrection) : base(startDate, endDate, saturdayCorrection, sundayCorrection, holidayCorrection)
-		{
-			if (saturdayCorrection != CorrectionMethods.None && startDate.DayOfWeek == DayOfWeek.Saturday)
-			{ throw new Exception(Message_StartDateCannotBeSaturday); }
+		public YearlyRecurrenceRule(Date startDate, Date? endDate) : base(startDate, endDate) { }
 
-			if (sundayCorrection != CorrectionMethods.None && startDate.DayOfWeek == DayOfWeek.Sunday)
-			{ throw new Exception(Message_StartDateCannotBeSunday); }
-		}
-
-		internal override RecurrenceModel GetModel()
-		{
-			return new RecurrenceModel()
-			{
-				Period = RecurrencePeriods.Yearly,
-				StartDate = StartDate,
-				EndDate = EndDate,
-				SaturdayCorrectionRule = SaturdayCorrection,
-				SundayCorrectionRule = SundayCorrection,
-				HolidayCorrectionRule = HolidayCorrection
-			};
-		}
+		public override string Encode() => $"Yearly";
 
 		internal override Date Next()
 		{
-			_currentNormalOccurrence = _currentNormalOccurrence.AddDays(7);
+			_currentNormalOccurrence = _currentNormalOccurrence.AddYears(1);
 			return GetCorrection();
 		}
-
-		public override string ToString()
-		{
-			return $"Weekly";
-		}
 	}
+	#endregion Concrete Rules
 }

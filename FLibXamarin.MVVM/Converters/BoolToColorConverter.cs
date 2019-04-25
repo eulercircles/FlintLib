@@ -8,10 +8,11 @@ namespace FLibXamarin.MVVM.Converters
 	public class BoolToColorConverter : BindableObject, IValueConverter
 	{
 		#region Bindable Properties
-		private static readonly BindableProperty _trueColorProperty = BindableProperty.Create("TrueColor", typeof(Color), typeof(BoolToColorConverter), Color.Transparent);
+		private static readonly BindableProperty _trueColorProperty
+			= BindableProperty.Create("TrueColor", typeof(Color), typeof(BoolToColorConverter), Color.Transparent);
 
-		private static readonly BindableProperty _falseColorProperty =
-			BindableProperty.Create("FalseColor", typeof(Color), typeof(BoolToColorConverter), Color.Transparent);
+		private static readonly BindableProperty _falseColorProperty
+			= BindableProperty.Create("FalseColor", typeof(Color), typeof(BoolToColorConverter), Color.Transparent);
 
 		public Color TrueColor
 		{

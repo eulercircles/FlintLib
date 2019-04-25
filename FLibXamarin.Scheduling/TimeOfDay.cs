@@ -4,15 +4,15 @@ using static FLibXamarin.Common.Properties.PublicResources;
 
 namespace FLibXamarin.Scheduling
 {
-	public struct Time
+	public struct TimeOfDay
 	{
 		public int Hour { get; }
 		public int Minute { get; }
 		public int Second { get; }
 
-		public static Time Now => DateTime.Now;
+		public static TimeOfDay Now => DateTime.Now;
 
-		public static bool operator <(Time left, Time right)
+		public static bool operator <(TimeOfDay left, TimeOfDay right)
 		{
 			if (left.Hour < right.Hour) { return true; }
 			else if (left.Hour == right.Hour)
@@ -27,7 +27,7 @@ namespace FLibXamarin.Scheduling
 			return false;
 		}
 
-		public static bool operator >(Time left, Time right)
+		public static bool operator >(TimeOfDay left, TimeOfDay right)
 		{
 			if (left.Hour > right.Hour) { return true; }
 			else if (left.Hour == right.Hour)
@@ -42,7 +42,7 @@ namespace FLibXamarin.Scheduling
 			return false;
 		}
 
-		public static bool operator <=(Time left, Time right)
+		public static bool operator <=(TimeOfDay left, TimeOfDay right)
 		{
 			if (left.Hour < right.Hour) { return true; }
 			else if (left.Hour > right.Hour) { return false; }
@@ -59,7 +59,7 @@ namespace FLibXamarin.Scheduling
 			return true;
 		}
 
-		public static bool operator >=(Time left, Time right)
+		public static bool operator >=(TimeOfDay left, TimeOfDay right)
 		{
 			if (left.Hour > right.Hour) { return true; }
 			else if (left.Hour < right.Hour) { return false; }
@@ -76,13 +76,13 @@ namespace FLibXamarin.Scheduling
 			return true;
 		}
 
-		public static bool operator ==(Time left, Time right) => (left.Hour == right.Hour && left.Minute == right.Minute && left.Second == right.Second);
+		public static bool operator ==(TimeOfDay left, TimeOfDay right) => (left.Hour == right.Hour && left.Minute == right.Minute && left.Second == right.Second);
 
-		public static bool operator !=(Time left, Time right) => (left.Hour != right.Hour || left.Minute != right.Minute || left.Second != right.Second);
+		public static bool operator !=(TimeOfDay left, TimeOfDay right) => (left.Hour != right.Hour || left.Minute != right.Minute || left.Second != right.Second);
 
-		public static implicit operator Time(DateTime value) => new Time(value.Hour, value.Minute, value.Second);
+		public static implicit operator TimeOfDay(DateTime value) => new TimeOfDay(value.Hour, value.Minute, value.Second);
 
-		public Time(int hour, int minute, int second)
+		public TimeOfDay(int hour, int minute, int second)
 		{
 			if (hour < Constants.MIN_VALUE || hour > Constants.MAX_HOURS)
 			{ throw new ArgumentOutOfRangeException(nameof(hour), string.Format(fMessage_ValueMustBeBetween, Constants.MIN_VALUE, Constants.MAX_HOURS)); }
@@ -96,29 +96,29 @@ namespace FLibXamarin.Scheduling
 			Second = second;
 		}
 
-		public Time AddHours(int hours) { throw new NotImplementedException(); }
+		public TimeOfDay AddHours(int hours) { throw new NotImplementedException(); }
 
-		public Time AddMinutes(int minutes) { throw new NotImplementedException(); }
+		public TimeOfDay AddMinutes(int minutes) { throw new NotImplementedException(); }
 
-		public Time AddSecond(int seconds) { throw new NotImplementedException(); }
+		public TimeOfDay AddSecond(int seconds) { throw new NotImplementedException(); }
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="value">A string formatted as 'hh:mm:ss'</param>
 		/// <returns></returns>
-		public static Time Parse(string value)
+		public static TimeOfDay Parse(string value)
 		{
 			if (string.IsNullOrWhiteSpace(value))
 			{ throw new ArgumentOutOfRangeException(nameof(value), "The value must be a non-null string of the format 'hh:mm:ss'"); }
 
 			var parts = value.Split();
-			return new Time(int.Parse(parts[0]), int.Parse(parts[1]), int.Parse(parts[2]));
+			return new TimeOfDay(int.Parse(parts[0]), int.Parse(parts[1]), int.Parse(parts[2]));
 		}
 
 		public override bool Equals(object obj)
 		{
-			var other = (Time)obj;
+			var other = (TimeOfDay)obj;
 			return (Hour == other.Hour && Minute == other.Minute && Second == other.Second);
 		}
 

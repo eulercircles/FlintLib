@@ -21,7 +21,7 @@ namespace FLibXamarin.Common
 																																	select new KeyValuePair<string, T>(GetEnumDescription(field), (T)Enum.Parse(typeof(T), field.Name, false));
 
 			Dictionary<string, T> results = new Dictionary<string, T>();
-			foreach (KeyValuePair<string, T> pair in enumsAndDescriptions) results.Add(pair.Key, pair.Value);
+			foreach (KeyValuePair<string, T> pair in enumsAndDescriptions) { results.Add(pair.Key, pair.Value); }
 
 			return results;
 		}
@@ -37,9 +37,7 @@ namespace FLibXamarin.Common
 			DescriptionAttribute[] attributes =
 				(DescriptionAttribute[])field.GetCustomAttributes(
 					typeof(DescriptionAttribute), false);
-
-			if (attributes.Length > 0) { return attributes[0].Description; }
-			else { return field.Name; }
+			return (attributes.Length > 0) ? attributes[0].Description : field.Name;
 		}
 
 		/// <summary>

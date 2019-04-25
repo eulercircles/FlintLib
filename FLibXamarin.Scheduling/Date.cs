@@ -4,7 +4,7 @@ using FLibXamarin.Common;
 
 namespace FLibXamarin.Scheduling
 {
-	public struct Date
+	public struct Date : IEquatable<Date>
 	{
 		public int Year { get; }
 		public Months Month { get; }
@@ -99,12 +99,7 @@ namespace FLibXamarin.Scheduling
 			Day = day;
 		}
 
-		public Date(DateTime dateTime)
-		{
-			Year = dateTime.Year;
-			Month = (Months)dateTime.Month;
-			Day = dateTime.Day;
-		}
+		public Date(DateTime dateTime) : this(dateTime.Year, (Months)dateTime.Month, dateTime.Day) { }
 
 		public DateTime ToDateTime()
 		{
@@ -117,55 +112,15 @@ namespace FLibXamarin.Scheduling
 
 		public static Date Today => DateTime.Today;
 
-		public Date BeginningOfMonth => ((DateTime)this).BeginningOfMonth();
-
-		public Date BeginningOfWeek => ((DateTime)this).BeginningOfWeek();
-
-		public Date EndOfMonth => ((DateTime)this).EndOfMonth();
-
-		public Date EndOfWeek => ((DateTime)this).EndOfWeek();
-
-		public bool IsHoliday => ((DateTime)this).IsHoliday();
-
-		public bool IsChristmasDay => ((DateTime)this).IsChristmasDay();
-
-		public bool IsChristmasEve => ((DateTime)this).IsChristmasEve();
-
-		public bool IsDayAfterThanksgiving => ((DateTime)this).IsDayAfterThanksgiving();
-
-		public bool IsFourthOfJuly => ((DateTime)this).IsFourthOfJuly();
-
-		public bool IsLaborDay => ((DateTime)this).IsLaborDay();
-
-		public bool IsMemorialDay => ((DateTime)this).IsMemorialDay();
-
-		public bool IsNewYearsDay => ((DateTime)this).IsNewYearsDay();
-
-		public bool IsNewYearsEve => ((DateTime)this).IsNewYearsEve();
-
-		public bool IsThanksgivingDay => ((DateTime)this).IsThanksgivingDay();
-
 		public Date AddYears(int years) => ((DateTime)this).AddYears(years);
 
 		public Date AddMonths(int months) => ((DateTime)this).AddMonths(months);
 
 		public Date AddDays(int days) => ((DateTime)this).AddDays(days);
 
-		public override bool Equals(object obj)
-		{
-			if (!(obj is Date)) { }
+		public override bool Equals(object obj) => (obj is Date) ? Equals((Date)obj) : throw new ArgumentException($"Argument must be of type '{typeof(Date)}'.", nameof(obj));
 
-			return ((Date)obj) == this;
-		}
-
-		public override int GetHashCode()
-		{
-			int hash = 13;
-			hash = (hash * 7) + Year.GetHashCode();
-			hash = (hash * 7) + ((int)Month).GetHashCode();
-			hash = (hash * 7) + Day.GetHashCode();
-			return hash;
-		}
+		public override int GetHashCode() => new { Year, Month, Day }.GetHashCode();
 
 		public override string ToString()
 		{
@@ -182,5 +137,7 @@ namespace FLibXamarin.Scheduling
 			var parts = value.Split('-');
 			return new Date(int.Parse(parts[0]), (Months)int.Parse(parts[1]), int.Parse(parts[2]));
 		}
+
+		public bool Equals(Date other) => (other.Year == Year && other.Month == Month && other.Day == Day);
 	}
 }

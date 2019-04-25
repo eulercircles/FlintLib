@@ -11,26 +11,18 @@ namespace FLibXamarin.Common
 		private EventHandler _valueChanged;
 		public event EventHandler ValueChanged
 		{
-			add
-			{
-				if (_valueChanged == null || !_valueChanged.GetInvocationList().Contains(value))
-				{
-					_valueChanged += value;
-				}
-			}
-			remove { _valueChanged -= value; }
+			add { if (_valueChanged == null || !_valueChanged.GetInvocationList().Contains(value)) { _valueChanged += value; } }
+			remove { if (_valueChanged != null && _valueChanged.GetInvocationList().Contains(value)) { _valueChanged -= value; } }
 		}
 
 		public ReadOnlyObservable(Observable<T> observable)
 		{
 			_observable = observable ?? throw new ArgumentNullException(nameof(observable));
-			
-			_observable.ValueChanged += ValueChanged_Event;
+			_observable.ValueChanged += Observable_ValueChanged;
 		}
 
-		private void ValueChanged_Event(object sender, EventArgs args)
-		{
-			_valueChanged?.Invoke(this, null);
-		}
+		private void Observable_ValueChanged(object sender, EventArgs args) => _valueChanged?.Invoke(this, null);
+
+		public void Refresh() => _valueChanged?.Invoke(this, null);
 	}
 }

@@ -21,17 +21,6 @@ namespace FLibXamarin.Scheduling
 		December = 12
 	}
 
-	public enum RecurrencePeriods
-	{
-		UNDEFINED,
-		Yearly,
-		Monthly,
-		SemiMonthly,
-		Biweekly,
-		Weekly,
-		Daily
-	}
-
 	public enum MonthlyStyles
 	{
 		OnDay,
@@ -49,19 +38,7 @@ namespace FLibXamarin.Scheduling
 	public enum CorrectionMethods
 	{
 		None,
-		PreviousWeekDay,
-		FollowingWeekDay
-	}
-
-	internal static class Constants
-	{
-		internal const int MIN_VALUE = 0;
-		internal const int MAX_HOURS = 23;
-		internal const int MAX_MINUTES = 59;
-		internal const int MAX_SECONDS = 59;
-
-		internal const int TOTAL_HOURS = 24;
-		internal const int TOTAL_MINUTES = 60;
-		internal const int TOTAL_SECONDS = 60;
+		Before,
+		After
 	}
 }

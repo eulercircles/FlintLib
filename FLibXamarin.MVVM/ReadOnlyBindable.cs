@@ -6,47 +6,25 @@ namespace FLibXamarin.MVVM
 {
 	public class ReadOnlyBindable<T>
 	{
-		private Bindable<T> _bindable;
-
+		private readonly Bindable<T> _bindable;
 		public T Value => _bindable.Value;
 
-		private PropertyChangedEventHandler _propertyChanged;
-		public event PropertyChangedEventHandler PropertyChanged
+		private PropertyChangedEventHandler _valueChanged;
+		public event PropertyChangedEventHandler ValueChanged
 		{
-			add
-			{
-				if (_propertyChanged == null || !_propertyChanged.GetInvocationList().Contains(value))
-				{
-					_propertyChanged += value;
-					if (_propertyChanged.GetInvocationList().Count() == 1)
-					{
-						_bindable.PropertyChanged += Bindable_PropertyChanged;
-					}
-				}
-			}
-			remove { _propertyChanged -= value; }
+			add { if (_valueChanged == null || !_valueChanged.GetInvocationList().Contains(value)) { _valueChanged += value; } }
+			remove { if (_valueChanged != null && _valueChanged.GetInvocationList().Contains(value)) { _valueChanged -= value; } }
 		}
 
 		public ReadOnlyBindable(Bindable<T> bindable)
 		{
 			_bindable = bindable ?? throw new ArgumentNullException(nameof(bindable));
-			_bindable.PropertyChanged += Bindable_PropertyChanged;
+			_bindable.ValueChanged += Bindable_ValueChanged;
 		}
 
-		private void Bindable_PropertyChanged(object sender, PropertyChangedEventArgs e)
-		{
-			if (e.PropertyName == nameof(_bindable.Value))
-			{ TriggerPropertyChangedEvent(nameof(Value)); }
-		}
+		private void Bindable_ValueChanged(object sender, PropertyChangedEventArgs args) => _valueChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Value)));
 
-		public void Refresh()
-		{
-			TriggerPropertyChangedEvent(nameof(Value));
-		}
+		public void Refresh() => _valueChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Value)));
 
-		private void TriggerPropertyChangedEvent(string propertyName = null)
-		{
-			_propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-		}
 	}
 }

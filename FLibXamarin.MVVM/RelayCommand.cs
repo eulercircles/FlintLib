@@ -22,17 +22,11 @@ namespace FLibXamarin.MVVM
 		private EventHandler _canExecuteChanged;
 		public event EventHandler CanExecuteChanged
 		{
-			add
-			{
-				if (_canExecuteChanged == null || !_canExecuteChanged.GetInvocationList().Contains(value))
-				{
-					_canExecuteChanged += value;
-				}
-			}
-			remove { _canExecuteChanged -= value; }
+			add { if (_canExecuteChanged == null || !_canExecuteChanged.GetInvocationList().Contains(value)) { _canExecuteChanged += value; } }
+			remove { if (_canExecuteChanged != null && _canExecuteChanged.GetInvocationList().Contains(value)) { _canExecuteChanged -= value; } }
 		}
 
-		public void TriggerCanExecuteChangedEvent() => _canExecuteChanged?.Invoke(this, null);
+		public void TriggerCanExecuteChanged() => _canExecuteChanged?.Invoke(this, null);
 
 		public bool CanExecute(object parameter) => _canExecute == null ? true : _canExecute();
 
@@ -44,8 +38,7 @@ namespace FLibXamarin.MVVM
 		private readonly Action<T> _execute;
 		private readonly Func<bool> _canExecute;
 
-		public RelayCommand(Action<T> execute)
-			: this(execute, null) { }
+		public RelayCommand(Action<T> execute) : this(execute, null) { }
 
 		public RelayCommand(Action<T> execute, Func<bool> canExecute)
 		{
@@ -56,29 +49,17 @@ namespace FLibXamarin.MVVM
 		private EventHandler _canExecuteChanged;
 		public event EventHandler CanExecuteChanged
 		{
-			add
-			{
-				if (_canExecuteChanged == null || !_canExecuteChanged.GetInvocationList().Contains(value))
-				{
-					_canExecuteChanged += value;
-				}
-			}
-			remove { _canExecuteChanged -= value; }
+			add { if (_canExecuteChanged == null || !_canExecuteChanged.GetInvocationList().Contains(value)) { _canExecuteChanged += value; } }
+			remove { if (_canExecuteChanged != null && _canExecuteChanged.GetInvocationList().Contains(value)) { _canExecuteChanged -= value; } }
 		}
 
 		public void TriggerCanExecuteChanged() => _canExecuteChanged?.Invoke(this, null);
 
-		public bool CanExecute(object parameter)
-		{
-			return _canExecute == null ? true : _canExecute();
-		}
+		public bool CanExecute(object parameter) =>  _canExecute == null ? true : _canExecute();
 
 		public void Execute(object parameter)
 		{
-			if (parameter is T)
-			{
-				_execute((T)parameter);
-			}
+			if (parameter is T) { _execute?.Invoke((T)parameter); }
 			else { throw new ArgumentException(string.Format(fMessage_ParameterIsNotAValidType, typeof(T), parameter.GetType())); }
 		}
 	}

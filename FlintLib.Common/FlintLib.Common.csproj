@@ -53,6 +53,7 @@
     <Compile Include="IObservable.cs" />
     <Compile Include="IReadOnlyObservable.cs" />
     <Compile Include="ISaveable.cs" />
+    <Compile Include="Latch.cs" />
     <Compile Include="ObservablesFactory.cs" />
     <Compile Include="ProductInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -61,6 +62,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PublicResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SetOnce.cs" />
     <Compile Include="StringUtilities.cs" />
   </ItemGroup>
   <ItemGroup>

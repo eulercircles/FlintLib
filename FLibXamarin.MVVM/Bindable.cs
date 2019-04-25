@@ -11,44 +11,46 @@ namespace FLibXamarin.MVVM
 			get { return _value; }
 			set
 			{
-				_value = value;
-				TriggerPropertyChangedEvent(nameof(Value));
+				if (_value == null)
+				{
+					if (value != null)
+					{
+						_value = value;
+						_valueChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Value)));
+					}
+				}
+				else
+				{
+					if (!_value.Equals(value))
+					{
+						_value = value;
+						_valueChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Value)));
+					}
+				}
 			}
 		}
 
-		private PropertyChangedEventHandler _propertyChanged;
-		public event PropertyChangedEventHandler PropertyChanged
+		private PropertyChangedEventHandler _valueChanged;
+		public event PropertyChangedEventHandler ValueChanged
 		{
-			add
-			{
-				if (_propertyChanged == null || !_propertyChanged.GetInvocationList().Contains(value))
-				{ _propertyChanged += value; }
-			}
-			remove { _propertyChanged -= value; }
+			add { if (_valueChanged == null || !_valueChanged.GetInvocationList().Contains(value)) { _valueChanged += value; } }
+			remove { if (_valueChanged != null && _valueChanged.GetInvocationList().Contains(value)) { _valueChanged -= value; } }
 		}
 
 		/// <summary>
 		/// Creates an observable property with a default initial value.
 		/// </summary>
-		public Bindable() : this(default(T)) { }
+		public Bindable() : this(default) { }
 
 		/// <summary>
 		/// Creates an observable property with the specified initial value.
 		/// </summary>
 		/// <param name="initialValue">The value to initialize the observable property to.</param>
-		public Bindable(T initialValue)
-		{
-			Value = initialValue;
-		}
+		public Bindable(T initialValue) => Value = initialValue;
 
-		public void Refresh()
-		{
-			TriggerPropertyChangedEvent(nameof(Value));
-		}
-
-		private void TriggerPropertyChangedEvent(string propertyName = null)
-		{
-			_propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public void Refresh() => _valueChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Value)));
 	}
 }
