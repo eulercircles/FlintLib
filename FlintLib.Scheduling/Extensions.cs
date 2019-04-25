@@ -1,8 +1,8 @@
 ﻿using System;
 
-using static FlintLib.Common.Properties.PublicResources;
+using static FLib.Common.Formats;
 
-namespace FlintLib.Scheduling
+namespace FLib.Scheduling
 {
 	internal static class Extensions
 	{

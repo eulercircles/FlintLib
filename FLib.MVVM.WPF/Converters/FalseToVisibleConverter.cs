@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Globalization;
 
-namespace FlintLib.MVVM.Converters
+namespace FLib.MVVM.Converters
 {
 	/// <summary>
 	/// Converts a bound boolean value to an equivalent Visiblity value:

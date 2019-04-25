@@ -4,41 +4,26 @@ using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace FlintLib.Common
+namespace FLib.Common
 {
 	public static class NumericExtensions
 	{
-		public static int? ToInt(this string value)
-			=> int.TryParse(value, out int parsedValue) ? (int?)parsedValue : null;
+		public static int? ToInt(this string value) => int.TryParse(value, out int parsedValue) ? (int?)parsedValue : null;
 
-		public static decimal? ToDecimal(this string value)
-			=> decimal.TryParse(value, NumberStyles.Any, CultureInfo.CurrentCulture, out decimal parsedValue) ? (decimal?)parsedValue : null;
-		
-			public static string ToCurrencyString(this decimal value)
-			=> value.ToString("C", CultureInfo.CurrentCulture);
+		public static decimal? ToDecimal(this string value) => decimal.TryParse(value, NumberStyles.Any, CultureInfo.CurrentCulture, out decimal parsedValue) ? (decimal?)parsedValue : null;
 
-		public static bool IsNegative(this double value)
-			=> value < 0;
-		
-		public static bool IsGreaterThanZero(this string stringValue)
-			=> double.TryParse(stringValue, out double numericalValue) ? (numericalValue > 0) : false;
+		public static string ToCurrencyString(this decimal value) => value.ToString("C", CultureInfo.CurrentCulture);
 
-		public static bool IsInRange<T>(this T value, T lowerLimit, T upperLimit) where T : IComparable<T>
-			=> (value.CompareTo(lowerLimit) >= 0 && value.CompareTo(upperLimit) <= 0);
+		public static bool IsNegative(this double value) => value < 0;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="valueString"></param>
-		/// <returns></returns>
-		public static bool IsIntegerValue(this string valueString)
-			=> (double.TryParse(valueString, out double parsedValue)) ? (parsedValue - Math.Truncate(parsedValue) == 0) : false;
+		public static bool IsGreaterThanZero(this string stringValue) => double.TryParse(stringValue, out double numericalValue) ? (numericalValue > 0) : false;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="valueString"></param>
-		/// <returns></returns>
+		public static bool IsInRange<T>(this T value, T lowerLimit, T upperLimit) where T : IComparable<T> => (value.CompareTo(lowerLimit) >= 0 && value.CompareTo(upperLimit) <= 0);
+
+
+		public static bool IsIntegerValue(this string valueString) => (double.TryParse(valueString, out double parsedValue)) ? (parsedValue - Math.Truncate(parsedValue) == 0) : false;
+
+
 		public static bool IsNumericValue(this string valueString) => double.TryParse(valueString, out double parsedValue);
 	}
 
@@ -59,11 +44,6 @@ namespace FlintLib.Common
 			return Regex.Replace(value, @"\s+", " ");
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="count"></param>
-		/// <returns></returns>
 		public static string TrailingLetters(this string input, int count)
 		{
 			List<char> chars = new List<char>();
@@ -147,7 +127,7 @@ namespace FlintLib.Common
 		}
 
 		public static bool IsMemorialDay(this DateTime date)
-		{ 
+		{
 			//Last Monday in May
 			DateTime memorialDay = new DateTime(date.Year, 5, 31);
 			DayOfWeek dayOfWeek = memorialDay.DayOfWeek;

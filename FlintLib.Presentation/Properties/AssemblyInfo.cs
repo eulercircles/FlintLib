@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
 
-using FlintLib.Common;
+using FLib.Common;
 
 [assembly: AssemblyTitle("FlintLib.Presentation")]
 [assembly: AssemblyDescription(ProductInfo.Description)]

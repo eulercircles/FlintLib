@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 
-namespace FLibXamarin.Common
+namespace FLib.Common
 {
 	public static class EnumUtilities
 	{

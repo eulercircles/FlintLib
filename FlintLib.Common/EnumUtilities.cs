@@ -6,19 +6,14 @@ using System.ComponentModel;
 using System.Collections.Generic;
 #endregion // Using Statements
 
-namespace FlintLib.Common
+namespace FLib.Common
 {
 	/// <summary>
 	/// 
 	/// </summary>
 	public static class EnumUtilities
 	{
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <returns></returns>
-		// Based on blog by Brandon Truong - http://brandontruong.blogspot.com/2010/04/use-enum-as-itemssource.html
+		/// <remarks>Based on blog by Brandon Truong - http://brandontruong.blogspot.com/2010/04/use-enum-as-itemssource.html</remarks>
 		public static Dictionary<string, T> GetEnumDescriptions<T>()
 		{
 			var fields = typeof(T).GetFields().Where(info => info.FieldType.Equals(typeof(T)));
@@ -31,12 +26,7 @@ namespace FlintLib.Common
 			return dictionary;
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="field"></param>
-		/// <returns></returns>
-		// Based on blog by Brandon Truong - http://brandontruong.blogspot.com/2010/04/use-enum-as-itemssource.html
+		/// <remarks>Based on blog by Brandon Truong - http://brandontruong.blogspot.com/2010/04/use-enum-as-itemssource.html</remarks>
 		public static string GetEnumDescription(FieldInfo field)
 		{
 			DescriptionAttribute[] attributes =
@@ -47,11 +37,6 @@ namespace FlintLib.Common
 			else { return field.Name; }
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="value"></param>
-		/// <returns></returns>
 		public static string Description(this Enum value)
 		{
 			FieldInfo field = value.GetType().GetField(value.ToString());

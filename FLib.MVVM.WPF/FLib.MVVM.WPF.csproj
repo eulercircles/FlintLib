@@ -63,13 +63,13 @@
     <Compile Include="ViewModel_Base.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FlintLib.Common\FlintLib.Common.csproj">
+    <ProjectReference Include="..\FlintLib.Common\FLib.Common.csproj">
       <Project>{5deea8b9-fe52-4fcb-b9b5-a14fc50a27a1}</Project>
-      <Name>FlintLib.Common</Name>
+      <Name>FLib.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FlintLib.MVVM\FlintLib.MVVM.csproj">
+    <ProjectReference Include="..\FlintLib.MVVM\FLib.MVVM.csproj">
       <Project>{fffe157b-9db4-48a7-9a75-a2b39b94de36}</Project>
-      <Name>FlintLib.MVVM</Name>
+      <Name>FLib.MVVM</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,4 @@
-﻿namespace FlintLib.Accounting
+﻿namespace FLib.Accounting
 {
 	public enum TransactionDirection
 	{

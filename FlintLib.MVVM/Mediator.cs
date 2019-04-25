@@ -3,7 +3,7 @@ using System.Linq;
 using System.Diagnostics;
 using System.Collections.Generic;
 
-namespace FlintLib.MVVM
+namespace FLib.MVVM
 {
 	public class Mediator : IMediator
 	{

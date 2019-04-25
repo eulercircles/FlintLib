@@ -57,13 +57,13 @@
     <Compile Include="SupportItems.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FlintLib.Common\FlintLib.Common.csproj">
+    <ProjectReference Include="..\FlintLib.Common\FLib.Common.csproj">
       <Project>{5DEEA8B9-FE52-4FCB-B9B5-A14FC50A27A1}</Project>
-      <Name>FlintLib.Common</Name>
+      <Name>FLib.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FlintLib.Mathematics\FlintLib.Mathematics.csproj">
+    <ProjectReference Include="..\FlintLib.Mathematics\FLib.Mathematics.csproj">
       <Project>{07b70176-9762-463f-ae1a-ce0f09b684b4}</Project>
-      <Name>FlintLib.Mathematics</Name>
+      <Name>FLib.Mathematics</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,9 +1,9 @@
 ﻿using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
-using static FlintLib.MVVM.Properties.PublicResources;
+using static FLib.MVVM.Properties.PublicResources;
 
-namespace FlintLib.MVVM.Converters
+namespace FLib.MVVM.Converters
 {
 	/// <summary>
 	/// Converts the bound object to a Visibility value based on whether the object is null.  Returns Visible if the object

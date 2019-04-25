@@ -11,9 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FLibXamarin.Scheduling\FLibXamarin.Scheduling.csproj">
-      <Private>false</Private>
-    </ProjectReference>
+    <ProjectReference Include="..\FLibXamarin.Scheduling\FLib.Scheduling.Xamarin.csproj" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

@@ -2,10 +2,10 @@
 using System.Globalization;
 using System.Windows.Data;
 
-using FlintLib.Common;
-using static FlintLib.MVVM.Properties.PublicResources;
+using FLib.Common;
+using static FLib.MVVM.Properties.PublicResources;
 
-namespace FlintLib.MVVM.Converters
+namespace FLib.MVVM.Converters
 {
 	public class IntToPercentStringConverter : IValueConverter
 	{

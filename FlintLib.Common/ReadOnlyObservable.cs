@@ -1,7 +1,9 @@
-﻿using System;
+﻿#region Using Statements
+using System;
 using System.Linq;
+#endregion // Using Statements
 
-namespace FLibXamarin.Common
+namespace FLib.Common
 {
 	public class ReadOnlyObservable<T>
 	{

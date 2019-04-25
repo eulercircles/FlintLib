@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace FlintLib.MVVM
+namespace FLib.MVVM
 {
 	/// <summary>
 	/// 

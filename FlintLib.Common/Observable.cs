@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace FLibXamarin.Common
+namespace FLib.Common
 {
 	public class Observable<T>
 	{
@@ -29,28 +29,18 @@ namespace FLibXamarin.Common
 				}
 			}
 		}
-
+		
 		private EventHandler _valueChanged;
 		public event EventHandler ValueChanged
 		{
 			add { if (_valueChanged == null || !_valueChanged.GetInvocationList().Contains(value)) { _valueChanged += value; } }
 			remove { if (_valueChanged != null && _valueChanged.GetInvocationList().Contains(value)) { _valueChanged -= value; } }
 		}
-
-		/// <summary>
-		/// 
-		/// </summary>
+		
 		public Observable() : this(default) { }
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="initialValue"></param>
 		public Observable(T initialValue) => Value = initialValue;
 
-		/// <summary>
-		/// 
-		/// </summary>
 		public void Refresh() => _valueChanged?.Invoke(this, null);
 	}
 }

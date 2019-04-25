@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace FlintLib.Presentation
+namespace FLib.Presentation
 {
 	public static class Colors
 	{

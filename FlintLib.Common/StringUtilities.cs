@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 
-namespace FlintLib.Common
+namespace FLib.Common
 {
 	public static class StringUtilities
 	{

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using Combinatorics.Collections;
 
-namespace FlintLib.Music
+namespace FLib.Music
 {
 	public static class ModeGenerator
 	{

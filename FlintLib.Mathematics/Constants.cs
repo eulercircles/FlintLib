@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FlintLib.Mathematics
+namespace FLib.Mathematics
 {
 	public static class Constants
 	{

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FLibXamarin.MVVM.Properties {
+namespace FLib.MVVM.Xamarin.Properties {
     using System;
     
     
@@ -19,7 +19,7 @@ namespace FLibXamarin.MVVM.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class InternalStrings {
@@ -39,7 +39,7 @@ namespace FLibXamarin.MVVM.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FLibXamarin.MVVM.Properties.InternalStrings", typeof(InternalStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FLib.MVVM.Xamarin.Properties.InternalStrings", typeof(InternalStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -34,14 +34,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FlibStd.Common\FLibStd.Common.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Factories\" />
     <Folder Include="Internals\" />
     <Folder Include="Properties\" />
     <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FlibStd.Common\FLib.Common.Standard.csproj" />
   </ItemGroup>
 
 </Project>

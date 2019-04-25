@@ -2,10 +2,9 @@
 using System.Linq;
 using System.Windows.Input;
 
-using static FlintLib.Common.EventUtilities;
-using static FlintLib.Common.Properties.PublicResources;
+using static FLib.Common.Messages;
 
-namespace FlintLib.Commands
+namespace FLib.Commands
 {
 	public class RelayCommand : ICommand
 	{

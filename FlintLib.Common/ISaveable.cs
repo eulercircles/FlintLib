@@ -1,20 +1,11 @@
 ﻿using System;
 
-namespace FlintLib.Common
+namespace FLib.Common
 {
-	/// <summary>
-	/// 
-	/// </summary>
 	public interface ISaveable
 	{
-		/// <summary>
-		/// 
-		/// </summary>
-		IReadOnlyObservable<bool> IsDirty { get; }
+		ReadOnlyObservable<bool> IsDirty { get; }
 
-		/// <summary>
-		/// 
-		/// </summary>
 		void Save();
 	}
 }

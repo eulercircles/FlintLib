@@ -3,9 +3,9 @@ using System.Windows;
 using System.Windows.Data;
 using System.Globalization;
 
-using static FlintLib.MVVM.Properties.PublicResources;
+using static FLib.MVVM.Properties.PublicResources;
 
-namespace FlintLib.MVVM.Converters
+namespace FLib.MVVM.Converters
 {
 	/// <summary>
 	/// Converts a bound integer value to a Visibility - Visible if the bound value is greater than or equal to zero, 

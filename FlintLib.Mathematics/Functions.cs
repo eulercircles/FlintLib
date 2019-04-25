@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Numerics;
 
-namespace FlintLib.Mathematics
+namespace FLib.Mathematics
 {
 	public static class Functions
 	{

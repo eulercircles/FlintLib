@@ -3,9 +3,9 @@ using System.Linq;
 using System.Diagnostics;
 using System.Collections.Generic;
 
-using FlintLib.Scheduling;
+using FLib.Scheduling;
 
-namespace FlintLib.Accounting
+namespace FLib.Accounting
 {
 	public class RecurringTransaction
 	{

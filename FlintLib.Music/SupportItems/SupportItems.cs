@@ -4,9 +4,9 @@ using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 
-using static FlintLib.Common.EnumUtilities;
+using static FLib.Common.EnumUtilities;
 
-namespace FlintLib.Music
+namespace FLib.Music
 {
 	public static class Convert
 	{

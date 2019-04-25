@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FLibXamarin.Common.Properties {
+namespace FLib.Common.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace FLibXamarin.Common.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FLibXamarin.Common.Properties.PublicResources", typeof(PublicResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FLib.Common.Properties.PublicResources", typeof(PublicResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
-using FlintLib.Common;
+using FLib.Common;
 
-using static FlintLib.Music.Symbols;
+using static FLib.Music.Symbols;
 
-namespace FlintLib.Music
+namespace FLib.Music
 {
 	public class Note
 	{

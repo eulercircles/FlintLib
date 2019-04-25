@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 
-using FlintLib.Scheduling;
+using FLib.Scheduling;
 
-namespace FlintLib.Accounting
+namespace FLib.Accounting
 {
 	internal class TransactionCorrection
 	{

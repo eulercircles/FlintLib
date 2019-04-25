@@ -1,7 +1,7 @@
 ﻿using System;
-using static FlintLib.Mathematics.Functions;
+using static FLib.Mathematics.Functions;
 
-namespace FlintLib.Presentation
+namespace FLib.Presentation
 {
 	public static class ColorUtilities
 	{

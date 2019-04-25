@@ -47,9 +47,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FlintLib.Mathematics\FlintLib.Mathematics.csproj">
+    <ProjectReference Include="..\FlintLib.Mathematics\FLib.Mathematics.csproj">
       <Project>{07b70176-9762-463f-ae1a-ce0f09b684b4}</Project>
-      <Name>FlintLib.Mathematics</Name>
+      <Name>FLib.Mathematics</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

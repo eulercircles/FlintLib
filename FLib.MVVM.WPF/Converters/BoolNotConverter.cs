@@ -2,7 +2,7 @@
 using System.Windows.Data;
 using System.Globalization;
 
-namespace FlintLib.MVVM.Converters
+namespace FLib.MVVM.Converters
 {
 	public class BoolNotConverter : IValueConverter
 	{

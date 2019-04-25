@@ -2,10 +2,10 @@
 using System.Globalization;
 using System.Windows.Data;
 
-using static FlintLib.MVVM.Properties.PublicResources;
+using static FLib.MVVM.Properties.PublicResources;
 using System.Windows.Media;
 
-namespace FlintLib.MVVM.Converters
+namespace FLib.MVVM.Converters
 {
 	public class DecimalToColorConverter : IValueConverter
 	{

@@ -2,9 +2,9 @@
 using System.Windows.Data;
 using System.Globalization;
 
-using static FlintLib.MVVM.Properties.PublicResources;
+using static FLib.MVVM.Properties.PublicResources;
 
-namespace FlintLib.MVVM.Converters
+namespace FLib.MVVM.Converters
 {
 	public class FloatToPercentStringConverter : IValueConverter
 	{

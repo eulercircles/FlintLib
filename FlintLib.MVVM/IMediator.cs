@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FlintLib.MVVM
+namespace FLib.MVVM
 {
 	public interface IMediator
 	{

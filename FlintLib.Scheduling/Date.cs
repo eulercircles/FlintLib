@@ -1,7 +1,7 @@
-﻿using FlintLib.Common;
+﻿using FLib.Common;
 using System;
 
-namespace FlintLib.Scheduling
+namespace FLib.Scheduling
 {
 	public struct Date
 	{

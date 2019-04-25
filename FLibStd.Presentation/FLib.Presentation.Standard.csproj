@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FLibStd.Mathematics\FLibStd.Mathematics.csproj" />
+    <ProjectReference Include="..\FLibStd.Mathematics\FLib.Mathematics.Standard.csproj" />
   </ItemGroup>
 
 </Project>

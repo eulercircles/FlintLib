@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-using static FlintLib.Common.Properties.PublicResources;
-using static FlintLib.Scheduling.Properties.InternalResources;
+using static FLib.Common.Messages;
+using static FLib.Scheduling.Properties.InternalResources;
 
-namespace FlintLib.Scheduling
+namespace FLib.Scheduling
 {
 	public class RecurrenceModel
 	{

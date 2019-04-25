@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace FlintLib.Music
+namespace FLib.Music
 {
 	public static class Extensions
 	{

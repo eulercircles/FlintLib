@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace FlintLib.Common
+namespace FLib.Common
 {
 	public class Latch
 	{
-		private bool _isClosed = false;
-		public bool IsClosed => _isClosed;
+		public bool IsClosed { get; private set; } = false;
 
-		public void Close() => _isClosed = true;
+		public void Close() => IsClosed = true;
 	}
 }

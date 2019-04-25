@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Data;
 
-namespace FlintLib.MVVM.Converters
+namespace FLib.MVVM.Converters
 {
 	public sealed class VisibilityValueConverter : IValueConverter
 	{

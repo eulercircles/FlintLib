@@ -83,9 +83,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FlintLib.Common\FlintLib.Common.csproj">
+    <ProjectReference Include="..\FlintLib.Common\FLib.Common.csproj">
       <Project>{5deea8b9-fe52-4fcb-b9b5-a14fc50a27a1}</Project>
-      <Name>FlintLib.Common</Name>
+      <Name>FLib.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\FlintLib.Diagnostics\FlintLib.Diagnostics.csproj">
       <Project>{1c762692-e7ae-4de2-b107-86017143ce21}</Project>

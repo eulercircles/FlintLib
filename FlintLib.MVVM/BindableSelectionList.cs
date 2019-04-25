@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace FlintLib.MVVM.Internals
+namespace FLib.MVVM
 {
-	internal class BindableSelectionList<T> : Bindable<int>, IBindableSelectionList<T>
+	internal class BindableSelectionList<T> : Bindable<int>
 	{
 		private readonly Dictionary<string, T> _items;
 

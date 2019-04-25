@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FlibStd.Common\FLibStd.Common.csproj" />
-    <ProjectReference Include="..\FlibStd.Scheduling\FLibStd.Scheduling.csproj" />
+    <ProjectReference Include="..\FlibStd.Common\FLib.Common.Standard.csproj" />
+    <ProjectReference Include="..\FlibStd.Scheduling\FLib.Scheduling.Standard.csproj" />
   </ItemGroup>
 
 </Project>

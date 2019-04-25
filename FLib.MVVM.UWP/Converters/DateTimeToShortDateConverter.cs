@@ -3,7 +3,7 @@ using System.Globalization;
 
 using Windows.UI.Xaml.Data;
 
-namespace FlintLib.MVVM.Converters
+namespace FLib.MVVM.Converters
 {
 	public class DateTimeToShortDateConverter : IValueConverter
 	{

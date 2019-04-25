@@ -1,4 +1,4 @@
-﻿namespace FlintLib.Scheduling
+﻿namespace FLib.Scheduling
 {
 	public enum Months
 	{

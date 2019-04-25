@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.ComponentModel;
 #endregion // Using Statements
 
-namespace FlintLib.MVVM
+namespace FLib.MVVM
 {
 	public abstract class ViewModel_Base : DependencyObject, INotifyPropertyChanged, IDisposable
 	{

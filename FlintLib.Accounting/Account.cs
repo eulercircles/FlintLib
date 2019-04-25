@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace FlintLib.Accounting
+namespace FLib.Accounting
 {
 	public interface IAccount
 	{

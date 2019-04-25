@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FlintLib.Music
+namespace FLib.Music
 {
 	public enum Intervals
 	{

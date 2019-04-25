@@ -4,9 +4,9 @@ using System.Linq;
 using System.ComponentModel;
 #endregion // Using Statements
 
-namespace FlintLib.MVVM.Internals
+namespace FLib.MVVM
 {
-	internal class Bindable<T> : IBindable<T>
+	internal class Bindable<T>
 	{
 		private PropertyChangedEventHandler _propertyChanged;
 		public event PropertyChangedEventHandler PropertyChanged

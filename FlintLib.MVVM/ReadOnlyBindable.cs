@@ -2,11 +2,11 @@
 using System.Linq;
 using System.ComponentModel;
 
-namespace FlintLib.MVVM.Internals
+namespace FLib.MVVM
 {
-	internal class ReadOnlyBindable<T> : IReadOnlyBindable<T>
+	internal class ReadOnlyBindable<T>
 	{
-		private IBindable<T> _bindable;
+		private Bindable<T> _bindable;
 
 		private PropertyChangedEventHandler _propertyChanged;
 		public event PropertyChangedEventHandler PropertyChanged
@@ -30,7 +30,7 @@ namespace FlintLib.MVVM.Internals
 			get { return _bindable.Value; }
 		}
 
-		internal ReadOnlyBindable(IBindable<T> bindable)
+		internal ReadOnlyBindable(Bindable<T> bindable)
 		{
 			_bindable = bindable ?? throw new ArgumentNullException(nameof(bindable));
 

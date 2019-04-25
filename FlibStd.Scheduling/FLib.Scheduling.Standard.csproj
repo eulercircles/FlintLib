@@ -18,11 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FlibStd.Common\FLibStd.Common.csproj" />
+    <Folder Include="Properties\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Properties\" />
+    <ProjectReference Include="..\FlibStd.Common\FLib.Common.Standard.csproj" />
   </ItemGroup>
 
 </Project>

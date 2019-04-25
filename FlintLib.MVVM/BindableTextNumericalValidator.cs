@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FLib.Music
+namespace FLib.MVVM.Internals
 {
-	public class CircleOfFifths
+	internal class BindableTextNumericalValidator
 	{
+		private string _text;
+		private bool _isValid;
 	}
 }

@@ -1,4 +1,4 @@
-﻿namespace FlintLib.Commands
+﻿namespace FLib.Commands
 {
 	public delegate void Action();
 

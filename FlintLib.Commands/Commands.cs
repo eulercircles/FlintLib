@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace FlintLib.Commands
+namespace FLib.Commands
 {
 	public abstract class ActionCommand : IActionCommand
 	{
