@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace FLib.Common
+namespace FLib.Common.Properties
 {
 	public static class ProductInfo
 	{
 
-		public const string VersionMajorMinor = "2018.11.";
+		public const string VersionMajorMinor = "2019.4.";
 
 
 		public const string Description = "Development Pre-Release";

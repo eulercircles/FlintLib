@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace FlintLib.Geometrics
+namespace FLib.Geometrics
 {
 	public enum CustomaryDenominators
 	{

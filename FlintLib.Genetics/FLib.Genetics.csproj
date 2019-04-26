@@ -7,8 +7,8 @@
     <ProjectGuid>{24A9A5A1-A58D-4A8F-890F-6DBD50A9B328}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FlintLib.Genetics</RootNamespace>
-    <AssemblyName>FlintLib.Genetics</AssemblyName>
+    <RootNamespace>FLib.Genetics</RootNamespace>
+    <AssemblyName>FLib.Genetics</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -197,4 +197,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release xcopy /y /q "$(TargetDir)$(TargetName).*" "D:\Assemblies\$(SolutionName)\$(ProjectName)\$(ProjectName).*"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

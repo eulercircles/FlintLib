@@ -3,7 +3,7 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-using FLib.Common;
+using FLib.Common.Properties;
 
 [assembly: InternalsVisibleTo("FlintLib.Tests")]
 [assembly: AssemblyTitle("FlintLib.Accounting")]
@@ -21,4 +21,4 @@ using FLib.Common;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("eeaab1dc-47cc-47d3-88ee-1b8ae002fe46")]
 
-[assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + "1.0")]
+[assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + "0.0")]

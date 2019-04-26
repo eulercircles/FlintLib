@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlintLib.Intelligence.ActivationStrategies
+namespace FLib.Intelligence.ActivationStrategies
 {
 	class StepStrategy
 	{

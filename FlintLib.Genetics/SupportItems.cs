@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 using Combinatorics;
 using Combinatorics.Collections;
 
-namespace FlintLib.Genetics
+namespace FLib.Genetics
 {
 	public enum Expressions
 	{

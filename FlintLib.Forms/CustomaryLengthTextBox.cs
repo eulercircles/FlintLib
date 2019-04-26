@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace FlintLib.Forms
+namespace FLib.Forms
 {
 	public class CustomaryLengthTextBox : TextBox
 	{

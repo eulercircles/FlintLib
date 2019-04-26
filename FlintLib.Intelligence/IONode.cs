@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FlintLib.Intelligence
+namespace FLib.Intelligence
 {
 	internal class IONode : IInputNode, IOuputNode
 	{

@@ -1,4 +1,4 @@
-﻿namespace FlintLib.Forms.Sandbox
+﻿namespace FLib.Forms.Sandbox
 {
 	partial class Form1
 	{
@@ -28,8 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.integerTextBox1 = new FlintLib.Forms.IntegerTextBox();
-			this.numericTextBox1 = new FlintLib.Forms.NumericTextBox();
+			this.integerTextBox1 = new FLib.Forms.IntegerTextBox();
+			this.numericTextBox1 = new FLib.Forms.NumericTextBox();
 			this.SuspendLayout();
 			// 
 			// integerTextBox1
@@ -41,7 +41,7 @@
 			this.integerTextBox1.Size = new System.Drawing.Size(100, 20);
 			this.integerTextBox1.TabIndex = 0;
 			this.integerTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.integerTextBox1.ValidateWhen = FlintLib.Forms.ValidationTriggers.FocusLost;
+			this.integerTextBox1.ValidateWhen = FLib.Forms.ValidationTriggers.FocusLost;
 			// 
 			// numericTextBox1
 			// 
@@ -52,7 +52,7 @@
 			this.numericTextBox1.Size = new System.Drawing.Size(100, 20);
 			this.numericTextBox1.TabIndex = 1;
 			this.numericTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.numericTextBox1.ValidateWhen = FlintLib.Forms.ValidationTriggers.FocusLost;
+			this.numericTextBox1.ValidateWhen = FLib.Forms.ValidationTriggers.FocusLost;
 			// 
 			// Form1
 			// 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FlintLib.Forms.Sandbox
+namespace FLib.Forms.Sandbox
 {
 	static class Program
 	{

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 
-using FlintLib.Common;
+using FLib.Common;
 
-namespace FlintLib.Diagnostics
+namespace FLib.Diagnostics
 {
 	internal class ExceptionLogger : IExceptionLogger
 	{

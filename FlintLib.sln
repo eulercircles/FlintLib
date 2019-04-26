@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Common", "FlintLib.Common\FLib.Common.csproj", "{5DEEA8B9-FE52-4FCB-B9B5-A14FC50A27A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Diagnostics", "FlintLib.Diagnostics\FlintLib.Diagnostics.csproj", "{1C762692-E7AE-4DE2-B107-86017143CE21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Diagnostics", "FlintLib.Diagnostics\FLib.Diagnostics.csproj", "{1C762692-E7AE-4DE2-B107-86017143CE21}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.MVVM", "FlintLib.MVVM\FLib.MVVM.csproj", "{FFFE157B-9DB4-48A7-9A75-A2B39B94DE36}"
 EndProject
@@ -13,21 +13,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Commands", "FlintLib.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Mathematics", "FlintLib.Mathematics\FLib.Mathematics.csproj", "{07B70176-9762-463F-AE1A-CE0F09B684B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Intelligence", "FlintLib.Intelligence\FlintLib.Intelligence.csproj", "{768027C7-700C-4CB0-90EA-69A64C56BED5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Intelligence", "FlintLib.Intelligence\FLib.Intelligence.csproj", "{768027C7-700C-4CB0-90EA-69A64C56BED5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Genetics", "FlintLib.Genetics\FlintLib.Genetics.csproj", "{24A9A5A1-A58D-4A8F-890F-6DBD50A9B328}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Genetics", "FlintLib.Genetics\FLib.Genetics.csproj", "{24A9A5A1-A58D-4A8F-890F-6DBD50A9B328}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Structures", "FlintLib.Structures\FlintLib.Structures.csproj", "{20EC6B62-9001-43A3-AD2E-9AADBE18A451}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Synthesis", "FlintLib.Synthesis\FlintLib.Synthesis.csproj", "{1F230CC0-62AC-40B8-A04F-A5082BB30EAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Geometrics", "FlintLib.Geometrics\FlintLib.Geometrics.csproj", "{782701C3-59F4-49F0-9C15-740414456712}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Geometrics", "FlintLib.Geometrics\FLib.Geometrics.csproj", "{782701C3-59F4-49F0-9C15-740414456712}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Forms", "FlintLib.Forms\FlintLib.Forms.csproj", "{706BE5DE-43A5-4220-9AD7-197F6F6489A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Forms", "FlintLib.Forms\FLib.Forms.csproj", "{706BE5DE-43A5-4220-9AD7-197F6F6489A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Forms.Sandbox", "FlintLib.Forms.Sandbox\FlintLib.Forms.Sandbox.csproj", "{E8316D42-6A37-43DF-823D-F597690BD838}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Forms.Sandbox", "FlintLib.Forms.Sandbox\FLib.Forms.Sandbox.csproj", "{E8316D42-6A37-43DF-823D-F597690BD838}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Accounting", "FlintLib.Accounting\FlintLib.Accounting.csproj", "{EEAAB1DC-47CC-47D3-88EE-1B8AE002FE46}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Accounting", "FlintLib.Accounting\FLib.Accounting.csproj", "{EEAAB1DC-47CC-47D3-88EE-1B8AE002FE46}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Net Framework", ".Net Framework", "{61DFFB0C-09E6-412A-8760-7A7C265FCC95}"
 EndProject

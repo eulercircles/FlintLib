@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 
-using FlintLib.Common;
+using FLib.Common;
 
-namespace FlintLib.Geometrics
+namespace FLib.Geometrics
 {
 	public static class Extensions
 	{

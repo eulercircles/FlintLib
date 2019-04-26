@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
 
-using FlintLib.Common;
+using FLib.Common.Properties;
 
 [assembly: InternalsVisibleTo("FlintLib.Tests")]
 [assembly: AssemblyTitle("FlintLib.Geometrics")]

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace FlintLib.Genetics
+namespace FLib.Genetics
 {
 	public class Gamete
 	{

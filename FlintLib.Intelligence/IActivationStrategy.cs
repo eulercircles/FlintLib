@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FlintLib.Intelligence
+namespace FLib.Intelligence
 {
 	public interface IActivationStrategy
 	{

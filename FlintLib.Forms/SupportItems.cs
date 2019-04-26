@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FlintLib.Forms
+namespace FLib.Forms
 {
 	public enum TextBoxValidityStates
 	{

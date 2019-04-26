@@ -1,9 +1,9 @@
 ﻿using System;
 
-using FlintLib.Common;
-using FlintLib.Mathematics;
+using FLib.Common;
+using FLib.Mathematics;
 
-namespace FlintLib.Geometrics
+namespace FLib.Geometrics
 {
 	public struct CustomaryLength
 	{

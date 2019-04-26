@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{706BE5DE-43A5-4220-9AD7-197F6F6489A8}</ProjectGuid>
+    <ProjectGuid>{EEAAB1DC-47CC-47D3-88EE-1B8AE002FE46}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FlintLib.Forms</RootNamespace>
-    <AssemblyName>FlintLib.Forms</AssemblyName>
+    <RootNamespace>FLib.Accounting</RootNamespace>
+    <AssemblyName>FLib.Accounting</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -35,9 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,26 +43,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomaryLengthTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="IntegerTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="NumericTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Account.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecurringTransaction.cs" />
     <Compile Include="SupportItems.cs" />
-    <Compile Include="ValidatingTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="TransactionCorrection.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FlintLib.Common\FLib.Common.csproj">
       <Project>{5deea8b9-fe52-4fcb-b9b5-a14fc50a27a1}</Project>
       <Name>FLib.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FlintLib.Diagnostics\FLib.Diagnostics.csproj">
+      <Project>{1c762692-e7ae-4de2-b107-86017143ce21}</Project>
+      <Name>FLib.Diagnostics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlintLib.Scheduling\FLib.Scheduling.csproj">
+      <Project>{18119212-a9c6-4051-8850-4b0f8d2fc083}</Project>
+      <Name>FLib.Scheduling</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release xcopy /y /q "$(TargetDir)$(TargetName).*" "D:\Assemblies\$(SolutionName)\$(ProjectName)\$(ProjectName).*"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

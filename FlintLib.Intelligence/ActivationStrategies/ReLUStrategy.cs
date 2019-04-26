@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FlintLib.Intelligence.ActivationStrategies
+namespace FLib.Intelligence.ActivationStrategies
 {
 	public class ReLUStrategy : IActivationStrategy
 	{

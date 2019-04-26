@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 
-using FlintLib.Common;
+using FLib.Common;
 
-namespace FlintLib.Forms
+namespace FLib.Forms
 {
 	public class IntegerTextBox : ValidatingTextBox
 	{

@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
 
-using FlintLib.Common;
+using FLib.Common.Properties;
 
 [assembly: InternalsVisibleTo("FlintLib.Tests")]
 [assembly: AssemblyTitle("FlintLib.Intelligence")]
@@ -19,4 +19,4 @@ using FlintLib.Common;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("768027c7-700c-4cb0-90ea-69a64c56bed5")]
 
-[assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + "1.0")]
+[assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + "0.0")]

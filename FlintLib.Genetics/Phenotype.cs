@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace FlintLib.Genetics
+namespace FLib.Genetics
 {
 	/// <summary>
 	/// Describes the mapping between Alleles and their expressed attributes.

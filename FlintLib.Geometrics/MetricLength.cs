@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using FlintLib.Common;
-using FlintLib.Mathematics;
+using FLib.Common;
+using FLib.Mathematics;
 
-namespace FlintLib.Geometrics
+namespace FLib.Geometrics
 {
 	public struct MetricLength
 	{

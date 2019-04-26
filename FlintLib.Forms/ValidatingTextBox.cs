@@ -2,14 +2,15 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-using FlintLib.Common;
+using FLib.Common;
+using FLib.Presentation;
 
-namespace FlintLib.Forms
+namespace FLib.Forms
 {
 	public abstract class ValidatingTextBox : TextBox
 	{
-		private Color _defaultBackgroundColor;
-		private Color _defaultForegroundColor;
+		private readonly Color _defaultBackgroundColor;
+		private readonly Color _defaultForegroundColor;
 
 		public ValidatingTextBox()
 		{

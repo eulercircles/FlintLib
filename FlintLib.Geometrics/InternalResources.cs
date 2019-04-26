@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 
-using FlintLib.Common;
+using FLib.Common;
 
-namespace FlintLib.Geometrics
+namespace FLib.Geometrics
 {
 	internal class InternalResources
 	{
@@ -21,13 +21,8 @@ namespace FlintLib.Geometrics
 			}
 		}
 
-		private readonly IReadOnlyList<string> _acceptableCustomaryUnitDesignators;
-		public IReadOnlyList<string> AcceptableCustomaryUnitDesignators
-		{ get { return _acceptableCustomaryUnitDesignators; } }
-
-		private readonly IReadOnlyList<string> _acceptableMetricUnitDesignators;
-		public IReadOnlyList<string> AcceptableMetricUnitDesignators
-		{ get { return _acceptableMetricUnitDesignators; } }
+		public IReadOnlyList<string> AcceptableCustomaryUnitDesignators { get; }
+		public IReadOnlyList<string> AcceptableMetricUnitDesignators { get; }
 
 		public readonly ushort MaxDecimalResolution = 6;
 
@@ -36,12 +31,12 @@ namespace FlintLib.Geometrics
 			List<string> customaryDesignators = new List<string>();
 			List<string> customaryUnitDescriptions = EnumUtilities.GetEnumDescriptions<CustomaryUnits>().Keys.ToList();
 			customaryUnitDescriptions.ForEach(d => customaryDesignators.AddRange(d.Split(',')));
-			_acceptableCustomaryUnitDesignators = customaryDesignators;
+			AcceptableCustomaryUnitDesignators = customaryDesignators;
 
 			List<string> metricDesignators = new List<string>();
 			List<string> metricUnitDescriptions = EnumUtilities.GetEnumDescriptions<MetricUnits>().Keys.ToList();
 			metricUnitDescriptions.ForEach(d => metricDesignators.AddRange(d.Split(',')));
-			_acceptableMetricUnitDesignators = metricDesignators;
+			AcceptableMetricUnitDesignators = metricDesignators;
 		}
 	}
 }

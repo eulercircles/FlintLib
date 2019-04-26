@@ -1,8 +1,8 @@
 ﻿using System;
 
-using FlintLib.Mathematics;
+using FLib.Mathematics;
 
-namespace FlintLib.Intelligence.ActivationStrategies
+namespace FLib.Intelligence.ActivationStrategies
 {
 	public class SigmoidStrategy : IActivationStrategy
 	{

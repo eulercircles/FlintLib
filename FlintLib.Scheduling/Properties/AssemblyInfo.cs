@@ -3,7 +3,7 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-using FLib.Common;
+using FLib.Common.Properties;
 
 [assembly: InternalsVisibleTo("FlintLib.Tests")]
 [assembly: AssemblyTitle("FlintLib.Scheduling")]
@@ -21,4 +21,4 @@ using FLib.Common;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("18119212-a9c6-4051-8850-4b0f8d2fc083")]
 
-[assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + "1.0")]
+[assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + "0.0")]

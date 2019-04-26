@@ -10,7 +10,7 @@ namespace FLib.Commands
 	{
 		private readonly Action _execute;
 		private readonly Func<bool> _canExecute;
-		private readonly EventHandler _canExecuteChanged;
+		
 
 		public RelayCommand(Action execute) : this(execute, null) { }
 
@@ -22,10 +22,11 @@ namespace FLib.Commands
 		
 		public void TriggerCanExecuteChangedEvent() => _canExecuteChanged?.Invoke(this, null);
 
+		private EventHandler _canExecuteChanged;
 		public event EventHandler CanExecuteChanged
 		{
-			add { Subscribe(_canExecuteChanged, value); }
-			remove { Unsubscribe(_canExecuteChanged, value); }
+			add { if (_canExecuteChanged == null || _canExecuteChanged.GetInvocationList().Contains(value)) { _canExecuteChanged += value; } }
+			remove { if (_canExecuteChanged != null && _canExecuteChanged.GetInvocationList().Contains(value)) { _canExecuteChanged -= value; } }
 		}
 
 		public bool CanExecute(object parameter) => _canExecute == null ? true : _canExecute();
@@ -46,15 +47,14 @@ namespace FLib.Commands
 			_execute = execute ?? throw new ArgumentNullException(nameof(execute));
 			_canExecute = canExecute;
 		}
-
-		private readonly EventHandler _canExecuteChanged;
-
+		
 		public void TriggerCanExecuteChanged() => _canExecuteChanged?.Invoke(this, null);
 
+		private EventHandler _canExecuteChanged;
 		public event EventHandler CanExecuteChanged
 		{
-			add { Subscribe(_canExecuteChanged, value); }
-			remove { Unsubscribe(_canExecuteChanged, value); }
+			add { if (_canExecuteChanged == null || _canExecuteChanged.GetInvocationList().Contains(value)) { _canExecuteChanged += value; } }
+			remove { if (_canExecuteChanged != null && _canExecuteChanged.GetInvocationList().Contains(value)) { _canExecuteChanged -= value; } }
 		}
 
 		public bool CanExecute(object parameter) => _canExecute == null ? true : _canExecute();
