@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Copyright>2019</Copyright>
+    <LangVersion>7.3</LangVersion>
+    <AssemblyVersion>2019.04.0.0</AssemblyVersion>
+    <RootNamespace>FLib.Common</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Framework\FLib.Common\Constants.cs" Link="Constants.cs" />
+    <Compile Include="..\..\Framework\FLib.Common\EnumUtilities.cs" Link="EnumUtilities.cs" />
+    <Compile Include="..\..\Framework\FLib.Common\Extensions.cs" Link="Extensions.cs" />
+    <Compile Include="..\..\Framework\FLib.Common\ISaveable.cs" Link="ISaveable.cs" />
+    <Compile Include="..\..\Framework\FLib.Common\Latch.cs" Link="Latch.cs" />
+    <Compile Include="..\..\Framework\FLib.Common\Observable.cs" Link="Observable.cs" />
+    <Compile Include="..\..\Framework\FLib.Common\ReadOnlyObservable.cs" Link="ReadOnlyObservable.cs" />
+    <Compile Include="..\..\Framework\FLib.Common\SetOnce.cs" Link="SetOnce.cs" />
+    <Compile Include="..\..\Framework\FLib.Common\StringUtilities.cs" Link="StringUtilities.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\PublicResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PublicResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\PublicResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PublicResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y /q &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Assemblies\$(SolutionName)\$(ProjectName)\$(ProjectName)_$(ConfigurationName).*&quot;" />
+  </Target>
+
+</Project>
