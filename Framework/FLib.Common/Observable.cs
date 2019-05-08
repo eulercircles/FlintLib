@@ -16,7 +16,7 @@ namespace FLib.Common
 					if (value != null)
 					{
 						_value = value;
-						_valueChanged?.Invoke(this, null);
+						_valueChanged.Invoke(this, null);
 					}
 				}
 				else
@@ -24,23 +24,26 @@ namespace FLib.Common
 					if (!_value.Equals(value))
 					{
 						_value = value;
-						_valueChanged?.Invoke(this, null);
+						_valueChanged.Invoke(this, null);
 					}
 				}
 			}
 		}
-		
-		private EventHandler _valueChanged;
-		public event EventHandler ValueChanged
-		{
-			add { if (_valueChanged == null || !_valueChanged.GetInvocationList().Contains(value)) { _valueChanged += value; } }
-			remove { if (_valueChanged != null && _valueChanged.GetInvocationList().Contains(value)) { _valueChanged -= value; } }
-		}
+
+		private readonly SafeEvent<EventArgs> _valueChanged;
+		public Event<EventArgs> ValueChanged { get; }
+
 		
 		public Observable() : this(default) { }
 
-		public Observable(T initialValue) => Value = initialValue;
+		public Observable(T initialValue)
+		{
+			_valueChanged = new SafeEvent<EventArgs>();
+			ValueChanged = new Event<EventArgs>(_valueChanged);
 
-		public void Refresh() => _valueChanged?.Invoke(this, null);
+			Value = initialValue;
+		}
+
+		public void Refresh() => _valueChanged.Invoke(this, null);
 	}
 }

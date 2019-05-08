@@ -13,6 +13,5 @@ namespace FLib.Music
 			Root = root;
 			Type = type;
 		}
-		public override string ToString() => DefaultName;
 	}
 }

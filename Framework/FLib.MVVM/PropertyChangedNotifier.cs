@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.ComponentModel;
+using System.Diagnostics;
 
 namespace FLib.MVVM
 {
@@ -13,6 +14,10 @@ namespace FLib.MVVM
 			remove { if (_propertyChanged != null && _propertyChanged.GetInvocationList().Contains(value)) { _propertyChanged -= value; } }
 		}
 
-		protected void TriggerPropertyChangedEvent(string propertyName = null) => _propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		protected void TriggerPropertyChangedEvent(string propertyName)
+		{
+			Debug.Assert(!string.IsNullOrWhiteSpace(propertyName));
+			_propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
 	}
 }

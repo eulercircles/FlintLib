@@ -197,6 +197,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /y /q "$(TargetDir)$(TargetName).*" "D:\Assemblies\$(SolutionName)\$(ProjectName)\$(ProjectName)_$(ConfigurationName).*"</PostBuildEvent>
+    <PostBuildEvent>xcopy /y /q "$(TargetDir)$(TargetName).*" "D:\Assemblies\$(SolutionName)\$(ProjectName)\$(ProjectName).*"
+xcopy /y /q "$(TargetDir)Combinatorics.*" "D:\Assemblies\$(SolutionName)\$(ProjectName)\Combinatorics.*"</PostBuildEvent>
   </PropertyGroup>
 </Project>

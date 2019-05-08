@@ -55,13 +55,13 @@
       <Project>{5deea8b9-fe52-4fcb-b9b5-a14fc50a27a1}</Project>
       <Name>FLib.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FLib.Scheduling\FLib.Scheduling.csproj">
+      <Project>{18119212-a9c6-4051-8850-4b0f8d2fc083}</Project>
+      <Name>FLib.Scheduling</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FlintLib.Diagnostics\FLib.Diagnostics.csproj">
       <Project>{1c762692-e7ae-4de2-b107-86017143ce21}</Project>
       <Name>FLib.Diagnostics</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FlintLib.Scheduling\FLib.Scheduling.csproj">
-      <Project>{18119212-a9c6-4051-8850-4b0f8d2fc083}</Project>
-      <Name>FLib.Scheduling</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -28,9 +28,17 @@ namespace FLib.Tests.Music
 		[TestMethod]
 		public void TestHeptatonicMode()
 		{
-			var scale = ScaleBuilder.C.Ionian;
-			var chords = scale.GetDelimitedChords();
-			File.WriteAllText(@"C:\users\Ronal\Desktop\C_Ionian.csv", chords, Encoding.UTF8);
+
+			//var lydian = ScaleBuilder.D.Lydian;
+			//var ionian = ScaleBuilder.D.Ionian;
+			//var mixolydian = ScaleBuilder.D.Mixolydian;
+			//var dorian = ScaleBuilder.D.Dorian;
+			//var aeolian = ScaleBuilder.D.Aeolian;
+			//var phrygian = ScaleBuilder.D.Phrygian;
+			//var locrian = ScaleBuilder.D.Locrian;
+
+			
+			//File.WriteAllText(@"C:\users\Ronal\Desktop\D_Parallel.csv", chords, Encoding.UTF8);
 		}
 
 		private string GetCSV(IReadOnlyList<HeptatonicMode> modes)
@@ -63,7 +71,7 @@ namespace FLib.Tests.Music
 		private string GetChordGroup(IReadOnlyList<ChordTypes> chords)
 		{
 			var chordNames = new List<string>();
-			chords.ToList().ForEach(chord => { chordNames.Add(chord.DefaultSymbol()); });
+			chords.ToList().ForEach(chord => { chordNames.Add(chord.ShortSymbol()); });
 			return $"{string.Join(" | ", chordNames)}";
 		}
 	}

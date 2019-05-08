@@ -1,8 +1,8 @@
 ﻿using System;
 
-using FlintLib.Mathematics;
+using FLib.Mathematics;
 
-namespace FlintLib.Synthesis.Waveforms
+namespace FLib.Synthesis.Waveforms
 {
 	public static class WaveGenerator
 	{

@@ -39,7 +39,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Scheduling", "FLib.Sch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Structures", "FLib.Structures\FLib.Structures.csproj", "{20EC6B62-9001-43A3-AD2E-9AADBE18A451}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Synthesis", "FLib.Synthesis\FlintLib.Synthesis.csproj", "{1F230CC0-62AC-40B8-A04F-A5082BB30EAB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Synthesis", "FLib.Synthesis\FLib.Synthesis.csproj", "{1F230CC0-62AC-40B8-A04F-A5082BB30EAB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Utilities", "FLib.Utilities\FlintLib.Utilities.csproj", "{EB85BEDD-1AB7-4FD8-B14A-073514221158}"
 EndProject

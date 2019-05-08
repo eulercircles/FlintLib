@@ -6,52 +6,30 @@ using System.ComponentModel;
 
 namespace FLib.MVVM
 {
-	internal class Bindable<T>
+	internal class Bindable<T> : PropertyChangedNotifier
 	{
-		private PropertyChangedEventHandler _propertyChanged;
-		public event PropertyChangedEventHandler PropertyChanged
-		{
-			add
-			{
-				if (_propertyChanged == null || !_propertyChanged.GetInvocationList().Contains(value))
-				{ _propertyChanged += value; }
-			}
-			remove { _propertyChanged -= value; }
-		}
-
-		private T _backingField;
+		private T _value;
 		public T Value
 		{
-			get { return _backingField; }
+			get { return _value; }
 			set
 			{
-				_backingField = value;
-				_triggerPropertyChangedEvent(nameof(Value));
+				_value = value;
+				TriggerPropertyChangedEvent(nameof(Value));
 			}
 		}
 
 		/// <summary>
 		/// Creates an observable property with a default initial value.
 		/// </summary>
-		internal Bindable() : this(default(T)) { }
+		internal Bindable() : this(default) { }
 
 		/// <summary>
 		/// Creates an observable property with the specified initial value.
 		/// </summary>
 		/// <param name="initialValue">The value to initialize the observable property to.</param>
-		internal Bindable(T initialValue)
-		{
-			Value = initialValue;
-		}
+		internal Bindable(T initialValue) => Value = initialValue;
 
-		private void _triggerPropertyChangedEvent(string propertyName = null)
-		{
-			_propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-		}
-
-		public void Bump()
-		{
-			_triggerPropertyChangedEvent(nameof(Value));
-		}
+		public void Refresh() => TriggerPropertyChangedEvent(nameof(Value));
 	}
 }

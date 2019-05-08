@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 using Combinatorics.Collections;
 
+using static FLib.Music.Values;
+
 namespace FLib.Music
 {
 	public static class ModeGenerator
@@ -11,8 +13,8 @@ namespace FLib.Music
 		public static Dictionary<string, PentatonicMode> GenerateAllPentatonics()
 		{
 			var values = new List<int>() { (int)Intervals.MinorSecond, (int)Intervals.MajorSecond, (int)Intervals.MinorThird, (int)Intervals.MajorThird };
-			var variations = new Variations<int>(values, 5, GenerateOption.WithRepetition).ToList();
-			var stepLists = variations.Where(steps => steps.Sum() == 12).ToList();
+			var variations = new Variations<int>(values, PENTATONIC_COUNT, GenerateOption.WithRepetition).ToList();
+			var stepLists = variations.Where(steps => steps.Sum() == CHROMATIC_COUNT).ToList();
 
 			var results = new Dictionary<string, PentatonicMode>();
 
@@ -29,8 +31,8 @@ namespace FLib.Music
 		public static Dictionary<string, HeptatonicMode> GenerateAllHeptatonics()
 		{
 			var values = new List<int>() { (int)Intervals.MinorSecond, (int)Intervals.MajorSecond, (int)Intervals.MinorThird };
-			var variations = new Variations<int>(values, 7, GenerateOption.WithRepetition).ToList();
-			var stepLists = variations.Where(steps => steps.Sum() == 12).ToList();
+			var variations = new Variations<int>(values, HEPTATONIC_COUNT, GenerateOption.WithRepetition).ToList();
+			var stepLists = variations.Where(steps => steps.Sum() == CHROMATIC_COUNT).ToList();
 
 			var results = new Dictionary<string, HeptatonicMode>();
 
