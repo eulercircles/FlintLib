@@ -31,6 +31,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <LangVersion>7.3</LangVersion>
+    <DocumentationFile>bin\Release\FLib.Music.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Combinatorics, Version=1.1.0.19, Culture=neutral, PublicKeyToken=d5738f21cd5d2f66, processorArchitecture=MSIL">
@@ -197,7 +198,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /y /q "$(TargetDir)$(TargetName).*" "D:\Assemblies\$(SolutionName)\$(ProjectName)\$(ProjectName).*"
-xcopy /y /q "$(TargetDir)Combinatorics.*" "D:\Assemblies\$(SolutionName)\$(ProjectName)\Combinatorics.*"</PostBuildEvent>
+    <PostBuildEvent>xcopy /y /q /f "$(TargetDir)$(TargetName).*" "D:\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*"
+xcopy /y /q "$(TargetDir)Combinatorics.*" "D:\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\Combinatorics.*"</PostBuildEvent>
   </PropertyGroup>
 </Project>

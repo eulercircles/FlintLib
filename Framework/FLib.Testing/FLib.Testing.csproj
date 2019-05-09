@@ -29,6 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\FLib.Testing.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -61,6 +62,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /y /q /f "$(TargetDir)$(TargetName).*" "D:\Assemblies\$(SolutionName)\$(ProjectName)\$(ProjectName).*"</PostBuildEvent>
+    <PostBuildEvent>xcopy /y /q /f "$(TargetDir)$(TargetName).*" "D:\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*"</PostBuildEvent>
   </PropertyGroup>
 </Project>

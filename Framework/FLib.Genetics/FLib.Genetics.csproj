@@ -33,6 +33,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <LangVersion>7.3</LangVersion>
+    <DocumentationFile>bin\Release\FLib.Genetics.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Combinatorics, Version=1.1.0.19, Culture=neutral, PublicKeyToken=d5738f21cd5d2f66, processorArchitecture=MSIL">
@@ -204,6 +205,6 @@
     <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets'))" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release xcopy /y /q "$(TargetDir)$(TargetName).*" "D:\Assemblies\$(SolutionName)\$(ProjectName)\$(ProjectName).*"</PostBuildEvent>
+    <PostBuildEvent>xcopy /y /q /f "$(TargetDir)$(TargetName).*" "D:\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*"</PostBuildEvent>
   </PropertyGroup>
 </Project>
