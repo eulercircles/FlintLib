@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using FlintLib.Commands;
+using FLib.Commands;
 
-namespace FlintLib.Console.Controls
+namespace FLib.Console.Controls
 {
-    public abstract class MenuItemControl : IConsoleControl
-    {
-        protected FlintLib.Commands.ICommand _command;
+	public abstract class MenuItemControl : IConsoleControl
+	{
+		public string HeaderText { get; set; }
 
-        public string HeaderText { get; set; }
-
-        public void Show()
-        {
-            throw new NotImplementedException();
-        }
-    }
+		public void Show()
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

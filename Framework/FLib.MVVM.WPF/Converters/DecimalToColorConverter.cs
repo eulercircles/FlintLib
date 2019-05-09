@@ -2,8 +2,10 @@
 using System.Globalization;
 using System.Windows.Data;
 
-using static FLib.MVVM.Properties.PublicResources;
+using static FLib.MVVM.Strings;
 using System.Windows.Media;
+
+using static FLib.Common.Messages;
 
 namespace FLib.MVVM.Converters
 {
@@ -11,7 +13,7 @@ namespace FLib.MVVM.Converters
 	{
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			if (!(value is decimal)) { throw new ArgumentException(string.Format(ParameterIsNotAValidType, typeof(decimal), value.GetType())); }
+			if (!(value is decimal)) { throw new ArgumentException(string.Format(fMessage_ParameterIsNotAValidType, typeof(decimal), value.GetType())); }
 
 			// TODO: Make this more sophisticated so a configured color scheme can be passed to this converter.
 			return ((decimal)value) < 0.00m ? Colors.Red : Colors.Black;

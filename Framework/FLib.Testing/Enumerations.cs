@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FLib.Console
+namespace FLib.Testing
 {
-	public enum MessageTypes
+	public enum Accessors
 	{
-		Default,
-		Success,
-		Error,
-		Warning,
-		Special
+		UNDEFINED,
+		Get,
+		Set
 	}
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FlintLib.Structures
+namespace FLib.Structures
 {
 	public interface IBounded2D
 	{

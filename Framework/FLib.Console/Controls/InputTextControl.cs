@@ -4,22 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlintLib.Console.Controls
+namespace FLib.Console.Controls
 {
-    public class InputTextControl : InputControl
-    {
-        public InputTextControl(InputValidator inputValidator) : base(inputValidator)
-        {
-        }
+	public class InputTextControl : InputControl
+	{
+		public InputTextControl(InputValidator inputValidator) : base(inputValidator)
+		{
+		}
 
-        public virtual string GetInput()
-        {
-            return System.Console.ReadLine();
-        }
+		public virtual string GetInput()
+		{
+			return System.Console.ReadLine();
+		}
 
-        protected override void Show(string invalidInput)
-        {
-            throw new NotImplementedException();
-        }
-    }
+		protected override void Show(string invalidInput)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

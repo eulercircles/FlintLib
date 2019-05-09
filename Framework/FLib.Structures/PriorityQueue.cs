@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace FlintLib.Structures
+namespace FLib.Structures
 {
 	public class PriorityQueue<T> : ICollection, IEnumerable<T>, IEnumerable, IReadOnlyCollection<T> where T : IPrioritizable
 	{

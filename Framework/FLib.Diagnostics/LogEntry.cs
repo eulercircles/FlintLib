@@ -4,14 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FLib.Console
+namespace FLib.Diagnostics
 {
-	public enum MessageTypes
+	public abstract class LogEntry
 	{
-		Default,
-		Success,
-		Error,
-		Warning,
-		Special
+		public string Message { get; }
 	}
 }

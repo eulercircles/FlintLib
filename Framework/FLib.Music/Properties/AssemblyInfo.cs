@@ -21,4 +21,4 @@ using FLib.Common.Properties;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("f509e88d-7f4e-4e70-ae39-6e5798382adf")]
 
-[assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + "0.0")]
+[assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + "1.0")]

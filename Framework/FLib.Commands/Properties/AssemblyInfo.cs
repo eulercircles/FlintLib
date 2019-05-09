@@ -2,14 +2,14 @@
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
 
-using FLib.Common;
+using FLib.Common.Properties;
 
-[assembly: InternalsVisibleTo("FlintLib.Tests")]
-[assembly: AssemblyTitle("FlintLib.Commands")]
+[assembly: InternalsVisibleTo("FLib.Tests")]
+[assembly: AssemblyTitle("FLib.Commands")]
 [assembly: AssemblyDescription(ProductInfo.Description)]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FlintLib.Commands")]
+[assembly: AssemblyProduct("FLib.Commands")]
 [assembly: AssemblyCopyright(ProductInfo.Copyright)]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

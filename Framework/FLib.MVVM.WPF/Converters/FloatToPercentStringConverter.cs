@@ -2,7 +2,8 @@
 using System.Windows.Data;
 using System.Globalization;
 
-using static FLib.MVVM.Properties.PublicResources;
+using static FLib.Common.Messages;
+using static FLib.MVVM.Strings;
 
 namespace FLib.MVVM.Converters
 {
@@ -24,7 +25,7 @@ namespace FLib.MVVM.Converters
 				{
 					return ((float?)value).HasValue ? ((float?)value).Value.ToString("P0", CultureInfo.CurrentCulture) : CannotConvertStringPlaceholder;
 				}
-				else { throw new InvalidOperationException(string.Format(ParameterIsNotAValidType, $"{typeof(float)} or {typeof(float?)}", value.GetType())); }
+				else { throw new InvalidOperationException(string.Format(fMessage_ParameterIsNotAValidType, $"{typeof(float)} or {typeof(float?)}", value.GetType())); }
 			}
 		}
 

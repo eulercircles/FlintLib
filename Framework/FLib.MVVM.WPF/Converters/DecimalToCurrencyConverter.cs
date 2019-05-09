@@ -2,7 +2,8 @@
 using System.Windows.Data;
 using System.Globalization;
 
-using static FLib.MVVM.Properties.PublicResources;
+using static FLib.MVVM.Strings;
+using static FLib.Common.Messages;
 
 namespace FLib.MVVM.Converters
 {
@@ -24,7 +25,7 @@ namespace FLib.MVVM.Converters
 				{
 					return ((decimal?)value).HasValue ? ((decimal?)value).Value.ToString("C", culture) : CannotConvertStringPlaceholder;
 				}
-				else { throw new InvalidOperationException(string.Format(ParameterIsNotAValidType, $"{typeof(decimal)} or {typeof(decimal?)}", value.GetType())); }
+				else { throw new InvalidOperationException(string.Format(fMessage_ParameterIsNotAValidType, $"{typeof(decimal)} or {typeof(decimal?)}", value.GetType())); }
 			}
 		}
 

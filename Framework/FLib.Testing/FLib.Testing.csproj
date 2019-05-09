@@ -4,14 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{20EC6B62-9001-43A3-AD2E-9AADBE18A451}</ProjectGuid>
+    <ProjectGuid>{C71D35E8-5A51-4A26-B050-B73BD370D600}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FLib.Structures</RootNamespace>
-    <AssemblyName>FLib.Structures</AssemblyName>
+    <RootNamespace>FLib.Testing</RootNamespace>
+    <AssemblyName>FLib.Testing</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +29,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -43,21 +41,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bitree.cs" />
-    <Compile Include="IBounded2D.cs" />
-    <Compile Include="IBounded3D.cs" />
-    <Compile Include="IPrioritizable.cs" />
-    <Compile Include="ITree.cs" />
-    <Compile Include="Octree.cs" />
-    <Compile Include="PriorityQueue.cs" />
-    <Compile Include="Quadtree.cs" />
+    <Compile Include="Enumerations.cs" />
+    <Compile Include="EventArgs.cs" />
+    <Compile Include="Mock.cs" />
+    <Compile Include="NotifierProperty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestLogEntry.cs" />
+    <Compile Include="TestLogger.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FLib.Common\FLib.Common.csproj">
       <Project>{5deea8b9-fe52-4fcb-b9b5-a14fc50a27a1}</Project>
       <Name>FLib.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FLib.Diagnostics\FLib.Diagnostics.csproj">
+      <Project>{1c762692-e7ae-4de2-b107-86017143ce21}</Project>
+      <Name>FLib.Diagnostics</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /y /q /f "$(TargetDir)$(TargetName).*" "D:\Assemblies\$(SolutionName)\$(ProjectName)\$(ProjectName).*"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

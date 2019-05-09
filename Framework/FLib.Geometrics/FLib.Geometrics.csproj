@@ -55,13 +55,13 @@
       <Project>{5deea8b9-fe52-4fcb-b9b5-a14fc50a27a1}</Project>
       <Name>FLib.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FlintLib.Mathematics\FLib.Mathematics.csproj">
+    <ProjectReference Include="..\FLib.Mathematics\FLib.Mathematics.csproj">
       <Project>{07b70176-9762-463f-ae1a-ce0f09b684b4}</Project>
       <Name>FLib.Mathematics</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release xcopy /y /q "$(TargetDir)$(TargetName).*" "D:\Assemblies\$(SolutionName)\$(ProjectName)\$(ProjectName).*"</PostBuildEvent>
+    <PostBuildEvent>xcopy /y /q /f "$(TargetDir)$(TargetName).*" "D:\Assemblies\$(SolutionName)\$(ProjectName)\$(ProjectName).*"</PostBuildEvent>
   </PropertyGroup>
 </Project>

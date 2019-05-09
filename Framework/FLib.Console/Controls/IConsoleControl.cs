@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlintLib.Console.Controls
+namespace FLib.Console.Controls
 {
-    public interface IConsoleControl
-    {
-        void Show();
-    }
+	public interface IConsoleControl
+	{
+		void Show();
+	}
 }

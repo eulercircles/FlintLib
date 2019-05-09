@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 
 using FLib.Common.Properties;
 
-[assembly: InternalsVisibleTo("FlintLib.Tests")]
-[assembly: AssemblyTitle("FlintLib.Mathematics")]
+[assembly: InternalsVisibleTo("FLib.Tests")]
+[assembly: AssemblyTitle("FLib.Mathematics")]
 [assembly: AssemblyDescription(ProductInfo.Description)]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FlintLib.Mathematics")]
+[assembly: AssemblyProduct("FLib.Mathematics")]
 [assembly: AssemblyCopyright(ProductInfo.Copyright)]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

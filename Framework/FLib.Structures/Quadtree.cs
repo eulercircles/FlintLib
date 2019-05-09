@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace FlintLib.Structures
+namespace FLib.Structures
 {
 	public class Quadtree : IBounded2D, ITree<IBounded2D>
 	{

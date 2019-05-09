@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
 
-using FLib.Common;
+using FLib.Common.Properties;
 
 [assembly: AssemblyTitle("FLib.MVVM.WPF")]
 [assembly: AssemblyDescription(ProductInfo.Description)]

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace FlintLib.Structures
+namespace FLib.Structures
 {
 	public class Octree : IBounded3D, ITree<IBounded3D>
 	{

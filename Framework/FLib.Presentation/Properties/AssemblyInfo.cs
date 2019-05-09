@@ -3,13 +3,14 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
 
-using FLib.Common;
+using FLib.Common.Properties;
 
-[assembly: AssemblyTitle("FlintLib.Presentation")]
+[assembly: InternalsVisibleTo("FLib.Tests")]
+[assembly: AssemblyTitle("FLib.Presentation")]
 [assembly: AssemblyDescription(ProductInfo.Description)]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FlintLib.Presentation")]
+[assembly: AssemblyProduct("FLib.Presentation")]
 [assembly: AssemblyCopyright(ProductInfo.Copyright)]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

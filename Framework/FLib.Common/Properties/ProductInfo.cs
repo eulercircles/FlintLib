@@ -5,7 +5,7 @@ namespace FLib.Common.Properties
 	public static class ProductInfo
 	{
 
-		public const string VersionMajorMinor = "2019.4.";
+		public const string VersionMajorMinor = "2019.5.";
 
 
 		public const string Description = "Development Pre-Release";

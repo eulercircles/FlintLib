@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace FlintLib.Console.Controls
+namespace FLib.Console.Controls
 {
-    public class MenuControl : InputKeyControl
-    {
-        public MenuControl(InputValidator inputValidator) : base(inputValidator)
-        {
-        }
-    }
+	public class MenuControl : InputKeyControl
+	{
+		public MenuControl(InputValidator inputValidator) : base(inputValidator)
+		{
+		}
+	}
 }

@@ -32,7 +32,6 @@ namespace FLib.Common
 			DescriptionAttribute[] attributes =
 				(DescriptionAttribute[])field.GetCustomAttributes(
 					typeof(DescriptionAttribute), false);
-
 			if (attributes.Length > 0) { return attributes[0].Description; }
 			else { return field.Name; }
 		}

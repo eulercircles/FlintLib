@@ -4,12 +4,12 @@ using System.Runtime.CompilerServices;
 
 using FLib.Common.Properties;
 
-[assembly: InternalsVisibleTo("FlintLib.Tests")]
-[assembly: AssemblyTitle("FlintLib.Geometrics")]
+[assembly: InternalsVisibleTo("FLib.Tests")]
+[assembly: AssemblyTitle("FLib.Geometrics")]
 [assembly: AssemblyDescription(ProductInfo.Description)]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FlintLib.Geometrics")]
+[assembly: AssemblyProduct("FLib.Geometrics")]
 [assembly: AssemblyCopyright(ProductInfo.Copyright)]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("en-US")]
