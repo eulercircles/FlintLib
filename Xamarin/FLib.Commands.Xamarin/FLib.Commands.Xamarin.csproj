@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>D:\Repos\FlintLib\Xamarin\FLib.Commands.Xamarin\FLib.Commands.Xamarin.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="FLib.Commands.Xamarin.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Framework\FLib.Commands\Commands.cs" Link="Commands.cs" />
+    <Compile Include="..\..\Framework\FLib.Commands\Delegates.cs" Link="Delegates.cs" />
+    <Compile Include="..\..\Framework\FLib.Commands\ICommand.cs" Link="ICommand.cs" />
+    <Compile Include="..\..\Framework\FLib.Commands\RelayCommand.cs" Link="RelayCommand.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FLib.Common.Xamarin">
+      <HintPath>..\..\..\..\Assemblies\FLib.Xamarin\Release\FLib.Common.Xamarin\FLib.Common.Xamarin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y /q /f &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*&quot;" />
+  </Target>
+
+</Project>

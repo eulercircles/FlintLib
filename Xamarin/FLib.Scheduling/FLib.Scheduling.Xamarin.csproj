@@ -7,16 +7,33 @@
 		<AssemblyVersion>2019.04.0.0</AssemblyVersion>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <DocumentationFile>D:\Repos\FlintLib\Xamarin\FLib.Scheduling\FLib.Scheduling.Xamarin.xml</DocumentationFile>
+	</PropertyGroup>
+
 	<ItemGroup>
-		<PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
+	  <None Remove="FLib.Scheduling.Xamarin.xml" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\FLibXamarin.Common\FLib.Common.Xamarin.csproj" />
+	  <Compile Include="..\..\Framework\FLib.Scheduling\Constants.cs" Link="Constants.cs" />
+	  <Compile Include="..\..\Framework\FLib.Scheduling\Date.cs" Link="Date.cs" />
+	  <Compile Include="..\..\Framework\FLib.Scheduling\Enumerations.cs" Link="Enumerations.cs" />
+	  <Compile Include="..\..\Framework\FLib.Scheduling\Extensions.cs" Link="Extensions.cs" />
+	  <Compile Include="..\..\Framework\FLib.Scheduling\Recurrence.cs" Link="Recurrence.cs" />
+	  <Compile Include="..\..\Framework\FLib.Scheduling\Time.cs" Link="Time.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\FLib.Common\FLib.Common.Xamarin.csproj" />
 	</ItemGroup>
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-	  <Exec Command="xcopy /y /q &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Assemblies\$(SolutionName)\$(ProjectName)\$(ProjectName)_$(ConfigurationName).*&quot;" />
+	  <Exec Command="xcopy /y /q /f &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*&quot;" />
 	</Target>
 	
 	

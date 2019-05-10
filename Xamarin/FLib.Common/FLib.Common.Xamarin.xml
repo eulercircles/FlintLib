@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FLib.Common.Xamarin</name>
+    </assembly>
+    <members>
+        <member name="T:FLib.Common.Properties.PublicResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FLib.Common.Properties.PublicResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FLib.Common.Properties.PublicResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FLib.Common.Properties.PublicResources.fMessage_UnhandledEnumValue">
+            <summary>
+              Looks up a localized string similar to The value {0} is unhandled..
+            </summary>
+        </member>
+        <member name="P:FLib.Common.Properties.PublicResources.fMessage_ValueMustBeBetween">
+            <summary>
+              Looks up a localized string similar to The value must be between {0} and {1}..
+            </summary>
+        </member>
+        <member name="P:FLib.Common.Properties.PublicResources.Format_DateTime_YearFirst">
+            <summary>
+              Looks up a localized string similar to yyyy-MM-dd.
+            </summary>
+        </member>
+        <member name="P:FLib.Common.Properties.PublicResources.Message_StringIsEmpty">
+            <summary>
+              Looks up a localized string similar to This string is empty..
+            </summary>
+        </member>
+        <member name="P:FLib.Common.Properties.PublicResources.Message_StringIsWhiteSpace">
+            <summary>
+              Looks up a localized string similar to This string is white space..
+            </summary>
+        </member>
+        <member name="T:FLib.Common.Messages">
+            <summary>
+            Reusable messages.
+            </summary>
+        </member>
+        <member name="F:FLib.Common.Messages.fMessage_ParameterIsNotAValidType">
+            <summary>{0} is the required type and {1} is the passed type.</summary>
+        </member>
+        <member name="F:FLib.Common.Messages.fMessage_UnhandledEnumValue">
+            <summary>{0} is the enum member.</summary>
+        </member>
+        <member name="F:FLib.Common.Messages.fMessage_ValueMustBeBetween">
+            <summary>{0} is the lower bound and {1} is the upper bound.</summary>
+        </member>
+        <member name="T:FLib.Common.EnumUtilities">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FLib.Common.EnumUtilities.GetEnumDescriptions``1">
+            <remarks>Based on blog by Brandon Truong - http://brandontruong.blogspot.com/2010/04/use-enum-as-itemssource.html</remarks>
+        </member>
+        <member name="M:FLib.Common.EnumUtilities.GetEnumDescription(System.Reflection.FieldInfo)">
+            <remarks>Based on blog by Brandon Truong - http://brandontruong.blogspot.com/2010/04/use-enum-as-itemssource.html</remarks>
+        </member>
+        <member name="M:FLib.Common.SafeEvent`1.Subscribe(System.EventHandler{`0})">
+            <summary>
+            Subscribes the handler method to the event. If the handler method is already subscribed, it will *not* be subscribed again.
+            </summary>
+            <param name="handler"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:FLib.Common.SafeEvent`1.Unsubscribe(System.EventHandler{`0})" -->
+        <member name="M:FLib.Common.SafeEvent`1.Invoke(System.Object,`0)">
+            <summary>
+            Invokes the event.
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:FLib.Common.Event`1.#ctor(FLib.Common.SafeEvent{`0})">
+            <summary>
+            
+            </summary>
+            <param name="innerEvent"></param>
+            <exception cref="T:System.ArgumentNullException">If the innerEvent is null.</exception>
+        </member>
+        <member name="M:FLib.Common.Event`1.Subscribe(System.EventHandler{`0})">
+            <summary>
+            Subscribes the handler method to the event. If the handler method is already subscribed, it will *not* be subscribed again.
+            </summary>
+            <param name="handler"></param>
+        </member>
+        <member name="M:FLib.Common.Event`1.Unsubscribe(System.EventHandler{`0})">
+            <summary>
+            Unsubscribes the handler method from the event.
+            </summary>
+            <param name="handler"></param>
+        </member>
+    </members>
+</doc>

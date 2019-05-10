@@ -4,9 +4,7 @@ using System.Globalization;
 
 using Xamarin.Forms;
 
-using static FLibXamarin.MVVM.Properties.InternalStrings;
-
-namespace FLibXamarin.MVVM.Converters
+namespace FLib.MVVM.Xamarin.Forms.Converters
 {
 	public class DecimalToColorConverter : BindableObject, IValueConverter
 	{
@@ -66,7 +64,7 @@ namespace FLibXamarin.MVVM.Converters
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			throw new Exception(Message_ConverterCannotConvertBack);
+			throw new Exception(Messages.ConverterCannotConvertBack);
 		}
 		#endregion IValueConverter Implementation
 	}

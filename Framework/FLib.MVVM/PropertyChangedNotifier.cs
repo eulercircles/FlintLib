@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace FLib.MVVM
 {
-	internal abstract class PropertyChangedNotifier : INotifyPropertyChanged
+	public abstract class PropertyChangedNotifier : INotifyPropertyChanged
 	{
 		private PropertyChangedEventHandler _propertyChanged;
 		public event PropertyChangedEventHandler PropertyChanged

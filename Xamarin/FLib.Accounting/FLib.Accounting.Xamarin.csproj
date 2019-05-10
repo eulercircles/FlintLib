@@ -6,16 +6,32 @@
     <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Repos\FlintLib\Xamarin\FLib.Accounting\FLib.Accounting.Xamarin.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
+    <None Remove="FLib.Accounting.Xamarin.xml" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FLibXamarin.Scheduling\FLib.Scheduling.Xamarin.csproj" />
+    <Compile Include="..\..\Framework\FLib.Accounting\Account.cs" Link="Account.cs" />
+    <Compile Include="..\..\Framework\FLib.Accounting\RecurringTransaction.cs" Link="RecurringTransaction.cs" />
+    <Compile Include="..\..\Framework\FLib.Accounting\SupportItems.cs" Link="SupportItems.cs" />
+    <Compile Include="..\..\Framework\FLib.Accounting\TransactionCorrection.cs" Link="TransactionCorrection.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FLib.Common\FLib.Common.Xamarin.csproj" />
+    <ProjectReference Include="..\FLib.Scheduling\FLib.Scheduling.Xamarin.csproj" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /y /q &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Assemblies\$(SolutionName)\$(ProjectName)\&quot;" />
+    <Exec Command="xcopy /y /q /f &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*&quot;" />
   </Target>
 
 </Project>

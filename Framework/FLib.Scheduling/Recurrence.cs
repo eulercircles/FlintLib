@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace FLibXamarin.Scheduling
+namespace FLib.Scheduling
 {
 	public abstract class RecurrenceRule
 	{
@@ -46,7 +46,7 @@ namespace FLibXamarin.Scheduling
 		{
 			if (date.DayOfWeek == DayOfWeek.Saturday && SaturdayCorrection != CorrectionMethods.None) { return true; }
 			if (date.DayOfWeek == DayOfWeek.Sunday && SundayCorrection != CorrectionMethods.None) { return true; }
-			if (date.IsHoliday() && HolidayCorrection != CorrectionMethods.None) { return true; }
+			if (date.IsHoliday && HolidayCorrection != CorrectionMethods.None) { return true; }
 
 			return false;
 		}
@@ -71,7 +71,7 @@ namespace FLibXamarin.Scheduling
 				}
 			}
 
-			if (date.IsHoliday())
+			if (date.IsHoliday)
 			{
 				switch (HolidayCorrection)
 				{
@@ -106,14 +106,14 @@ namespace FLibXamarin.Scheduling
 		public static RecurrenceRule Decode(string code)
 		{
 			if (code.Length != 23) { throw new ArgumentException($"'{code}' is not a valid code."); }
-			
+
 			var period = GetPeriod(code.Substring(0, 1).First());
 
 			var startDate = GetDate(code.Substring(4, 8));
 			var endDate = GetDate(code.Substring(12, 8));
 
 			var smstyle = GetSemiMonthlyStyle(code.Substring(3, 1).First());
-						
+
 			var saturday = GetCorrectionMethod(code.Substring(20, 1).First());
 			var sunday = GetCorrectionMethod(code.Substring(21, 1).First());
 			var holiday = GetCorrectionMethod(code.Substring(22, 1).First());
@@ -151,7 +151,7 @@ namespace FLibXamarin.Scheduling
 
 		private static RecurrencePeriods GetPeriod(char code)
 		{
-			switch(code)
+			switch (code)
 			{
 				case 'W': return RecurrencePeriods.Weekly;
 				case 'B': return RecurrencePeriods.BiWeekly;
@@ -185,7 +185,7 @@ namespace FLibXamarin.Scheduling
 
 		private static SemiMonthlyStyles GetSemiMonthlyStyle(char code)
 		{
-			switch(code)
+			switch (code)
 			{
 				case 'N': return SemiMonthlyStyles.UNDEFINED;
 				case 'F': return SemiMonthlyStyles.FirstAndFifteenth;
@@ -255,7 +255,7 @@ namespace FLibXamarin.Scheduling
 			{
 				throw new Exception(Messages.StartDateMustBeFirstOrFifteenth);
 			}
-			else if (style == SemiMonthlyStyles.FifteenthAndLast && !(startDate.Day == 15 || startDate.Day == startDate.EndOfMonth().Day))
+			else if (style == SemiMonthlyStyles.FifteenthAndLast && !(startDate.Day == 15 || startDate.Day == startDate.EndOfMonth.Day))
 			{
 				throw new Exception(Messages.StartDateMustBeFifteenthOrLast);
 			}
@@ -269,12 +269,12 @@ namespace FLibXamarin.Scheduling
 			{
 				case SemiMonthlyStyles.FirstAndFifteenth:
 					if (_currentNormalOccurrence.Day == 1) { _currentNormalOccurrence = _currentNormalOccurrence.AddDays(14); }
-					else if (_currentNormalOccurrence.Day == 15) { _currentNormalOccurrence = _currentNormalOccurrence.AddMonths(1).BeginningOfMonth(); }
+					else if (_currentNormalOccurrence.Day == 15) { _currentNormalOccurrence = _currentNormalOccurrence.AddMonths(1).BeginningOfMonth; }
 					else { throw new Exception(); }
 					break;
 				case SemiMonthlyStyles.FifteenthAndLast:
-					if (_currentNormalOccurrence.Day == 15) { _currentNormalOccurrence = _currentNormalOccurrence.EndOfMonth(); }
-					else if (_currentNormalOccurrence == _currentNormalOccurrence.EndOfMonth())
+					if (_currentNormalOccurrence.Day == 15) { _currentNormalOccurrence = _currentNormalOccurrence.EndOfMonth; }
+					else if (_currentNormalOccurrence == _currentNormalOccurrence.EndOfMonth)
 					{
 						var nextMonth = _currentNormalOccurrence.AddMonths(1);
 						_currentNormalOccurrence = new Date(nextMonth.Year, nextMonth.Month, 15);
@@ -302,10 +302,10 @@ namespace FLibXamarin.Scheduling
 			switch (MonthlyStyle)
 			{
 				case MonthlyStyles.FirstDay:
-					_currentNormalOccurrence = _currentNormalOccurrence.BeginningOfMonth();
+					_currentNormalOccurrence = _currentNormalOccurrence.BeginningOfMonth;
 					break;
 				case MonthlyStyles.LastDay:
-					_currentNormalOccurrence = _currentNormalOccurrence.EndOfMonth();
+					_currentNormalOccurrence = _currentNormalOccurrence.EndOfMonth;
 					break;
 			}
 

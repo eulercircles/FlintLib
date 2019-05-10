@@ -8,9 +8,18 @@
     <RootNamespace>FLib.Common</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Repos\FlintLib\Xamarin\FLib.Common\FLib.Common.Xamarin.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="FLib.Common.Xamarin.xml" />
+  </ItemGroup>
+
   <ItemGroup>
     <Compile Include="..\..\Framework\FLib.Common\Constants.cs" Link="Constants.cs" />
     <Compile Include="..\..\Framework\FLib.Common\EnumUtilities.cs" Link="EnumUtilities.cs" />
+    <Compile Include="..\..\Framework\FLib.Common\Event.cs" Link="Event.cs" />
     <Compile Include="..\..\Framework\FLib.Common\Extensions.cs" Link="Extensions.cs" />
     <Compile Include="..\..\Framework\FLib.Common\ISaveable.cs" Link="ISaveable.cs" />
     <Compile Include="..\..\Framework\FLib.Common\Latch.cs" Link="Latch.cs" />
@@ -40,7 +49,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /y /q &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Assemblies\$(SolutionName)\$(ProjectName)\$(ProjectName)_$(ConfigurationName).*&quot;" />
+    <Exec Command="xcopy /y /q /f &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*&quot;" />
   </Target>
 
 </Project>

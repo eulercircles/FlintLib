@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FLibXamarin.Scheduling
+namespace FLib.MVVM.Xamarin.Forms
 {
-	public struct DayAndTime
+	class ViewModel
 	{
 	}
 }

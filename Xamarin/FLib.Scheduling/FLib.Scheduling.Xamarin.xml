@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FLib.Scheduling.Xamarin</name>
+    </assembly>
+    <members>
+        <member name="M:FLib.Scheduling.Date.ParseExact(System.String)">
+            <summary>
+            Assumes the exact format that was generated in Date.ToString().
+            </summary>
+            <param name="value">A string with the format 'yyyy-MM-dd'.</param>
+            <returns></returns>
+        </member>
+        <member name="M:FLib.Scheduling.Time.Parse(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="value">A string formatted as 'hh:mm:ss'</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

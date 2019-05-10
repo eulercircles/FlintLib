@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FLibXamarin.Scheduling
+﻿namespace FLib.Scheduling
 {
 	public enum Months
 	{

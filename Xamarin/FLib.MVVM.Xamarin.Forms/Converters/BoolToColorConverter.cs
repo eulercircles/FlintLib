@@ -3,7 +3,7 @@ using System.Globalization;
 
 using Xamarin.Forms;
 
-namespace FLibXamarin.MVVM.Converters
+namespace FLib.MVVM.Xamarin.Forms.Converters
 {
 	public class BoolToColorConverter : BindableObject, IValueConverter
 	{

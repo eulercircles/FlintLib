@@ -3,15 +3,16 @@ using System.Globalization;
 
 using Xamarin.Forms;
 
-using static FLibXamarin.MVVM.Properties.InternalStrings;
+using static FLib.Common.Messages;
+using static FLib.MVVM.Messages;
 
-namespace FLibXamarin.MVVM.Converters
+namespace FLib.MVVM.Xamarin.Forms.Converters
 {
 	public class DecimalToCurrencyStringConverter : IValueConverter
 	{
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			if (value == null) { return Placeholder_CannotConvertToString; }
+			if (value == null) { return CannotConvertStringPlaceholder; }
 			else
 			{
 				if (value is decimal)
@@ -20,7 +21,7 @@ namespace FLibXamarin.MVVM.Converters
 				}
 				else if (value is decimal?)
 				{
-					return ((decimal?)value).HasValue ? ((decimal?)value).Value.ToString("C", culture) : Placeholder_CannotConvertToString;
+					return ((decimal?)value).HasValue ? ((decimal?)value).Value.ToString("C", culture) : CannotConvertStringPlaceholder;
 				}
 				else { throw new InvalidOperationException(string.Format(fMessage_ParameterIsNotAValidType, $"{typeof(decimal)} or {typeof(decimal?)}", value.GetType())); }
 			}
@@ -28,7 +29,7 @@ namespace FLibXamarin.MVVM.Converters
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			if (value == null || !(value is string)) { throw new InvalidOperationException(Message_ConverterCannotConvertBack); }
+			if (value == null || !(value is string)) { throw new InvalidOperationException(ConverterCannotConvertBack); }
 			else
 			{
 				return decimal.Parse((string)value, NumberStyles.Currency, culture);

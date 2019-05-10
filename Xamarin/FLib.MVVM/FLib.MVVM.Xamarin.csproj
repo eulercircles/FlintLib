@@ -11,8 +11,30 @@
     <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Repos\FlintLib\Xamarin\FLib.MVVM\FLib.MVVM.Xamarin.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
+    <None Remove="FLib.MVVM.Xamarin.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Framework\FLib.MVVM\Bindable.cs" Link="Bindable.cs" />
+    <Compile Include="..\..\Framework\FLib.MVVM\BindableSelectionList.cs" Link="BindableSelectionList.cs" />
+    <Compile Include="..\..\Framework\FLib.MVVM\BindableTextNumericalValidator.cs" Link="BindableTextNumericalValidator.cs" />
+    <Compile Include="..\..\Framework\FLib.MVVM\Constants.cs" Link="Constants.cs" />
+    <Compile Include="..\..\Framework\FLib.MVVM\Delegates.cs" Link="Delegates.cs" />
+    <Compile Include="..\..\Framework\FLib.MVVM\IExecutedNotifierCommand.cs" Link="IExecutedNotifierCommand.cs" />
+    <Compile Include="..\..\Framework\FLib.MVVM\IMediator.cs" Link="IMediator.cs" />
+    <Compile Include="..\..\Framework\FLib.MVVM\Mediator.cs" Link="Mediator.cs" />
+    <Compile Include="..\..\Framework\FLib.MVVM\MediatorArgs.cs" Link="MediatorArgs.cs" />
+    <Compile Include="..\..\Framework\FLib.MVVM\PropertyChangedNotifier.cs" Link="PropertyChangedNotifier.cs" />
+    <Compile Include="..\..\Framework\FLib.MVVM\ReadOnlyBindable.cs" Link="ReadOnlyBindable.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,7 +53,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /y /q &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Assemblies\$(SolutionName)\$(ProjectName)\$(ProjectName)_$(ConfigurationName).*&quot;" />
+    <Exec Command="xcopy /y /q /f &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*&quot;" />
   </Target>
 
 </Project>

@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FLib.MVVM.Xamarin</name>
+    </assembly>
+    <members>
+        <member name="T:FLib.MVVM.Xamarin.Properties.InternalStrings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FLib.MVVM.Xamarin.Properties.InternalStrings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FLib.MVVM.Xamarin.Properties.InternalStrings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FLib.MVVM.Xamarin.Properties.InternalStrings.fMessage_ParameterIsNotAValidType">
+            <summary>
+              Looks up a localized string similar to Parameter must be of type {0} and not type {1}.
+            </summary>
+        </member>
+        <member name="P:FLib.MVVM.Xamarin.Properties.InternalStrings.fMessage_UnhandledEnumValue">
+            <summary>
+              Looks up a localized string similar to The value {0} is unhandled..
+            </summary>
+        </member>
+        <member name="P:FLib.MVVM.Xamarin.Properties.InternalStrings.Message_ConverterCannotConvertBack">
+            <summary>
+              Looks up a localized string similar to Converter cannot convert back..
+            </summary>
+        </member>
+        <member name="P:FLib.MVVM.Xamarin.Properties.InternalStrings.Message_UnhandledEnumValue">
+            <summary>
+              Looks up a localized string similar to Unhandled Enum Value: .
+            </summary>
+        </member>
+        <member name="P:FLib.MVVM.Xamarin.Properties.InternalStrings.Placeholder_CannotConvertToString">
+            <summary>
+              Looks up a localized string similar to ---.
+            </summary>
+        </member>
+        <member name="P:FLib.MVVM.Xamarin.Properties.InternalStrings.Placeholder_ZeroValue">
+            <summary>
+              Looks up a localized string similar to ---.
+            </summary>
+        </member>
+        <member name="M:FLib.MVVM.Bindable`1.#ctor">
+            <summary>
+            Creates an observable property with a default initial value.
+            </summary>
+        </member>
+        <member name="M:FLib.MVVM.Bindable`1.#ctor(`0)">
+            <summary>
+            Creates an observable property with the specified initial value.
+            </summary>
+            <param name="initialValue">The value to initialize the observable property to.</param>
+        </member>
+        <member name="T:FLib.MVVM.ExecuteAction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FLib.MVVM.ExecuteAction`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="P"></typeparam>
+            <param name="parameter"></param>
+        </member>
+        <member name="T:FLib.MVVM.ExecuteFunction`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="P"></typeparam>
+            <typeparam name="R"></typeparam>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FLib.MVVM.ExecuteFunction`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="R"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:FLib.MVVM.CommandExecutedHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FLib.MVVM.CommandExecutedHandler`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="R"></typeparam>
+            <param name="result"></param>
+        </member>
+        <member name="T:FLib.MVVM.IExecutedNotifierCommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:FLib.MVVM.IExecutedNotifierCommand.Executed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FLib.MVVM.IExecutedNotifierCommand`1">
+            <summary>
+            An interface to a command object that notifies when it has been executed.
+            </summary>
+            <typeparam name="R">The return type</typeparam>
+        </member>
+        <member name="E:FLib.MVVM.IExecutedNotifierCommand`1.Executed">
+            <summary>
+            An event that fires after the command has been executed.
+            </summary>
+            <remarks>
+            Be sure to unsubscribe delegates from this event before the subscriber is sent to garbage collection.
+            </remarks>
+        </member>
+    </members>
+</doc>
