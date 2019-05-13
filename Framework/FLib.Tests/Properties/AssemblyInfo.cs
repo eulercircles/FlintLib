@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-using FlintLib.Common;
+using FLib.Common;
 
 [assembly: AssemblyTitle("FlintLib.Tests")]
 [assembly: AssemblyDescription(ProductInfo.Description)]

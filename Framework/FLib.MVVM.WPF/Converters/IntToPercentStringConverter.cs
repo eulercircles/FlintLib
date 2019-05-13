@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Data;
 
 using FLib.Common;
-using static FLib.MVVM.Strings;
+using static FLib.MVVM.Messages;
 
 namespace FLib.MVVM.Converters
 {

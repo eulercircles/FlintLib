@@ -2,8 +2,8 @@
 using System.Windows.Data;
 using System.Globalization;
 
-using static FLib.MVVM.Strings;
 using static FLib.Common.Messages;
+using static FLib.MVVM.Messages;
 
 namespace FLib.MVVM.Converters
 {

@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using FlintLib.Geometrics;
+using FLib.Geometrics;
 
-namespace FlintLib.Tests.Geometrics
+namespace FLib.Tests.Geometrics
 {
 	[TestClass]
 	public class ImperialMeasure_Tester

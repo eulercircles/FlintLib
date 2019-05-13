@@ -1,25 +1,20 @@
-﻿using System.Resources;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
-using FLib.Common.Properties;
-
-[assembly: InternalsVisibleTo("FLib.Tests")]
 [assembly: AssemblyTitle("FLib.Testing")]
-[assembly: AssemblyDescription(ProductInfo.Description)]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("FLib.Testing")]
-[assembly: AssemblyCopyright(ProductInfo.Copyright)]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: NeutralResourcesLanguage("en-US")]
-
 
 [assembly: ComVisible(false)]
 
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c71d35e8-5a51-4a26-b050-b73bd370d600")]
+[assembly: Guid("996ff559-1485-4307-a6b2-1515f28392cd")]
 
-[assembly: AssemblyVersion(ProductInfo.VersionMajorMinor + "1.0")]
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

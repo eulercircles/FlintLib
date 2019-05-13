@@ -2,10 +2,10 @@
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using FlintLib.Accounting;
-using FlintLib.Scheduling;
+using FLib.Accounting;
+using FLib.Scheduling;
 
-namespace FlintLib.Tests.Accounting
+namespace FLib.Tests.Accounting
 {
 	[TestClass]
 	public class RecurringTransactionTester

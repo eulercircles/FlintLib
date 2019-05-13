@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using FlintLib.Genetics;
+using FLib.Genetics;
 using System.Collections.Generic;
 
-namespace FlintLib.Tests.Genetics
+namespace FLib.Tests.Genetics
 {
 	[TestClass]
 	public class Chromosome_Tester

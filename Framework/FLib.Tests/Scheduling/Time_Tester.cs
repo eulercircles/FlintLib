@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using FlintLib.Scheduling;
+using FLib.Scheduling;
 
-namespace FlintLib.Tests.Scheduling
+namespace FLib.Tests.Scheduling
 {
 	[TestClass]
 	public class Time_Tester

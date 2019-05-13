@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using static FlintLib.Common.StringUtilities;
+using static FLib.Common.StringUtilities;
 
-namespace FlintLib.Common.Tests
+namespace FLib.Common.Tests
 {
 	[TestClass]
 	public class StringUtilities_Tester

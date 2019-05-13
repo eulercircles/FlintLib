@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace FlintLib.Common.Tests
+namespace FLib.Common.Tests
 {
 	[TestClass]
 	public class Extensions_Tester

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Common.Tests", "FLib.Common.Tests\FlintLib.Common.Tests.csproj", "{B5DD02F7-32BC-4B40-9775-AB055E29B1FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Common.Tests", "FLib.Common.Tests\FLib.Common.Tests.csproj", "{B5DD02F7-32BC-4B40-9775-AB055E29B1FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Music.Tests", "FLib.Music.Tests\FLib.Music.Tests.csproj", "{3E2A38AF-AF5C-4D8B-949C-197731C4F7B1}"
 EndProject

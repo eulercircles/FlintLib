@@ -3,9 +3,9 @@ using System.Globalization;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using FlintLib.MVVM.Converters;
+using FLib.MVVM.Converters;
 
-namespace FlintLib.Tests.MVVM
+namespace FLib.Tests.MVVM
 {
 	[TestClass]
 	public class Converter_Tester

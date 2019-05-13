@@ -8,7 +8,7 @@ using FLib.Diagnostics;
 
 namespace FLib.Testing
 {
-	public class TestLogEntry : LogEntry
+	public class MockLogEntry : LogEntry
 	{
 
 	}

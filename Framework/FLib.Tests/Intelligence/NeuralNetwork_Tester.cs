@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using FlintLib.Intelligence;
-using FlintLib.Intelligence.ActivationStrategies;
+using FLib.Intelligence;
+using FLib.Intelligence.ActivationStrategies;
 
-namespace FlintLib.Tests.Intelligence
+namespace FLib.Tests.Intelligence
 {
 	[TestClass]
 	public class NeuralNetwork_Tester

@@ -43,7 +43,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Synthesis", "FLib.Synt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Utilities", "FLib.Utilities\FlintLib.Utilities.csproj", "{EB85BEDD-1AB7-4FD8-B14A-073514221158}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Testing", "FLib.Testing\FLib.Testing.csproj", "{C71D35E8-5A51-4A26-B050-B73BD370D600}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Testing", "FLib.Testing\FLib.Testing.csproj", "{996FF559-1485-4307-A6B2-1515F28392CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,10 +131,10 @@ Global
 		{EB85BEDD-1AB7-4FD8-B14A-073514221158}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB85BEDD-1AB7-4FD8-B14A-073514221158}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB85BEDD-1AB7-4FD8-B14A-073514221158}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C71D35E8-5A51-4A26-B050-B73BD370D600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C71D35E8-5A51-4A26-B050-B73BD370D600}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C71D35E8-5A51-4A26-B050-B73BD370D600}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C71D35E8-5A51-4A26-B050-B73BD370D600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{996FF559-1485-4307-A6B2-1515F28392CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{996FF559-1485-4307-A6B2-1515F28392CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{996FF559-1485-4307-A6B2-1515F28392CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{996FF559-1485-4307-A6B2-1515F28392CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

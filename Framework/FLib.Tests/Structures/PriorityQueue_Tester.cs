@@ -2,9 +2,9 @@
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using FlintLib.Structures;
+using FLib.Structures;
 
-namespace FlintLib.Tests.Structures
+namespace FLib.Tests.Structures
 {
 	[TestClass]
 	public class PriorityQueue_Tester

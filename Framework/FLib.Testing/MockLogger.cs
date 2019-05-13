@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using FLib.Diagnostics;
 
 namespace FLib.Testing
 {
-	public class TestLogger : ILogger
+	public class MockLogger : Mock, ILogger
 	{
 		public void WriteEntry(LogEntry entry)
 		{
-			throw new NotImplementedException();
+			OnMethodCalled(new KeyValuePair<string, object>(nameof(entry), entry));
 		}
 	}
 }

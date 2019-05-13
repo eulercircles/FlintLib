@@ -2,7 +2,6 @@
 using System.Globalization;
 using System.Windows.Data;
 
-using static FLib.MVVM.Strings;
 using System.Windows.Media;
 
 using static FLib.Common.Messages;

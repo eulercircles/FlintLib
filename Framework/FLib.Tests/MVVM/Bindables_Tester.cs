@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using FlintLib.Common;
-using FlintLib.MVVM;
+using FLib.Common;
+using FLib.MVVM;
 
-namespace FlintLib.Tests.MVVM
+namespace FLib.Tests.MVVM
 {
 	[TestClass]
 	public class Bindables_Tester

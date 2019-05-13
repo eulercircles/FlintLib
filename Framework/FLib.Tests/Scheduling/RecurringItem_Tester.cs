@@ -2,9 +2,9 @@
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using FlintLib.Scheduling;
+using FLib.Scheduling;
 
-namespace FlintLib.Tests.Scheduling
+namespace FLib.Tests.Scheduling
 {
 	[TestClass]
 	public class RecurringItem_Tester

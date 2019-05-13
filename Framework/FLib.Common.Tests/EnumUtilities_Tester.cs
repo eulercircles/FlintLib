@@ -2,9 +2,9 @@
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace FlintLib.Common.Tests
+namespace FLib.Common.Tests
 {
-	internal enum MyValues
+	internal enum TestValues
 	{
 		A,B,C,D,E,F,G
 	}
@@ -13,21 +13,27 @@ namespace FlintLib.Common.Tests
 	public class EnumUtilities_Tester
 	{
 		[TestMethod]
-		public void TestLowerBoundIncrementDecrement()
+		public void TestIncrement()
 		{
-			var next = MyValues.A.Increment();
-			Assert.IsTrue(next == MyValues.B);
-			var prev = MyValues.A.Decrement();
-			Assert.IsTrue(prev == MyValues.G);
+			Assert.IsTrue(TestValues.A.Increment() == TestValues.B);
 		}
 
 		[TestMethod]
-		public void TestUpperBoundIncrementDecrement()
+		public void TestDecrement()
 		{
-			var prev = MyValues.G.Decrement();
-			Assert.IsTrue(prev == MyValues.F);
-			var next = MyValues.G.Increment();
-			Assert.IsTrue(next == MyValues.A);
+			Assert.IsTrue(TestValues.G.Decrement() == TestValues.F);
+		}
+
+		[TestMethod]
+		public void TestLowerBoundDecrement()
+		{
+			Assert.IsTrue(TestValues.A.Decrement() == TestValues.G);
+		}
+
+		[TestMethod]
+		public void TestUpperBoundIncrement()
+		{
+			Assert.IsTrue(TestValues.G.Increment() == TestValues.A);
 		}
 	}
 }

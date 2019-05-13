@@ -1,27 +1,27 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace FlintLib.Common.Tests
+namespace FLib.Common.Tests
 {
 	[TestClass]
 	public class Observable_Tester
 	{
-		private IObservable<string> _observable;
-		private readonly string _changeString = "BINGO";
-
 		[TestMethod]
 		public void TestObservable()
 		{
-			_observable = ObservablesFactory.Create("INITIAL");
-			_observable.ValueChanged += Observable_ValueChanged;
+			var observable = new Observable<string>("INITIAL");
+			var newValue = "BINGO";
 
-			_observable.Value = _changeString;
-		}
+		var valueChangeTriggered = false;
+			observable.ValueChanged.Subscribe((s, a) => {
+				Assert.IsInstanceOfType(s, typeof(Observable<string>));
+				Assert.IsTrue(observable.Value == newValue);
+				valueChangeTriggered = true;
+			});
+			
+			observable.Value = newValue;
 
-		private void Observable_ValueChanged(object sender, EventArgs e)
-		{
-			Assert.IsInstanceOfType(sender, typeof(IObservable<string>));
-			Assert.IsTrue(_observable.Value == _changeString);
+			Assert.IsTrue(valueChangeTriggered);
 		}
 	}
 }
