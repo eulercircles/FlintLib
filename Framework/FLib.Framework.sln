@@ -3,47 +3,41 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Common", "FLib.Common\FLib.Common.csproj", "{5DEEA8B9-FE52-4FCB-B9B5-A14FC50A27A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Accounting", "Libraries\FLib.Accounting\FLib.Accounting.csproj", "{EEAAB1DC-47CC-47D3-88EE-1B8AE002FE46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Accounting", "FLib.Accounting\FLib.Accounting.csproj", "{EEAAB1DC-47CC-47D3-88EE-1B8AE002FE46}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Commands", "Libraries\FLib.Commands\FLib.Commands.csproj", "{1501A789-A607-4905-93DE-B4DF51423D0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Commands", "FLib.Commands\FLib.Commands.csproj", "{1501A789-A607-4905-93DE-B4DF51423D0C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Common", "Libraries\FLib.Common\FLib.Common.csproj", "{5DEEA8B9-FE52-4FCB-B9B5-A14FC50A27A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Console", "FLib.Console\FLib.Console.csproj", "{021A4C53-A533-4C2E-ABB6-B21743FBFB47}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Diagnostics", "Libraries\FLib.Diagnostics\FLib.Diagnostics.csproj", "{1C762692-E7AE-4DE2-B107-86017143CE21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Console.Testbed", "FLib.Console.Testbed\FLib.Console.Testbed.csproj", "{54C67793-0431-44EA-B162-4D22589CD982}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Forms", "Libraries\FLib.Forms\FLib.Forms.csproj", "{706BE5DE-43A5-4220-9AD7-197F6F6489A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Diagnostics", "FLib.Diagnostics\FLib.Diagnostics.csproj", "{1C762692-E7AE-4DE2-B107-86017143CE21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Genetics", "Libraries\FLib.Genetics\FLib.Genetics.csproj", "{24A9A5A1-A58D-4A8F-890F-6DBD50A9B328}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Forms", "FLib.Forms\FLib.Forms.csproj", "{706BE5DE-43A5-4220-9AD7-197F6F6489A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Geometrics", "Libraries\FLib.Geometrics\FLib.Geometrics.csproj", "{782701C3-59F4-49F0-9C15-740414456712}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Forms.Sandbox", "FLib.Forms.Sandbox\FLib.Forms.Sandbox.csproj", "{E8316D42-6A37-43DF-823D-F597690BD838}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Intelligence", "Libraries\FLib.Intelligence\FLib.Intelligence.csproj", "{768027C7-700C-4CB0-90EA-69A64C56BED5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Genetics", "FLib.Genetics\FLib.Genetics.csproj", "{24A9A5A1-A58D-4A8F-890F-6DBD50A9B328}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Mathematics", "Libraries\FLib.Mathematics\FLib.Mathematics.csproj", "{07B70176-9762-463F-AE1A-CE0F09B684B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Geometrics", "FLib.Geometrics\FLib.Geometrics.csproj", "{782701C3-59F4-49F0-9C15-740414456712}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Music", "Libraries\FLib.Music\FLib.Music.csproj", "{F509E88D-7F4E-4E70-AE39-6E5798382ADF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Intelligence", "FLib.Intelligence\FLib.Intelligence.csproj", "{768027C7-700C-4CB0-90EA-69A64C56BED5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.MVVM", "Libraries\FLib.MVVM\FLib.MVVM.csproj", "{FFFE157B-9DB4-48A7-9A75-A2B39B94DE36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Mathematics", "FLib.Mathematics\FLib.Mathematics.csproj", "{07B70176-9762-463F-AE1A-CE0F09B684B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.MVVM.WPF", "Libraries\FLib.MVVM.WPF\FLib.MVVM.WPF.csproj", "{78AA6EAD-A00A-454F-90CD-93C03AEDD706}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Music", "FLib.Music\FLib.Music.csproj", "{F509E88D-7F4E-4E70-AE39-6E5798382ADF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Presentation", "Libraries\FLib.Presentation\FLib.Presentation.csproj", "{9FD54123-B800-46A0-8B71-ADC801718F2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.MVVM", "FLib.MVVM\FLib.MVVM.csproj", "{FFFE157B-9DB4-48A7-9A75-A2B39B94DE36}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Scheduling", "Libraries\FLib.Scheduling\FLib.Scheduling.csproj", "{18119212-A9C6-4051-8850-4B0F8D2FC083}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.MVVM.WPF", "FLib.MVVM.WPF\FLib.MVVM.WPF.csproj", "{78AA6EAD-A00A-454F-90CD-93C03AEDD706}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Structures", "Libraries\FLib.Structures\FLib.Structures.csproj", "{20EC6B62-9001-43A3-AD2E-9AADBE18A451}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Presentation", "FLib.Presentation\FLib.Presentation.csproj", "{9FD54123-B800-46A0-8B71-ADC801718F2E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Synthesis", "Libraries\FLib.Synthesis\FLib.Synthesis.csproj", "{1F230CC0-62AC-40B8-A04F-A5082BB30EAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Scheduling", "FLib.Scheduling\FLib.Scheduling.csproj", "{18119212-A9C6-4051-8850-4B0F8D2FC083}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Testing.MSTest", "Libraries\FLib.Testing.MSTest\FLib.Testing.MSTest.csproj", "{996FF559-1485-4307-A6B2-1515F28392CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Structures", "FLib.Structures\FLib.Structures.csproj", "{20EC6B62-9001-43A3-AD2E-9AADBE18A451}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Synthesis", "FLib.Synthesis\FLib.Synthesis.csproj", "{1F230CC0-62AC-40B8-A04F-A5082BB30EAB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Utilities", "FLib.Utilities\FlintLib.Utilities.csproj", "{EB85BEDD-1AB7-4FD8-B14A-073514221158}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Testing", "FLib.Testing\FLib.Testing.csproj", "{996FF559-1485-4307-A6B2-1515F28392CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Testing.NUnit", "Libraries\FLib.Testing.NUnit\FLib.Testing.NUnit.csproj", "{41F5C9D8-4089-4E4D-9FD6-824DAFA28AC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +45,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5DEEA8B9-FE52-4FCB-B9B5-A14FC50A27A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5DEEA8B9-FE52-4FCB-B9B5-A14FC50A27A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5DEEA8B9-FE52-4FCB-B9B5-A14FC50A27A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5DEEA8B9-FE52-4FCB-B9B5-A14FC50A27A1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EEAAB1DC-47CC-47D3-88EE-1B8AE002FE46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EEAAB1DC-47CC-47D3-88EE-1B8AE002FE46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEAAB1DC-47CC-47D3-88EE-1B8AE002FE46}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,14 +53,10 @@ Global
 		{1501A789-A607-4905-93DE-B4DF51423D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1501A789-A607-4905-93DE-B4DF51423D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1501A789-A607-4905-93DE-B4DF51423D0C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{021A4C53-A533-4C2E-ABB6-B21743FBFB47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{021A4C53-A533-4C2E-ABB6-B21743FBFB47}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{021A4C53-A533-4C2E-ABB6-B21743FBFB47}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{021A4C53-A533-4C2E-ABB6-B21743FBFB47}.Release|Any CPU.Build.0 = Release|Any CPU
-		{54C67793-0431-44EA-B162-4D22589CD982}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{54C67793-0431-44EA-B162-4D22589CD982}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{54C67793-0431-44EA-B162-4D22589CD982}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{54C67793-0431-44EA-B162-4D22589CD982}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DEEA8B9-FE52-4FCB-B9B5-A14FC50A27A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DEEA8B9-FE52-4FCB-B9B5-A14FC50A27A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DEEA8B9-FE52-4FCB-B9B5-A14FC50A27A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DEEA8B9-FE52-4FCB-B9B5-A14FC50A27A1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1C762692-E7AE-4DE2-B107-86017143CE21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1C762692-E7AE-4DE2-B107-86017143CE21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C762692-E7AE-4DE2-B107-86017143CE21}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -79,10 +65,6 @@ Global
 		{706BE5DE-43A5-4220-9AD7-197F6F6489A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{706BE5DE-43A5-4220-9AD7-197F6F6489A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{706BE5DE-43A5-4220-9AD7-197F6F6489A8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E8316D42-6A37-43DF-823D-F597690BD838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E8316D42-6A37-43DF-823D-F597690BD838}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E8316D42-6A37-43DF-823D-F597690BD838}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E8316D42-6A37-43DF-823D-F597690BD838}.Release|Any CPU.Build.0 = Release|Any CPU
 		{24A9A5A1-A58D-4A8F-890F-6DBD50A9B328}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{24A9A5A1-A58D-4A8F-890F-6DBD50A9B328}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24A9A5A1-A58D-4A8F-890F-6DBD50A9B328}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -127,14 +109,14 @@ Global
 		{1F230CC0-62AC-40B8-A04F-A5082BB30EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F230CC0-62AC-40B8-A04F-A5082BB30EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F230CC0-62AC-40B8-A04F-A5082BB30EAB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EB85BEDD-1AB7-4FD8-B14A-073514221158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB85BEDD-1AB7-4FD8-B14A-073514221158}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB85BEDD-1AB7-4FD8-B14A-073514221158}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB85BEDD-1AB7-4FD8-B14A-073514221158}.Release|Any CPU.Build.0 = Release|Any CPU
 		{996FF559-1485-4307-A6B2-1515F28392CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{996FF559-1485-4307-A6B2-1515F28392CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{996FF559-1485-4307-A6B2-1515F28392CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{996FF559-1485-4307-A6B2-1515F28392CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41F5C9D8-4089-4E4D-9FD6-824DAFA28AC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41F5C9D8-4089-4E4D-9FD6-824DAFA28AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41F5C9D8-4089-4E4D-9FD6-824DAFA28AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41F5C9D8-4089-4E4D-9FD6-824DAFA28AC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

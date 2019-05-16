@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Common.Tests", "FLib.Common.Tests\FLib.Common.Tests.csproj", "{B5DD02F7-32BC-4B40-9775-AB055E29B1FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Tests", "Tests\FLib.Tests\FlintLib.Tests.csproj", "{44D80F3E-321D-4DB3-8049-6D641B21D94C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Music.Tests", "FLib.Music.Tests\FLib.Music.Tests.csproj", "{3E2A38AF-AF5C-4D8B-949C-197731C4F7B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Common.Tests", "Tests\FLib.Common.Tests\FLib.Common.Tests.csproj", "{B5DD02F7-32BC-4B40-9775-AB055E29B1FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlintLib.Tests", "FLib.Tests\FlintLib.Tests.csproj", "{44D80F3E-321D-4DB3-8049-6D641B21D94C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Music.Tests", "Tests\FLib.Music.Tests\FLib.Music.Tests.csproj", "{3E2A38AF-AF5C-4D8B-949C-197731C4F7B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +15,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44D80F3E-321D-4DB3-8049-6D641B21D94C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44D80F3E-321D-4DB3-8049-6D641B21D94C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44D80F3E-321D-4DB3-8049-6D641B21D94C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44D80F3E-321D-4DB3-8049-6D641B21D94C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B5DD02F7-32BC-4B40-9775-AB055E29B1FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B5DD02F7-32BC-4B40-9775-AB055E29B1FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5DD02F7-32BC-4B40-9775-AB055E29B1FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,10 +27,6 @@ Global
 		{3E2A38AF-AF5C-4D8B-949C-197731C4F7B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E2A38AF-AF5C-4D8B-949C-197731C4F7B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E2A38AF-AF5C-4D8B-949C-197731C4F7B1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{44D80F3E-321D-4DB3-8049-6D641B21D94C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44D80F3E-321D-4DB3-8049-6D641B21D94C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44D80F3E-321D-4DB3-8049-6D641B21D94C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44D80F3E-321D-4DB3-8049-6D641B21D94C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

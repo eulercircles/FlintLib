@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>D:\Repos\FlintLib\Core\Libraries\FLib.Common\FLib.Common.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y /q /f &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*&quot;" />
+  </Target>
+
+  <ItemGroup>
+    <None Remove="FLib.Common.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Common\Constants.cs" Link="Constants.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Common\EnumUtilities.cs" Link="EnumUtilities.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Common\Event.cs" Link="Event.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Common\Extensions.cs" Link="Extensions.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Common\ISaveable.cs" Link="ISaveable.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Common\Latch.cs" Link="Latch.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Common\Observable.cs" Link="Observable.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Common\ReadOnlyObservable.cs" Link="ReadOnlyObservable.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Common\SetOnce.cs" Link="SetOnce.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Common\StringUtilities.cs" Link="StringUtilities.cs" />
+  </ItemGroup>
+
+</Project>
