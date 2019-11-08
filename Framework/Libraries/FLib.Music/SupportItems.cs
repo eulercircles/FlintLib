@@ -71,7 +71,7 @@ namespace FlintLib.Music
 
 		public static string Chord(this Notes note, ChordTypes chord)
 		{
-			return $"{note}{chord.Symbol()}";
+			return $"{note}{chord.}";
 		}
 
 		public static string Chord(this Notes note, Accidentals accidental, ChordTypes chord)

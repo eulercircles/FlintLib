@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FLib.Testing
 {
-	public class Messages
+	public static class Messages
 	{
 		/// <summary>{0} is the exception type; {1} is the full exception string.</summary>
 		public const string fExpectedNoException = "Caught unexpected '{0}': {1}";

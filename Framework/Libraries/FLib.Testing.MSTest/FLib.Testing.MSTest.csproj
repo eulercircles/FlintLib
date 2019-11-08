@@ -60,7 +60,11 @@
     <Compile Include="MockLogEntry.cs" />
     <Compile Include="MockLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tester.cs" />
+    <Compile Include="Rules\MethodCallRule.cs" />
+    <Compile Include="Rules\PropertyGetRule.cs" />
+    <Compile Include="Rules\PropertySetRule.cs" />
+    <Compile Include="Rules\Rule.cs" />
+    <Compile Include="TestCase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FLib.Common\FLib.Common.csproj">

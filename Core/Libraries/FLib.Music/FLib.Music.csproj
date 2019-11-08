@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>D:\Data\Repos\FlintLib\Core\Libraries\FLib.Music\FLib.Music.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y /q /f &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Data\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*&quot;" />
+  </Target>
+
+  <ItemGroup>
+    <None Remove="FLib.Music.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Music\Chord.cs" Link="Chord.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Music\ChordBuilder.cs" Link="ChordBuilder.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Music\CircleOfFifths.cs" Link="CircleOfFifths.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Music\Heptatonics.cs" Link="Heptatonics.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Music\ModeGenerator.cs" Link="ModeGenerator.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Music\Note.cs" Link="Note.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Music\Pentatonics.cs" Link="Pentatonics.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Music\ScaleBuilder.cs" Link="ScaleBuilder.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Music\ScaleDegree.cs" Link="ScaleDegree.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Music\SupportItems\Constants.cs" Link="SupportItems\Constants.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Music\SupportItems\Enums.cs" Link="SupportItems\Enums.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Music\SupportItems\Extensions.cs" Link="SupportItems\Extensions.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Music\SupportItems\SupportItems.cs" Link="SupportItems\SupportItems.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="SupportItems\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Combinatorics" Version="1.1.0.19" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FLib.Common\FLib.Common.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>D:\Data\Repos\FlintLib\Core\Libraries\FLib.Commands\FLib.Commands.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y /q /f &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Data\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*&quot;" />
+  </Target>
+
+  <ItemGroup>
+    <None Remove="FLib.Commands.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Commands\Commands.cs" Link="Commands.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Commands\Delegates.cs" Link="Delegates.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Commands\ICommand.cs" Link="ICommand.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Commands\RelayCommand.cs" Link="RelayCommand.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FLib.Common\FLib.Common.csproj" />
+  </ItemGroup>
+
+</Project>

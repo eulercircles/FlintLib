@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FLib.Music</name>
+    </assembly>
+    <members>
+        <member name="T:FLib.Music.ChordTypes">
+            <summary>
+            Chord values are defined by key on-or-off, starting from the right.
+            The far right digit is the root of the chord, so it's always a 1.
+            Each value defines a 16-bit unsigned integer, but only 12 bits are 
+            used since there are only 12 music notes.
+            </summary>
+        </member>
+    </members>
+</doc>

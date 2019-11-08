@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>D:\Data\Repos\FlintLib\Core\Libraries\FLib.Diagnostics\FLib.Diagnostics.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y /q /f &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Data\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*&quot;" />
+  </Target>
+
+  <ItemGroup>
+    <None Remove="FLib.Diagnostics.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Diagnostics\ILogger.cs" Link="ILogger.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Diagnostics\LogEntry.cs" Link="LogEntry.cs" />
+    <Compile Include="..\..\..\Framework\Libraries\FLib.Diagnostics\Logger.cs" Link="Logger.cs" />
+  </ItemGroup>
+
+</Project>

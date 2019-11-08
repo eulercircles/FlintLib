@@ -8,6 +8,7 @@ namespace FLib.Music
 		public ChordTypes Type { get; }
 		public string DefaultName => $"{Root.Name} {Type.DefaultSymbol()}";
 		public string ShortName => $"{Root.Name}{Type.ShortSymbol()}";
+
 		internal Chord(Note root, ChordTypes type)
 		{
 			Root = root;

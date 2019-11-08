@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 using FLib.Common;
 
-namespace FLib.Testing
+namespace FLib.Testing.MSTest
 {
 	/// <summary>
 	/// Provides a base class for creating mock dependencies for testing purposes.
@@ -15,10 +15,10 @@ namespace FLib.Testing
 		private readonly Lazy<Dictionary<string, object>> _methodCallReturns;
 
 		private readonly SafeEvent<PropertyAccessedEventArgs> _propertyAccessed;
-		public Event<PropertyAccessedEventArgs> PropertyAccessed { get; }
+		internal Event<PropertyAccessedEventArgs> PropertyAccessed { get; }
 
 		private readonly SafeEvent<MethodCalledEventArgs> _methodCalled;
-		public Event<MethodCalledEventArgs> MethodCalled { get; }
+		internal Event<MethodCalledEventArgs> MethodCalled { get; }
 
 		public Mock()
 		{
