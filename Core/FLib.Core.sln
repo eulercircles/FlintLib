@@ -5,13 +5,17 @@ VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FLib.Common", "Libraries\FLib.Common\FLib.Common.csproj", "{376C4999-418D-4799-B6C5-0B3CF6B1378A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Commands", "Libraries\FLib.Commands\FLib.Commands.csproj", "{89D8D54E-C7A9-4CE8-A1F8-D51DE13492E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FLib.Commands", "Libraries\FLib.Commands\FLib.Commands.csproj", "{89D8D54E-C7A9-4CE8-A1F8-D51DE13492E1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FLib.MVVM", "Libraries\FLib.MVVM\FLib.MVVM.csproj", "{85E4BF0D-8DF2-4738-931D-82B5B787B68C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FLib.Diagnostics", "Libraries\FLib.Diagnostics\FLib.Diagnostics.csproj", "{9290A1E0-97D0-47BE-9955-CFEE066A2C19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Diagnostics", "Libraries\FLib.Diagnostics\FLib.Diagnostics.csproj", "{9290A1E0-97D0-47BE-9955-CFEE066A2C19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FLib.Music", "Libraries\FLib.Music\FLib.Music.csproj", "{5EE77BEE-8A70-414F-A6CA-17C0A64AC4BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLib.Music", "Libraries\FLib.Music\FLib.Music.csproj", "{5EE77BEE-8A70-414F-A6CA-17C0A64AC4BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FLib.Controls.WPF", "Libraries\FLib.Controls.WPF\FLib.Controls.WPF.csproj", "{6275E2F1-60B3-4F5D-83A0-5DB2768426F7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FLib.MVVM", "Libraries\FLib.MVVM\FLib.MVVM.csproj", "{9E0C2049-ED15-4D94-B2C4-BD456506DAF5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FLib.MVVM.WPF", "Libraries\FLib.MVVM.WPF\FLib.MVVM.WPF.csproj", "{F94646B6-040E-44F7-B58F-3E8FECD3A5C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +31,6 @@ Global
 		{89D8D54E-C7A9-4CE8-A1F8-D51DE13492E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89D8D54E-C7A9-4CE8-A1F8-D51DE13492E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89D8D54E-C7A9-4CE8-A1F8-D51DE13492E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{85E4BF0D-8DF2-4738-931D-82B5B787B68C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{85E4BF0D-8DF2-4738-931D-82B5B787B68C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{85E4BF0D-8DF2-4738-931D-82B5B787B68C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{85E4BF0D-8DF2-4738-931D-82B5B787B68C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9290A1E0-97D0-47BE-9955-CFEE066A2C19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9290A1E0-97D0-47BE-9955-CFEE066A2C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9290A1E0-97D0-47BE-9955-CFEE066A2C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +39,18 @@ Global
 		{5EE77BEE-8A70-414F-A6CA-17C0A64AC4BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EE77BEE-8A70-414F-A6CA-17C0A64AC4BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EE77BEE-8A70-414F-A6CA-17C0A64AC4BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6275E2F1-60B3-4F5D-83A0-5DB2768426F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6275E2F1-60B3-4F5D-83A0-5DB2768426F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6275E2F1-60B3-4F5D-83A0-5DB2768426F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6275E2F1-60B3-4F5D-83A0-5DB2768426F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E0C2049-ED15-4D94-B2C4-BD456506DAF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E0C2049-ED15-4D94-B2C4-BD456506DAF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E0C2049-ED15-4D94-B2C4-BD456506DAF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E0C2049-ED15-4D94-B2C4-BD456506DAF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F94646B6-040E-44F7-B58F-3E8FECD3A5C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F94646B6-040E-44F7-B58F-3E8FECD3A5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F94646B6-040E-44F7-B58F-3E8FECD3A5C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F94646B6-040E-44F7-B58F-3E8FECD3A5C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

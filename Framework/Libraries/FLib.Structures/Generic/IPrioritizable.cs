@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FLib.Structures
+namespace FLib.Structures.Generic
 {
 	public interface IPrioritizable
 	{

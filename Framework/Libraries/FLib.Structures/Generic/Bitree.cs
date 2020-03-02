@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FLib.Structures
+namespace FLib.Structures.Generic
 {
 	class Bitree
 	{

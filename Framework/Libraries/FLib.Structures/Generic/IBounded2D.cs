@@ -1,16 +1,13 @@
 ﻿using System;
 
-namespace FLib.Structures
+namespace FLib.Structures.Generic
 {
-	public interface IBounded3D
+	public interface IBounded2D
 	{
 		float XMin { get; }
 		float XMax { get; }
 
 		float YMin { get; }
 		float YMax { get; }
-		
-		float ZMin { get; }
-		float ZMax { get; }
 	}
 }

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace FLib.Structures
+namespace FLib.Structures.Generic
 {
 	public class Octree : IBounded3D, ITree<IBounded3D>
 	{

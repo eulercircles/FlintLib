@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FLib.Structures
+namespace FLib.Structures.Generic
 {
 	public interface ITree<T> : IList<T>
 	{

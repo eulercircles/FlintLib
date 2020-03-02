@@ -50,7 +50,8 @@
     <Compile Include="Converters\BoolNotConverter.cs" />
     <Compile Include="Converters\DateTimeToShortDateConverter.cs" />
     <Compile Include="Converters\DecimalToColorConverter.cs" />
-    <Compile Include="Converters\DecimalToCurrencyConverter.cs" />
+    <Compile Include="Converters\DecimalToCurrencyStringConverter.cs" />
+    <Compile Include="Converters\DecimalToStringConverter.cs" />
     <Compile Include="Converters\DoubleToVisibleConverter.cs" />
     <Compile Include="Converters\FalseToVisibleConverter.cs" />
     <Compile Include="Converters\FloatToPercentStringConverter.cs" />

@@ -7,7 +7,7 @@ using static FLib.MVVM.Messages;
 
 namespace FLib.MVVM.Converters
 {
-	public class DecimalToCurrencyConverter : IValueConverter
+	public class DecimalToCurrencyStringConverter : IValueConverter
 	{
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
@@ -34,7 +34,7 @@ namespace FLib.MVVM.Converters
 			if (value == null || !(value is string)) { throw new InvalidOperationException(ConverterCannotConvertBack); }
 			else
 			{
-				return decimal.Parse((string)value, NumberStyles.Currency);
+				return decimal.Parse((string)value, NumberStyles.Currency, culture);
 			}
 		}
 	}

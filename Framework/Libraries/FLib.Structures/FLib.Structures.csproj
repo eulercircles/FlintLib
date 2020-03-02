@@ -44,15 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bitree.cs" />
-    <Compile Include="IBounded2D.cs" />
-    <Compile Include="IBounded3D.cs" />
-    <Compile Include="IPrioritizable.cs" />
-    <Compile Include="ITree.cs" />
-    <Compile Include="Octree.cs" />
-    <Compile Include="PriorityQueue.cs" />
-    <Compile Include="Quadtree.cs" />
+    <Compile Include="Generic\Bitree.cs" />
+    <Compile Include="Generic\IBounded2D.cs" />
+    <Compile Include="Generic\IBounded3D.cs" />
+    <Compile Include="Generic\IPrioritizable.cs" />
+    <Compile Include="Generic\ITree.cs" />
+    <Compile Include="Generic\Node2.cs" />
+    <Compile Include="Generic\Node4.cs" />
+    <Compile Include="Generic\Octree.cs" />
+    <Compile Include="Generic\PriorityQueue.cs" />
+    <Compile Include="Generic\Quadtree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Text\Rope.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FLib.Common\FLib.Common.csproj">
@@ -60,6 +63,7 @@
       <Name>FLib.Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /y /q /f "$(TargetDir)$(TargetName).*" "D:\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*"</PostBuildEvent>

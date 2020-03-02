@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM.WPF\Converters\BoolNotConverter.cs" Link="Converters\BoolNotConverter.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM.WPF\Converters\DateTimeToShortDateConverter.cs" Link="Converters\DateTimeToShortDateConverter.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM.WPF\Converters\DecimalToColorConverter.cs" Link="Converters\DecimalToColorConverter.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM.WPF\Converters\DecimalToCurrencyStringConverter.cs" Link="Converters\DecimalToCurrencyStringConverter.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM.WPF\Converters\DecimalToStringConverter.cs" Link="Converters\DecimalToStringConverter.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM.WPF\Converters\DoubleToVisibleConverter.cs" Link="Converters\DoubleToVisibleConverter.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM.WPF\Converters\FalseToVisibleConverter.cs" Link="Converters\FalseToVisibleConverter.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM.WPF\Converters\FloatToPercentStringConverter.cs" Link="Converters\FloatToPercentStringConverter.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM.WPF\Converters\IntToPercentStringConverter.cs" Link="Converters\IntToPercentStringConverter.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM.WPF\Converters\IntToVisibleConverter.cs" Link="Converters\IntToVisibleConverter.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM.WPF\Converters\NotNullToVisibleConverter.cs" Link="Converters\NotNullToVisibleConverter.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM.WPF\Converters\NullToVisibleConverter.cs" Link="Converters\NullToVisibleConverter.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM.WPF\Converters\TrueToVisibleConverter.cs" Link="Converters\TrueToVisibleConverter.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM.WPF\Converters\VisibilityValueConverter.cs" Link="Converters\VisibilityValueConverter.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Converters\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FLib.Common\FLib.Common.csproj" />
+    <ProjectReference Include="..\FLib.MVVM\FLib.MVVM.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PresentationCore">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\3.1.0\ref\netcoreapp3.1\PresentationCore.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\3.1.0\ref\netcoreapp3.1\PresentationFramework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y /q /f &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Data\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*&quot;" />
+  </Target>
+
+</Project>

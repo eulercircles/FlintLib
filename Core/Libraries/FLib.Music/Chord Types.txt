@@ -1,0 +1,21 @@
+﻿What's everything one would want to know about a chord, and that a chord should do?
+
+- We want to define a root note
+- We want to know the intervals of its parts
+- We want to know the inversion, and perhaps other voicings
+- We want to know the on-off bits of the notes to translate it into something playable
+- We want to be able to see it represented as a symbol so it's readable
+- We want to be able to define a chord with a root note, a triadic quality, and extensions, not by specifying the notes individually. However, we do want it to tell us what individual notes its composed of.
+- We might want a somewhat flexible text-based "code" that can be parsed to specify chords with.
+
+Each note can be a value - 0-127
+Once root note is set, other values can be calculated from intervals/voicings.
+
+CASE-SENSITIVE
+A,B,C,D,E,F,G (must be caps) - note names
+%,#,b - natural, sharp, flat respectively
+M,m,-,+,2,4 - Major, minor, diminished, augmented, sus2, sus4
+^,7 - Major 7th, dominant 7th
+
+C%m^ = "C minor/major 7th"
+C#-7 = "C sharp diminished 7th"
