@@ -2,9 +2,7 @@
 
 namespace FLib.Common
 {
-	/// <summary>
-	/// Reusable messages.
-	/// </summary>
+	/// <summary>Reusable messages.</summary>
 	public static class Messages
 	{
 		/// <summary>{0} is the required type and {1} is the passed type.</summary>
