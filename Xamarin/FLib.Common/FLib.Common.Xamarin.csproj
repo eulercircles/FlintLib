@@ -17,16 +17,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\Framework\FLib.Common\Constants.cs" Link="Constants.cs" />
-    <Compile Include="..\..\Framework\FLib.Common\EnumUtilities.cs" Link="EnumUtilities.cs" />
-    <Compile Include="..\..\Framework\FLib.Common\Event.cs" Link="Event.cs" />
-    <Compile Include="..\..\Framework\FLib.Common\Extensions.cs" Link="Extensions.cs" />
-    <Compile Include="..\..\Framework\FLib.Common\ISaveable.cs" Link="ISaveable.cs" />
-    <Compile Include="..\..\Framework\FLib.Common\Latch.cs" Link="Latch.cs" />
-    <Compile Include="..\..\Framework\FLib.Common\Observable.cs" Link="Observable.cs" />
-    <Compile Include="..\..\Framework\FLib.Common\ReadOnlyObservable.cs" Link="ReadOnlyObservable.cs" />
-    <Compile Include="..\..\Framework\FLib.Common\SetOnce.cs" Link="SetOnce.cs" />
-    <Compile Include="..\..\Framework\FLib.Common\StringUtilities.cs" Link="StringUtilities.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.Common\Constants.cs" Link="Constants.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.Common\EnumUtilities.cs" Link="EnumUtilities.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.Common\Event.cs" Link="Event.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.Common\Extensions.cs" Link="Extensions.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.Common\ISaveable.cs" Link="ISaveable.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.Common\Latch.cs" Link="Latch.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.Common\Observable.cs" Link="Observable.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.Common\ReadOnlyObservable.cs" Link="ReadOnlyObservable.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.Common\SetOnce.cs" Link="SetOnce.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.Common\StringUtilities.cs" Link="StringUtilities.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,7 +49,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /y /q /f &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*&quot;" />
+    <Exec Command="xcopy /y /q /f &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Data\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*&quot;" />
   </Target>
 
 </Project>

@@ -20,17 +20,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\Framework\FLib.MVVM\Bindable.cs" Link="Bindable.cs" />
-    <Compile Include="..\..\Framework\FLib.MVVM\BindableSelectionList.cs" Link="BindableSelectionList.cs" />
-    <Compile Include="..\..\Framework\FLib.MVVM\BindableTextNumericalValidator.cs" Link="BindableTextNumericalValidator.cs" />
-    <Compile Include="..\..\Framework\FLib.MVVM\Constants.cs" Link="Constants.cs" />
-    <Compile Include="..\..\Framework\FLib.MVVM\Delegates.cs" Link="Delegates.cs" />
-    <Compile Include="..\..\Framework\FLib.MVVM\IExecutedNotifierCommand.cs" Link="IExecutedNotifierCommand.cs" />
-    <Compile Include="..\..\Framework\FLib.MVVM\IMediator.cs" Link="IMediator.cs" />
-    <Compile Include="..\..\Framework\FLib.MVVM\Mediator.cs" Link="Mediator.cs" />
-    <Compile Include="..\..\Framework\FLib.MVVM\MediatorArgs.cs" Link="MediatorArgs.cs" />
-    <Compile Include="..\..\Framework\FLib.MVVM\PropertyChangedNotifier.cs" Link="PropertyChangedNotifier.cs" />
-    <Compile Include="..\..\Framework\FLib.MVVM\ReadOnlyBindable.cs" Link="ReadOnlyBindable.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM\Bindable.cs" Link="Bindable.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM\BindableSelectionList.cs" Link="BindableSelectionList.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM\BindableTextNumericalValidator.cs" Link="BindableTextNumericalValidator.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM\Constants.cs" Link="Constants.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM\Delegates.cs" Link="Delegates.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM\IExecutedNotifierCommand.cs" Link="IExecutedNotifierCommand.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM\IMediator.cs" Link="IMediator.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM\Mediator.cs" Link="Mediator.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM\MediatorArgs.cs" Link="MediatorArgs.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM\PropertyChangedNotifier.cs" Link="PropertyChangedNotifier.cs" />
+    <Compile Include="..\..\Framework\Libraries\FLib.MVVM\ReadOnlyBindable.cs" Link="ReadOnlyBindable.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,7 +53,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /y /q /f &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*&quot;" />
+    <Exec Command="xcopy /y /q /f &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Data\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*&quot;" />
   </Target>
 
 </Project>

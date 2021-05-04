@@ -16,12 +16,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Include="..\..\Framework\FLib.Scheduling\Constants.cs" Link="Constants.cs" />
-	  <Compile Include="..\..\Framework\FLib.Scheduling\Date.cs" Link="Date.cs" />
-	  <Compile Include="..\..\Framework\FLib.Scheduling\Enumerations.cs" Link="Enumerations.cs" />
-	  <Compile Include="..\..\Framework\FLib.Scheduling\Extensions.cs" Link="Extensions.cs" />
-	  <Compile Include="..\..\Framework\FLib.Scheduling\Recurrence.cs" Link="Recurrence.cs" />
-	  <Compile Include="..\..\Framework\FLib.Scheduling\Time.cs" Link="Time.cs" />
+	  <Compile Include="..\..\Framework\Libraries\FLib.Scheduling\Constants.cs" Link="Constants.cs" />
+	  <Compile Include="..\..\Framework\Libraries\FLib.Scheduling\Date.cs" Link="Date.cs" />
+	  <Compile Include="..\..\Framework\Libraries\FLib.Scheduling\Enumerations.cs" Link="Enumerations.cs" />
+	  <Compile Include="..\..\Framework\Libraries\FLib.Scheduling\Extensions.cs" Link="Extensions.cs" />
+	  <Compile Include="..\..\Framework\Libraries\FLib.Scheduling\Recurrence.cs" Link="Recurrence.cs" />
+	  <Compile Include="..\..\Framework\Libraries\FLib.Scheduling\Time.cs" Link="Time.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -33,7 +33,7 @@
 	</ItemGroup>
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-	  <Exec Command="xcopy /y /q /f &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*&quot;" />
+	  <Exec Command="xcopy /y /q /f &quot;$(TargetDir)$(TargetName).*&quot; &quot;D:\Data\Assemblies\$(SolutionName)\$(ConfigurationName)\$(ProjectName)\$(ProjectName).*&quot;" />
 	</Target>
 	
 	
